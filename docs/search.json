@@ -9,22 +9,155 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "1  Introduksjon",
     "section": "",
-    "text": "See Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "Denne boken er ment å være en enkel manual for å ta i bruk SSB sin nye skyplattform DAPLA (dataplattform)."
+  },
+  {
+    "objectID": "intro.html#hva-er-dapla",
+    "href": "intro.html#hva-er-dapla",
+    "title": "1  Introduksjon",
+    "section": "1.1 Hva er DAPLA?",
+    "text": "1.1 Hva er DAPLA?\nDAPLA er den nye dataplattformen til SSB. Den er bygget på Google sine skyløsninger og er stedet hvor alle SSB-ansatte skal kode innen få år.\nMer kommer."
+  },
+  {
+    "objectID": "intro.html#hvilke-verktøy-er-tilgjengelig",
+    "href": "intro.html#hvilke-verktøy-er-tilgjengelig",
+    "title": "1  Introduksjon",
+    "section": "1.2 Hvilke verktøy er tilgjengelig?",
+    "text": "1.2 Hvilke verktøy er tilgjengelig?\nMer kommer."
+  },
+  {
+    "objectID": "intro.html#hvem-bygger-og-utvikler-plattformen",
+    "href": "intro.html#hvem-bygger-og-utvikler-plattformen",
+    "title": "1  Introduksjon",
+    "section": "1.3 Hvem bygger og utvikler plattformen?",
+    "text": "1.3 Hvem bygger og utvikler plattformen?\nMer kommer."
+  },
+  {
+    "objectID": "bakke-vs-sky.html",
+    "href": "bakke-vs-sky.html",
+    "title": "2  Bakke versus sky",
+    "section": "",
+    "text": "DAPLA er en skybasert plattform. Det betyr at vi bygger og utvikler plattformen på Google sine maskiner i Europa. I kontrast har vi tidligere hatt en plattform som har vært bygget på SSB sine egne maskiner i Kongsvinger. Selv om mange av de nye verktøyene i fremtiden skal kjøres på DAPLA, så har vi også tilgjengeliggjort en del av de samme verktøy på bakken også. I dette kapitlet forklarer vi nærmere hvordan man kan ta i bruk mange de nye verktøyene både i sky og bakke, og hvor de eventuelt avviker fra hverandre."
+  },
+  {
+    "objectID": "bakke-vs-sky.html#jupyterlab",
+    "href": "bakke-vs-sky.html#jupyterlab",
+    "title": "2  Bakke versus sky",
+    "section": "2.1 Jupyterlab",
+    "text": "2.1 Jupyterlab"
+  },
+  {
+    "objectID": "bakke-vs-sky.html#programmeringsspråk",
+    "href": "bakke-vs-sky.html#programmeringsspråk",
+    "title": "2  Bakke versus sky",
+    "section": "2.2 Programmeringsspråk",
+    "text": "2.2 Programmeringsspråk"
+  },
+  {
+    "objectID": "bakke-vs-sky.html#pakkeinstallasjon",
+    "href": "bakke-vs-sky.html#pakkeinstallasjon",
+    "title": "2  Bakke versus sky",
+    "section": "2.3 Pakkeinstallasjon",
+    "text": "2.3 Pakkeinstallasjon"
+  },
+  {
+    "objectID": "bakke-vs-sky.html#virtuelle-miljøer",
+    "href": "bakke-vs-sky.html#virtuelle-miljøer",
+    "title": "2  Bakke versus sky",
+    "section": "2.4 Virtuelle miljøer",
+    "text": "2.4 Virtuelle miljøer"
+  },
+  {
+    "objectID": "bakke-vs-sky.html#gitgithub",
+    "href": "bakke-vs-sky.html#gitgithub",
+    "title": "2  Bakke versus sky",
+    "section": "2.5 Git/GitHub",
+    "text": "2.5 Git/GitHub"
+  },
+  {
+    "objectID": "bakke-vs-sky.html#terminalen",
+    "href": "bakke-vs-sky.html#terminalen",
+    "title": "2  Bakke versus sky",
+    "section": "2.6 Terminalen",
+    "text": "2.6 Terminalen"
+  },
+  {
+    "objectID": "dapla-team.html",
+    "href": "dapla-team.html",
+    "title": "3  Opprette dapla-team",
+    "section": "",
+    "text": "En grunnleggende struktur for arbeid på dapla er såkalte dapla-team. Det er denne konstruksjonen som gir deg tilgang til sikre steder å lagre data, bestemmer tilgangsstyring og gjør at man kan dele data med andre. I dette kapitlet beskriver vi nærmere hvordan man oppretter team og hvilke tjenester/verktøy dette gir tilgang på."
+  },
+  {
+    "objectID": "dapla-team.html#hvordan-opprette-dapla-team",
+    "href": "dapla-team.html#hvordan-opprette-dapla-team",
+    "title": "3  Opprette dapla-team",
+    "section": "3.1 Hvordan opprette dapla-team?",
+    "text": "3.1 Hvordan opprette dapla-team?\nHenvis til dapla-start.\nMer kommer."
+  },
+  {
+    "objectID": "dapla-team.html#hvilke-tjenester-aktiveres",
+    "href": "dapla-team.html#hvilke-tjenester-aktiveres",
+    "title": "3  Opprette dapla-team",
+    "section": "3.2 Hvilke tjenester aktiveres?",
+    "text": "3.2 Hvilke tjenester aktiveres?\nMer kommer."
+  },
+  {
+    "objectID": "dapla-team.html#utvidede-tjenester",
+    "href": "dapla-team.html#utvidede-tjenester",
+    "title": "3  Opprette dapla-team",
+    "section": "3.3 Utvidede tjenester",
+    "text": "3.3 Utvidede tjenester\nBigquery. Mer kommer."
+  },
+  {
+    "objectID": "dapla-team.html#administrasjon-av-team",
+    "href": "dapla-team.html#administrasjon-av-team",
+    "title": "3  Opprette dapla-team",
+    "section": "3.4 Administrasjon av team",
+    "text": "3.4 Administrasjon av team\nTilganger, seksjonsledere/dataeiere, legge til eller fjerne team-medlemmer."
+  },
+  {
+    "objectID": "koding.html",
+    "href": "koding.html",
+    "title": "4  Beste-kode-praksis",
+    "section": "",
+    "text": "Kort om hvorfor."
+  },
+  {
+    "objectID": "koding.html#ssb-project",
+    "href": "koding.html#ssb-project",
+    "title": "4  Beste-kode-praksis",
+    "section": "4.1 SSB-project",
+    "text": "4.1 SSB-project\nBeskrive hva den gjør."
+  },
+  {
+    "objectID": "egne-tjenester.html",
+    "href": "egne-tjenester.html",
+    "title": "5  SSB-utviklede tjenester",
+    "section": "",
+    "text": "Mer kommer."
+  },
+  {
+    "objectID": "egne-tjenester.html#datadoc",
+    "href": "egne-tjenester.html#datadoc",
+    "title": "5  SSB-utviklede tjenester",
+    "section": "5.1 DataDoc",
+    "text": "5.1 DataDoc\nMer kommer."
+  },
+  {
+    "objectID": "egne-tjenester.html#ssb-project",
+    "href": "egne-tjenester.html#ssb-project",
+    "title": "5  SSB-utviklede tjenester",
+    "section": "5.2 SSB-project",
+    "text": "5.2 SSB-project\nMer kommer."
   },
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "2  Summary",
+    "title": "6  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever."
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   }
 ]

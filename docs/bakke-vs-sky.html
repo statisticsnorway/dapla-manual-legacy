@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kom i gang med DAPLA - References</title>
+<title>Kom i gang med DAPLA - 2&nbsp; Bakke versus sky</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,25 +15,6 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -44,7 +25,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="prev">
+<link href="./dapla-team.html" rel="next">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +65,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">References</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bakke versus sky</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +100,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bakke-vs-sky.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bakke versus sky</span></a>
+  <a href="./bakke-vs-sky.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bakke versus sky</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -143,7 +125,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
     </ul>
@@ -151,14 +133,25 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#jupyterlab" id="toc-jupyterlab" class="nav-link active" data-scroll-target="#jupyterlab"> <span class="header-section-number">2.1</span> Jupyterlab</a></li>
+  <li><a href="#programmeringsspråk" id="toc-programmeringsspråk" class="nav-link" data-scroll-target="#programmeringsspråk"> <span class="header-section-number">2.2</span> Programmeringsspråk</a></li>
+  <li><a href="#pakkeinstallasjon" id="toc-pakkeinstallasjon" class="nav-link" data-scroll-target="#pakkeinstallasjon"> <span class="header-section-number">2.3</span> Pakkeinstallasjon</a></li>
+  <li><a href="#virtuelle-miljøer" id="toc-virtuelle-miljøer" class="nav-link" data-scroll-target="#virtuelle-miljøer"> <span class="header-section-number">2.4</span> Virtuelle miljøer</a></li>
+  <li><a href="#gitgithub" id="toc-gitgithub" class="nav-link" data-scroll-target="#gitgithub"> <span class="header-section-number">2.5</span> Git/GitHub</a></li>
+  <li><a href="#terminalen" id="toc-terminalen" class="nav-link" data-scroll-target="#terminalen"> <span class="header-section-number">2.6</span> Terminalen</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">References</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Bakke versus sky</span></h1>
 </div>
 
 
@@ -172,11 +165,27 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
+<p>DAPLA er en skybasert plattform. Det betyr at vi bygger og utvikler plattformen på Google sine maskiner i Europa. I kontrast har vi tidligere hatt en plattform som har vært bygget på SSB sine egne maskiner i Kongsvinger. Selv om mange av de nye verktøyene i fremtiden skal kjøres på DAPLA, så har vi også tilgjengeliggjort en del av de samme verktøy <em>på bakken</em> også. I dette kapitlet forklarer vi nærmere hvordan man kan ta i bruk mange de nye verktøyene både i sky og bakke, og hvor de eventuelt avviker fra hverandre.</p>
+<section id="jupyterlab" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="jupyterlab"><span class="header-section-number">2.1</span> Jupyterlab</h2>
+</section>
+<section id="programmeringsspråk" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="programmeringsspråk"><span class="header-section-number">2.2</span> Programmeringsspråk</h2>
+</section>
+<section id="pakkeinstallasjon" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="pakkeinstallasjon"><span class="header-section-number">2.3</span> Pakkeinstallasjon</h2>
+</section>
+<section id="virtuelle-miljøer" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="virtuelle-miljøer"><span class="header-section-number">2.4</span> Virtuelle miljøer</h2>
+</section>
+<section id="gitgithub" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="gitgithub"><span class="header-section-number">2.5</span> Git/GitHub</h2>
+</section>
+<section id="terminalen" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="terminalen"><span class="header-section-number">2.6</span> Terminalen</h2>
 
-</div>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -278,11 +287,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Summary</span></span>
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduksjon</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./dapla-team.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Opprette dapla-team</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

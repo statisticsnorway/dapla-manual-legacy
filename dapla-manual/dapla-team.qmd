@@ -1,0 +1,21 @@
+# Opprette dapla-team
+
+En grunnleggende struktur for arbeid på dapla er såkalte **dapla-team**. Det er denne konstruksjonen som gir deg tilgang til sikre steder å lagre data, bestemmer tilgangsstyring og gjør at man kan dele data med andre. I dette kapitlet beskriver vi nærmere hvordan man oppretter team og hvilke tjenester/verktøy dette gir tilgang på.
+
+## Hvordan opprette dapla-team? 
+
+Henvis til [dapla-start](https://start.dapla.ssb.no/). 
+
+Mer kommer.
+
+## Hvilke tjenester aktiveres? 
+
+Mer kommer. 
+
+## Utvidede tjenester
+
+Bigquery. Mer kommer.
+
+## Administrasjon av team
+
+Tilganger, seksjonsledere/dataeiere, legge til eller fjerne team-medlemmer.  

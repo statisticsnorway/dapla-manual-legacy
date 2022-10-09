@@ -1,5 +1,18 @@
-# Introduction
+# Introduksjon
 
-This is a book created from markdown and executable code.
+Denne boken er ment å være en enkel manual for å ta i bruk SSB sin nye skyplattform DAPLA (dataplattform).
 
-See @knuth84 for additional discussion of literate programming.
+## Hva er DAPLA? 
+
+DAPLA er den nye dataplattformen til SSB. Den er bygget på Google sine skyløsninger og er stedet hvor alle SSB-ansatte skal kode innen få år.
+
+Mer kommer.
+
+## Hvilke verktøy er tilgjengelig?
+
+Mer kommer.
+
+## Hvem bygger og utvikler plattformen?
+
+Mer kommer.
+

@@ -9,6 +9,10 @@ book:
   chapters:
     - index.qmd
     - intro.qmd
+    - bakke-vs-sky.qmd
+    - dapla-team.qmd
+    - koding.qmd
+    - egne-tjenester.qmd
     - summary.qmd
     - references.qmd
 
