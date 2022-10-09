@@ -130,3 +130,7 @@ dmypy.json
 
 # Pycharm
 .idea
+
+# My personal ignores
+/dapla-manual/.quarto/
+/dapla_manaul/_site/

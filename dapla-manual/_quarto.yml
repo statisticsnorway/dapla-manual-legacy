@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: ../docs
+
+book:
+  title: "Kom i gang med DAPLA"
+  author: "Øyvind Bruer-Skarsbø"
+  date: "10/9/2022"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+toc: true
+toc-title: "Innhold"
+
+
+
