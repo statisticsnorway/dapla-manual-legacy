@@ -6,6 +6,9 @@ book:
   title: "Kom i gang med DAPLA"
   author: "Øyvind Bruer-Skarsbø"
   date: "10/9/2022"
+  search: true
+  cover-image: images/Dapla-Logo1.png
+  repo-url: https://github.com/statisticsnorway/dapla-manual
   chapters:
     - index.qmd
     - intro.qmd
@@ -21,11 +24,16 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    code-copy: true
   pdf:
     documentclass: scrreprt
+    cover-image: images/Dapla-Logo1.png
 
 toc: true
 toc-title: "Innhold"
+
+comments:
+  hypothesis: true
 
 
 

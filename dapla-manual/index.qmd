@@ -1,5 +1,7 @@
-# Preface {.unnumbered}
+# Forord {.unnumbered}
 
-This is a Quarto book.
+DAPLA står for dataplattform og er SSBs nye plattform for statistikkproduksjon. Arbeidet startet som et utviklingsprosjekt i 2018 i sammenheng med Skatteetatens prosjekt *Sirius*. Idag er plattformen mer moden og klar for å ta imot flere statistikker. Denne boken er ment som   
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+::: {.callout-note appearance="simple"}
+Denne boken er skrevet med [Quarto](https://quarto.org/) og er publisert på <https://statisticsnorway.github.io/dapla-manual/>. Alle ansatte i SSB kan bidra til boken ved klone [dette repoet](https://github.com/statisticsnorway/dapla-manual), gjøre endringer i en branch, og sende en pull request til administratorene av repoet (Team Statistikktjenester). 
+:::
