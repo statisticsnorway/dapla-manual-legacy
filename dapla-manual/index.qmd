@@ -1,4 +1,4 @@
-# Forord {.unnumbered}
+# Velkommen {.unnumbered}
 
 DAPLA står for dataplattform og er SSBs nye plattform for statistikkproduksjon. Arbeidet startet som et utviklingsprosjekt i 2018 i sammenheng med Skatteetatens prosjekt *Sirius*. Idag er plattformen mer moden og klar for å ta imot flere statistikker. Denne boken er ment som   
 

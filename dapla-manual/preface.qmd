@@ -1,0 +1,3 @@
+# Forord {.unnumbered}
+
+Denne boken vil la SSB-ansatte ta i bruk grunnleggende funksjonalitet på DAPLA uten hjelp fra andre. 

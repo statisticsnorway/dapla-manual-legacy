@@ -11,12 +11,17 @@ book:
   repo-url: https://github.com/statisticsnorway/dapla-manual
   chapters:
     - index.qmd
-    - intro.qmd
-    - bakke-vs-sky.qmd
-    - dapla-team.qmd
-    - koding.qmd
-    - egne-tjenester.qmd
-    - summary.qmd
+    - preface.qmd
+    - part: basics.qmd
+      chapters:
+      - intro.qmd
+      - bakke-vs-sky.qmd
+      - dapla-team.qmd
+      - koding.qmd
+      - egne-tjenester.qmd
+    - part: advanced.qmd
+      chapters:
+      - databaser.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -27,7 +32,6 @@ format:
     code-copy: true
   pdf:
     documentclass: scrreprt
-    cover-image: images/Dapla-Logo1.png
 
 toc: true
 toc-title: "Innhold"
