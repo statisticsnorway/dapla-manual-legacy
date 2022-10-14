@@ -14,6 +14,13 @@
     "text": "Denne boken vil la SSB-ansatte ta i bruk grunnleggende funksjonalitet på DAPLA uten hjelp fra andre."
   },
   {
+    "objectID": "introduksjon.html",
+    "href": "introduksjon.html",
+    "title": "Introduksjon",
+    "section": "",
+    "text": "Målet med dette kapitlet er å gi en grunnleggende innføring i hva som legges i ordet Dapla. I tillegg gis en forklaring på hvorfor disse valgene er tatt."
+  },
+  {
     "objectID": "intro.html",
     "href": "intro.html",
     "title": "1  Introduksjon",
@@ -166,5 +173,201 @@
     "title": "6  Databaser",
     "section": "",
     "text": "Mer kommer"
+  },
+  {
+    "objectID": "arkitektur.html",
+    "href": "arkitektur.html",
+    "title": "3  Arkitektur",
+    "section": "",
+    "text": "Hvilke komponenter er plattformen bygd opp på? Forklart på lettest mulig måte."
+  },
+  {
+    "objectID": "arkitektur.html#ssb-project",
+    "href": "arkitektur.html#ssb-project",
+    "title": "3  Arkitektur",
+    "section": "3.1 SSB-project",
+    "text": "3.1 SSB-project\nBeskrive hva den gjør."
+  },
+  {
+    "objectID": "hva-er-dapla-team.html",
+    "href": "hva-er-dapla-team.html",
+    "title": "7  Hva er Dapla-team?",
+    "section": "",
+    "text": "Mer kommer"
+  },
+  {
+    "objectID": "ssb-project.html",
+    "href": "ssb-project.html",
+    "title": "14  SSB-project",
+    "section": "",
+    "text": "Mer kommer."
+  },
+  {
+    "objectID": "ssb-project.html#github-bruker",
+    "href": "ssb-project.html#github-bruker",
+    "title": "13  SSB-project",
+    "section": "13.1 Github-bruker",
+    "text": "13.1 Github-bruker"
+  },
+  {
+    "objectID": "ssb-project.html#koble-seg-til-ssb",
+    "href": "ssb-project.html#koble-seg-til-ssb",
+    "title": "14  SSB-project",
+    "section": "14.2 Koble seg til SSB",
+    "text": "14.2 Koble seg til SSB"
+  },
+  {
+    "objectID": "ssb-project.html#autentifisering",
+    "href": "ssb-project.html#autentifisering",
+    "title": "14  SSB-project",
+    "section": "14.3 Autentifisering",
+    "text": "14.3 Autentifisering"
+  },
+  {
+    "objectID": "ssb-project.html#ssb-project",
+    "href": "ssb-project.html#ssb-project",
+    "title": "13  SSB-project",
+    "section": "13.4 ssb-project",
+    "text": "13.4 ssb-project"
+  },
+  {
+    "objectID": "ssb-project.html#ssb-project-cli",
+    "href": "ssb-project.html#ssb-project-cli",
+    "title": "14  SSB-project",
+    "section": "14.4 ssb-project-cli",
+    "text": "14.4 ssb-project-cli"
+  },
+  {
+    "objectID": "ssb-project.html#opprett-github-bruker",
+    "href": "ssb-project.html#opprett-github-bruker",
+    "title": "14  SSB-project",
+    "section": "14.1 Opprett GitHub-bruker",
+    "text": "14.1 Opprett GitHub-bruker"
+  },
+  {
+    "objectID": "virtual-env.html",
+    "href": "virtual-env.html",
+    "title": "15  Virtuelle miljøer",
+    "section": "",
+    "text": "Poetry bør benyttes for python. Mer kommer"
+  },
+  {
+    "objectID": "virtual-env.html#r",
+    "href": "virtual-env.html#r",
+    "title": "15  Virtuelle miljøer",
+    "section": "15.2 R",
+    "text": "15.2 R"
+  },
+  {
+    "objectID": "pakke-install.html#r",
+    "href": "pakke-install.html#r",
+    "title": "18  Installere pakker",
+    "section": "18.2 R",
+    "text": "18.2 R\n\n18.2.1 Installering\n\n\n18.2.2 Avinstallering\n\n\n18.2.3 Oppgradere pakker"
+  },
+  {
+    "objectID": "pakke-install.html",
+    "href": "pakke-install.html",
+    "title": "18  Installere pakker",
+    "section": "",
+    "text": "Mer kommer."
+  },
+  {
+    "objectID": "pakke-install.html#installering",
+    "href": "pakke-install.html#installering",
+    "title": "17  Installere pakker",
+    "section": "17.2 Installering",
+    "text": "17.2 Installering"
+  },
+  {
+    "objectID": "pakke-install.html#avinstallering",
+    "href": "pakke-install.html#avinstallering",
+    "title": "17  Installere pakker",
+    "section": "17.3 Avinstallering",
+    "text": "17.3 Avinstallering"
+  },
+  {
+    "objectID": "pakke-install.html#oppgradere-pakker",
+    "href": "pakke-install.html#oppgradere-pakker",
+    "title": "17  Installere pakker",
+    "section": "17.4 Oppgradere pakker",
+    "text": "17.4 Oppgradere pakker"
+  },
+  {
+    "objectID": "lese-data-bakken.html",
+    "href": "lese-data-bakken.html",
+    "title": "21  Lese inn filer",
+    "section": "",
+    "text": "Mer kommer."
+  },
+  {
+    "objectID": "lese-data-bakken.html#sas7bdat",
+    "href": "lese-data-bakken.html#sas7bdat",
+    "title": "21  Lese inn filer",
+    "section": "21.1 sas7bdat",
+    "text": "21.1 sas7bdat"
+  },
+  {
+    "objectID": "lese-data-bakken.html#oracle",
+    "href": "lese-data-bakken.html#oracle",
+    "title": "21  Lese inn filer",
+    "section": "21.2 Oracle",
+    "text": "21.2 Oracle"
+  },
+  {
+    "objectID": "lese-data-bakken.html#fame",
+    "href": "lese-data-bakken.html#fame",
+    "title": "21  Lese inn filer",
+    "section": "21.3 Fame",
+    "text": "21.3 Fame"
+  },
+  {
+    "objectID": "lese-data-bakken.html#tekstfiler",
+    "href": "lese-data-bakken.html#tekstfiler",
+    "title": "21  Lese inn filer",
+    "section": "21.4 Tekstfiler",
+    "text": "21.4 Tekstfiler"
+  },
+  {
+    "objectID": "lese-data-bakken.html#parquet",
+    "href": "lese-data-bakken.html#parquet",
+    "title": "21  Lese inn filer",
+    "section": "21.5 Parquet",
+    "text": "21.5 Parquet"
+  },
+  {
+    "objectID": "samarbeid.html",
+    "href": "samarbeid.html",
+    "title": "19  Samarbeid",
+    "section": "",
+    "text": "Noen har opprettet et ssb-project og pushet til Github. Hvordan skal kollegaer gå frem for å bidra inn i koden?"
+  },
+  {
+    "objectID": "remote.html",
+    "href": "remote.html",
+    "title": "22  IDE’er",
+    "section": "",
+    "text": "Forklare situasjonen nå. Kun Jupyterlab. Kan kjøre remote session med Rstudio, Pycharm og VSCode."
+  },
+  {
+    "objectID": "remote.html#rstudio",
+    "href": "remote.html#rstudio",
+    "title": "22  IDE’er",
+    "section": "22.1 RStudio",
+    "text": "22.1 RStudio"
+  },
+  {
+    "objectID": "remote.html#vscode",
+    "href": "remote.html#vscode",
+    "title": "22  IDE’er",
+    "section": "22.2 VSCode",
+    "text": "22.2 VSCode"
+  },
+  {
+    "objectID": "remote.html#pycharm",
+    "href": "remote.html#pycharm",
+    "title": "22  IDE’er",
+    "section": "22.3 Pycharm",
+    "text": "22.3 Pycharm"
   }
 ]

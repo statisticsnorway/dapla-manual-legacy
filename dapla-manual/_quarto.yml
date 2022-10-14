@@ -12,15 +12,39 @@ book:
   chapters:
     - index.qmd
     - preface.qmd
-    - part: basics.qmd
+    - part: introduksjon.qmd
       chapters:
-      - intro.qmd
-      - bakke-vs-sky.qmd
-      - dapla-team.qmd
-      - koding.qmd
-      - egne-tjenester.qmd
-    - part: advanced.qmd
+      - hva-er-dapla.qmd
+      - hvorfor-dapla.qmd
+      - arkitektur.qmd
+      - innlogging.qmd
+      - jupyterlab.qmd
+      - bakke-sky.qmd
+    - part: dapla-team.qmd
       chapters:
+      - hva-er-dapla-team.qmd
+      - opprette-dapla-team.qmd
+      - gcc.qmd
+      - lagre-data.qmd
+      - hente-data.qmd
+      - bakke-til-sky.qmd
+      - administrasjon.qmd
+    - part: beste-praksis.qmd
+      chapters:
+      - ssb-project.qmd
+      - git-github.qmd
+      - virtual-env.qmd
+      - jupyter-kernel.qmd
+      - pakke-install.qmd
+      - samarbeid.qmd
+      - vedlikehold.qmd
+    - part: jupyter-pa-bakken.qmd
+      chapters:
+      - lese-data-bakken.qmd
+    - part: avansert.qmd
+      chapters:
+      - remote.qmd
+      - schedulering.qmd
       - databaser.qmd
     - references.qmd
 

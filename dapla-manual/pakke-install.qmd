@@ -1,0 +1,19 @@
+# Installere pakker
+
+## Python
+
+Mer kommer. 
+
+### Installering
+
+### Avinstallering
+
+### Oppgradere pakker
+
+## R
+
+### Installering
+
+### Avinstallering
+
+### Oppgradere pakker

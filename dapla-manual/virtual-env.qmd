@@ -1,0 +1,6 @@
+# Virtuelle miljøer
+
+## Python
+Poetry bør benyttes for python. Mer kommer
+
+## R

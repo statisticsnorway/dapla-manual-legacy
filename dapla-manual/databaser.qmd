@@ -1,3 +1,5 @@
 # Databaser
 
-Mer kommer
+## BigQuery
+
+## CloudSQL

@@ -1,0 +1,13 @@
+# Lese inn filer
+
+Mer kommer.
+
+## sas7bdat
+
+## Oracle
+
+## Fame
+
+## Tekstfiler
+
+## Parquet

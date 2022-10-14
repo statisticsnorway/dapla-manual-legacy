@@ -1,0 +1,3 @@
+# Samarbeid
+
+Noen har opprettet et ssb-project og pushet til Github. Hvordan skal kollegaer gå frem for å bidra inn i koden? 

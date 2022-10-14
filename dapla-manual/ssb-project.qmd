@@ -1,0 +1,11 @@
+# SSB-project
+
+Mer kommer. 
+
+## Opprett GitHub-bruker
+
+## Koble seg til SSB
+
+## Autentifisering
+
+## ssb-project-cli

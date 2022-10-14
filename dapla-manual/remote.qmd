@@ -1,0 +1,9 @@
+# IDE'er
+
+Forklare situasjonen nå. Kun Jupyterlab. Kan kjøre remote session med Rstudio, Pycharm og VSCode.
+
+## RStudio
+
+## VSCode
+
+## Pycharm

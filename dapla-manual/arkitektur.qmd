@@ -1,0 +1,3 @@
+# Arkitektur
+
+Hvilke komponenter er plattformen bygd opp på? Forklart på lettest mulig måte. 
