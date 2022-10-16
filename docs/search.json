@@ -21,172 +21,11 @@
     "text": "Målet med dette kapitlet er å gi en grunnleggende innføring i hva som legges i ordet Dapla. I tillegg gis en forklaring på hvorfor disse valgene er tatt."
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduksjon",
-    "section": "",
-    "text": "Denne boken er ment å være en enkel manual for å ta i bruk SSB sin nye skyplattform DAPLA (dataplattform)."
-  },
-  {
-    "objectID": "intro.html#hva-er-dapla",
-    "href": "intro.html#hva-er-dapla",
-    "title": "1  Introduksjon",
-    "section": "1.1 Hva er DAPLA?",
-    "text": "1.1 Hva er DAPLA?\nDAPLA er den nye dataplattformen til SSB. Den er bygget på Google sine skyløsninger og er stedet hvor alle SSB-ansatte skal kode innen få år.\nMer kommer."
-  },
-  {
-    "objectID": "intro.html#hvilke-verktøy-er-tilgjengelig",
-    "href": "intro.html#hvilke-verktøy-er-tilgjengelig",
-    "title": "1  Introduksjon",
-    "section": "1.2 Hvilke verktøy er tilgjengelig?",
-    "text": "1.2 Hvilke verktøy er tilgjengelig?\nMer kommer."
-  },
-  {
-    "objectID": "intro.html#hvem-bygger-og-utvikler-plattformen",
-    "href": "intro.html#hvem-bygger-og-utvikler-plattformen",
-    "title": "1  Introduksjon",
-    "section": "1.3 Hvem bygger og utvikler plattformen?",
-    "text": "1.3 Hvem bygger og utvikler plattformen?\nMer kommer."
-  },
-  {
-    "objectID": "bakke-vs-sky.html",
-    "href": "bakke-vs-sky.html",
-    "title": "2  Bakke versus sky",
-    "section": "",
-    "text": "DAPLA er en skybasert plattform. Det betyr at vi bygger og utvikler plattformen på Google sine maskiner i Europa. I kontrast har vi tidligere hatt en plattform som har vært bygget på SSB sine egne maskiner i Kongsvinger. Selv om mange av de nye verktøyene i fremtiden skal kjøres på DAPLA, så har vi også tilgjengeliggjort en del av de samme verktøy på bakken også. I dette kapitlet forklarer vi nærmere hvordan man kan ta i bruk mange de nye verktøyene både i sky og bakke, og hvor de eventuelt avviker fra hverandre."
-  },
-  {
-    "objectID": "bakke-vs-sky.html#jupyterlab",
-    "href": "bakke-vs-sky.html#jupyterlab",
-    "title": "2  Bakke versus sky",
-    "section": "2.1 Jupyterlab",
-    "text": "2.1 Jupyterlab"
-  },
-  {
-    "objectID": "bakke-vs-sky.html#programmeringsspråk",
-    "href": "bakke-vs-sky.html#programmeringsspråk",
-    "title": "2  Bakke versus sky",
-    "section": "2.2 Programmeringsspråk",
-    "text": "2.2 Programmeringsspråk"
-  },
-  {
-    "objectID": "bakke-vs-sky.html#pakkeinstallasjon",
-    "href": "bakke-vs-sky.html#pakkeinstallasjon",
-    "title": "2  Bakke versus sky",
-    "section": "2.3 Pakkeinstallasjon",
-    "text": "2.3 Pakkeinstallasjon"
-  },
-  {
-    "objectID": "bakke-vs-sky.html#virtuelle-miljøer",
-    "href": "bakke-vs-sky.html#virtuelle-miljøer",
-    "title": "2  Bakke versus sky",
-    "section": "2.4 Virtuelle miljøer",
-    "text": "2.4 Virtuelle miljøer"
-  },
-  {
-    "objectID": "bakke-vs-sky.html#gitgithub",
-    "href": "bakke-vs-sky.html#gitgithub",
-    "title": "2  Bakke versus sky",
-    "section": "2.5 Git/GitHub",
-    "text": "2.5 Git/GitHub"
-  },
-  {
-    "objectID": "bakke-vs-sky.html#terminalen",
-    "href": "bakke-vs-sky.html#terminalen",
-    "title": "2  Bakke versus sky",
-    "section": "2.6 Terminalen",
-    "text": "2.6 Terminalen"
-  },
-  {
-    "objectID": "dapla-team.html",
-    "href": "dapla-team.html",
-    "title": "3  Opprette dapla-team",
-    "section": "",
-    "text": "En grunnleggende struktur for arbeid på dapla er såkalte dapla-team. Det er denne konstruksjonen som gir deg tilgang til sikre steder å lagre data, bestemmer tilgangsstyring og gjør at man kan dele data med andre. I dette kapitlet beskriver vi nærmere hvordan man oppretter team og hvilke tjenester/verktøy dette gir tilgang på."
-  },
-  {
-    "objectID": "dapla-team.html#hvordan-opprette-dapla-team",
-    "href": "dapla-team.html#hvordan-opprette-dapla-team",
-    "title": "3  Opprette dapla-team",
-    "section": "3.1 Hvordan opprette dapla-team?",
-    "text": "3.1 Hvordan opprette dapla-team?\nHenvis til dapla-start.\nMer kommer."
-  },
-  {
-    "objectID": "dapla-team.html#hvilke-tjenester-aktiveres",
-    "href": "dapla-team.html#hvilke-tjenester-aktiveres",
-    "title": "3  Opprette dapla-team",
-    "section": "3.2 Hvilke tjenester aktiveres?",
-    "text": "3.2 Hvilke tjenester aktiveres?\nMer kommer."
-  },
-  {
-    "objectID": "dapla-team.html#utvidede-tjenester",
-    "href": "dapla-team.html#utvidede-tjenester",
-    "title": "3  Opprette dapla-team",
-    "section": "3.3 Utvidede tjenester",
-    "text": "3.3 Utvidede tjenester\nBigquery. Mer kommer."
-  },
-  {
-    "objectID": "dapla-team.html#administrasjon-av-team",
-    "href": "dapla-team.html#administrasjon-av-team",
-    "title": "3  Opprette dapla-team",
-    "section": "3.4 Administrasjon av team",
-    "text": "3.4 Administrasjon av team\nTilganger, seksjonsledere/dataeiere, legge til eller fjerne team-medlemmer."
-  },
-  {
-    "objectID": "koding.html",
-    "href": "koding.html",
-    "title": "4  Beste-kode-praksis",
-    "section": "",
-    "text": "Kort om hvorfor."
-  },
-  {
-    "objectID": "koding.html#ssb-project",
-    "href": "koding.html#ssb-project",
-    "title": "4  Beste-kode-praksis",
-    "section": "4.1 SSB-project",
-    "text": "4.1 SSB-project\nBeskrive hva den gjør."
-  },
-  {
-    "objectID": "egne-tjenester.html",
-    "href": "egne-tjenester.html",
-    "title": "5  SSB-utviklede tjenester",
-    "section": "",
-    "text": "Mer kommer."
-  },
-  {
-    "objectID": "egne-tjenester.html#datadoc",
-    "href": "egne-tjenester.html#datadoc",
-    "title": "5  SSB-utviklede tjenester",
-    "section": "5.1 DataDoc",
-    "text": "5.1 DataDoc\nMer kommer."
-  },
-  {
-    "objectID": "egne-tjenester.html#ssb-project",
-    "href": "egne-tjenester.html#ssb-project",
-    "title": "5  SSB-utviklede tjenester",
-    "section": "5.2 SSB-project",
-    "text": "5.2 SSB-project\nMer kommer."
-  },
-  {
-    "objectID": "databaser.html",
-    "href": "databaser.html",
-    "title": "6  Databaser",
-    "section": "",
-    "text": "Mer kommer"
-  },
-  {
     "objectID": "arkitektur.html",
     "href": "arkitektur.html",
     "title": "3  Arkitektur",
     "section": "",
     "text": "Hvilke komponenter er plattformen bygd opp på? Forklart på lettest mulig måte."
-  },
-  {
-    "objectID": "arkitektur.html#ssb-project",
-    "href": "arkitektur.html#ssb-project",
-    "title": "3  Arkitektur",
-    "section": "3.1 SSB-project",
-    "text": "3.1 SSB-project\nBeskrive hva den gjør."
   },
   {
     "objectID": "hva-er-dapla-team.html",
@@ -203,11 +42,11 @@
     "text": "Mer kommer."
   },
   {
-    "objectID": "ssb-project.html#github-bruker",
-    "href": "ssb-project.html#github-bruker",
-    "title": "13  SSB-project",
-    "section": "13.1 Github-bruker",
-    "text": "13.1 Github-bruker"
+    "objectID": "ssb-project.html#opprett-github-bruker",
+    "href": "ssb-project.html#opprett-github-bruker",
+    "title": "14  SSB-project",
+    "section": "14.1 Opprett GitHub-bruker",
+    "text": "14.1 Opprett GitHub-bruker"
   },
   {
     "objectID": "ssb-project.html#koble-seg-til-ssb",
@@ -224,13 +63,6 @@
     "text": "14.3 Autentifisering"
   },
   {
-    "objectID": "ssb-project.html#ssb-project",
-    "href": "ssb-project.html#ssb-project",
-    "title": "13  SSB-project",
-    "section": "13.4 ssb-project",
-    "text": "13.4 ssb-project"
-  },
-  {
     "objectID": "ssb-project.html#ssb-project-cli",
     "href": "ssb-project.html#ssb-project-cli",
     "title": "14  SSB-project",
@@ -238,32 +70,18 @@
     "text": "14.4 ssb-project-cli"
   },
   {
-    "objectID": "ssb-project.html#opprett-github-bruker",
-    "href": "ssb-project.html#opprett-github-bruker",
-    "title": "14  SSB-project",
-    "section": "14.1 Opprett GitHub-bruker",
-    "text": "14.1 Opprett GitHub-bruker"
-  },
-  {
     "objectID": "virtual-env.html",
     "href": "virtual-env.html",
-    "title": "15  Virtuelle miljøer",
+    "title": "16  Virtuelle miljøer",
     "section": "",
     "text": "Poetry bør benyttes for python. Mer kommer"
   },
   {
     "objectID": "virtual-env.html#r",
     "href": "virtual-env.html#r",
-    "title": "15  Virtuelle miljøer",
-    "section": "15.2 R",
-    "text": "15.2 R"
-  },
-  {
-    "objectID": "pakke-install.html#r",
-    "href": "pakke-install.html#r",
-    "title": "18  Installere pakker",
-    "section": "18.2 R",
-    "text": "18.2 R\n\n18.2.1 Installering\n\n\n18.2.2 Avinstallering\n\n\n18.2.3 Oppgradere pakker"
+    "title": "16  Virtuelle miljøer",
+    "section": "16.2 R",
+    "text": "16.2 R"
   },
   {
     "objectID": "pakke-install.html",
@@ -273,25 +91,18 @@
     "text": "Mer kommer."
   },
   {
-    "objectID": "pakke-install.html#installering",
-    "href": "pakke-install.html#installering",
-    "title": "17  Installere pakker",
-    "section": "17.2 Installering",
-    "text": "17.2 Installering"
+    "objectID": "pakke-install.html#r",
+    "href": "pakke-install.html#r",
+    "title": "18  Installere pakker",
+    "section": "18.2 R",
+    "text": "18.2 R\n\n18.2.1 Installering\n\n\n18.2.2 Avinstallering\n\n\n18.2.3 Oppgradere pakker"
   },
   {
-    "objectID": "pakke-install.html#avinstallering",
-    "href": "pakke-install.html#avinstallering",
-    "title": "17  Installere pakker",
-    "section": "17.3 Avinstallering",
-    "text": "17.3 Avinstallering"
-  },
-  {
-    "objectID": "pakke-install.html#oppgradere-pakker",
-    "href": "pakke-install.html#oppgradere-pakker",
-    "title": "17  Installere pakker",
-    "section": "17.4 Oppgradere pakker",
-    "text": "17.4 Oppgradere pakker"
+    "objectID": "samarbeid.html",
+    "href": "samarbeid.html",
+    "title": "19  Samarbeid",
+    "section": "",
+    "text": "Noen har opprettet et ssb-project og pushet til Github. Hvordan skal kollegaer gå frem for å bidra inn i koden?"
   },
   {
     "objectID": "lese-data-bakken.html",
@@ -336,13 +147,6 @@
     "text": "21.5 Parquet"
   },
   {
-    "objectID": "samarbeid.html",
-    "href": "samarbeid.html",
-    "title": "19  Samarbeid",
-    "section": "",
-    "text": "Noen har opprettet et ssb-project og pushet til Github. Hvordan skal kollegaer gå frem for å bidra inn i koden?"
-  },
-  {
     "objectID": "remote.html",
     "href": "remote.html",
     "title": "22  IDE’er",
@@ -369,5 +173,12 @@
     "title": "22  IDE’er",
     "section": "22.3 Pycharm",
     "text": "22.3 Pycharm"
+  },
+  {
+    "objectID": "databaser.html#cloudsql",
+    "href": "databaser.html#cloudsql",
+    "title": "24  Databaser",
+    "section": "24.2 CloudSQL",
+    "text": "24.2 CloudSQL"
   }
 ]
