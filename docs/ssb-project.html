@@ -59,7 +59,7 @@ ul.task-list{list-style: none;}
 
 
 <meta property="og:title" content="Kom i gang med DAPLA - 14&nbsp; SSB-project">
-<meta property="og:description" content="Mer kommer.">
+<meta property="og:description" content="Fremtidens produksjonsløp på Dapla bør følge noen helt klare retningslinjer for arbeidsprosesser og kode. Dette bør blant annet inkludere:">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -315,12 +315,43 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>Mer kommer.</p>
+<p>Fremtidens produksjonsløp på <strong>Dapla</strong> bør følge noen helt klare retningslinjer for arbeidsprosesser og kode. Dette bør blant annet inkludere:</p>
+<ol type="1">
+<li><strong>Standard mappestruktur</strong><br>
+En standard mappestruktur gjør det lettere å dele og samarbeide om kode, som igjen reduserer sårbarheten knyttet til at få personer kjenner koden.</li>
+<li><strong>Virtuelt miljø</strong><br>
+Virtuelle miljøer isoloerer og lagrer informasjon knyttet til kode. For at publiserte tall skal være reproduserbare er SSB avhengig av at blant annet pakkeversjoner og versjon av Python/R lagres sammen med kode som er kjørt.</li>
+<li><strong>Versjonshåndtering med Git</strong><br>
+Versjonshåndtering av kode er svært viktig for å kunne gjenskape og samarbeide om kode. <a href="https://git-scm.com/">Git</a> er verdensstandarden for å gjøre dette, og derfor legges det opp til at all kode skal versjonshåndteres med Git i SSB.</li>
+<li><strong>Lagre kode på Github</strong><br>
+På Dapla er det ingen fellesmappe som alle i SSB har tilgang til og hvor vi kan dele kode slik vi har gjort i bakkemiljøet tidligere. Kode som er versjonshåndtert med Git bruker som regel et remote repo<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> som er spesialsydd for Git og som skal deles med resten av verden hvis man ønsker. I SSB har vi valgt å bruke GitHub, der SSB har et eget område som heter <a href="https://github.com/statisticsnorway">statisticsnorway</a>.</li>
+</ol>
+<p><a href="https://statistics-norway.atlassian.net/wiki/spaces/STAT/overview?homepageId=3127312686">Team Statistikktjenester</a> har laget en CLI<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> som skal gjøre dette lett å implemententere dette i kode. Den heter <a href="https://github.com/statisticsnorway/ssb-project-cli">ssb-project</a> og hjelper deg implementere det som til enhver tid er beste-praksis for koding.</p>
+<p>Under vises det hvordan man bruker <code>ssb-project</code> til sette opp et prosjekt. Men programmet forutsettet at du har en GitHub-bruker som er knyttet opp mot <a href="https://github.com/statisticsnorway">statisticsnorway</a>. De første underkapitlene er derfor en beskrivelse av dette.</p>
 <section id="opprett-github-bruker" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="opprett-github-bruker"><span class="header-section-number">14.1</span> Opprett GitHub-bruker</h2>
+<p>Dette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke <code>ssb-project</code>-programmet til å generere et <strong>remote repo</strong> på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>SSB har valgt å ikke sette opp SSB-brukerne til de ansatte som GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som en del av den ansattes CV. For de som aldri har brukt GitHub før kan det virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent med denne arbeidsformen.</p>
+</div>
+</div>
+</div>
+<p>Slik gjør du det:</p>
+<ol type="1">
+<li>Gå til <a href="https://github.com/" class="uri">https://github.com/</a></li>
+<li>Trykk <strong>Sign up</strong> øverst i høyre hjørne</li>
+<li>Svar på spørsmålene du blir stilt.</li>
+</ol>
+<p>Husk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker.</p>
 </section>
 <section id="koble-seg-til-ssb" class="level2" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="koble-seg-til-ssb"><span class="header-section-number">14.2</span> Koble seg til SSB</h2>
+<p>Hvis du har fullført forrige steg så har du nå en SSB-konto. Hvis du står på din profil-side så ser den slik ut:</p>
 </section>
 <section id="autentifisering" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="autentifisering"><span class="header-section-number">14.3</span> Autentifisering</h2>
@@ -329,6 +360,13 @@ ul.task-list{list-style: none;}
 <h2 data-number="14.4" class="anchored" data-anchor-id="ssb-project-cli"><span class="header-section-number">14.4</span> ssb-project-cli</h2>
 
 
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p><em>Remote repo</em> er en felle mappe som er lagret på en annen maskin. <a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Les mer her.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

@@ -39,21 +39,21 @@
     "href": "ssb-project.html",
     "title": "14  SSB-project",
     "section": "",
-    "text": "Mer kommer."
+    "text": "Fremtidens produksjonsløp på Dapla bør følge noen helt klare retningslinjer for arbeidsprosesser og kode. Dette bør blant annet inkludere:\nTeam Statistikktjenester har laget en CLI2 som skal gjøre dette lett å implemententere dette i kode. Den heter ssb-project og hjelper deg implementere det som til enhver tid er beste-praksis for koding.\nUnder vises det hvordan man bruker ssb-project til sette opp et prosjekt. Men programmet forutsettet at du har en GitHub-bruker som er knyttet opp mot statisticsnorway. De første underkapitlene er derfor en beskrivelse av dette."
   },
   {
     "objectID": "ssb-project.html#opprett-github-bruker",
     "href": "ssb-project.html#opprett-github-bruker",
     "title": "14  SSB-project",
     "section": "14.1 Opprett GitHub-bruker",
-    "text": "14.1 Opprett GitHub-bruker"
+    "text": "14.1 Opprett GitHub-bruker\nDette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke ssb-project-programmet til å generere et remote repo på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.\n\n\n\n\n\n\nSSB har valgt å ikke sette opp SSB-brukerne til de ansatte som GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som en del av den ansattes CV. For de som aldri har brukt GitHub før kan det virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent med denne arbeidsformen.\n\n\n\nSlik gjør du det:\n\nGå til https://github.com/\nTrykk Sign up øverst i høyre hjørne\nSvar på spørsmålene du blir stilt.\n\nHusk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker."
   },
   {
     "objectID": "ssb-project.html#koble-seg-til-ssb",
     "href": "ssb-project.html#koble-seg-til-ssb",
     "title": "14  SSB-project",
     "section": "14.2 Koble seg til SSB",
-    "text": "14.2 Koble seg til SSB"
+    "text": "14.2 Koble seg til SSB\nHvis du har fullført forrige steg så har du nå en SSB-konto. Hvis du står på din profil-side så ser den slik ut:"
   },
   {
     "objectID": "ssb-project.html#autentifisering",

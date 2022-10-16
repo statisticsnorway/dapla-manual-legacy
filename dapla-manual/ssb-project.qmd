@@ -1,10 +1,43 @@
 # SSB-project
 
-Mer kommer. 
+Fremtidens produksjonsløp på **Dapla** bør følge noen helt klare retningslinjer for arbeidsprosesser og kode. Dette bør blant annet inkludere:
+
+1. **Standard mappestruktur**  
+En standard mappestruktur gjør det lettere å dele og samarbeide om kode, som igjen reduserer sårbarheten knyttet til at få personer kjenner koden.
+2. **Virtuelt miljø**  
+Virtuelle miljøer isoloerer og lagrer informasjon knyttet til kode. For at publiserte tall skal være reproduserbare er SSB avhengig av at blant annet pakkeversjoner og versjon av Python/R lagres sammen med kode som er kjørt.
+3. **Versjonshåndtering med Git**  
+Versjonshåndtering av kode er svært viktig for å kunne gjenskape og samarbeide om kode. [Git](https://git-scm.com/) er verdensstandarden for å gjøre dette, og derfor legges det opp til at all kode skal versjonshåndteres med Git i SSB. 
+4. **Lagre kode på Github**  
+På Dapla er det ingen fellesmappe som alle i SSB har tilgang til og hvor vi kan dele kode slik vi har gjort i bakkemiljøet tidligere. Kode som er versjonshåndtert med Git bruker som regel et remote repo^[*Remote repo* er en felle mappe som er lagret på en annen maskin. [Les mer her.](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)] som er spesialsydd for Git og som skal deles med resten av verden hvis man ønsker. I SSB har vi valgt å bruke GitHub, der SSB har et eget område som heter [statisticsnorway](https://github.com/statisticsnorway).
+
+[Team Statistikktjenester](https://statistics-norway.atlassian.net/wiki/spaces/STAT/overview?homepageId=3127312686) har laget en CLI^[CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.] som skal gjøre dette lett å implemententere dette i kode. Den heter [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) og hjelper deg implementere det som til enhver tid er beste-praksis for koding.
+
+Under vises det hvordan man bruker `ssb-project` til sette opp et prosjekt. Men programmet forutsettet at du har en GitHub-bruker som er knyttet opp mot [statisticsnorway](https://github.com/statisticsnorway). De første underkapitlene er derfor en beskrivelse av dette.
 
 ## Opprett GitHub-bruker
 
+Dette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke `ssb-project`-programmet til å generere et **remote repo** på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen. 
+
+::: {.callout-note appearance="simple"}
+SSB har valgt å ikke sette opp SSB-brukerne til de ansatte som GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som en del av den ansattes CV. For de som aldri har brukt GitHub før kan det virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent med denne arbeidsformen. 
+:::
+
+Slik gjør du det:
+
+1. Gå til <https://github.com/>
+2. Trykk **Sign up** øverst i høyre hjørne
+3. Svar på spørsmålene du blir stilt. 
+
+Husk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker. 
+
 ## Koble seg til SSB
+
+Hvis du har fullført forrige steg så har du nå en SSB-konto. Hvis du står på din profil-side så ser den slik ut:
+
+
+
+
 
 ## Autentifisering
 
