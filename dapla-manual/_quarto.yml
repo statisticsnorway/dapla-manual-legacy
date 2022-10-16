@@ -9,6 +9,12 @@ book:
   search: true
   cover-image: images/Dapla-Logo1.png
   repo-url: https://github.com/statisticsnorway/dapla-manual
+  open-graph: true
+  sidebar:
+    collapse-level: 1
+  page-footer:
+    center: |
+      Kom i gang med Dapla
   chapters:
     - index.qmd
     - preface.qmd
@@ -59,6 +65,7 @@ format:
 
 toc: true
 toc-title: "Innhold"
+collapse-level: 1
 
 comments:
   hypothesis: true
