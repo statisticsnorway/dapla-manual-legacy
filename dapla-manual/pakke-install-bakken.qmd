@@ -1,0 +1,38 @@
+# Installere pakker
+
+## Python
+
+Installering av pakker i Jupyter miljøer på bakken (f.eks <https://sl-jupyter-p.ssb.no>) foregår stort sett helt lik [som på Dapla](./pakke-install.html). Det er én viktig forskjell, og det er at installasjon skjer via en proxy som heter Nexus.
+
+### Pip
+
+Pip er ferdig konfigurert for bruk av Nexus og kan kjøres som [beskrevet for Dapla](./pakke-install.html)
+
+### Poetry
+
+Hvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.
+
+```shell
+poetry source add --default nexus http://pl-nexuspro-p.ssb.no:8081/repository/pypi-proxy/simple
+```
+
+Da får man installere pakker som vanlig f.eks
+
+```shell
+poetry add matplotlib
+```
+
+::: {.callout-warning appearance="simple"}
+Hvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så må man fjerner `nexus` kilden ved å kjøre
+```shell
+poetry source remove nexus
+```
+:::
+
+## R
+
+### Installering
+
+### Avinstallering
+
+### Oppgradere pakker
