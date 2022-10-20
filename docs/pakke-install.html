@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,78 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -59,7 +127,7 @@ ul.task-list{list-style: none;}
 
 
 <meta property="og:title" content="Kom i gang med DAPLA - 18&nbsp; Installere pakker">
-<meta property="og:description" content="Mer kommer.">
+<meta property="og:description" content="Installering av pakker er kun er mulig I et virtuelt miljø. Det er anbefalt å benytte poetry til dette. Eksemplene videre benytter derfor poetry.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -285,21 +353,23 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python"> <span class="header-section-number">18.1</span> Python</a>
+  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python"><span class="toc-section-number">18.1</span>  Python</a>
   <ul class="collapse">
-  <li><a href="#installering" id="toc-installering" class="nav-link" data-scroll-target="#installering"> <span class="header-section-number">18.1.1</span> Installering</a></li>
-  <li><a href="#avinstallering" id="toc-avinstallering" class="nav-link" data-scroll-target="#avinstallering"> <span class="header-section-number">18.1.2</span> Avinstallering</a></li>
-  <li><a href="#oppgradere-pakker" id="toc-oppgradere-pakker" class="nav-link" data-scroll-target="#oppgradere-pakker"> <span class="header-section-number">18.1.3</span> Oppgradere pakker</a></li>
+  <li><a href="#poetry-prosjekt-eksempel" id="toc-poetry-prosjekt-eksempel" class="nav-link" data-scroll-target="#poetry-prosjekt-eksempel"><span class="toc-section-number">18.1.1</span>  Poetry prosjekt eksempel</a></li>
+  <li><a href="#installering" id="toc-installering" class="nav-link" data-scroll-target="#installering"><span class="toc-section-number">18.1.2</span>  Installering</a></li>
+  <li><a href="#avinstallering" id="toc-avinstallering" class="nav-link" data-scroll-target="#avinstallering"><span class="toc-section-number">18.1.3</span>  Avinstallering</a></li>
+  <li><a href="#oppgradere-pakker" id="toc-oppgradere-pakker" class="nav-link" data-scroll-target="#oppgradere-pakker"><span class="toc-section-number">18.1.4</span>  Oppgradere pakker</a></li>
+  <li><a href="#sikkerhet" id="toc-sikkerhet" class="nav-link" data-scroll-target="#sikkerhet"><span class="toc-section-number">18.1.5</span>  Sikkerhet</a></li>
   </ul></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"> <span class="header-section-number">18.2</span> R</a>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="toc-section-number">18.2</span>  R</a>
   <ul class="collapse">
-  <li><a href="#installering-1" id="toc-installering-1" class="nav-link" data-scroll-target="#installering-1"> <span class="header-section-number">18.2.1</span> Installering</a></li>
-  <li><a href="#avinstallering-1" id="toc-avinstallering-1" class="nav-link" data-scroll-target="#avinstallering-1"> <span class="header-section-number">18.2.2</span> Avinstallering</a></li>
-  <li><a href="#oppgradere-pakker-1" id="toc-oppgradere-pakker-1" class="nav-link" data-scroll-target="#oppgradere-pakker-1"> <span class="header-section-number">18.2.3</span> Oppgradere pakker</a></li>
+  <li><a href="#installering-1" id="toc-installering-1" class="nav-link" data-scroll-target="#installering-1"><span class="toc-section-number">18.2.1</span>  Installering</a></li>
+  <li><a href="#avinstallering-1" id="toc-avinstallering-1" class="nav-link" data-scroll-target="#avinstallering-1"><span class="toc-section-number">18.2.2</span>  Avinstallering</a></li>
+  <li><a href="#oppgradere-pakker-1" id="toc-oppgradere-pakker-1" class="nav-link" data-scroll-target="#oppgradere-pakker-1"><span class="toc-section-number">18.2.3</span>  Oppgradere pakker</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -325,15 +395,53 @@ ul.task-list{list-style: none;}
 
 <section id="python" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="python"><span class="header-section-number">18.1</span> Python</h2>
-<p>Mer kommer.</p>
-<section id="installering" class="level3" data-number="18.1.1">
-<h3 data-number="18.1.1" class="anchored" data-anchor-id="installering"><span class="header-section-number">18.1.1</span> Installering</h3>
+<p>Installering av pakker er kun er mulig I et <a href="./virtual-env.html">virtuelt miljø</a>. Det er <a href="./virtual-env.html#Anbefalning">anbefalt å benytte poetry</a> til dette. Eksemplene videre benytter derfor poetry.</p>
+<p>Det er mulig å installere pakker uten poetry. Pakker kan installeres som normalt, hvis man har satt opp og aktivert et <a href="./virtual-env.html">virtuelt miljø</a>.</p>
+<section id="poetry-prosjekt-eksempel" class="level3" data-number="18.1.1">
+<h3 data-number="18.1.1" class="anchored" data-anchor-id="poetry-prosjekt-eksempel"><span class="header-section-number">18.1.1</span> Poetry prosjekt eksempel</h3>
+<p>I dette eksemplet heter prosjektet test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene.</p>
+<p>Sett opp prosjektet:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> new test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Naviger inn i prosjekt mappen:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bruk poetry install for å bygge prosjektet:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hvis man får en tilbakemelding som denne er prosjektet satt opp korrekt:</p>
+<pre class="shell"><code>Creating virtualenv test-EojoH6Zm-py3.10 in /home/jovyan/.cache/pypoetry/virtualenvs 
+Updating dependencies 
+Resolving dependencies... (0.1s) 
+
+Writing lock file </code></pre>
 </section>
-<section id="avinstallering" class="level3" data-number="18.1.2">
-<h3 data-number="18.1.2" class="anchored" data-anchor-id="avinstallering"><span class="header-section-number">18.1.2</span> Avinstallering</h3>
+<section id="installering" class="level3" data-number="18.1.2">
+<h3 data-number="18.1.2" class="anchored" data-anchor-id="installering"><span class="header-section-number">18.1.2</span> Installering</h3>
+<p>For å legge til pakker i et prosjekt benyttes kommandoen poetry add.</p>
+<p>Skal man legge til pakken “pendulum” vil det se slik ut:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add pendulum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Poetry tilbyr måter å sette versjonsbegrensninger for pakker som legges til i et prosjekt, dette kan man <a href="https://python-poetry.org/docs/cli/#add">lese mer om her.</a></p>
 </section>
-<section id="oppgradere-pakker" class="level3" data-number="18.1.3">
-<h3 data-number="18.1.3" class="anchored" data-anchor-id="oppgradere-pakker"><span class="header-section-number">18.1.3</span> Oppgradere pakker</h3>
+<section id="avinstallering" class="level3" data-number="18.1.3">
+<h3 data-number="18.1.3" class="anchored" data-anchor-id="avinstallering"><span class="header-section-number">18.1.3</span> Avinstallering</h3>
+<p>For å fjerne pakker fra et prosjekt benytter man poetry remove.</p>
+<p>Hvis man ønsker å fjerne “pendulum” fra et prosjekt vil kommandoen se slik ut:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> remove pendulum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="oppgradere-pakker" class="level3" data-number="18.1.4">
+<h3 data-number="18.1.4" class="anchored" data-anchor-id="oppgradere-pakker"><span class="header-section-number">18.1.4</span> Oppgradere pakker</h3>
+<p>For å oppdatere pakker i et prosjekt benytter man kommandoen poetry update.</p>
+<p>Skal man oppdatere pakken “pendulum” bruker man:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> update pendulum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Skal man oppdatre alle pakken i et prosjekt benytter man:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> update </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="sikkerhet" class="level3" data-number="18.1.5">
+<h3 data-number="18.1.5" class="anchored" data-anchor-id="sikkerhet"><span class="header-section-number">18.1.5</span> Sikkerhet</h3>
+<p>Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er tips til noen grep man kan ta for å minimere risikoen:</p>
+<ol type="a">
+<li><p>Før man installerer pakker bør man alltid søke de opp på <a href="https://pypi.org">https://pypi.org</a>. Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.</p></li>
+<li><p>Undersøk prosjektets tilknyttede repository. Tilhører det en kjent organisasjon (f.eks. <a href="https://github.com/statisticsnorway">SSB</a>)?</p></li>
+<li><p>Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet?</p></li>
+</ol>
 </section>
 </section>
 <section id="r" class="level2" data-number="18.2">
@@ -421,7 +529,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

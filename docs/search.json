@@ -74,7 +74,7 @@
     "href": "virtual-env.html",
     "title": "16  Virtuelle miljøer",
     "section": "",
-    "text": "Poetry bør benyttes for python. Mer kommer"
+    "text": "Et python viretuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det viretuelt miljøet er aktivert. Dette gjør at man ungår avhengighetskonflikter på tvers av prosjekter.\nSe her for mer informasjon om viretuelle miljøer.\n\n\nDet er anbefalt å benytte verktøyet poetry for å administrere prosjekter og deres viretuelle miljø.\nPoetry setter opp virtuelt miljø, gjør det enkelt å oppdatere avhengigheter, sette versjons begrensninger og reprodusere prosjektet.\nPoetry gjør dette ved å lagre avhengigheters eksakte versjon i prosjektets “poetry.lock”. Og eventuelle begrensninger i “pyproject.toml”. Dette gjør det enkelt for andre å bygge prosjektet med akkurat de samme pakkene og begrensningene."
   },
   {
     "objectID": "virtual-env.html#r",
@@ -88,7 +88,7 @@
     "href": "pakke-install.html",
     "title": "18  Installere pakker",
     "section": "",
-    "text": "Mer kommer."
+    "text": "Installering av pakker er kun er mulig I et virtuelt miljø. Det er anbefalt å benytte poetry til dette. Eksemplene videre benytter derfor poetry.\nDet er mulig å installere pakker uten poetry. Pakker kan installeres som normalt, hvis man har satt opp og aktivert et virtuelt miljø.\n\n\nI dette eksemplet heter prosjektet test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene.\nSett opp prosjektet:\npoetry new test\nNaviger inn i prosjekt mappen:\ncd test\nBruk poetry install for å bygge prosjektet:\npoetry install\nHvis man får en tilbakemelding som denne er prosjektet satt opp korrekt:\nCreating virtualenv test-EojoH6Zm-py3.10 in /home/jovyan/.cache/pypoetry/virtualenvs \nUpdating dependencies \nResolving dependencies... (0.1s) \n\nWriting lock file \n\n\n\nFor å legge til pakker i et prosjekt benyttes kommandoen poetry add.\nSkal man legge til pakken “pendulum” vil det se slik ut:\npoetry add pendulum\nPoetry tilbyr måter å sette versjonsbegrensninger for pakker som legges til i et prosjekt, dette kan man lese mer om her.\n\n\n\nFor å fjerne pakker fra et prosjekt benytter man poetry remove.\nHvis man ønsker å fjerne “pendulum” fra et prosjekt vil kommandoen se slik ut:\npoetry remove pendulum\n\n\n\nFor å oppdatere pakker i et prosjekt benytter man kommandoen poetry update.\nSkal man oppdatere pakken “pendulum” bruker man:\npoetry update pendulum\nSkal man oppdatre alle pakken i et prosjekt benytter man:\npoetry update \n\n\n\nHvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er tips til noen grep man kan ta for å minimere risikoen:\n\nFør man installerer pakker bør man alltid søke de opp på https://pypi.org. Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.\nUndersøk prosjektets tilknyttede repository. Tilhører det en kjent organisasjon (f.eks. SSB)?\nEr det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet?"
   },
   {
     "objectID": "pakke-install.html#r",
@@ -180,5 +180,12 @@
     "title": "24  Databaser",
     "section": "24.2 CloudSQL",
     "text": "24.2 CloudSQL"
+  },
+  {
+    "objectID": "pakke-install.html#python",
+    "href": "pakke-install.html#python",
+    "title": "18  Installere pakker",
+    "section": "18.1 Python",
+    "text": "18.1 Python\nMer kommer.\n\n18.1.1 Installering\nhttps://python-poetry.org/docs/cli/#add\n\n\n18.1.2 Avinstallering\nhttps://python-poetry.org/docs/cli/#remove\n\n\n18.1.3 Oppgradere pakker\nFor å oppdatere pakker i et prosjekt må man navigere til prosjektet i terminalen og benytter komandoen poetry update.\nHvis man ønsker å oppdatere en enkelt pakke benytter man poetry update .\nSkal man oppdatere pakken “requests” bruker man: poetry update requests\nSkal man oppdatre alle pakken i et prosjekt benytter man: poetry update For mer dokumentasjon se(https://python-poetry.org/docs/cli/)\n\n\n18.1.4 Sikkerhet\nHvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode.\nHer er tips til noen grep man kan ta for å minimere risikoen:\n1. Man bør alltid søke opp pakken på https://pypi.org/. Det er anbefalt å klippe og lime inn navnet på pakken når man skal legge den til i et prosjekt. \n\n2. Undersøk prosjektets tilknyttede repository. Tilhører det en kjent organisasjon (feks. ssb)? \n\n3. Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet?"
   }
 ]

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -59,7 +64,7 @@ ul.task-list{list-style: none;}
 
 
 <meta property="og:title" content="Kom i gang med DAPLA - 16&nbsp; Virtuelle miljøer">
-<meta property="og:description" content="Poetry bør benyttes for python. Mer kommer">
+<meta property="og:description" content="Et python viretuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det viretuelt miljøet er aktivert.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -285,12 +290,15 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python"> <span class="header-section-number">16.1</span> Python</a></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"> <span class="header-section-number">16.2</span> R</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python"><span class="toc-section-number">16.1</span>  Python</a>
+  <ul class="collapse">
+  <li><a href="#anbefalning" id="toc-anbefalning" class="nav-link" data-scroll-target="#anbefalning"><span class="toc-section-number">16.1.1</span>  Anbefalning</a></li>
+  </ul></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="toc-section-number">16.2</span>  R</a></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +323,14 @@ ul.task-list{list-style: none;}
 
 <section id="python" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="python"><span class="header-section-number">16.1</span> Python</h2>
-<p>Poetry bør benyttes for python. Mer kommer</p>
+<p>Et python viretuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det viretuelt miljøet er aktivert. Dette gjør at man ungår avhengighetskonflikter på tvers av prosjekter.</p>
+<p>Se her for <a href="https://docs.python.org/3/tutorial/venv.html">mer informasjon om viretuelle miljøer.</a></p>
+<section id="anbefalning" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="anbefalning"><span class="header-section-number">16.1.1</span> Anbefalning</h3>
+<p>Det er anbefalt å benytte verktøyet poetry for å administrere prosjekter og deres viretuelle miljø.</p>
+<p>Poetry setter opp virtuelt miljø, gjør det enkelt å oppdatere avhengigheter, sette versjons begrensninger og reprodusere prosjektet.</p>
+<p>Poetry gjør dette ved å lagre avhengigheters eksakte versjon i prosjektets “poetry.lock”. Og eventuelle begrensninger i “pyproject.toml”. Dette gjør det enkelt for andre å bygge prosjektet med akkurat de samme pakkene og begrensningene.</p>
+</section>
 </section>
 <section id="r" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="r"><span class="header-section-number">16.2</span> R</h2>
@@ -393,7 +408,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
