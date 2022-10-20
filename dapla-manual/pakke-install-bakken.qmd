@@ -13,7 +13,7 @@ Pip er ferdig konfigurert for bruk av Nexus og kan kjøres som [beskrevet for Da
 Hvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.
 
 ```shell
-poetry source add --default nexus http://pl-nexuspro-p.ssb.no:8081/repository/pypi-proxy/simple
+poetry source add --default nexus `echo $PIP_INDEX_URL`
 ```
 
 Da får man installere pakker som vanlig f.eks
