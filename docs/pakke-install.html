@@ -396,13 +396,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="python" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="python"><span class="header-section-number">18.1</span> Python</h2>
 <p>Installering av pakker er kun er mulig I et <a href="./virtual-env.html">virtuelt miljø</a>. Det er <a href="./virtual-env.html#Anbefalning">anbefalt å benytte poetry</a> til dette. Eksemplene videre benytter derfor poetry.</p>
-<p>Det er mulig å <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">installere pakker uten poetry</a>. Pakker kan installeres som normalt, hvis man har satt opp og aktivert et <a href="./virtual-env.html">virtuelt miljø</a>.</p>
+<p>Det er mulig å <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">installere pakker med pip</a>. Pakker kan installeres som normalt, hvis man har satt opp og aktivert et <a href="./virtual-env.html">virtuelt miljø</a>.</p>
 <section id="poetry-prosjekt-eksempel" class="level3" data-number="18.1.1">
 <h3 data-number="18.1.1" class="anchored" data-anchor-id="poetry-prosjekt-eksempel"><span class="header-section-number">18.1.1</span> Poetry prosjekt eksempel</h3>
-<p>I dette eksemplet heter prosjektet test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene.</p>
+<p>Dette eksemplet viser hvordan man setter oppe et enkelt poetry prosjekt kalt test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene.</p>
 <p>Sett opp prosjektet:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> new test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Naviger inn i prosjekt mappen:</p>
+<p>Naviger inn i prosjektmappen:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bruk poetry install for å bygge prosjektet:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -436,7 +436,7 @@ Writing lock file </code></pre>
 </section>
 <section id="sikkerhet" class="level3" data-number="18.1.5">
 <h3 data-number="18.1.5" class="anchored" data-anchor-id="sikkerhet"><span class="header-section-number">18.1.5</span> Sikkerhet</h3>
-<p>Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er tips til noen grep man kan ta for å minimere risikoen:</p>
+<p>Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er en list med viktige tiltak som minimere risikoen:</p>
 <ol type="a">
 <li><p>Før man installerer pakker bør man alltid søke de opp på <a href="https://pypi.org">https://pypi.org</a>. Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.</p></li>
 <li><p>Undersøk prosjektets tilknyttede repository. Tilhører det en kjent organisasjon (f.eks. <a href="https://github.com/statisticsnorway">SSB</a>)?</p></li>
