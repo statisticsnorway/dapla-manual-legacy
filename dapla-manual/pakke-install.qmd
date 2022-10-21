@@ -77,9 +77,7 @@ Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan 
 
 a) Før man installerer pakker bør man alltid søke de opp på [https://pypi.org](https://pypi.org). Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.  
 
-b) Undersøk prosjektets tilknyttede repository. Tilhører det en kjent organisasjon (f.eks. [SSB](https://github.com/statisticsnorway))?  
-
-c) Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet? 
+b) Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet? 
 
 ## R
 
