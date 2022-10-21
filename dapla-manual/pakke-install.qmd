@@ -3,17 +3,17 @@
 ## Python 
 Installering av pakker er kun er mulig I et [virtuelt miljø](virtual-env.qmd). Det er [anbefalt å benytte poetry](virtual-env.qmd#Anbefalning) til dette. Eksemplene videre benytter derfor poetry.
 
-Det er mulig å [installere pakker uten poetry](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/). Pakker kan installeres som normalt, hvis man har satt opp og aktivert et [virtuelt miljø](virtual-env.qmd). 
+Det er mulig å [installere pakker med pip](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/). Pakker kan installeres som normalt, hvis man har satt opp og aktivert et [virtuelt miljø](virtual-env.qmd). 
 
-### Poetry prosjekt eksempel 
-I dette eksemplet heter prosjektet test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene. 
+### Poetry prosjekt eksempel
+Dette eksemplet viser hvordan man setter oppe et enkelt poetry prosjekt kalt test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene. 
  
 Sett opp prosjektet: 
 ```bash 
 poetry new test
 ```  
 
-Naviger inn i prosjekt mappen: 
+Naviger inn i prosjektmappen: 
 ```bash 
 cd test
 ``` 
@@ -32,10 +32,6 @@ Resolving dependencies... (0.1s)
 
 Writing lock file 
 ``` 
-
- 
- 
- 
 
 ### Installering 
 For å legge til pakker i et prosjekt benyttes kommandoen poetry add. 
@@ -77,7 +73,7 @@ poetry update
 
 ### Sikkerhet 
 
-Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er tips til noen grep man kan ta for å minimere risikoen:  
+Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er en list med viktige tiltak som minimere risikoen:  
 
 a) Før man installerer pakker bør man alltid søke de opp på [https://pypi.org](https://pypi.org). Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.  
 
