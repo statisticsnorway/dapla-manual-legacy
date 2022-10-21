@@ -180,5 +180,19 @@
     "title": "24  Databaser",
     "section": "24.2 CloudSQL",
     "text": "24.2 CloudSQL"
+  },
+  {
+    "objectID": "pakke-install-bakken.html",
+    "href": "pakke-install-bakken.html",
+    "title": "21  Installere pakker",
+    "section": "",
+    "text": "Installering av pakker i Jupyter miljøer på bakken (f.eks https://sl-jupyter-p.ssb.no) foregår stort sett helt lik som på Dapla. Det er én viktig forskjell, og det er at installasjon skjer via en proxy som heter Nexus.\n\n\nPip er ferdig konfigurert for bruk av Nexus og kan kjøres som beskrevet for Dapla\n\n\n\nHvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.\npoetry source add --default nexus http://pl-nexuspro-p.ssb.no:8081/repository/pypi-proxy/simple\nDa får man installere pakker som vanlig f.eks\npoetry add matplotlib\n\n\n\n\n\n\nHvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så må man fjerner nexus kilden ved å kjøre\npoetry source remove nexus"
+  },
+  {
+    "objectID": "pakke-install-bakken.html#r",
+    "href": "pakke-install-bakken.html#r",
+    "title": "21  Installere pakker",
+    "section": "21.2 R",
+    "text": "21.2 R\n\n21.2.1 Installering\n\n\n21.2.2 Avinstallering\n\n\n21.2.3 Oppgradere pakker"
   }
 ]

@@ -46,6 +46,7 @@ book:
       - vedlikehold.qmd
     - part: jupyter-pa-bakken.qmd
       chapters:
+      - pakke-install-bakken.qmd
       - lese-data-bakken.qmd
     - part: avansert.qmd
       chapters:
