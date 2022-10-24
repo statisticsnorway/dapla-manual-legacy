@@ -1,0 +1,625 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Kom i gang med DAPLA},
+  pdfauthor={Øyvind Bruer-Skarsbø},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Kom i gang med DAPLA}
+\author{Øyvind Bruer-Skarsbø}
+\date{10/9/2022}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, boxrule=0pt, frame hidden, enhanced, borderline west={3pt}{0pt}{shadecolor}, sharp corners, breakable]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Innhold}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{velkommen}{%
+\chapter*{Velkommen}\label{velkommen}}
+\addcontentsline{toc}{chapter}{Velkommen}
+
+DAPLA står for dataplattform og er SSBs nye plattform for
+statistikkproduksjon. Arbeidet startet som et utviklingsprosjekt i 2018
+i sammenheng med Skatteetatens prosjekt \emph{Sirius}. Idag er
+plattformen mer moden og klar for å ta imot flere statistikker. Denne
+boken er ment som
+
+DAPLA står for dataplattform og er SSBs nye plattform for
+statistikkproduksjon. Arbeidet startet som et utviklingsprosjekt i 2018
+i sammenheng med Skatteetatens prosjekt \emph{Sirius}. Idag er
+plattformen mer moden og klar for å ta imot flere statistikker. Denne
+boken er ment som
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, rightrule=.15mm, opacityback=0, bottomrule=.15mm, leftrule=.75mm, arc=.35mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, left=2mm, breakable]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-note-color}{\faInfo}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+Denne boken er skrevet med \href{https://quarto.org/}{Quarto} og er
+publisert på \url{https://statisticsnorway.github.io/dapla-manual/}.
+Alle ansatte i SSB kan bidra til boken ved klone
+\href{https://github.com/statisticsnorway/dapla-manual}{dette repoet},
+gjøre endringer i en branch, og sende en pull request til
+administratorene av repoet (Team Statistikktjenester).\end{minipage}%
+\end{tcolorbox}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{forord}{%
+\chapter*{Forord}\label{forord}}
+\addcontentsline{toc}{chapter}{Forord}
+
+Denne boken vil la SSB-ansatte ta i bruk grunnleggende funksjonalitet på
+DAPLA uten hjelp fra andre.
+
+\part{Introduksjon}
+
+Målet med dette kapitlet er å gi en grunnleggende innføring i hva som
+legges i ordet \textbf{Dapla}. I tillegg gis en forklaring på hvorfor
+disse valgene er tatt.
+
+\hypertarget{hva-er-dapla}{%
+\chapter{Hva er Dapla?}\label{hva-er-dapla}}
+
+\hypertarget{hvorfor-dapla}{%
+\chapter{Hvorfor Dapla?}\label{hvorfor-dapla}}
+
+\hypertarget{arkitektur}{%
+\chapter{Arkitektur}\label{arkitektur}}
+
+Hvilke komponenter er plattformen bygd opp på? Forklart på lettest mulig
+måte.
+
+\hypertarget{innlogging}{%
+\chapter{Innlogging}\label{innlogging}}
+
+\hypertarget{jupyterlab}{%
+\chapter{Jupyterlab}\label{jupyterlab}}
+
+\hypertarget{bakke-vs.-sky}{%
+\chapter{Bakke vs.~sky}\label{bakke-vs.-sky}}
+
+\part{Opprette Dapla-team}
+
+\hypertarget{hva-er-dapla-team}{%
+\chapter{Hva er Dapla-team?}\label{hva-er-dapla-team}}
+
+Mer kommer
+
+\hypertarget{opprette-dapla-team}{%
+\chapter{Opprette Dapla-team}\label{opprette-dapla-team}}
+
+\hypertarget{google-cloud-console}{%
+\chapter{Google Cloud Console}\label{google-cloud-console}}
+
+\hypertarget{lagre-data}{%
+\chapter{Lagre data}\label{lagre-data}}
+
+\hypertarget{hente-data}{%
+\chapter{Hente data}\label{hente-data}}
+
+\hypertarget{fra-bakke-til-sky}{%
+\chapter{Fra bakke til sky}\label{fra-bakke-til-sky}}
+
+\hypertarget{administrasjon-av-team}{%
+\chapter{Administrasjon av team}\label{administrasjon-av-team}}
+
+\part{Beste-praksis for koding}
+
+\hypertarget{ssb-project}{%
+\chapter{SSB-project}\label{ssb-project}}
+
+Fremtidens produksjonsløp på \textbf{Dapla} bør følge noen helt klare
+retningslinjer for arbeidsprosesser og kode. Dette bør blant annet
+inkludere:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Standard mappestruktur}\\
+  En standard mappestruktur gjør det lettere å dele og samarbeide om
+  kode, som igjen reduserer sårbarheten knyttet til at få personer
+  kjenner koden.
+\item
+  \textbf{Virtuelt miljø}\\
+  Virtuelle miljøer isoloerer og lagrer informasjon knyttet til kode.
+  For at publiserte tall skal være reproduserbare er SSB avhengig av at
+  blant annet pakkeversjoner og versjon av Python/R lagres sammen med
+  kode som er kjørt.
+\item
+  \textbf{Versjonshåndtering med Git}\\
+  Versjonshåndtering av kode er svært viktig for å kunne gjenskape og
+  samarbeide om kode. \href{https://git-scm.com/}{Git} er
+  verdensstandarden for å gjøre dette, og derfor legges det opp til at
+  all kode skal versjonshåndteres med Git i SSB.
+\item
+  \textbf{Lagre kode på Github}\\
+  På Dapla er det ingen fellesmappe som alle i SSB har tilgang til og
+  hvor vi kan dele kode slik vi har gjort i bakkemiljøet tidligere. Kode
+  som er versjonshåndtert med Git bruker som regel et remote
+  repo\footnote{\emph{Remote repo} er en felle mappe som er lagret på en
+    annen maskin.
+    \href{https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes}{Les
+    mer her.}} som er spesialsydd for Git og som skal deles med resten
+  av verden hvis man ønsker. I SSB har vi valgt å bruke GitHub, der SSB
+  har et eget område som heter
+  \href{https://github.com/statisticsnorway}{statisticsnorway}.
+\end{enumerate}
+
+\href{https://statistics-norway.atlassian.net/wiki/spaces/STAT/overview?homepageId=3127312686}{Team
+Statistikktjenester} har laget en CLI\footnote{CLI =
+  Command-Line-Interface. Dvs. et program som er skrevet for å brukes
+  terminalen ved hjelp av enkle kommandoer.} som skal gjøre dette lett å
+implemententere dette i kode. Den heter
+\href{https://github.com/statisticsnorway/ssb-project-cli}{ssb-project}
+og hjelper deg implementere det som til enhver tid er beste-praksis for
+koding.
+
+Under vises det hvordan man bruker \texttt{ssb-project} til sette opp et
+prosjekt. Men programmet forutsettet at du har en GitHub-bruker som er
+knyttet opp mot
+\href{https://github.com/statisticsnorway}{statisticsnorway}. De første
+underkapitlene er derfor en beskrivelse av dette.
+
+\hypertarget{opprett-github-bruker}{%
+\section{Opprett GitHub-bruker}\label{opprett-github-bruker}}
+
+Dette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto
+fra før. For å bruke \texttt{ssb-project}-programmet til å generere et
+\textbf{remote repo} på GitHub må du ha en konto. Derfor starter vi med
+å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det
+igjen.
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, rightrule=.15mm, opacityback=0, bottomrule=.15mm, leftrule=.75mm, arc=.35mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, left=2mm, breakable]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-note-color}{\faInfo}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+SSB har valgt å ikke sette opp SSB-brukerne til de ansatte som
+GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som
+en del av den ansattes CV. For de som aldri har brukt GitHub før kan det
+virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent
+med denne arbeidsformen.\end{minipage}%
+\end{tcolorbox}
+
+Slik gjør du det:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Gå til \url{https://github.com/}
+\item
+  Trykk \textbf{Sign up} øverst i høyre hjørne
+\item
+  Svar på spørsmålene du blir stilt.
+\end{enumerate}
+
+Husk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan
+være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte
+denne kontoen til din SSB-bruker.
+
+\hypertarget{koble-seg-til-ssb}{%
+\section{Koble seg til SSB}\label{koble-seg-til-ssb}}
+
+Hvis du har fullført forrige steg så har du nå en SSB-konto. Hvis du
+står på din profil-side så ser den slik ut:
+
+\hypertarget{autentifisering}{%
+\section{Autentifisering}\label{autentifisering}}
+
+\hypertarget{ssb-project-cli}{%
+\section{ssb-project-cli}\label{ssb-project-cli}}
+
+\hypertarget{git-og-github}{%
+\chapter{Git og Github}\label{git-og-github}}
+
+\hypertarget{virtuelle-miljuxf8er}{%
+\chapter{Virtuelle miljøer}\label{virtuelle-miljuxf8er}}
+
+\hypertarget{python}{%
+\section{Python}\label{python}}
+
+Poetry bør benyttes for python. Mer kommer
+
+\hypertarget{r}{%
+\section{R}\label{r}}
+
+\hypertarget{jupyter-kernels}{%
+\chapter{Jupyter-kernels}\label{jupyter-kernels}}
+
+\hypertarget{installere-pakker}{%
+\chapter{Installere pakker}\label{installere-pakker}}
+
+\hypertarget{python-1}{%
+\section{Python}\label{python-1}}
+
+Mer kommer.
+
+\hypertarget{installering}{%
+\subsection{Installering}\label{installering}}
+
+\hypertarget{avinstallering}{%
+\subsection{Avinstallering}\label{avinstallering}}
+
+\hypertarget{oppgradere-pakker}{%
+\subsection{Oppgradere pakker}\label{oppgradere-pakker}}
+
+\hypertarget{r-1}{%
+\section{R}\label{r-1}}
+
+\hypertarget{installering-1}{%
+\subsection{Installering}\label{installering-1}}
+
+\hypertarget{avinstallering-1}{%
+\subsection{Avinstallering}\label{avinstallering-1}}
+
+\hypertarget{oppgradere-pakker-1}{%
+\subsection{Oppgradere pakker}\label{oppgradere-pakker-1}}
+
+\hypertarget{samarbeid}{%
+\chapter{Samarbeid}\label{samarbeid}}
+
+Noen har opprettet et ssb-project og pushet til Github. Hvordan skal
+kollegaer gå frem for å bidra inn i koden?
+
+\hypertarget{vedlikehold}{%
+\chapter{Vedlikehold}\label{vedlikehold}}
+
+\part{Jupyterlab på bakken}
+
+\hypertarget{installere-pakker-1}{%
+\chapter{Installere pakker}\label{installere-pakker-1}}
+
+\hypertarget{python-2}{%
+\section{Python}\label{python-2}}
+
+Installering av pakker i Jupyter miljøer på bakken (f.eks
+\url{https://sl-jupyter-p.ssb.no}) foregår stort sett helt lik
+\href{./pakke-install.html}{som på Dapla}. Det er én viktig forskjell,
+og det er at installasjon skjer via en proxy som heter Nexus.
+
+\hypertarget{pip}{%
+\subsection{Pip}\label{pip}}
+
+Pip er ferdig konfigurert for bruk av Nexus og kan kjøres som
+\href{./pakke-install.html}{beskrevet for Dapla}
+
+\hypertarget{poetry}{%
+\subsection{Poetry}\label{poetry}}
+
+Hvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man
+kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{poetry source add {-}{-}default nexus \textasciigrave{}echo $PIP\_INDEX\_URL\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+Da får man installere pakker som vanlig f.eks
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{poetry add matplotlib}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, rightrule=.15mm, opacityback=0, bottomrule=.15mm, leftrule=.75mm, arc=.35mm, toprule=.15mm, colframe=quarto-callout-warning-color-frame, left=2mm, breakable]
+\begin{minipage}[t]{5.5mm}
+\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}
+\end{minipage}%
+\begin{minipage}[t]{\textwidth - 5.5mm}
+
+Hvis man forsøker å installere prosjektet i et annet miljø (f.eks
+Dapla), så må man fjerner \texttt{nexus} kilden ved å kjøre
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{poetry source remove nexus}
+\end{Highlighting}
+\end{Shaded}
+
+\end{minipage}%
+\end{tcolorbox}
+
+\hypertarget{r-2}{%
+\section{R}\label{r-2}}
+
+\hypertarget{installering-2}{%
+\subsection{Installering}\label{installering-2}}
+
+\hypertarget{avinstallering-2}{%
+\subsection{Avinstallering}\label{avinstallering-2}}
+
+\hypertarget{oppgradere-pakker-2}{%
+\subsection{Oppgradere pakker}\label{oppgradere-pakker-2}}
+
+\hypertarget{lese-inn-filer}{%
+\chapter{Lese inn filer}\label{lese-inn-filer}}
+
+Mer kommer.
+
+\hypertarget{sas7bdat}{%
+\section{sas7bdat}\label{sas7bdat}}
+
+\hypertarget{oracle}{%
+\section{Oracle}\label{oracle}}
+
+\hypertarget{fame}{%
+\section{Fame}\label{fame}}
+
+\hypertarget{tekstfiler}{%
+\section{Tekstfiler}\label{tekstfiler}}
+
+\hypertarget{parquet}{%
+\section{Parquet}\label{parquet}}
+
+\part{Avansert}
+
+\hypertarget{ideer}{%
+\chapter{IDE'er}\label{ideer}}
+
+Forklare situasjonen nå. Kun Jupyterlab. Kan kjøre remote session med
+Rstudio, Pycharm og VSCode.
+
+\hypertarget{rstudio}{%
+\section{RStudio}\label{rstudio}}
+
+\hypertarget{vscode}{%
+\section{VSCode}\label{vscode}}
+
+\hypertarget{pycharm}{%
+\section{Pycharm}\label{pycharm}}
+
+\hypertarget{schedulering}{%
+\chapter{Schedulering}\label{schedulering}}
+
+\hypertarget{databaser}{%
+\chapter{Databaser}\label{databaser}}
+
+\hypertarget{bigquery}{%
+\section{BigQuery}\label{bigquery}}
+
+\hypertarget{cloudsql}{%
+\section{CloudSQL}\label{cloudsql}}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{referanser}{%
+\chapter*{Referanser}\label{referanser}}
+\addcontentsline{toc}{chapter}{Referanser}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\end{CSLReferences}
+
+
+
+\end{document}
