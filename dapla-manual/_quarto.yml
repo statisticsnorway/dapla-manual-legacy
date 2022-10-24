@@ -1,6 +1,8 @@
 project:
   type: book
-  output-dir: ../docs
+
+execute:
+  freeze: auto
 
 book:
   title: "Kom i gang med DAPLA"
