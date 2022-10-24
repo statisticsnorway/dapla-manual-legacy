@@ -182,10 +182,25 @@
     "text": "24.2 CloudSQL"
   },
   {
+    STAT-131-dokumentere-løsningen
     "objectID": "pakke-install.html#python",
     "href": "pakke-install.html#python",
     "title": "18  Installere pakker",
     "section": "18.1 Python",
     "text": "18.1 Python\nMer kommer.\n\n18.1.1 Installering\nhttps://python-poetry.org/docs/cli/#add\n\n\n18.1.2 Avinstallering\nhttps://python-poetry.org/docs/cli/#remove\n\n\n18.1.3 Oppgradere pakker\nFor å oppdatere pakker i et prosjekt må man navigere til prosjektet i terminalen og benytter komandoen poetry update.\nHvis man ønsker å oppdatere en enkelt pakke benytter man poetry update .\nSkal man oppdatere pakken “requests” bruker man: poetry update requests\nSkal man oppdatre alle pakken i et prosjekt benytter man: poetry update For mer dokumentasjon se(https://python-poetry.org/docs/cli/)\n\n\n18.1.4 Sikkerhet\nHvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode.\nHer er tips til noen grep man kan ta for å minimere risikoen:\n1. Man bør alltid søke opp pakken på https://pypi.org/. Det er anbefalt å klippe og lime inn navnet på pakken når man skal legge den til i et prosjekt. \n\n2. Undersøk prosjektets tilknyttede repository. Tilhører det en kjent organisasjon (feks. ssb)? \n\n3. Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet?"
+  },
+  {
+    "objectID": "pakke-install-bakken.html",
+    "href": "pakke-install-bakken.html",
+    "title": "21  Installere pakker",
+    "section": "",
+    "text": "Installering av pakker i Jupyter miljøer på bakken (f.eks https://sl-jupyter-p.ssb.no) foregår stort sett helt lik som på Dapla. Det er én viktig forskjell, og det er at installasjon skjer via en proxy som heter Nexus.\n\n\nPip er ferdig konfigurert for bruk av Nexus og kan kjøres som beskrevet for Dapla\n\n\n\nHvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.\npoetry source add --default nexus http://pl-nexuspro-p.ssb.no:8081/repository/pypi-proxy/simple\nDa får man installere pakker som vanlig f.eks\npoetry add matplotlib\n\n\n\n\n\n\nHvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så må man fjerner nexus kilden ved å kjøre\npoetry source remove nexus"
+  },
+  {
+    "objectID": "pakke-install-bakken.html#r",
+    "href": "pakke-install-bakken.html#r",
+    "title": "21  Installere pakker",
+    "section": "21.2 R",
+    "text": "21.2 R\n\n21.2.1 Installering\n\n\n21.2.2 Avinstallering\n\n\n21.2.3 Oppgradere pakker"
   }
 ]
