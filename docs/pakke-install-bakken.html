@@ -342,7 +342,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="poetry" class="level3" data-number="21.1.2">
 <h3 data-number="21.1.2" class="anchored" data-anchor-id="poetry"><span class="header-section-number">21.1.2</span> Poetry</h3>
 <p>Hvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.</p>
-<pre class="shell"><code>poetry source add --default nexus http://pl-nexuspro-p.ssb.no:8081/repository/pypi-proxy/simple</code></pre>
+<pre class="shell"><code>poetry source add --default nexus `echo $PIP_INDEX_URL`</code></pre>
 <p>Da får man installere pakker som vanlig f.eks</p>
 <pre class="shell"><code>poetry add matplotlib</code></pre>
 <div class="callout-warning callout callout-style-simple">

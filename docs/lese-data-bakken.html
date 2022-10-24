@@ -2,19 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kom i gang med DAPLA - 21&nbsp; Lese inn filer</title>
+<title>Kom i gang med DAPLA - 22&nbsp; Lese inn filer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -26,7 +31,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./avansert.html" rel="next">
-<link href="./jupyter-pa-bakken.html" rel="prev">
+<link href="./pakke-install-bakken.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -58,7 +63,7 @@ ul.task-list{list-style: none;}
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Kom i gang med DAPLA - 21&nbsp; Lese inn filer">
+<meta property="og:title" content="Kom i gang med DAPLA - 22&nbsp; Lese inn filer">
 <meta property="og:description" content="Mer kommer.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
@@ -69,7 +74,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Lese inn filer</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Lese inn filer</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -245,7 +250,12 @@ ul.task-list{list-style: none;}
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data-bakken.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Lese inn filer</span></a>
+  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Installere pakker</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lese-data-bakken.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Lese inn filer</span></a>
   </div>
 </li>
       </ul>
@@ -260,17 +270,17 @@ ul.task-list{list-style: none;}
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./remote.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">IDE’er</span></a>
+  <a href="./remote.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">IDE’er</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Schedulering</span></a>
+  <a href="./schedulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Schedulering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./databaser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Databaser</span></a>
+  <a href="./databaser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Databaser</span></a>
   </div>
 </li>
       </ul>
@@ -285,15 +295,15 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#sas7bdat" id="toc-sas7bdat" class="nav-link active" data-scroll-target="#sas7bdat"> <span class="header-section-number">21.1</span> sas7bdat</a></li>
-  <li><a href="#oracle" id="toc-oracle" class="nav-link" data-scroll-target="#oracle"> <span class="header-section-number">21.2</span> Oracle</a></li>
-  <li><a href="#fame" id="toc-fame" class="nav-link" data-scroll-target="#fame"> <span class="header-section-number">21.3</span> Fame</a></li>
-  <li><a href="#tekstfiler" id="toc-tekstfiler" class="nav-link" data-scroll-target="#tekstfiler"> <span class="header-section-number">21.4</span> Tekstfiler</a></li>
-  <li><a href="#parquet" id="toc-parquet" class="nav-link" data-scroll-target="#parquet"> <span class="header-section-number">21.5</span> Parquet</a></li>
+  <li><a href="#sas7bdat" id="toc-sas7bdat" class="nav-link active" data-scroll-target="#sas7bdat"><span class="toc-section-number">22.1</span>  sas7bdat</a></li>
+  <li><a href="#oracle" id="toc-oracle" class="nav-link" data-scroll-target="#oracle"><span class="toc-section-number">22.2</span>  Oracle</a></li>
+  <li><a href="#fame" id="toc-fame" class="nav-link" data-scroll-target="#fame"><span class="toc-section-number">22.3</span>  Fame</a></li>
+  <li><a href="#tekstfiler" id="toc-tekstfiler" class="nav-link" data-scroll-target="#tekstfiler"><span class="toc-section-number">22.4</span>  Tekstfiler</a></li>
+  <li><a href="#parquet" id="toc-parquet" class="nav-link" data-scroll-target="#parquet"><span class="toc-section-number">22.5</span>  Parquet</a></li>
   </ul>
 </nav>
     </div>
@@ -302,7 +312,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Lese inn filer</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Lese inn filer</span></h1>
 </div>
 
 
@@ -317,20 +327,20 @@ ul.task-list{list-style: none;}
 </header>
 
 <p>Mer kommer.</p>
-<section id="sas7bdat" class="level2" data-number="21.1">
-<h2 data-number="21.1" class="anchored" data-anchor-id="sas7bdat"><span class="header-section-number">21.1</span> sas7bdat</h2>
+<section id="sas7bdat" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="sas7bdat"><span class="header-section-number">22.1</span> sas7bdat</h2>
 </section>
-<section id="oracle" class="level2" data-number="21.2">
-<h2 data-number="21.2" class="anchored" data-anchor-id="oracle"><span class="header-section-number">21.2</span> Oracle</h2>
+<section id="oracle" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="oracle"><span class="header-section-number">22.2</span> Oracle</h2>
 </section>
-<section id="fame" class="level2" data-number="21.3">
-<h2 data-number="21.3" class="anchored" data-anchor-id="fame"><span class="header-section-number">21.3</span> Fame</h2>
+<section id="fame" class="level2" data-number="22.3">
+<h2 data-number="22.3" class="anchored" data-anchor-id="fame"><span class="header-section-number">22.3</span> Fame</h2>
 </section>
-<section id="tekstfiler" class="level2" data-number="21.4">
-<h2 data-number="21.4" class="anchored" data-anchor-id="tekstfiler"><span class="header-section-number">21.4</span> Tekstfiler</h2>
+<section id="tekstfiler" class="level2" data-number="22.4">
+<h2 data-number="22.4" class="anchored" data-anchor-id="tekstfiler"><span class="header-section-number">22.4</span> Tekstfiler</h2>
 </section>
-<section id="parquet" class="level2" data-number="21.5">
-<h2 data-number="21.5" class="anchored" data-anchor-id="parquet"><span class="header-section-number">21.5</span> Parquet</h2>
+<section id="parquet" class="level2" data-number="22.5">
+<h2 data-number="22.5" class="anchored" data-anchor-id="parquet"><span class="header-section-number">22.5</span> Parquet</h2>
 
 
 </section>
@@ -405,7 +415,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
@@ -435,8 +446,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./jupyter-pa-bakken.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Jupyterlab på bakken</span>
+      <a href="./pakke-install-bakken.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Installere pakker</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
