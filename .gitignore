@@ -134,4 +134,5 @@ dmypy.json
 # My personal ignores
 /dapla-manual/.quarto/
 /dapla_manual/_site/
+/dapla_manual/_book/
 /docs/
