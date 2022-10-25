@@ -59,17 +59,37 @@ Skal man oppdatere pakken "pendulum" bruker man:
 poetry update pendulum
 ``` 
 
- 
- 
-
 Skal man oppdatre alle pakken i et prosjekt benytter man: 
 
 ```bash 
 poetry update 
-``` 
+```
 
- 
- 
+### Legge til kernel for poetry
+For å kunne benytte det virtuelle miljøet i en notebook må man sette opp en kernel. Kernel burde gis samme navn som prosjektet.
+
+Først legger man til ipykernel:
+```bash 
+poetry add ipykernel
+```
+Så opprettes kernel med:
+```bash 
+poetry run python -m ipykernel install --user --name demo
+```
+Etter dette er kernelen demo opprettet og kan velges for å benytte miljøet i en notebook.
+
+### Fjerne kernel
+For å fjerne en kernel med navn demo bruker man:
+```bash 
+jupyter kernelspec remove demo
+```
+Du vil bli spurt om å bekrefte, trykk y hvis man ønsker å slette:
+```shell
+Kernel specs to remove:
+  demo                    /home/jovyan/.local/share/jupyter/kernels/demo
+Remove 1 kernel specs [y/N]: y
+```
+Etter dette er kernelen fjernet.
 
 ### Sikkerhet 
 
