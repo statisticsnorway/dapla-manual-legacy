@@ -74,19 +74,19 @@ poetry add ipykernel
 ```
 Så opprettes kernel med:
 ```bash 
-poetry run python -m ipykernel install --user --name demo
+poetry run python -m ipykernel install --user --name test
 ```
-Etter dette er kernelen demo opprettet og kan velges for å benytte miljøet i en notebook.
+Etter dette er kernelen test opprettet og kan velges for å benytte miljøet i en notebook.
 
 ### Fjerne kernel
-For å fjerne en kernel med navn demo bruker man:
+For å fjerne en kernel med navn test bruker man:
 ```bash 
-jupyter kernelspec remove demo
+jupyter kernelspec remove test
 ```
 Du vil bli spurt om å bekrefte, trykk y hvis man ønsker å slette:
 ```shell
 Kernel specs to remove:
-  demo                    /home/jovyan/.local/share/jupyter/kernels/demo
+  test                    /home/jovyan/.local/share/jupyter/kernels/test
 Remove 1 kernel specs [y/N]: y
 ```
 Etter dette er kernelen fjernet.
