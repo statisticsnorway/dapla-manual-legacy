@@ -368,7 +368,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#installering" id="toc-installering" class="nav-link" data-scroll-target="#installering"><span class="toc-section-number">18.1.2</span>  Installering</a></li>
   <li><a href="#avinstallering" id="toc-avinstallering" class="nav-link" data-scroll-target="#avinstallering"><span class="toc-section-number">18.1.3</span>  Avinstallering</a></li>
   <li><a href="#oppgradere-pakker" id="toc-oppgradere-pakker" class="nav-link" data-scroll-target="#oppgradere-pakker"><span class="toc-section-number">18.1.4</span>  Oppgradere pakker</a></li>
-  <li><a href="#sikkerhet" id="toc-sikkerhet" class="nav-link" data-scroll-target="#sikkerhet"><span class="toc-section-number">18.1.5</span>  Sikkerhet</a></li>
+  <li><a href="#legge-til-kernel-for-poetry" id="toc-legge-til-kernel-for-poetry" class="nav-link" data-scroll-target="#legge-til-kernel-for-poetry"><span class="toc-section-number">18.1.5</span>  Legge til kernel for poetry</a></li>
+  <li><a href="#fjerne-kernel" id="toc-fjerne-kernel" class="nav-link" data-scroll-target="#fjerne-kernel"><span class="toc-section-number">18.1.6</span>  Fjerne kernel</a></li>
+  <li><a href="#sikkerhet" id="toc-sikkerhet" class="nav-link" data-scroll-target="#sikkerhet"><span class="toc-section-number">18.1.7</span>  Sikkerhet</a></li>
   </ul></li>
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="toc-section-number">18.2</span>  R</a>
   <ul class="collapse">
@@ -439,8 +441,27 @@ Writing lock file </code></pre>
 <p>Skal man oppdatre alle pakken i et prosjekt benytter man:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> update </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="sikkerhet" class="level3" data-number="18.1.5">
-<h3 data-number="18.1.5" class="anchored" data-anchor-id="sikkerhet"><span class="header-section-number">18.1.5</span> Sikkerhet</h3>
+<section id="legge-til-kernel-for-poetry" class="level3" data-number="18.1.5">
+<h3 data-number="18.1.5" class="anchored" data-anchor-id="legge-til-kernel-for-poetry"><span class="header-section-number">18.1.5</span> Legge til kernel for poetry</h3>
+<p>For å kunne benytte det virtuelle miljøet i en notebook må man sette opp en kernel. Kernel burde gis samme navn som prosjektet.</p>
+<p>Først legger man til ipykernel:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Så opprettes kernel med:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> run python <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Etter dette er kernelen test opprettet og kan velges for å benytte miljøet i en notebook.</p>
+</section>
+<section id="fjerne-kernel" class="level3" data-number="18.1.6">
+<h3 data-number="18.1.6" class="anchored" data-anchor-id="fjerne-kernel"><span class="header-section-number">18.1.6</span> Fjerne kernel</h3>
+<p>For å fjerne en kernel med navn test bruker man:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec remove test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Du vil bli spurt om å bekrefte, trykk y hvis man ønsker å slette:</p>
+<pre class="shell"><code>Kernel specs to remove:
+  test                    /home/jovyan/.local/share/jupyter/kernels/test
+Remove 1 kernel specs [y/N]: y</code></pre>
+<p>Etter dette er kernelen fjernet.</p>
+</section>
+<section id="sikkerhet" class="level3" data-number="18.1.7">
+<h3 data-number="18.1.7" class="anchored" data-anchor-id="sikkerhet"><span class="header-section-number">18.1.7</span> Sikkerhet</h3>
 <p>Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er en list med viktige tiltak som minimere risikoen:</p>
 <ol type="a">
 <li><p>Før man installerer pakker bør man alltid søke de opp på <a href="https://pypi.org">https://pypi.org</a>. Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.</p></li>
