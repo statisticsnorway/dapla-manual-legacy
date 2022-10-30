@@ -1,6 +1,6 @@
 # SSB-project
 
-Fremtidens produksjonsløp på **Dapla** bør følge noen helt klare retningslinjer for arbeidsprosesser og kode. Dette bør blant annet inkludere:
+Produksjonsløp på **Dapla** kan med fordel følge noen helt klare retningslinjer for arbeidsprosesser og kode. Dette bør blant annet inkludere:
 
 1. **Standard mappestruktur**  
 En standard mappestruktur gjør det lettere å dele og samarbeide om kode, som igjen reduserer sårbarheten knyttet til at få personer kjenner koden.
@@ -31,14 +31,166 @@ Slik gjør du det:
 
 Husk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker. 
 
-## Koble seg til SSB
+## To-faktor autentifisering {#sec-tofaktor}
 
-Hvis du har fullført forrige steg så har du nå en SSB-konto. Hvis du står på din profil-side så ser den slik ut:
+Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den slik ut:
+
+![](images/github_profile.png)
+
+Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette sin benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:
+
+::: {.grid}
+
+::: {.g-col-8}
+1. Trykk på den lille pilen øverst til høyre og velg **Settings**(se bilde til høyre).
+
+2. Deretter velger du **Password and authentification** i menyen til venstre.
+
+:::
+
+::: {.g-col-4}
+![](images/github_settings_menu.png){ width=50% }
+
+:::
+
+:::
+
+3. Under **Two-factor authentication** trykker du på **Add**. Da får du opp følgende bilde:
+
+![](images/github_2fa.png){ width=50% }
+
+::: {.grid}
+
+::: {.g-col-8}
+4. Strekkoden over skal skannes i din **Microsoft Authenticator**-app på mobilen. Åpne appen, trykk på **Bekreftede ID-er**, og til slutt trykk på **Skann QR-kode**. Deretter skanner du QR-koden fra punkt 3.
+
+5. Når koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden. 
+
+6. Til slutt lagrer du **Recovery-codes** et trygt sted på ditt hjemmeområdet.
+
+:::
+
+::: {.g-col-4}
+![](images/authenticator.jpg){ width=50% }
+
+:::
+
+:::
+
+Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på **statisticsnorway**.
+
+## Koble deg til SSB
+
+I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentifiseringen til koble oss til SSB sin bedriftskonto **statisticsnorway**. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub. 
+
+1. Gå til profilsiden din og velg **Settings** slik du gjorde i punkt 1 i forrige delkapitel. 
+
+2. Trykk deretter på **Organizations** i menyen til venstre. 
+
+3. Trykk deretter på **New organization**.
+
+4. Søk etter **statisticsnorway**. 
 
 
+## Personal Access Token (PAT)
+
+Når vi skal jobbe med SSB-kode som ligger lagret hos **statistcsnorway** på GitHub, så må vi autentifisere oss.  Måten vi gjøre det på er ved å generere et **Personal Access Token** (ofte forkortet *PAT*) som vi oppgir når vi vil hente eller oppdatere kode på GitHub. Da sender vi med PAT for å autentifisere oss for GitHub. 
+
+### Opprette PAT {#sec-pat}
+
+For å lage en PAT som er godkjent mot *statisticsnorway* så gjør man følgende: 
+
+1. Gå til din profilside på GitHub og åpne **Settings** slik som ble vist @sec-tofaktor.
+
+2. Velg **Developer Settings** i menyen til venstre.
+
+3. I menyen til venstre velger du **Personal Access Token**, og deretter **Tokens (classic)**.
+
+5. Under **Note** kan du gi PAT`en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den *dapla*. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den *prodsone* eller noe annet som gjør det lett for det skjønne innholdet i ettertid.
+
+6. Under **Expiration** velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. En grei mellomløsning kan være å velge 3 måneder. Når PAT går ut må du gjenta stegene i dette kapitlet. 
+
+7. Under **Select scopes** velger du **Repo** (se bilde under).
+
+![](images/github_pat.png)
+
+8. Trykk på **Generate token** nederst på siden og du får opp noe som ser ut som dette: 
+
+![](images/github_pat2.png)
+
+9. Kopier deretter PAT til en midlertidig fil. Grunnen er at du aldri vil se det igjen her etter at vi har gjennomført neste steg. 
+
+10. Deretter trykker du på **Configure SSO** og velger **Authorize** ved siden statisticsnorway. Svar deretter på spørsmålene som dukker opp.
+
+![](images/github_pat3.png)
+
+Vi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med **Git** på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på **statisticsnorway** på GitHub. 
+
+### Lagre PAT
+
+Det er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en **.netrc**-fil. Vi oppretter da en fil som heter **.netrc** på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen: 
+
+`machine github.com login <github-bruker> password <Personal Access Token>`
+
+**GitHub-bruker** er da din personlige bruker og IKKE brukernavnet ditt i SSB. **Personal Access Token** er det vi lagde 
+
+En veldig enkel måte å lagre dette er som følger. Anta at min personlige GitHub-bruker er **SSB-Chad** og at min Personal Access Token er **blablabla**. Da kan jeg gjøre følgende for å lagre det i **.netrc**:
+
+1. Gå inn i Jupyterlab og åpne en Python-notebook. 
+
+2. I den første kodecellen skriver du:  
+`!echo "machine github.com login SSB-Chad password blablabla" >> ~/.netrc`
+
+Alternativt kan du droppe det utropstegnet og kjøre det direkte i en terminal. Det vil gi samme resultat. Koden over legger til en linje med teksten **machine github.com login SSB-Chad password blablabla** i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token. 
+
+Hver gang du jobber mot GitHub vil Git sjekke om informasjon om autentifisering ligger i denne filen, og bruke den hvis den ligger der. 
+
+### Oppdater PAT
+
+I eksempelet over lagde vi en PAT som var gyldig i 90 dager. Dermed vil du ikke kunne jobbe mot GitHub med dette tokenet etter 90 dager. For å oppdatere tokenet gjør du følgende: 
+
+1. Lag et nytt PAT ved å repetere @sec-pat.
+
+2. I miljøet der du skal jobbe med Git og GitHub går du inn i din **.netrc** og bytter ut token med det nye. 
+
+Og med det er du klar til å jobbe mot *staisticsnorway* på **GitHub**.
+
+## Opprett ssb-project
+
+Programmet [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) skal gjøre det enklere å organiserer kode etter god praksis i en statistikkproduksjoner. Som nevnt i innledningen vil progammet gi deg en mappestruktur, virtuelt miljø og en jupyter-kernel. Hvis du ønsker kan det også opprette et GitHub-repo. Ønsker du alt gjør du følgende:
+
+1. Åpne en terminal. De fleste vil gjøre dette i Jupyterlab på bakke eller sky og da kan de bare trykke på det blå +-tegnet i Jupyterlab og velge **Terminal**.
+
+2. Før vi kjører programmet må vi være obs på at **ssb-project** vil opprette en ny mappe der vi står. Gå derfor til den mappen du ønsker å ha den nye prosjektmappen. For å opprette et prosjekt som heter **stat-testprod** Deretter skriver du følgende i terminalen:
+
+`ssb-project create stat-testprod`
+
+::: {.grid}
+
+::: {.g-col-8}
+Hvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i bildet til høyre. ^[Filer og mapper som starter med punktum er skjulte med mindre man ber om å se dem. I Jupyterlab kan disse vises i filutforskeren ved å velge **View** fra menylinjen, og deretter velge **Show hidden files**. I en terminal skriver man `ls -a` for å se de.]. Den inneholder følgende :
+
+- **.git**-mappe som blir opprettet for å versjonshåndtere med Git.
+- **src**-mappe som skal inneholde all koden som utgjør produksjonsløpet.
+- **tests**-mappe som inneholder tester du skriver for koden din. 
+- **LICENCE**-fil som skal benyttes for public-repos i SSB.
+- **poetry.lock**-fil som inneholder alle versjoner av Python-pakker som blir brukt.
+- **README.md**-fil som brukes for tekstlig innhold på GitHub-siden for prosjektet. 
 
 
+:::
 
-## Autentifisering
+::: {.g-col-4}
+![](images/ssbproject_folders.png)
 
-## ssb-project-cli
+:::
+
+:::
+
+Over så opprettet vi et ssb-project uten å opprette et GitHub-repo med samme navn. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:
+
+`ssb-project create stat-testprod --github github-token='blablabla'`
+
+Kommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter **stat-testprod** med et GitHub-repo med samme navn. Repoet i GitHub ser da slik ut:
+
+![](images/ssbproject_github.png)
