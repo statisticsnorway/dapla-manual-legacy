@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.2.253">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,10 +11,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
 
@@ -290,20 +295,20 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#opprett-github-bruker" id="toc-opprett-github-bruker" class="nav-link active" data-scroll-target="#opprett-github-bruker"> <span class="header-section-number">14.1</span> Opprett GitHub-bruker</a></li>
-  <li><a href="#sec-tofaktor" id="toc-sec-tofaktor" class="nav-link" data-scroll-target="#sec-tofaktor"> <span class="header-section-number">14.2</span> To-faktor autentifisering</a></li>
-  <li><a href="#koble-deg-til-ssb" id="toc-koble-deg-til-ssb" class="nav-link" data-scroll-target="#koble-deg-til-ssb"> <span class="header-section-number">14.3</span> Koble deg til SSB</a></li>
-  <li><a href="#personal-access-token-pat" id="toc-personal-access-token-pat" class="nav-link" data-scroll-target="#personal-access-token-pat"> <span class="header-section-number">14.4</span> Personal Access Token (PAT)</a>
+  <li><a href="#opprett-github-bruker" id="toc-opprett-github-bruker" class="nav-link active" data-scroll-target="#opprett-github-bruker"><span class="toc-section-number">14.1</span>  Opprett GitHub-bruker</a></li>
+  <li><a href="#sec-tofaktor" id="toc-sec-tofaktor" class="nav-link" data-scroll-target="#sec-tofaktor"><span class="toc-section-number">14.2</span>  To-faktor autentifisering</a></li>
+  <li><a href="#koble-deg-til-ssb" id="toc-koble-deg-til-ssb" class="nav-link" data-scroll-target="#koble-deg-til-ssb"><span class="toc-section-number">14.3</span>  Koble deg til SSB</a></li>
+  <li><a href="#personal-access-token-pat" id="toc-personal-access-token-pat" class="nav-link" data-scroll-target="#personal-access-token-pat"><span class="toc-section-number">14.4</span>  Personal Access Token (PAT)</a>
   <ul class="collapse">
-  <li><a href="#sec-pat" id="toc-sec-pat" class="nav-link" data-scroll-target="#sec-pat"> <span class="header-section-number">14.4.1</span> Opprette PAT</a></li>
-  <li><a href="#lagre-pat" id="toc-lagre-pat" class="nav-link" data-scroll-target="#lagre-pat"> <span class="header-section-number">14.4.2</span> Lagre PAT</a></li>
-  <li><a href="#oppdater-pat" id="toc-oppdater-pat" class="nav-link" data-scroll-target="#oppdater-pat"> <span class="header-section-number">14.4.3</span> Oppdater PAT</a></li>
+  <li><a href="#sec-pat" id="toc-sec-pat" class="nav-link" data-scroll-target="#sec-pat"><span class="toc-section-number">14.4.1</span>  Opprette PAT</a></li>
+  <li><a href="#lagre-pat" id="toc-lagre-pat" class="nav-link" data-scroll-target="#lagre-pat"><span class="toc-section-number">14.4.2</span>  Lagre PAT</a></li>
+  <li><a href="#oppdater-pat" id="toc-oppdater-pat" class="nav-link" data-scroll-target="#oppdater-pat"><span class="toc-section-number">14.4.3</span>  Oppdater PAT</a></li>
   </ul></li>
-  <li><a href="#opprett-ssb-project" id="toc-opprett-ssb-project" class="nav-link" data-scroll-target="#opprett-ssb-project"> <span class="header-section-number">14.5</span> Opprett ssb-project</a></li>
+  <li><a href="#opprett-ssb-project" id="toc-opprett-ssb-project" class="nav-link" data-scroll-target="#opprett-ssb-project"><span class="toc-section-number">14.5</span>  Opprett ssb-project</a></li>
   </ul>
 </nav>
     </div>
@@ -320,6 +325,7 @@ ul.task-list{list-style: none;}
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -485,12 +491,12 @@ På Dapla er det ingen fellesmappe som alle i SSB har tilgang til og hvor vi kan
 
 
 </section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p><em>Remote repo</em> er en felle mappe som er lagret på en annen maskin. <a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Les mer her.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>Filer og mapper som starter med punktum er skjulte med mindre man ber om å se dem. I Jupyterlab kan disse vises i filutforskeren ved å velge <strong>View</strong> fra menylinjen, og deretter velge <strong>Show hidden files</strong>. I en terminal skriver man <code>ls -a</code> for å se de.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><em>Remote repo</em> er en felle mappe som er lagret på en annen maskin. <a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">Les mer her.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Filer og mapper som starter med punktum er skjulte med mindre man ber om å se dem. I Jupyterlab kan disse vises i filutforskeren ved å velge <strong>View</strong> fra menylinjen, og deretter velge <strong>Show hidden files</strong>. I en terminal skriver man <code>ls -a</code> for å se de.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -536,7 +542,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -564,31 +587,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

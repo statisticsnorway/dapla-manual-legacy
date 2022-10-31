@@ -1,1 +1,8 @@
 # Hvorfor Dapla?
+
+Som dataplattform skal Dapla stimulerere til økt kvalitet på statistikk og forskning, samtidig som den gjør organisasjonen mer tilpasningsdyktig i møte med fremtiden. 
+
+> Den nye skybaserte dataplattformen (Dapla) skal bli viktig for å effektivisere arbeids-og produksjonsprosesser, den skal sikre effektiv lagring og gjenfinning av data og metadata, og støtte opp under deling av data på tvers av statistikkområder.
+: Kilde: [Langtidsplan for SSB  (2022-2024)](https://ssbno.sharepoint.com/sites/Virksomhetsstyring/SiteAssets/Forms/AllItems.aspx?id=%2Fsites%2FVirksomhetsstyring%2FSiteAssets%2FSitePages%2FVirksomhetsstyring%2FLangtidsplan%2Dfor%2DSSB%2D2022%2D2024%2Epdf&parent=%2Fsites%2FVirksomhetsstyring%2FSiteAssets%2FSitePages%2FVirksomhetsstyring)
+
+Målet med Dapla er å tilby tjenester og verktøy som lar statistikkprodusenter og forskere produsere resultater på en sikker og effektiv måte.

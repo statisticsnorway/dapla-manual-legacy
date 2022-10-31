@@ -32,7 +32,7 @@
     "href": "hva-er-dapla-team.html",
     "title": "7  Hva er Dapla-team?",
     "section": "",
-    "text": "Mer kommer"
+    "text": "Et Dapla-team fokuserer på statistikkproduksjon innen et eller flere emneområder på Dapla. Teamet er egentlig et arbeidsområde på Dapla, som gir medlemmene av teamet tilgang på teamet sine felles datalagre, roller og bakke-sky synkroniseringsområder.\nHvert Dapla-team får opprettet et prosjektområde i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester."
   },
   {
     "objectID": "ssb-project.html",
@@ -222,5 +222,12 @@
     "title": "25  Databaser",
     "section": "25.2 CloudSQL",
     "text": "25.2 CloudSQL"
+  },
+  {
+    "objectID": "hvorfor-dapla.html",
+    "href": "hvorfor-dapla.html",
+    "title": "2  Hvorfor Dapla?",
+    "section": "",
+    "text": "Som dataplattform skal Dapla stimulerere til økt kvalitet på statistikk og forskning, samtidig som den gjør organisasjonen mer tilpasningsdyktig i møte med fremtiden.\n\n\nDen nye skybaserte dataplattformen (Dapla) skal bli viktig for å effektivisere arbeids-og produksjonsprosesser, den skal sikre effektiv lagring og gjenfinning av data og metadata, og støtte opp under deling av data på tvers av statistikkområder.\n\nKilde: Langtidsplan for SSB (2022-2024)\n\n\n\nMålet med Dapla er å tilby tjenester og verktøy som lar statistikkprodusenter og forskere produsere resultater på en sikker og effektiv måte."
   }
 ]
