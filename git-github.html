@@ -64,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Kom i gang med DAPLA - 15&nbsp; Git og Github">
+<meta property="og:description" content="I SSB anbefales det man versjonhåndterer koden sin med Git og deler koden via GitHub.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -294,7 +295,20 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git"><span class="toc-section-number">15.1</span>  Git</a>
+  <ul class="collapse">
+  <li><a href="#hva-er-git" id="toc-hva-er-git" class="nav-link" data-scroll-target="#hva-er-git"><span class="toc-section-number">15.1.1</span>  Hva er Git?</a></li>
+  <li><a href="#oppsett-av-git" id="toc-oppsett-av-git" class="nav-link" data-scroll-target="#oppsett-av-git"><span class="toc-section-number">15.1.2</span>  Oppsett av Git</a></li>
+  <li><a href="#git-og-notebooks" id="toc-git-og-notebooks" class="nav-link" data-scroll-target="#git-og-notebooks"><span class="toc-section-number">15.1.3</span>  Git og Notebooks</a></li>
+  <li><a href="#vanlige-git-operasjoner" id="toc-vanlige-git-operasjoner" class="nav-link" data-scroll-target="#vanlige-git-operasjoner"><span class="toc-section-number">15.1.4</span>  Vanlige Git-operasjoner</a></li>
+  </ul></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="toc-section-number">15.2</span>  GitHub</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -315,8 +329,39 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>I SSB anbefales det man versjonhåndterer koden sin med <a href="https://git-scm.com/">Git</a> og deler koden via <a href="https://github.com/">GitHub</a>. For å lære seg å bruke disse verktøyene på en god måte er det derfor viktig å forstå forskjellen mellom Git og Github. Helt overordnet er forskjellen følgende:</p>
+<ul>
+<li><strong>Git</strong> er programvare som er installert på maskinen du jobber på og som sporer endringer i koden din.</li>
+<li><strong>GitHub</strong> er et slags felles mappesystem på internett som lar deg dele og samarbeide med andre om kode.</li>
+</ul>
+<p>Av definisjonene over så skjønner vi at det er <strong>Git</strong> som gir oss all funksjonalitet for å lagre versjoner av koden vår. GitHub er mer som et valg av mappesystem. Men måten kodemiljøene våre er satt opp på <strong>Dapla</strong> så har vi ingen fellesmappe som alle kan kjøre koden fra. Man utvikler kode i sin egen hjemmemappe, som bare du har tilgang til, og når du skal samarbeide med andre, så må du sende koden til GitHub. De du samarbeider med må deretter hente ned denne koden før de kan kjøre den.</p>
+<p>I dette kapitlet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet <strong>ssb-project</strong> for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapitlet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.</p>
+<section id="git" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="git"><span class="header-section-number">15.1</span> Git</h2>
+<p><strong>Git</strong> er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av <strong>Git</strong>, blant annet i <strong>Jupyterlab</strong>, <strong>SAS EG</strong> og <strong>RStudio</strong>. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan <strong>Git</strong> fungerer fra terminalen. Vi vil også fokusere på hvordan <strong>Git</strong> fungerer fra <strong>terminalen</strong> i <strong>Jupyterlab</strong> på <strong>Dapla</strong>.</p>
+<section id="hva-er-git" class="level3" data-number="15.1.1">
+<h3 data-number="15.1.1" class="anchored" data-anchor-id="hva-er-git"><span class="header-section-number">15.1.1</span> Hva er Git?</h3>
+<p>Kommer snart. Kort forklaring med lenke til mer utfyllende svar.</p>
+</section>
+<section id="oppsett-av-git" class="level3" data-number="15.1.2">
+<h3 data-number="15.1.2" class="anchored" data-anchor-id="oppsett-av-git"><span class="header-section-number">15.1.2</span> Oppsett av Git</h3>
+<p>Kommer snart. Scriptet til Kvakk.</p>
+</section>
+<section id="git-og-notebooks" class="level3" data-number="15.1.3">
+<h3 data-number="15.1.3" class="anchored" data-anchor-id="git-og-notebooks"><span class="header-section-number">15.1.3</span> Git og Notebooks</h3>
+<p>Kommer snart. Jupytext og nbsripout. json.</p>
+</section>
+<section id="vanlige-git-operasjoner" class="level3" data-number="15.1.4">
+<h3 data-number="15.1.4" class="anchored" data-anchor-id="vanlige-git-operasjoner"><span class="header-section-number">15.1.4</span> Vanlige Git-operasjoner</h3>
+<p>Kommer snart. clone, add, commit, push, pull, merge, revert, etc.</p>
+</section>
+</section>
+<section id="github" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="github"><span class="header-section-number">15.2</span> GitHub</h2>
+<p></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
