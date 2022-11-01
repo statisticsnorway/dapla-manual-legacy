@@ -1,0 +1,42 @@
+# Bøtter
+
+Hvert statistikkteam har sitt eget datalager som heter Google Cloud Storage (GCS). Disse er delt inn i flere datalagringsområder som kalles *bøtter*. Dette kan sees på som et filsystem som kan organiseres med flere undermapper og filer. Navnet på bøttene må være unikt på tvers av alle Dapla-team. Derfor blir disse opprettet etter en navnekonvensjon basert på kjøremiljø, teamnavn og hvilke data bøtta skal inneholde.
+
+## Bøttenavn i Produksjonsmiljøet
+
+- **ssb-prod-*teamnavn*-data-kilde**: Inneholder pseudonymiserte rådata fra datakildene 
+
+- **ssb-prod-*teamnavn*-data-produkt**: Inneholder data knyttet til statistikkproduktet, med følgende underkataloger: 
+    - *inndata* 
+    - *klargjorte-data*
+    - *statistikk*
+    - *utdata*
+
+- **ssb-prod-*teamnavn*-data-delt**: Inneholder data knyttet til statistikkproduktet som kan deles med andre statistikkteam. Disse vil ha følgende underkataloger: 
+    - *inndata*
+    - *klargjorte-data*
+    - *statistikk*
+    - *utdata*
+
+
+
+::: {.callout-note appearance="simple"}
+Underkatalogene *inndata, klargjorte-data, statistikk og utdata* gjenspeiler SSBs datatilstander. Se [Datatilstander i SSB](https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021) for mer informasjon.
+:::
+
+
+
+## Andre miljøer
+
+På samme måte som i produksjonsmiljøet finnes det bøtter for utviklings- og testformål:
+
+- **ssb-staging-*teamnavn*-data-kilde**
+- **ssb-staging-*teamnavn*-data-produkt**
+- **ssb-staging-*teamnavn*-data-delt**
+
+## Fellesbøtter
+
+I tillegg til disse finnes det noen bøtter med data som kan deles med alle i SSB og og som kan brukes til kurs og opplæring (bl.a. denne manualen). Disse bøttene er:
+
+- **ssb-prod-dapla-data-delt**
+- **ssb-staging-dapla-data-delt**
