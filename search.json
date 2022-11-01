@@ -21,6 +21,20 @@
     "text": "Målet med dette kapitlet er å gi en grunnleggende innføring i hva som legges i ordet Dapla. I tillegg gis en forklaring på hvorfor disse valgene er tatt."
   },
   {
+    "objectID": "hva-er-dapla.html",
+    "href": "hva-er-dapla.html",
+    "title": "1  Hva er Dapla?",
+    "section": "",
+    "text": "Dapla står for dataplattform, og er en skybasert løsning for statistikkproduksjon og forskning."
+  },
+  {
+    "objectID": "hvorfor-dapla.html",
+    "href": "hvorfor-dapla.html",
+    "title": "2  Hvorfor Dapla?",
+    "section": "",
+    "text": "Den nye skybaserte dataplattformen (Dapla) skal bli viktig for å effektivisere arbeids-og produksjonsprosesser, den skal sikre effektiv lagring og gjenfinning av data og metadata, og støtte opp under deling av data på tvers av statistikkområder.\n\nKilde: Langtidsplan for SSB (2022-2024)\n\n\n\nMålet med Dapla er å tilby tjenester og verktøy som lar statistikkprodusenter og forskere produsere resultater på en sikker og effektiv måte."
+  },
+  {
     "objectID": "arkitektur.html",
     "href": "arkitektur.html",
     "title": "3  Arkitektur",
@@ -28,11 +42,18 @@
     "text": "Hvilke komponenter er plattformen bygd opp på? Forklart på lettest mulig måte."
   },
   {
+    "objectID": "dapla-team.html",
+    "href": "dapla-team.html",
+    "title": "Opprette Dapla-team",
+    "section": "",
+    "text": "Gå til Dapla Start-veilederen for å opprette et nytt Dapla-team."
+  },
+  {
     "objectID": "hva-er-dapla-team.html",
     "href": "hva-er-dapla-team.html",
     "title": "7  Hva er Dapla-team?",
     "section": "",
-    "text": "Mer kommer"
+    "text": "Hvert Dapla-team får opprettet et prosjektområde i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester."
   },
   {
     "objectID": "ssb-project.html",
