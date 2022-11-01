@@ -1,1 +1,10 @@
 # Google Cloud Console
+
+Google Cloud er SSBs leverandør av skytjenester som Dapla er bygget på.
+
+Google Cloud Console er et web-basert grensesnitt for å administrere ressurser og tjenester på Google Cloud. For å bruke denne må man ha en Google-konto. Alle i SSB har en konto knyttet opp mot Google.
+
+::: {.callout-note appearance="simple"}
+Gå til [Google Cloud Console](https://console.google.com) og logg på med din SSB-bruker.
+:::
+

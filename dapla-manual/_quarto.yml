@@ -32,6 +32,7 @@ book:
       chapters:
       - hva-er-dapla-team.qmd
       - opprette-dapla-team.qmd
+      - bøtter.qmd
       - gcc.qmd
       - lagre-data.qmd
       - hente-data.qmd
