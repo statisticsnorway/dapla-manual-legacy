@@ -101,7 +101,64 @@ b) Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoe
 
 ## R
 
+Installering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av [ssb-project](https://github.com/statisticsnorway/ssb-project-cli). Men vi kan bruke [renv](https://rstudio.github.io/renv/articles/renv.html). Mer kommer.
+
 ### Installering
+
+For å installere dine egne R-pakker må du opprette et virtuelt miljø med **renv**. Gå inn i **Jupyterlab** og åpne R-notebook. Deretter skriver du inn følgende i kodecelle:
+
+```R
+renv::init()
+
+```
+
+Denne kommandoer aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:
+
+**renv.lock**  
+En fil som inneholder versjoner av alle pakker du benytter i koden din. 
+
+**renv**  
+Mappe som inneholder alle pakkene du installerer.
+
+Nå som vi har et virtuelle miljøet på plass kan vi installere en R-pakke. Du kan gjøre dette fra både terminalen og fra en Notebook. Vi anbefaler på gjøre det fra terminalen fordi du da får tilbakemelding på om installeringen gikk bra heller ikke. For å installere i terminalen gjør du følgende:
+
+1. Åpne en terminal i Jupyterlab
+2. Stå i mappen der du aktiverte det virtuelle miljøet
+3. Skriv in `R` og trykk enter.
+
+Det vi nå har gjort er å åpne **R** fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en *R Console*. Nå kan du skrive inn en vanlig kommando for å installere R-pakker:
+
+```R
+install.packages("PxWebApiData")
+
+```
+
+Over installerte vi pakken [PxWebApiData](https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html) som er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank. La oss bruke pakken i koden vår med ved å skrive følgende i kodecelle i Notebooken vår:
+
+```R
+library(PxWebApiData)
+ApiData("https://data.ssb.no/api/v0/en/table/04861", 
+        Region = c("1103", "0301"), ContentsCode = "Bosatte", Tid = c(1, 2, -2, -1))
+
+```
+
+Når vi nå har brukt **PxWebApiData** i koden vår så kan vi kjøre en kommando som legger til den pakken i **renv.lock**. Men før vi kan gjøre det må vi være obs på at **renv** ikke klarer å gjenkjenne pakker som er i bruk Notebooks (ipynb-filer). Det er veldig upraktisk, men noe vi må forholde oss til når vi jobber med **renv** i Jupyterlab. En mulig løsning for dette er å bruke [Jupytext](https://jupytext.readthedocs.io/en/latest/install.html) til å synkronisere en ipynb-fil med en Rmd-fil. **renv** kjenner igjen både R- og Rmd-filer. For å synkronisere filene gjør du følgende: 
+
+1. Trykk `Ctrl+Shift C`
+2. Skriv inn **Pair** i søkefeltet som dukker opp
+3. Velg **Pair Notebook with R Markdown**
+
+Hvis du nå endrer en av filene så vil den andre oppdatere seg, og **renv** vil kunne oppdage om du bruker en pakke i koden din. Men for å trigge **renv** til å lete etter pakker som er i bruk så må du skrive følgende kode i Notebooken eller *R Console*: 
+
+```R
+renv::snapshot()
+```
+
+Kikker du nå inne i **renv.lock**-filen så ser du nå at verjsonen av **PxWebApiData** er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.
+
+![](images/renv_install.png)
+
+
 
 ### Avinstallering
 
