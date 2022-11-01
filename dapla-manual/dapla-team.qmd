@@ -1,1 +1,3 @@
 # Opprette Dapla-team {#sec-project-dice}
+
+Gå til [Dapla Start-veilederen](https://start.dapla.ssb.no) for å opprette et nytt Dapla-team.

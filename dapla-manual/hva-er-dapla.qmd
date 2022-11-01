@@ -1,4 +1,4 @@
 # Hva er Dapla?
 
-
+Dapla står for **dataplattform**, og er en skybasert løsning for statistikkproduksjon og forskning.
 
