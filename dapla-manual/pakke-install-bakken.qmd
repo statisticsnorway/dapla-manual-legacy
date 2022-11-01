@@ -31,7 +31,24 @@ poetry source remove nexus
 
 ## R
 
+Prosessen med å installere pakker for R på bakken er veldig lik slik det gjøres [på Dapla](./pakke-install.html). Under beskriver hvordan det avviker fra prosedyren på Dapla. 
+
 ### Installering
+
+Vi installerer fra en proxy-server på bakken, og derfor må vi spesifisere denne adressen manuelt før vi kan installere R-pakker. 
+
+```R
+repos <- c(CRAN = "https://nexus.ssb.no/repository/CRAN/")
+options(repos = repos)
+```
+
+Deretter kan du initiere det virtuelle miljøet med følgende kommando: 
+
+```R
+renv::init()
+```
+
+Resten er likt som det som er forklart [for Dapla](./pakke-install.html).
 
 ### Avinstallering
 
