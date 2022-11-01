@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kom i gang med DAPLA - 22&nbsp; Installere pakker</title>
+<title>Kom i gang med DAPLA - 9&nbsp; Bøtter</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -93,8 +30,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lese-data-bakken.html" rel="next">
-<link href="./jupyter-pa-bakken.html" rel="prev">
+<link href="./gcc.html" rel="next">
+<link href="./opprette-dapla-team.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,8 +63,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Kom i gang med DAPLA - 22&nbsp; Installere pakker">
-<meta property="og:description" content="Installering av pakker i Jupyter miljøer på bakken (f.eks https://sl-jupyter-p.ssb.no) foregår stort sett helt lik som på Dapla.">
+<meta property="og:title" content="Kom i gang med DAPLA - 9&nbsp; Bøtter">
+<meta property="og:description" content="Hvert statistikkteam har sitt eget datalager som heter Google Cloud Storage (GCS). Disse er delt inn i flere datalagringsområder som kalles bøtter.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -137,7 +74,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Installere pakker</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -216,11 +153,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Opprette Dapla-team</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hva er Dapla-team?</span></a>
@@ -233,7 +170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bøtter.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></a>
+  <a href="./bøtter.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -311,14 +248,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./jupyter-pa-bakken.html" class="sidebar-item-text sidebar-link">Jupyterlab på bakken</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Installere pakker</span></a>
+  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Installere pakker</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -367,17 +304,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python"><span class="toc-section-number">22.1</span>  Python</a>
-  <ul class="collapse">
-  <li><a href="#pip" id="toc-pip" class="nav-link" data-scroll-target="#pip"><span class="toc-section-number">22.1.1</span>  Pip</a></li>
-  <li><a href="#poetry" id="toc-poetry" class="nav-link" data-scroll-target="#poetry"><span class="toc-section-number">22.1.2</span>  Poetry</a></li>
-  </ul></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="toc-section-number">22.2</span>  R</a>
-  <ul class="collapse">
-  <li><a href="#installering" id="toc-installering" class="nav-link" data-scroll-target="#installering"><span class="toc-section-number">22.2.1</span>  Installering</a></li>
-  <li><a href="#avinstallering" id="toc-avinstallering" class="nav-link" data-scroll-target="#avinstallering"><span class="toc-section-number">22.2.2</span>  Avinstallering</a></li>
-  <li><a href="#oppgradere-pakker" id="toc-oppgradere-pakker" class="nav-link" data-scroll-target="#oppgradere-pakker"><span class="toc-section-number">22.2.3</span>  Oppgradere pakker</a></li>
-  </ul></li>
+  <li><a href="#bøttenavn-i-produksjonsmiljøet" id="toc-bøttenavn-i-produksjonsmiljøet" class="nav-link active" data-scroll-target="#bøttenavn-i-produksjonsmiljøet"><span class="toc-section-number">9.1</span>  Bøttenavn i Produksjonsmiljøet</a></li>
+  <li><a href="#andre-miljøer" id="toc-andre-miljøer" class="nav-link" data-scroll-target="#andre-miljøer"><span class="toc-section-number">9.2</span>  Andre miljøer</a></li>
+  <li><a href="#fellesbøtter" id="toc-fellesbøtter" class="nav-link" data-scroll-target="#fellesbøtter"><span class="toc-section-number">9.3</span>  Fellesbøtter</a></li>
   </ul>
 </nav>
     </div>
@@ -386,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Installere pakker</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></h1>
 </div>
 
 
@@ -400,52 +329,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="python" class="level2" data-number="22.1">
-<h2 data-number="22.1" class="anchored" data-anchor-id="python"><span class="header-section-number">22.1</span> Python</h2>
-<p>Installering av pakker i Jupyter miljøer på bakken (f.eks <a href="https://sl-jupyter-p.ssb.no" class="uri">https://sl-jupyter-p.ssb.no</a>) foregår stort sett helt lik <a href="./pakke-install.html">som på Dapla</a>. Det er én viktig forskjell, og det er at installasjon skjer via en proxy som heter Nexus.</p>
-<section id="pip" class="level3" data-number="22.1.1">
-<h3 data-number="22.1.1" class="anchored" data-anchor-id="pip"><span class="header-section-number">22.1.1</span> Pip</h3>
-<p>Pip er ferdig konfigurert for bruk av Nexus og kan kjøres som <a href="./pakke-install.html">beskrevet for Dapla</a></p>
-</section>
-<section id="poetry" class="level3" data-number="22.1.2">
-<h3 data-number="22.1.2" class="anchored" data-anchor-id="poetry"><span class="header-section-number">22.1.2</span> Poetry</h3>
-<p>Hvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.</p>
-<pre class="shell"><code>poetry source add --default nexus `echo $PIP_INDEX_URL`</code></pre>
-<p>Da får man installere pakker som vanlig f.eks</p>
-<pre class="shell"><code>poetry add matplotlib</code></pre>
-<div class="callout-warning callout callout-style-simple">
+<p>Hvert statistikkteam har sitt eget datalager som heter Google Cloud Storage (GCS). Disse er delt inn i flere datalagringsområder som kalles <em>bøtter</em>. Dette kan sees på som et filsystem som kan organiseres med flere undermapper og filer. Navnet på bøttene må være unikt på tvers av alle Dapla-team. Derfor blir disse opprettet etter en navnekonvensjon basert på kjøremiljø, teamnavn og hvilke data bøtta skal inneholde.</p>
+<section id="bøttenavn-i-produksjonsmiljøet" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="bøttenavn-i-produksjonsmiljøet"><span class="header-section-number">9.1</span> Bøttenavn i Produksjonsmiljøet</h2>
+<ul>
+<li><p><strong>ssb-prod-<em>teamnavn</em>-data-kilde</strong>: Inneholder pseudonymiserte rådata fra datakildene</p></li>
+<li><p><strong>ssb-prod-<em>teamnavn</em>-data-produkt</strong>: Inneholder data knyttet til statistikkproduktet, med følgende underkataloger:</p>
+<ul>
+<li><em>inndata</em></li>
+<li><em>klargjorte-data</em></li>
+<li><em>statistikk</em></li>
+<li><em>utdata</em></li>
+</ul></li>
+<li><p><strong>ssb-prod-<em>teamnavn</em>-data-delt</strong>: Inneholder data knyttet til statistikkproduktet som kan deles med andre statistikkteam. Disse vil ha følgende underkataloger:</p>
+<ul>
+<li><em>inndata</em></li>
+<li><em>klargjorte-data</em></li>
+<li><em>statistikk</em></li>
+<li><em>utdata</em></li>
+</ul></li>
+</ul>
+<div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Hvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så må man fjerner <code>nexus</code> kilden ved å kjøre</p>
-<pre class="shell"><code>poetry source remove nexus</code></pre>
+<p>Underkatalogene <em>inndata, klargjorte-data, statistikk og utdata</em> gjenspeiler SSBs datatilstander. Se <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">Datatilstander i SSB</a> for mer informasjon.</p>
 </div>
 </div>
 </div>
 </section>
+<section id="andre-miljøer" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="andre-miljøer"><span class="header-section-number">9.2</span> Andre miljøer</h2>
+<p>På samme måte som i produksjonsmiljøet finnes det bøtter for utviklings- og testformål:</p>
+<ul>
+<li><strong>ssb-staging-<em>teamnavn</em>-data-kilde</strong></li>
+<li><strong>ssb-staging-<em>teamnavn</em>-data-produkt</strong></li>
+<li><strong>ssb-staging-<em>teamnavn</em>-data-delt</strong></li>
+</ul>
 </section>
-<section id="r" class="level2" data-number="22.2">
-<h2 data-number="22.2" class="anchored" data-anchor-id="r"><span class="header-section-number">22.2</span> R</h2>
-<p>Prosessen med å installere pakker for R på bakken er veldig lik slik det gjøres <a href="./pakke-install.html">på Dapla</a>. Under beskriver hvordan det avviker fra prosedyren på Dapla.</p>
-<section id="installering" class="level3" data-number="22.2.1">
-<h3 data-number="22.2.1" class="anchored" data-anchor-id="installering"><span class="header-section-number">22.2.1</span> Installering</h3>
-<p>Vi installerer fra en proxy-server på bakken, og derfor må vi spesifisere denne adressen manuelt før vi kan installere R-pakker.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>repos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://nexus.ssb.no/repository/CRAN/"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> repos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Deretter kan du initiere det virtuelle miljøet med følgende kommando:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Resten er likt som det som er forklart <a href="./pakke-install.html">for Dapla</a>.</p>
-</section>
-<section id="avinstallering" class="level3" data-number="22.2.2">
-<h3 data-number="22.2.2" class="anchored" data-anchor-id="avinstallering"><span class="header-section-number">22.2.2</span> Avinstallering</h3>
-</section>
-<section id="oppgradere-pakker" class="level3" data-number="22.2.3">
-<h3 data-number="22.2.3" class="anchored" data-anchor-id="oppgradere-pakker"><span class="header-section-number">22.2.3</span> Oppgradere pakker</h3>
+<section id="fellesbøtter" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="fellesbøtter"><span class="header-section-number">9.3</span> Fellesbøtter</h2>
+<p>I tillegg til disse finnes det noen bøtter med data som kan deles med alle i SSB og og som kan brukes til kurs og opplæring (bl.a. denne manualen). Disse bøttene er:</p>
+<ul>
+<li><strong>ssb-prod-dapla-data-delt</strong></li>
+<li><strong>ssb-staging-dapla-data-delt</strong></li>
+</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -549,13 +481,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./jupyter-pa-bakken.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Jupyterlab på bakken</span>
+      <a href="./opprette-dapla-team.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Opprette Dapla-team</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lese-data-bakken.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Lese inn filer</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./gcc.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
