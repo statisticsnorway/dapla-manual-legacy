@@ -1,1 +1,21 @@
 # Jupyterlab
+
+## Hva er Jupyterlab? 
+
+Mer kommer.
+
+## Terminalen
+
+Må nevne operativsystemet og at noe programvare ligger installert her (git, jwsacruncher, quarto, ++)
+
+## Pakkeinstallasjoner
+
+Noe er i base-image, noe bør gjøres i virtuelle miløer. Hvordan liste ut pakker som er pre-installert? 
+
+## Extensions
+
+Jupyterlab er en samling extension. Kan bare installeres av admin. Sikkerhet. Hvilke extension har vi tilgjengeliggjort?
+
+## Tips & triks
+
+Sane defaults for Jupyterlab.
