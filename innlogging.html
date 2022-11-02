@@ -64,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Kom i gang med DAPLA - 4&nbsp; Innlogging">
-<meta property="og:description" content="Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk1.">
+<meta property="og:description" content="Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -341,7 +341,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For å gjøre det enda enklere har vi laget en fast snarvei til denne nettadressen <a href="https://ssbno.sharepoint.com/sites/byraanettet">på vårt intranett/Byrånettet</a>(se <a href="#fig-intranett">Figure&nbsp;<span>4.1</span></a>).</p>
+<p>Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk. Å være logget på SSB sitt nettverk betyr i denne sammenhengen at man er logget på med <strong>VPN</strong>, enten man er på kontoret eller på hjemmekontor. For å gjøre det enda enklere har vi laget en fast snarvei til denne nettadressen <a href="https://ssbno.sharepoint.com/sites/byraanettet">på vårt intranett/Byrånettet</a>(se <a href="#fig-intranett">Figure&nbsp;<span>4.1</span></a>).</p>
 <div id="fig-intranett" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/intranett_dapla.png" class="img-fluid figure-img" alt="Bilde av SSB sitt intranett der Dapla-lenken er uthevet"></p>
@@ -365,17 +365,41 @@ ul.task-list li input[type="checkbox"] {
 <p>For å logge seg inn inn i prod-miljøet på Dapla kan man gjøre følgende:</p>
 <ol type="1">
 <li>Gå inn på lenken <a href="https://jupyter.dapla.ssb.no/" class="uri">https://jupyter.dapla.ssb.no/</a> i en Chrome-nettleser eller klikk på lenken på Byrånettet som vist i <a href="#fig-intranett">Figure&nbsp;<span>4.1</span></a>.</li>
-<li>Deretter blir man spurt om man godtar at SSB-profilen din blir brukt av Google for innlogging. Trykk <strong>Tillat</strong>.</li>
-<li>Deretter lander man på en side som lar deg avgjøre hvor mye maskinkraft som skal holdes av til deg:
-<ol type="a">
-<li><strong>Lite ressurser</strong><br>
-Betyr at man får…kommer snart</li>
-<li><strong>Mer ressurser</strong><br>
-Betyr at man får…kommer snart</li>
-<li><strong>Mye ressurser</strong><br>
-Betyr at man får…kommer snart</li>
-</ol></li>
+<li>Alle i SSB har en Google Cloud-konto som må brukes når man logger seg på Dapla. Brukernavnet i Google er det samme som din <em>korte</em> epost-adresse (f.eks. cth@ssb.no). Hvis du ikke allerede er logget inn i Google vil du få spørsmål om å velge hvilken Google-konto som skal brukes (<a href="#fig-login-1">Figure&nbsp;<span>4.3</span></a>). Logg inn med din Google-konto (ssb.no) og ditt AD-passord.</li>
 </ol>
+<div id="fig-login-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/login-1.png" class="img-fluid figure-img" style="width:75.0%" alt="Bilde som vise påloggingsvindu fra Google"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.3: Velg en Google-konto</figcaption><p></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Deretter blir man spurt om man godtar at ssb.no (altså Dapla) kan bruke din Google Cloud-konto (<a href="#fig-login-2">Figure&nbsp;<span>4.4</span></a>). Trykk <strong>Allow</strong>.</li>
+</ol>
+<div id="fig-login-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/login-2.png" class="img-fluid figure-img" style="width:75.0%" alt="Spørsmål om å godta at SSB-profilen din blir brukt av Google"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.4: Tillat at ssb.no får bruke din Google Cloud-konto</figcaption><p></p>
+</figure>
+</div>
+<ol start="4" type="1">
+<li>Deretter lander man på en side som lar deg avgjøre hvor mye maskinkraft som skal holdes av til deg (<a href="#fig-login-3">Figure&nbsp;<span>4.5</span></a>). Det øverste alternativet er valgt som standard, og er tilstrekkelig for de fleste.</li>
+</ol>
+<div id="fig-login-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/login-3.png" class="img-fluid figure-img" style="width:75.0%" alt="Spørsmål om å godta at SSB-profilen din blir brukt av Google"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.5: Velg hvor mye maskinkraft du trenger</figcaption><p></p>
+</figure>
+</div>
+<ol start="5" type="1">
+<li>Vent til maskinen din starter opp (<a href="#fig-login-4">Figure&nbsp;<span>4.6</span></a>). Oppstartstiden kan variere.</li>
+</ol>
+<div id="fig-login-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/login-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Bilde som viser oppstart av Jupyter"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.6: Starter opp Jupyter</figcaption><p></p>
+</figure>
+</div>
 <p>Etter dette er man logget inn i et Jupyter-miljø som kjører på en minimal Ubuntu-maskin. Hvis man er del av <a href="./dapla.team.html">et Dapla-team</a> får man også tilgang til alt teamet har tilgang til.</p>
 </section>
 <section id="staging" class="level3" data-number="4.1.2">
@@ -386,7 +410,7 @@ Betyr at man får…kommer snart</li>
 </section>
 <section id="bakkemiljøet" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="bakkemiljøet"><span class="header-section-number">4.2</span> Bakkemiljøet</h2>
-<p>Jupyter-miljøet på bakken bruker <a href="https://github.com/statisticsnorway/jupyterlab-common">samme base-image</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.</p>
+<p>Jupyter-miljøet på bakken bruker <a href="https://github.com/statisticsnorway/jupyterlab-common">samme base-image</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.</p>
 <section id="prod-1" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="prod-1"><span class="header-section-number">4.2.1</span> Prod</h3>
 <p>Du logger deg inn på prod i bakkemiljøet på følgende måte:</p>
@@ -407,8 +431,7 @@ Betyr at man får…kommer snart</li>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Å være logget på SSB sitt nettverk betyr i denne sammenhengen at man er logget på med <strong>VPN</strong>, enten man er på kontoret eller på hjemmekontor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Hva er base-image?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Hva er base-image?<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
