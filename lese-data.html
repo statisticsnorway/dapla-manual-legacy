@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kom i gang med DAPLA - 10&nbsp; Google Cloud Console</title>
+<title>Kom i gang med DAPLA - 24&nbsp; Lese filer fra bøtte</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -30,8 +93,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lagre-data.html" rel="next">
-<link href="./bøtter.html" rel="prev">
+<link href="./remote.html" rel="next">
+<link href="./avansert.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,8 +126,8 @@ ul.task-list li input[type="checkbox"] {
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Kom i gang med DAPLA - 10&nbsp; Google Cloud Console">
-<meta property="og:description" content="Google Cloud er SSBs leverandør av skytjenester som Dapla er bygget på.">
+<meta property="og:title" content="Kom i gang med DAPLA - 24&nbsp; Lese filer fra bøtte">
+<meta property="og:description" content="Skal man lese fra en bøtte må man autentisere seg. For å gjøre dette kan man benytte pakken dapla-toolbelt.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -74,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -153,11 +216,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Opprette Dapla-team</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hva er Dapla-team?</span></a>
@@ -175,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gcc.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></a>
+  <a href="./gcc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,14 +331,14 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></a>
+  <a href="./lese-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -305,14 +368,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#eksempler" id="toc-eksempler" class="nav-link active" data-scroll-target="#eksempler"><span class="toc-section-number">24.1</span>  Eksempler</a></li>
+  <li><a href="#vanlige-problemer" id="toc-vanlige-problemer" class="nav-link" data-scroll-target="#vanlige-problemer"><span class="toc-section-number">24.2</span>  Vanlige problemer</a>
+  <ul class="collapse">
+  <li><a href="#feil-miljø" id="toc-feil-miljø" class="nav-link" data-scroll-target="#feil-miljø"><span class="toc-section-number">24.2.1</span>  Feil miljø</a></li>
+  <li><a href="#omstart-av-jupyter" id="toc-omstart-av-jupyter" class="nav-link" data-scroll-target="#omstart-av-jupyter"><span class="toc-section-number">24.2.2</span>  Omstart av Jupyter</a></li>
+  <li><a href="#opprett-tms-sak" id="toc-opprett-tms-sak" class="nav-link" data-scroll-target="#opprett-tms-sak"><span class="toc-section-number">24.2.3</span>  Opprett TMS sak</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></h1>
 </div>
 
 
@@ -326,20 +401,76 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Google Cloud er SSBs leverandør av skytjenester som Dapla er bygget på.</p>
-<p>Google Cloud Console er et web-basert grensesnitt for å administrere ressurser og tjenester på Google Cloud. For å bruke denne må man ha en Google-konto. Alle i SSB har en konto knyttet opp mot Google.</p>
-<div class="callout-note callout callout-style-simple">
+<p>Skal man lese fra en bøtte må man autentisere seg. For å gjøre dette kan man benytte pakken <a href="https://github.com/statisticsnorway/dapla-toolbelt">dapla-toolbelt</a>.</p>
+<section id="eksempler" class="level2" data-number="24.1">
+<h2 data-number="24.1" class="anchored" data-anchor-id="eksempler"><span class="header-section-number">24.1</span> Eksempler</h2>
+<div class="callout-warning callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Gå til <a href="https://console.google.com">Google Cloud Console</a> og logg på med din SSB-bruker.</p>
+<p>“navn-boette” eksisterer ikke og må byttes med en reel bøtte.</p>
 </div>
 </div>
 </div>
+<p>Les json fil fra bøtte:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dapla <span class="im">as</span> dp</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data_frame <span class="op">=</span> dp.read_pandas(<span class="st">"gs://ssb-staging-navn-boette/schema.json"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> file_format<span class="op">=</span><span class="st">"json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>List ut mapper i bøtta:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FileClient.ls(<span class="st">"gs://ssb-staging-navn-boette/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="vanlige-problemer" class="level2" data-number="24.2">
+<h2 data-number="24.2" class="anchored" data-anchor-id="vanlige-problemer"><span class="header-section-number">24.2</span> Vanlige problemer</h2>
+<section id="feil-miljø" class="level3" data-number="24.2.1">
+<h3 data-number="24.2.1" class="anchored" data-anchor-id="feil-miljø"><span class="header-section-number">24.2.1</span> Feil miljø</h3>
+<p>En vanlig årsak til feil er at man forsøker å lese data fra et annet miljø enn det man befinner seg i. Sjekk at url feltet i nettleseren stemmer overens med bøttene man forsøker å aksessere.</p>
+<p>Stagingbøtter starter med: gs://ssb-staging-</p>
+<p>Produksjonsbøtter starter med: gs://ssb-prod-</p>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>I https://jupyter.dapla-staging.ssb.no/ kan man ikke lese produksjonsbøtter.</p>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>I https://jupyter.dapla.ssb.no/ kan man ikke lese stagingbøtter.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="omstart-av-jupyter" class="level3" data-number="24.2.2">
+<h3 data-number="24.2.2" class="anchored" data-anchor-id="omstart-av-jupyter"><span class="header-section-number">24.2.2</span> Omstart av Jupyter</h3>
+<p>Noen ganger kan en restart av Jupyter løse problemet.</p>
+<p>I Jupyters filmeny velg: fil -&gt; Hub Controll Panel.</p>
+<p>Trykk på knappen “Stop My Server”. Etter dette kan man trykke knappen “Start My Server”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/stop_my_server.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Stop My Server</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="opprett-tms-sak" class="level3" data-number="24.2.3">
+<h3 data-number="24.2.3" class="anchored" data-anchor-id="opprett-tms-sak"><span class="header-section-number">24.2.3</span> Opprett TMS sak</h3>
+<p>Hvis man fortsatt ikke har tilgang, kan man opprette en <a href="https://ssb.tmsportal.no/userweb/UserWebNewCase.aspx">TMS sak</a>. For at vi lettes mulig skal kunne hjelpe bør saken inneholde full feilmelding &amp; relevant kode.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -442,13 +573,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./bøtter.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></span>
+      <a href="./avansert.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Avansert</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lagre-data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Lagre data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./remote.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">IDE’er</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

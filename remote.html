@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kom i gang med DAPLA - 24&nbsp; IDE’er</title>
+<title>Kom i gang med DAPLA - 25&nbsp; IDE’er</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./schedulering.html" rel="next">
-<link href="./avansert.html" rel="prev">
+<link href="./lese-data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Kom i gang med DAPLA - 24&nbsp; IDE’er">
+<meta property="og:title" content="Kom i gang med DAPLA - 25&nbsp; IDE’er">
 <meta property="og:description" content="Forklare situasjonen nå. Kun Jupyterlab. Kan kjøre remote session med Rstudio, Pycharm og VSCode.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">IDE’er</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">IDE’er</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -275,17 +275,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./remote.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">IDE’er</span></a>
+  <a href="./lese-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Schedulering</span></a>
+  <a href="./remote.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">IDE’er</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./databaser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Databaser</span></a>
+  <a href="./schedulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Schedulering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./databaser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Databaser</span></a>
   </div>
 </li>
       </ul>
@@ -304,9 +309,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#rstudio" id="toc-rstudio" class="nav-link active" data-scroll-target="#rstudio"><span class="toc-section-number">24.1</span>  RStudio</a></li>
-  <li><a href="#vscode" id="toc-vscode" class="nav-link" data-scroll-target="#vscode"><span class="toc-section-number">24.2</span>  VSCode</a></li>
-  <li><a href="#pycharm" id="toc-pycharm" class="nav-link" data-scroll-target="#pycharm"><span class="toc-section-number">24.3</span>  Pycharm</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link active" data-scroll-target="#rstudio"><span class="toc-section-number">25.1</span>  RStudio</a></li>
+  <li><a href="#vscode" id="toc-vscode" class="nav-link" data-scroll-target="#vscode"><span class="toc-section-number">25.2</span>  VSCode</a></li>
+  <li><a href="#pycharm" id="toc-pycharm" class="nav-link" data-scroll-target="#pycharm"><span class="toc-section-number">25.3</span>  Pycharm</a></li>
   </ul>
 </nav>
     </div>
@@ -315,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">IDE’er</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">IDE’er</span></h1>
 </div>
 
 
@@ -330,14 +335,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Forklare situasjonen nå. Kun Jupyterlab. Kan kjøre remote session med Rstudio, Pycharm og VSCode.</p>
-<section id="rstudio" class="level2" data-number="24.1">
-<h2 data-number="24.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">24.1</span> RStudio</h2>
+<section id="rstudio" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">25.1</span> RStudio</h2>
 </section>
-<section id="vscode" class="level2" data-number="24.2">
-<h2 data-number="24.2" class="anchored" data-anchor-id="vscode"><span class="header-section-number">24.2</span> VSCode</h2>
+<section id="vscode" class="level2" data-number="25.2">
+<h2 data-number="25.2" class="anchored" data-anchor-id="vscode"><span class="header-section-number">25.2</span> VSCode</h2>
 </section>
-<section id="pycharm" class="level2" data-number="24.3">
-<h2 data-number="24.3" class="anchored" data-anchor-id="pycharm"><span class="header-section-number">24.3</span> Pycharm</h2>
+<section id="pycharm" class="level2" data-number="25.3">
+<h2 data-number="25.3" class="anchored" data-anchor-id="pycharm"><span class="header-section-number">25.3</span> Pycharm</h2>
 
 
 </section>
@@ -443,13 +448,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./avansert.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Avansert</span>
+      <a href="./lese-data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./schedulering.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Schedulering</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Schedulering</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

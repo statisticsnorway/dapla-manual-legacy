@@ -252,38 +252,59 @@
     "text": "23.5 Parquet"
   },
   {
+    "objectID": "lese-data.html",
+    "href": "lese-data.html",
+    "title": "24  Lese filer fra bøtte",
+    "section": "",
+    "text": "Skal man lese fra en bøtte må man autentisere seg. For å gjøre dette kan man benytte pakken dapla-toolbelt."
+  },
+  {
+    "objectID": "lese-data.html#eksempler",
+    "href": "lese-data.html#eksempler",
+    "title": "24  Lese filer fra bøtte",
+    "section": "24.1 Eksempler",
+    "text": "24.1 Eksempler\n\n\n\n\n\n\n“navn-boette” eksisterer ikke og må byttes med en reel bøtte.\n\n\n\nLes json fil fra bøtte:\nimport dapla as dp\n\ndata_frame = dp.read_pandas(\"gs://ssb-staging-navn-boette/schema.json\",\n file_format=\"json\")\nList ut mapper i bøtta:\nfrom dapla import FileClient\n\nFileClient.ls(\"gs://ssb-staging-navn-boette/\")"
+  },
+  {
+    "objectID": "lese-data.html#vanlige-problemer",
+    "href": "lese-data.html#vanlige-problemer",
+    "title": "24  Lese filer fra bøtte",
+    "section": "24.2 Vanlige problemer",
+    "text": "24.2 Vanlige problemer\n\n24.2.1 Feil miljø\nEn vanlig årsak til feil er at man forsøker å lese data fra et annet miljø enn det man befinner seg i. Sjekk at url feltet i nettleseren stemmer overens med bøttene man forsøker å aksessere.\nStagingbøtter starter med: gs://ssb-staging-\nProduksjonsbøtter starter med: gs://ssb-prod-\n\n\n\n\n\n\nI https://jupyter.dapla-staging.ssb.no/ kan man ikke lese produksjonsbøtter.\n\n\n\n\n\n\n\n\n\nI https://jupyter.dapla.ssb.no/ kan man ikke lese stagingbøtter.\n\n\n\n\n\n24.2.2 Omstart av Jupyter\nNoen ganger kan en restart av Jupyter løse problemet.\nI Jupyters filmeny velg: fil -> Hub Controll Panel.\nTrykk på knappen “Stop My Server”. Etter dette kan man trykke knappen “Start My Server”.\n\n\n\nStop My Server\n\n\n\n\n24.2.3 Opprett TMS sak\nHvis man fortsatt ikke har tilgang, kan man opprette en TMS sak. For at vi lettes mulig skal kunne hjelpe bør saken inneholde full feilmelding & relevant kode."
+  },
+  {
     "objectID": "remote.html",
     "href": "remote.html",
-    "title": "24  IDE’er",
+    "title": "25  IDE’er",
     "section": "",
     "text": "Forklare situasjonen nå. Kun Jupyterlab. Kan kjøre remote session med Rstudio, Pycharm og VSCode."
   },
   {
     "objectID": "remote.html#rstudio",
     "href": "remote.html#rstudio",
-    "title": "24  IDE’er",
-    "section": "24.1 RStudio",
-    "text": "24.1 RStudio"
+    "title": "25  IDE’er",
+    "section": "25.1 RStudio",
+    "text": "25.1 RStudio"
   },
   {
     "objectID": "remote.html#vscode",
     "href": "remote.html#vscode",
-    "title": "24  IDE’er",
-    "section": "24.2 VSCode",
-    "text": "24.2 VSCode"
+    "title": "25  IDE’er",
+    "section": "25.2 VSCode",
+    "text": "25.2 VSCode"
   },
   {
     "objectID": "remote.html#pycharm",
     "href": "remote.html#pycharm",
-    "title": "24  IDE’er",
-    "section": "24.3 Pycharm",
-    "text": "24.3 Pycharm"
+    "title": "25  IDE’er",
+    "section": "25.3 Pycharm",
+    "text": "25.3 Pycharm"
   },
   {
     "objectID": "databaser.html#cloudsql",
     "href": "databaser.html#cloudsql",
-    "title": "26  Databaser",
-    "section": "26.2 CloudSQL",
-    "text": "26.2 CloudSQL"
+    "title": "27  Databaser",
+    "section": "27.2 CloudSQL",
+    "text": "27.2 CloudSQL"
   }
 ]
