@@ -53,6 +53,7 @@ book:
       - lese-data-bakken.qmd
     - part: avansert.qmd
       chapters:
+      - lese-data.qmd
       - remote.qmd
       - schedulering.qmd
       - databaser.qmd
