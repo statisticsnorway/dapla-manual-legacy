@@ -64,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <meta property="og:title" content="Kom i gang med DAPLA - 4&nbsp; Innlogging">
+<meta property="og:description" content="Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk1.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -304,7 +305,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#dapla" id="toc-dapla" class="nav-link active" data-scroll-target="#dapla"><span class="toc-section-number">4.1</span>  Dapla</a>
+  <ul class="collapse">
+  <li><a href="#prod" id="toc-prod" class="nav-link" data-scroll-target="#prod"><span class="toc-section-number">4.1.1</span>  Prod</a></li>
+  <li><a href="#staging" id="toc-staging" class="nav-link" data-scroll-target="#staging"><span class="toc-section-number">4.1.2</span>  Staging</a></li>
+  </ul></li>
+  <li><a href="#bakkemiljøet" id="toc-bakkemiljøet" class="nav-link" data-scroll-target="#bakkemiljøet"><span class="toc-section-number">4.2</span>  Bakkemiljøet</a>
+  <ul class="collapse">
+  <li><a href="#prod-1" id="toc-prod-1" class="nav-link" data-scroll-target="#prod-1"><span class="toc-section-number">4.2.1</span>  Prod</a></li>
+  <li><a href="#staging-1" id="toc-staging-1" class="nav-link" data-scroll-target="#staging-1"><span class="toc-section-number">4.2.2</span>  Staging</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -325,8 +341,76 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For å gjøre det enda enklere har vi laget en fast snarvei til denne nettadressen <a href="https://ssbno.sharepoint.com/sites/byraanettet">på vårt intranett/Byrånettet</a>(se <a href="#fig-intranett">Figure&nbsp;<span>4.1</span></a>).</p>
+<div id="fig-intranett" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/intranett_dapla.png" class="img-fluid figure-img" alt="Bilde av SSB sitt intranett der Dapla-lenken er uthevet"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: Snarvei til Dapla fra intranett</figcaption><p></p>
+</figure>
+</div>
+<p>Men samtidig som det er lett å logge seg på, så er det noen kompliserende ting som fortjener en forklaring. Noe skyldes at vi mangler et klart språk for å definere bakkemiljøet og skymiljøet slik at alle skjønner hva man snakker om. I denne boken definerer bakkemiljøet som stedet der man har drevet med statistikkproduksjon de siste tiårene. Skymiljøet er den nye dataplattformen <strong>Dapla</strong> på Google Cloud.</p>
+<p>Det som gjør ting litt komplisert er at vi har 2 Jupyter-miljøer på både bakke og sky. Årsaken er at vi har ett test- og ett prod-område for hver, og det blir i alt 4 Jupyter-miljøer. <a href="#fig-four_envs">Figure&nbsp;<span>4.2</span></a> viser dette.</p>
+<div id="fig-four_envs" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/bakke_vs_sky.png" class="img-fluid figure-img" style="width:75.0%" alt="Bilde som viser de 4 Jupyter-miljøene i SSB"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.2: De 4 Jupyter-miljøene i SSB. Et test-miljø og et prod-miljø på bakke og sky/Dapla</figcaption><p></p>
+</figure>
+</div>
+<p>Hver av disse miljøene har sin egen nettadresse og sitt eget bruksområde.</p>
+<section id="dapla" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="dapla"><span class="header-section-number">4.1</span> Dapla</h2>
+<p>I de fleste tilfeller vil en statistikker eller forsker ønske å logge seg inn i prod-miljøet. Det er her man skal kjøre koden sin i et produksjonsløp som skal publiseres eller utvikles. I noen tilfeller hvor man ber om å få tilgjengliggjort en ny tjeneste så vil denne først rulles ut i testområdet som vi kaller <strong>staging-området</strong>. Årsaken er at vi ønsker å beskytte prod-miljøet fra software som potensielt ødelegger for eksisterende funksjonalitet. Derfor ruller vi ut nye ting i staging først. Av den grunn vil de fleste oppleve å bli bedt om å logge seg inn der for testing en eller annen gang. Under forklarer vi hvordan man går frem for å logge seg på de to ulike miljøene på Dapla.</p>
+<section id="prod" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="prod"><span class="header-section-number">4.1.1</span> Prod</h3>
+<p>For å logge seg inn inn i prod-miljøet på Dapla kan man gjøre følgende:</p>
+<ol type="1">
+<li>Gå inn på lenken <a href="https://jupyter.dapla.ssb.no/" class="uri">https://jupyter.dapla.ssb.no/</a> i en Chrome-nettleser eller klikk på lenken på Byrånettet som vist i <a href="#fig-intranett">Figure&nbsp;<span>4.1</span></a>.</li>
+<li>Deretter blir man spurt om man godtar at SSB-profilen din blir brukt av Google for innlogging. Trykk <strong>Tillat</strong>.</li>
+<li>Deretter lander man på en side som lar deg avgjøre hvor mye maskinkraft som skal holdes av til deg:
+<ol type="a">
+<li><strong>Lite ressurser</strong><br>
+Betyr at man får…kommer snart</li>
+<li><strong>Mer ressurser</strong><br>
+Betyr at man får…kommer snart</li>
+<li><strong>Mye ressurser</strong><br>
+Betyr at man får…kommer snart</li>
+</ol></li>
+</ol>
+<p>Etter dette er man logget inn i et Jupyter-miljø som kjører på en minimal Ubuntu-maskin. Hvis man er del av <a href="./dapla.team.html">et Dapla-team</a> får man også tilgang til alt teamet har tilgang til.</p>
+</section>
+<section id="staging" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="staging"><span class="header-section-number">4.1.2</span> Staging</h3>
+<p>Innlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå <a href="https://jupyter.dapla-staging.ssb.no/" class="uri">https://jupyter.dapla-staging.ssb.no/</a>.</p>
+<p>Litt mer om hva som er tilgjenglig her kommer.</p>
+</section>
+</section>
+<section id="bakkemiljøet" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="bakkemiljøet"><span class="header-section-number">4.2</span> Bakkemiljøet</h2>
+<p>Jupyter-miljøet på bakken bruker <a href="https://github.com/statisticsnorway/jupyterlab-common">samme base-image</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.</p>
+<section id="prod-1" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="prod-1"><span class="header-section-number">4.2.1</span> Prod</h3>
+<p>Du logger deg inn på prod i bakkemiljøet på følgende måte:</p>
+<ol type="1">
+<li>Logg deg inn på Citrix-Windows i bakkemiljøet. Det kan gjøres ved å bruke lenken <strong>Citrix</strong> på Byrånettet, som også vises i <a href="#fig-intranett">Figure&nbsp;<span>4.1</span></a>.</li>
+<li>Åpne Chrome-nettleseren</li>
+<li>Gå inn på denne nettadressen: <a href="https://sl-jupyter-p.ssb.no/" class="uri">https://sl-jupyter-p.ssb.no/</a></li>
+<li>Skriv inn ditt brukernavn og passord som du bruker når du logger deg på maskinen din hver morgen.</li>
+</ol>
+</section>
+<section id="staging-1" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="staging-1"><span class="header-section-number">4.2.2</span> Staging</h3>
+<p>Innlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå <a href="https://sl-jupyter-t.ssb.no/" class="uri">https://sl-jupyter-t.ssb.no/</a>.</p>
 
 
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Å være logget på SSB sitt nettverk betyr i denne sammenhengen at man er logget på med <strong>VPN</strong>, enten man er på kontoret eller på hjemmekontor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Hva er base-image?<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

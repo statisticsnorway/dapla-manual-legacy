@@ -42,6 +42,62 @@
     "text": "Hvilke komponenter er plattformen bygd opp på? Forklart på lettest mulig måte."
   },
   {
+    "objectID": "innlogging.html",
+    "href": "innlogging.html",
+    "title": "4  Innlogging",
+    "section": "",
+    "text": "Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk1. For å gjøre det enda enklere har vi laget en fast snarvei til denne nettadressen på vårt intranett/Byrånettet(se Figure 4.1).\nMen samtidig som det er lett å logge seg på, så er det noen kompliserende ting som fortjener en forklaring. Noe skyldes at vi mangler et klart språk for å definere bakkemiljøet og skymiljøet slik at alle skjønner hva man snakker om. I denne boken definerer bakkemiljøet som stedet der man har drevet med statistikkproduksjon de siste tiårene. Skymiljøet er den nye dataplattformen Dapla på Google Cloud.\nDet som gjør ting litt komplisert er at vi har 2 Jupyter-miljøer på både bakke og sky. Årsaken er at vi har ett test- og ett prod-område for hver, og det blir i alt 4 Jupyter-miljøer. Figure 4.2 viser dette.\nHver av disse miljøene har sin egen nettadresse og sitt eget bruksområde."
+  },
+  {
+    "objectID": "innlogging.html#dapla",
+    "href": "innlogging.html#dapla",
+    "title": "4  Innlogging",
+    "section": "4.1 Dapla",
+    "text": "4.1 Dapla\nI de fleste tilfeller vil en statistikker eller forsker ønske å logge seg inn i prod-miljøet. Det er her man skal kjøre koden sin i et produksjonsløp som skal publiseres eller utvikles. I noen tilfeller hvor man ber om å få tilgjengliggjort en ny tjeneste så vil denne først rulles ut i testområdet som vi kaller staging-området. Årsaken er at vi ønsker å beskytte prod-miljøet fra software som potensielt ødelegger for eksisterende funksjonalitet. Derfor ruller vi ut nye ting i staging først. Av den grunn vil de fleste oppleve å bli bedt om å logge seg inn der for testing en eller annen gang. Under forklarer vi hvordan man går frem for å logge seg på de to ulike miljøene på Dapla.\n\n4.1.1 Prod\nFor å logge seg inn inn i prod-miljøet på Dapla kan man gjøre følgende:\n\nGå inn på lenken https://jupyter.dapla.ssb.no/ i en Chrome-nettleser eller klikk på lenken på Byrånettet som vist i Figure 4.1.\nDeretter blir man spurt om man godtar at SSB-profilen din blir brukt av Google for innlogging. Trykk Tillat.\nDeretter lander man på en side som lar deg avgjøre hvor mye maskinkraft som skal holdes av til deg:\n\nLite ressurser\nBetyr at man får…kommer snart\nMer ressurser\nBetyr at man får…kommer snart\nMye ressurser\nBetyr at man får…kommer snart\n\n\nEtter dette er man logget inn i et Jupyter-miljø som kjører på en minimal Ubuntu-maskin. Hvis man er del av et Dapla-team får man også tilgang til alt teamet har tilgang til.\n\n\n4.1.2 Staging\nInnlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå https://jupyter.dapla-staging.ssb.no/.\nLitt mer om hva som er tilgjenglig her kommer."
+  },
+  {
+    "objectID": "innlogging.html#bakkemiljøet",
+    "href": "innlogging.html#bakkemiljøet",
+    "title": "4  Innlogging",
+    "section": "4.2 Bakkemiljøet",
+    "text": "4.2 Bakkemiljøet\nJupyter-miljøet på bakken bruker samme base-image2 for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.\n\n4.2.1 Prod\nDu logger deg inn på prod i bakkemiljøet på følgende måte:\n\nLogg deg inn på Citrix-Windows i bakkemiljøet. Det kan gjøres ved å bruke lenken Citrix på Byrånettet, som også vises i Figure 4.1.\nÅpne Chrome-nettleseren\nGå inn på denne nettadressen: https://sl-jupyter-p.ssb.no/\nSkriv inn ditt brukernavn og passord som du bruker når du logger deg på maskinen din hver morgen.\n\n\n\n4.2.2 Staging\nInnlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå https://sl-jupyter-t.ssb.no/."
+  },
+  {
+    "objectID": "jupyterlab.html",
+    "href": "jupyterlab.html",
+    "title": "5  Jupyterlab",
+    "section": "",
+    "text": "Mer kommer."
+  },
+  {
+    "objectID": "jupyterlab.html#terminalen",
+    "href": "jupyterlab.html#terminalen",
+    "title": "5  Jupyterlab",
+    "section": "5.2 Terminalen",
+    "text": "5.2 Terminalen\nMå nevne operativsystemet og at noe programvare ligger installert her (git, jwsacruncher, quarto, ++)"
+  },
+  {
+    "objectID": "jupyterlab.html#pakkeinstallasjoner",
+    "href": "jupyterlab.html#pakkeinstallasjoner",
+    "title": "5  Jupyterlab",
+    "section": "5.3 Pakkeinstallasjoner",
+    "text": "5.3 Pakkeinstallasjoner\nNoe er i base-image, noe bør gjøres i virtuelle miløer. Hvordan liste ut pakker som er pre-installert?"
+  },
+  {
+    "objectID": "jupyterlab.html#extensions",
+    "href": "jupyterlab.html#extensions",
+    "title": "5  Jupyterlab",
+    "section": "5.4 Extensions",
+    "text": "5.4 Extensions\nJupyterlab er en samling extension. Kan bare installeres av admin. Sikkerhet. Hvilke extension har vi tilgjengeliggjort?"
+  },
+  {
+    "objectID": "jupyterlab.html#tips-triks",
+    "href": "jupyterlab.html#tips-triks",
+    "title": "5  Jupyterlab",
+    "section": "5.5 Tips & triks",
+    "text": "5.5 Tips & triks\nSane defaults for Jupyterlab."
+  },
+  {
     "objectID": "dapla-team.html",
     "href": "dapla-team.html",
     "title": "Opprette Dapla-team",
