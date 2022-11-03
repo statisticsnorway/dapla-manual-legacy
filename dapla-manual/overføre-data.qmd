@@ -1,0 +1,70 @@
+# Overføre data
+
+For å overføre data mellom bakke og sky brukes **Data Transfer**, som er en tjeneste i [Google Cloud Console](gcc.qmd). Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets kildedataansvarlige.
+
+Teamets kildedataansvarlige vil være spesifisert som en del av å [opprette et Dapla-team](./opprette-dapla-team.qmd).
+
+## Forberedelser
+
+### Logg inn i produksjonssonen
+
+Logg inn i produksjonssonen [fra denne linken](https://portal.ssb.no/). Dette krever pålogging med SSBs brukernavn og passord, samt tofaktorautentisering.
+
+## Få tilgang til Linuxstammen
+
+For å få tilgang til Linuxstammen må du først koble deg opp mot en Linux-maskin. Dette kan gjøres på følgende måte:
+
+* Åpne FileZilla
+* Velg `Fil > Tjeneroppsett` fra menyen
+* Under Tjeneroppsett velg mappen `Tjenere`. Trykk på `Ny Tjener` og skriv inn et valgfritt navn.
+* I feltene til høyre må du fylle inn `Protokoll`. Velg `SFTP - SSH File Transfer Protocol`
+* I feltet `Vert` må du skrive inn en adresse til en Linux-maskin som du har tilgang til (prøv f.eks `sl-sas-work-1.ssb.no` ).
+* I feltet `Port` skriv inn `22`
+* Nedtrekkslisten `Innloggingstype` kan være satt til `Normal`
+* I feltet `Bruker` skriv inn ditt 3-bokstavers brukernavn (samme som i eposten din)
+* I feltet `Passord` skriver du inn ditt SSB-passord (fra AD)
+* Trykk `Koble til` og `OK`. Du vil kanskje få opp set spørsmål med `Ukjent vertsnøkkel: Tjenerens vertsnøkkel er ukjent` etc.
+  Kryss av `Godta alltid denne tjeneren` og trykk `OK`.
+* Vent på at FileZilla får koblet opp og skriver ut meldingen `Status: Connected to <machine-name>`
+* Du kan nå navigere i filsystemet til Linuxstammen under `Ekstern tjener`
+
+FileZilla kan også brukes til å kopiere filer mellom andre nettverksdisker og Linuxstammen.
+
+### Få tilgang til overføringsmapper 
+
+Mapper som brukes til å overføre data mellom produksjonssonen og Dapla ligger på Linuxstammen.
+
+Hvert team vil ha mappene `/ssb/cloud_sync/<teamnavn>/data/tilsky` og `/ssb/cloud_sync/<teamnavn>/data/frasky` (erstatt *\<teamnavn\>* med navnet på ditt Dapla-team, f.eks "kostra", "skatt-naering", "gro-grunnskole", etc.). 
+
+Filer som flyttes fra produksjonssonen *til Dapla* legges i mappen `tilsky` og filer som skal flyttes *fra Dapla* til produksjonssonen havner i mappen `frasky`. Det er viktig og huske at filer som flyttes enten opp til skyen eller ned til bakken vil bli slettet fra den respektive mappen når overførselen er gjennomført. 
+
+## Sette opp overføringsjobber
+
+Enten man skal overføre filer opp til sky eller ned til bakken så bruker man den samme Data Transfer tjenesten. For å få tilgang til denne må man først logge seg inn i [Google Cloud Console](https://console.cloud.google.com). Sjekk at du er logget inn med din SSB-konto (xxx@ssb.no).
+
+Øverst på siden, til høyre for teksten `Google Cloud` finnes det en prosjektvelger, og her er det viktig å velge korrekt Google prosjekt. 
+Hvis du trykker på prosjektvelgeren vil det åpnes opp et nytt vindu. Sjekk at det står `SSB.NO` øverst i dette vinduet. Trykk deretter på fanen `ALL` for å få opp alle tilgjengelige Google-prosjekter under organisasjonen `ssb.no` (@fig-prosjektvelger)
+
+![Prosjektvelgeren i Google Cloud Console](./images/prosjektvelger.png){fig-alt="Bilde som viser prosjektvelgeren i Google Cloud Console" #fig-prosjektvelger}
+
+Under `ssb.no` vil det ligge flere mapper. Åpne mappen som heter `production` og let frem en undermappe som har navnet på ditt Dapla-team. Strukturen skal se slik ut:
+
+```shell
+    ssb.no
+    ├── production
+        └── <teamnavn>
+            ├── prod-<teamnavn>
+            └── <teamnavn>-ts
+```
+
+Det underste nivået (`prod-<teamnavn>` og `<teamnavn>-ts`) viser prosjektene, nivået i mellom er mapper, og toppnivået er organisasjonen (ssb.no). Prosjektet `<teamnavn>-ts` er et separat prosjekt som bare teamets kildedataansvarlige har tilgang til, og det er her tjenesten Data Transfer skal settes opp.
+
+* Velg derfor prosjektet `<teamnavn>-ts`.
+
+* I søkefeltet til Google Cloud Console, skriv `Data transfer` og trykk på det valget som kommer opp. 
+  
+* Første gang man kommer inn på siden til Transfer Services vil man bli vist en blå knapp med teksten `Set Up Connection`. Når du trykker på denne vil det dukke opp et nytt felt hvor du får valget `Create Pub-Sub Resources`. Dette er noe som bare trengs å gjøre én gang. Trykk på den blå `CREATE` knappen, og deretter trykk på `Close` lenger nede.
+
+* On the left navigation manu click `Transfer jobs`, click on the `Create transfer job` to create a new job, which has a `+` sign before it.
+
+### Linuxstammen to Dapla

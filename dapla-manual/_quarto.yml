@@ -34,6 +34,7 @@ book:
       - opprette-dapla-team.qmd
       - bøtter.qmd
       - gcc.qmd
+      - overføre-data.qmd
       - lagre-data.qmd
       - hente-data.qmd
       - bakke-til-sky.qmd
