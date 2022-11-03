@@ -56,7 +56,7 @@ Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står
 
 ![](images/github_profile.png)
 
-Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette sin benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:
+Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:
 
 ::: {.grid}
 
@@ -85,7 +85,7 @@ Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er de
 
 5. Når koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.
 
-6. Til slutt lagrer du **Recovery-codes** et trygt sted på ditt hjemmeområdet.
+6. Til slutt lagrer du **Recovery-codes** et trygt sted.
 
 :::
 
@@ -100,7 +100,7 @@ Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytt
 
 ### Koble deg til SSB
 
-I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentifiseringen til koble oss til SSB sin bedriftskonto **statisticsnorway**. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.
+I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon **statisticsnorway**. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.
 
 1. Gå til profilsiden din og velg **Settings** slik du gjorde i punkt 1 i forrige delkapitel.
 
@@ -113,7 +113,7 @@ I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi m�
 
 ### Personal Access Token (PAT)
 
-Når vi skal jobbe med SSB-kode som ligger lagret hos **statistcsnorway** på GitHub, så må vi autentifisere oss.  Måten vi gjøre det på er ved å generere et **Personal Access Token** (ofte forkortet *PAT*) som vi oppgir når vi vil hente eller oppdatere kode på GitHub. Da sender vi med PAT for å autentifisere oss for GitHub.
+Når vi skal jobbe med SSB-kode som ligger lagret hos **statistcsnorway** på GitHub, så må vi autentisere oss.  Måten vi gjøre det på er ved å generere et **Personal Access Token** (ofte forkortet *PAT*) som vi oppgir når vi vil hente eller oppdatere kode på GitHub. Da sender vi med PAT for å autentisere oss for GitHub.
 
 #### Opprette PAT {#sec-pat}
 
@@ -172,5 +172,5 @@ I eksempelet over lagde vi en PAT som var gyldig i 90 dager. Dermed vil du ikke 
 
 2. I miljøet der du skal jobbe med Git og GitHub går du inn i din **.netrc** og bytter ut token med det nye.
 
-Og med det er du klar til å jobbe mot *staisticsnorway* på **GitHub**.
+Og med det er du klar til å jobbe mot *statisticsnorway* på **GitHub**.
 
