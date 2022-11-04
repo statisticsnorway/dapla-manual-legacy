@@ -96,7 +96,7 @@ Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er de
 
 :::
 
-Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på **statisticsnorway**.
+Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs "Github organisation" [**statisticsnorway**](https://github.com/statisticsnorway).
 
 ### Koble deg til SSB
 
@@ -125,9 +125,9 @@ For å lage en PAT som er godkjent mot *statisticsnorway* så gjør man følgend
 
 3. I menyen til venstre velger du **Personal Access Token**, og deretter **Tokens (classic)**.
 
-5. Under **Note** kan du gi PAT`en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den *dapla*. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den *prodsone* eller noe annet som gjør det lett for det skjønne innholdet i ettertid.
+5. Under **Note** kan du gi PAT'en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den *dapla*. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den *prodsone* eller noe annet som gjør det lett for det skjønne innholdet i ettertid.
 
-6. Under **Expiration** velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. En grei mellomløsning kan være å velge 3 måneder. Når PAT går ut må du gjenta stegene i dette kapitlet.
+6. Under **Expiration** velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. En grei mellomløsning kan være å velge 3 måneder. Når PAT utløper må du gjenta stegene i dette kapitlet.
 
 7. Under **Select scopes** velger du **Repo** (se bilde under).
 
