@@ -316,7 +316,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#git-og-notebooks" id="toc-git-og-notebooks" class="nav-link" data-scroll-target="#git-og-notebooks"><span class="toc-section-number">16.1.3</span>  Git og Notebooks</a></li>
   <li><a href="#vanlige-git-operasjoner" id="toc-vanlige-git-operasjoner" class="nav-link" data-scroll-target="#vanlige-git-operasjoner"><span class="toc-section-number">16.1.4</span>  Vanlige Git-operasjoner</a></li>
   </ul></li>
-  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="toc-section-number">16.2</span>  GitHub</a></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="toc-section-number">16.2</span>  GitHub</a>
+  <ul class="collapse">
+  <li><a href="#opprett-github-bruker" id="toc-opprett-github-bruker" class="nav-link" data-scroll-target="#opprett-github-bruker"><span class="toc-section-number">16.2.1</span>  Opprett GitHub-bruker</a></li>
+  <li><a href="#sec-tofaktor" id="toc-sec-tofaktor" class="nav-link" data-scroll-target="#sec-tofaktor"><span class="toc-section-number">16.2.2</span>  To-faktor autentifisering</a></li>
+  <li><a href="#koble-deg-til-ssb" id="toc-koble-deg-til-ssb" class="nav-link" data-scroll-target="#koble-deg-til-ssb"><span class="toc-section-number">16.2.3</span>  Koble deg til SSB</a></li>
+  <li><a href="#personal-access-token-pat" id="toc-personal-access-token-pat" class="nav-link" data-scroll-target="#personal-access-token-pat"><span class="toc-section-number">16.2.4</span>  Personal Access Token (PAT)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -369,8 +375,122 @@ ul.task-list li input[type="checkbox"] {
 <section id="github" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="github"><span class="header-section-number">16.2</span> GitHub</h2>
 <p></p>
+<section id="opprett-github-bruker" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="opprett-github-bruker"><span class="header-section-number">16.2.1</span> Opprett GitHub-bruker</h3>
+<p>Dette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke <code>ssb-project</code>-programmet til å generere et <strong>remote repo</strong> på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>SSB har valgt å ikke sette opp SSB-brukerne til de ansatte som GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som en del av den ansattes CV. For de som aldri har brukt GitHub før kan det virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent med denne arbeidsformen.</p>
+</div>
+</div>
+</div>
+<p>Slik gjør du det:</p>
+<ol type="1">
+<li>Gå til <a href="https://github.com/" class="uri">https://github.com/</a></li>
+<li>Trykk <strong>Sign up</strong> øverst i høyre hjørne</li>
+<li>Svar på spørsmålene du blir stilt.</li>
+</ol>
+<p>Husk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker.</p>
+</section>
+<section id="sec-tofaktor" class="level3" data-number="16.2.2">
+<h3 data-number="16.2.2" class="anchored" data-anchor-id="sec-tofaktor"><span class="header-section-number">16.2.2</span> To-faktor autentifisering</h3>
+<p>Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den slik ut:</p>
+<p><img src="images/github_profile.png" class="img-fluid"></p>
+<p>Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:</p>
+<div class="grid">
+<div class="g-col-8">
+<ol type="1">
+<li><p>Trykk på den lille pilen øverst til høyre og velg <strong>Settings</strong>(se bilde til høyre).</p></li>
+<li><p>Deretter velger du <strong>Password and authentification</strong> i menyen til venstre.</p></li>
+</ol>
+</div>
+<div class="g-col-4">
+<p><img src="images/github_settings_menu.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Under <strong>Two-factor authentication</strong> trykker du på <strong>Add</strong>. Da får du opp følgende bilde:</li>
+</ol>
+<p><img src="images/github_2fa.png" class="img-fluid" style="width:50.0%"></p>
+<div class="grid">
+<div class="g-col-8">
+<ol start="4" type="1">
+<li><p>Strekkoden over skal skannes i din <strong>Microsoft Authenticator</strong>-app på mobilen. Åpne appen, trykk på <strong>Bekreftede ID-er</strong>, og til slutt trykk på <strong>Skann QR-kode</strong>. Deretter skanner du QR-koden fra punkt 3.</p></li>
+<li><p>Når koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.</p></li>
+<li><p>Til slutt lagrer du <strong>Recovery-codes</strong> et trygt sted.</p></li>
+</ol>
+</div>
+<div class="g-col-4">
+<p><img src="images/authenticator.jpg" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+<p>Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs “Github organisation” <a href="https://github.com/statisticsnorway"><strong>statisticsnorway</strong></a>.</p>
+</section>
+<section id="koble-deg-til-ssb" class="level3" data-number="16.2.3">
+<h3 data-number="16.2.3" class="anchored" data-anchor-id="koble-deg-til-ssb"><span class="header-section-number">16.2.3</span> Koble deg til SSB</h3>
+<p>I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon <strong>statisticsnorway</strong>. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.</p>
+<ol type="1">
+<li><p>Gå til profilsiden din og velg <strong>Settings</strong> slik du gjorde i punkt 1 i forrige delkapitel.</p></li>
+<li><p>Trykk deretter på <strong>Organizations</strong> i menyen til venstre.</p></li>
+<li><p>Trykk deretter på <strong>New organization</strong>.</p></li>
+<li><p>Søk etter <strong>statisticsnorway</strong>.</p></li>
+</ol>
+</section>
+<section id="personal-access-token-pat" class="level3" data-number="16.2.4">
+<h3 data-number="16.2.4" class="anchored" data-anchor-id="personal-access-token-pat"><span class="header-section-number">16.2.4</span> Personal Access Token (PAT)</h3>
+<p>Når vi skal jobbe med SSB-kode som ligger lagret hos <strong>statistcsnorway</strong> på GitHub, så må vi autentisere oss. Måten vi gjøre det på er ved å generere et <strong>Personal Access Token</strong> (ofte forkortet <em>PAT</em>) som vi oppgir når vi vil hente eller oppdatere kode på GitHub. Da sender vi med PAT for å autentisere oss for GitHub.</p>
+<section id="sec-pat" class="level4" data-number="16.2.4.1">
+<h4 data-number="16.2.4.1" class="anchored" data-anchor-id="sec-pat"><span class="header-section-number">16.2.4.1</span> Opprette PAT</h4>
+<p>For å lage en PAT som er godkjent mot <em>statisticsnorway</em> så gjør man følgende:</p>
+<ol type="1">
+<li><p>Gå til din profilside på GitHub og åpne <strong>Settings</strong> slik som ble vist <a href="#sec-tofaktor"><span>Section&nbsp;16.2.2</span></a>.</p></li>
+<li><p>Velg <strong>Developer Settings</strong> i menyen til venstre.</p></li>
+<li><p>I menyen til venstre velger du <strong>Personal Access Token</strong>, og deretter <strong>Tokens (classic)</strong>.</p></li>
+<li><p>Under <strong>Note</strong> kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den <em>dapla</em>. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den <em>prodsone</em> eller noe annet som gjør det lett for det skjønne innholdet i ettertid.</p></li>
+<li><p>Under <strong>Expiration</strong> velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. En grei mellomløsning kan være å velge 3 måneder. Når PAT utløper må du gjenta stegene i dette kapitlet.</p></li>
+<li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> (se bilde under).</p></li>
+</ol>
+<p><img src="images/github_pat.png" class="img-fluid"></p>
+<ol start="8" type="1">
+<li>Trykk på <strong>Generate token</strong> nederst på siden og du får opp noe som ser ut som dette:</li>
+</ol>
+<p><img src="images/github_pat2.png" class="img-fluid"></p>
+<ol start="9" type="1">
+<li><p>Kopier deretter PAT til en midlertidig fil. Grunnen er at du aldri vil se det igjen her etter at vi har gjennomført neste steg.</p></li>
+<li><p>Deretter trykker du på <strong>Configure SSO</strong> og velger <strong>Authorize</strong> ved siden statisticsnorway. Svar deretter på spørsmålene som dukker opp.</p></li>
+</ol>
+<p><img src="images/github_pat3.png" class="img-fluid"></p>
+<p>Vi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med <strong>Git</strong> på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på <strong>statisticsnorway</strong> på GitHub.</p>
+</section>
+<section id="lagre-pat" class="level4" data-number="16.2.4.2">
+<h4 data-number="16.2.4.2" class="anchored" data-anchor-id="lagre-pat"><span class="header-section-number">16.2.4.2</span> Lagre PAT</h4>
+<p>Det er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en <strong>.netrc</strong>-fil. Vi oppretter da en fil som heter <strong>.netrc</strong> på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen:</p>
+<p><code>machine github.com login &lt;github-bruker&gt; password &lt;Personal Access Token&gt;</code></p>
+<p><strong>GitHub-bruker</strong> er da din personlige bruker og IKKE brukernavnet ditt i SSB. <strong>Personal Access Token</strong> er det vi lagde</p>
+<p>En veldig enkel måte å lagre dette er som følger. Anta at min personlige GitHub-bruker er <strong>SSB-Chad</strong> og at min Personal Access Token er <strong>blablabla</strong>. Da kan jeg gjøre følgende for å lagre det i <strong>.netrc</strong>:</p>
+<ol type="1">
+<li><p>Gå inn i Jupyterlab og åpne en Python-notebook.</p></li>
+<li><p>I den første kodecellen skriver du: <code>!echo "machine github.com login SSB-Chad password blablabla" &gt;&gt; ~/.netrc</code></p></li>
+</ol>
+<p>Alternativt kan du droppe det utropstegnet og kjøre det direkte i en terminal. Det vil gi samme resultat. Koden over legger til en linje med teksten <strong>machine github.com login SSB-Chad password blablabla</strong> i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token.</p>
+<p>Hver gang du jobber mot GitHub vil Git sjekke om informasjon om autentifisering ligger i denne filen, og bruke den hvis den ligger der.</p>
+</section>
+<section id="oppdater-pat" class="level4" data-number="16.2.4.3">
+<h4 data-number="16.2.4.3" class="anchored" data-anchor-id="oppdater-pat"><span class="header-section-number">16.2.4.3</span> Oppdater PAT</h4>
+<p>I eksempelet over lagde vi en PAT som var gyldig i 90 dager. Dermed vil du ikke kunne jobbe mot GitHub med dette tokenet etter 90 dager. For å oppdatere tokenet gjør du følgende:</p>
+<ol type="1">
+<li><p>Lag et nytt PAT ved å repetere <a href="#sec-pat"><span>Section&nbsp;16.2.4.1</span></a>.</p></li>
+<li><p>I miljøet der du skal jobbe med Git og GitHub går du inn i din <strong>.netrc</strong> og bytter ut token med det nye.</p></li>
+</ol>
+<p>Og med det er du klar til å jobbe mot <em>statisticsnorway</em> på <strong>GitHub</strong>.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
