@@ -1,1 +1,5 @@
 # Administrasjon av team
+
+## Legge til eller fjerne medlemmer
+
+Dapla-teamet vil ha sitt eget gruppenavn i SSBs Active Directory. Endringer i denne gruppen, slik som å legge til eller fjerne medlemmer, gjøres ved å sende en epost til Kundeservice.
