@@ -79,7 +79,7 @@ Følgende oppskrift tar utgangspunkt i siden `Create a transfer job` (@fig-trans
 3. I feltet "Source directory path" skal man kun skrive `data/tilsky` siden overføringsagenten kun har tilgang til mapper som ligger relativt plassert under `/ssb/cloud_sync/<teamnavn>/`. Trykk `Next step`
 4. Velg en destinasjon for overføringsjobben. Trykk på `Browse` og velg bøtten med navn som passer til `ssb-prod-<teamnavn>-data-synk-opp`. Vi anbefaler at du også oppretter en mappe inne i denne bøtten. Det gjøres ved å trykke på mappeikonet med et `+`-tegn foran. Skriv inn et passende mappenavn og trykk `Select` i bunnen av siden. Trykk deretter `Next step`
 5. Neste steg "Choose how and when to run this job" er opp til brukeren å bestemme. Hvis man f.eks. velger at Data Transfer skal overføre data en gang i uken, vil den kun starte en overføring hvis det finnes nye data. Trykk `Next step`
-6. Beskriv overføringsjobben, f.eks: "Flytter data for <team-name> til sky."`. Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.
+6. Beskriv overføringsjobben, f.eks: "Flytter data for <team-name> til sky.". Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.
 
 Trykk til slutt på den blå `Create`-knappen. Du vil kunne se kjørende jobber under menyen `Transfer jobs`.
 
