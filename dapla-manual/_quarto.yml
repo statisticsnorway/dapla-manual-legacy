@@ -39,9 +39,9 @@ book:
       - hente-data.qmd
       - bakke-til-sky.qmd
       - administrasjon.qmd
-    - part: beste-praksis.qmd
+    - part: ssbproject.qmd
       chapters:
-      - ssb-project.qmd
+      - nytt-ssbproject.qmd
       - git-github.qmd
       - virtual-env.qmd
       - jupyter-kernel.qmd

@@ -1,0 +1,118 @@
+# Nytt ssb-project
+
+I dette kapitlet forklarer vi hvordan du oppretter et [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) og hva det innebærer. **ssb-project** er et CLI^[CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.] for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal
+
+`ssb-project create stat-testprod`
+
+og du vil få en mappe som heter `stat-testprod` med følgende innhold: 
+
+1. **Standard mappestruktur**  
+En standard mappestruktur gjør det lettere å dele og samarbeide om kode, som igjen reduserer sårbarheten knyttet til at få personer kjenner koden.
+2. **Virtuelt miljø**  
+Virtuelle miljøer isolerer og lagrer informasjon knyttet til kode. For eksempel hvilken versjon av Python du bruker og tilhørende pakkeversjoner. Det er viktig for at publiserte tall skal være reproduserbare.
+3. **Versjonshåndtering med Git**  
+Initierer versjonshåndtering med [Git](https://git-scm.com/) og legger til SSBs anbefalte *.gitignore* og *.gitattributes*. Det sikrer at du ikke versjonhåndterer filer/informasjon som ikke skal versjonshåndteres.
+
+I tillegg lar **ssb-project** deg opprette et GitHub-repo hvis du ønsker. Les mer om hvordan du kan ta i bruk dette verktøyet under.
+
+:::{.callout-note}
+Dokumentasjonen for `ssb-project` finnes her: <https://statisticsnorway.github.io/ssb-project-cli/>. 
+Det oppdateres hver gang en ny versjon av `ssb-project` slippes.
+:::
+
+## Forberedelser
+
+Før du kan ta i bruk **ssb-project** så er det et par ting som må være på plass:
+
+1. Du må ha opprettet en **git-bruker** og **git-epost** lokalt der du skal kalle på programmet ([les mer om hvordan her](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#minimal-git-konfigurasjon)).
+2. Hvis du ønsker at **ssb-project** også skal opprette et GitHub-repo for deg må du også følgende være på plass:
+    a. Du må ha en **GitHub-bruker** ([les hvordan her](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#opprett-github-bruker))
+    b. Skru på **2-faktor autentifisering** for GitHub-brukeren din ([les hvordan her](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#sec-tofaktor))
+    c. Være koblet mot SSBs organisasjon [statisticsnorway](https://github.com/statisticsnorway) på GitHub ([les hvordan her](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#koble-deg-til-ssb))
+    d. Opprette **Personal Access Token (PAT)** og godkjenne det for bruk mot **statisticsnorway** ([les hvordan her](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#sec-pat))
+
+Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.
+
+## Opprett ssb-project
+
+::: {.callout-warning appearance="simple"}
+Har du Github bruker? Noe funksjonalitet i `ssb-project` krever det. Finn ut hvordan ved å lese [ forrige kapitel](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/nytt-ssbproject.html#forberedelser).
+:::
+
+**ssb-project** lar deg opprette en prosjekt-mappe med og uten GitHub-repo. La oss ta for oss hver av alternativene.
+
+### Uten GitHub-repo
+
+For å opprette et nytt **ssb-project** uten GitHub-repo gjør du følgende:
+
+1. Åpne en terminal. De fleste vil gjøre dette i Jupyterlab på bakke eller sky og da kan de bare trykke på det blå ➕-tegnet i Jupyterlab og velge **Terminal**.
+
+2. Før vi kjører programmet må vi være obs på at **ssb-project** vil opprette en ny mappe der vi står. Gå derfor til den mappen du ønsker å ha den nye prosjektmappen. For å opprette et prosjekt som heter **stat-testprod** så skriver du følgende i terminalen:
+
+`ssb-project create stat-testprod`
+
+::: {.grid}
+
+::: {.g-col-8}
+Hvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i @fig-ssb-proj-folder. ^[Filer og mapper som starter med punktum er skjulte med mindre man ber om å se dem. I Jupyterlab kan disse vises i filutforskeren ved å velge **View** fra menylinjen, og deretter velge **Show hidden files**. I en terminal skriver man `ls -a` for å se de.]. Den inneholder følgende :
+
+- **.git**-mappe som blir opprettet for å versjonshåndtere med Git.
+- **src**-mappe som skal inneholde all koden som utgjør produksjonsløpet.
+- **tests**-mappe som inneholder tester du skriver for koden din.
+- **LICENCE**-fil som skal benyttes for public-repos i SSB.
+- **poetry.lock**-fil som inneholder alle versjoner av Python-pakker som blir brukt.
+- **README.md**-fil som brukes for tekstlig innhold på GitHub-siden for prosjektet.
+
+
+:::
+
+::: {.g-col-4}
+![Mappen som ble opprettet av ssb-project.](images/ssbproject_folders.png){fig-alt="Bilde av filutforskeren i Jupyterlab med en mappe laget av ssb-project" #fig-ssb-proj-folder}
+
+:::
+
+:::
+
+### Med Github-repo
+
+Over så opprettet vi et **ssb-project** uten å opprette et GitHub-repo. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:
+
+`ssb-project create stat-testprod --github --github-token='blablabla'`
+
+Kommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter **stat-testprod** med et GitHub-repo med samme navn. Som du ser så må vi da sende med opsjonen `--github` og PAT med opsjonen `--github-token='blablabla'`. Repoet i GitHub ser da ut som i @fig-ssb-proj-github.
+
+![GitHub-repo som er opprettet av ssb-project](images/ssbproject_github.png){fig-alt="Bilde av et GitHub-repo som ble opprettet av ssb-project" #fig-ssb-proj-github}
+
+::: {.callout-warning appearance="simple"}
+Når du har opprettet et nytt ssb-project, eller bygget et eksisterende prosjekt, så kan det ta rundt 30 sekunder før kernelen viser seg i Jupterlab-launcher. Vær tålmodig! 
+:::
+
+## Installere pakker
+
+Flytte fra kapittel 20 til hit. Fortelle at lock-file oppdateres automatisk ved installasjon. Vil lock-.file oppdateres selv om du ikke bruker pakken? Test. PyPI benyttes. Kun Python foreløpig. 
+
+## Push til GitHub
+
+Kort beskrivelse av hvordan man pusher til GitHub. 
+
+## Bygg eksisterende ssb-project
+
+Når vi skal samarbeide med andre om kode så gjør vi dette via **GitHub**. Når du *pusher* koden din til GitHub, så kan samarbeidspartnere *pulle* ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. **ssb-project** gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs. For å bygge opp det samme miløet så gjør du følgende: 
+
+1. Klone repoet med `git clone https://github.com/statisticsnorway/<prosjektnavn>`
+1. Gå til mappen med `cd <prosjektnavn>`
+1. Skape et virtuelt miljø og installere en tilsvarende Jupyter kernel med `ssb-project build`
+
+## Rydd opp etter deg
+
+### Lokalt
+
+Hvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre `ssb-project clean stat-testprod` som sletter Jupyter-kernelen og de installerte pakkene i prosjektet.
+
+### Arkiver GitHub-repo
+
+Mer kommer.
+
+## Hva med R?
+
+Beskrive hvordan man kan lage virtuelle miljøer og installere med R. Flytte fra kap.20 hit

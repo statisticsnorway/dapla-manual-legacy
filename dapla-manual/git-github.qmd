@@ -19,7 +19,24 @@ Kommer snart. Kort forklaring med lenke til mer utfyllende svar.
 
 ### Oppsett av Git
 
-Kommer snart. Scriptet til Kvakk.
+Mer kommer.
+
+#### Minimal Git-konfigurasjon
+
+For å brukt Git er det strengt tatt to ting som må konfigurere:
+
+1. Brukernavn
+2. E-post
+
+Denne informasjonen brukes av Git hver gang du sjekker inn en endring i koden slik at man kan vite hvem som gjorde endringen senere. Dette må settes én gang per miljø hvor du skal jobbe med Git. Hvis du f.eks. jobber i **Jupyterlab** på **Dapla** så kan du åpne en terminal og skrive følgende for å lagre ditt brukernavn:
+
+`git config --global user.name "Ola Nordmann"`
+
+For å sette e-post gjør du veldig lignende: 
+
+`git config --global user.email olanordamnn@ssb.no`
+
+Når du har kjørt disse to kommandoene så kan du bruke Git. Informasjonen du la til over brukes ikke til noe annet enn å fortelle de du samarbeider med om at du har gjort endringer på koden. Den er verken knyttet opp mot din SSB-bruker eller din GitHub-bruker.
 
 ### Git og Notebooks
 
