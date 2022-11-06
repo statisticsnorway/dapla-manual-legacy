@@ -102,7 +102,7 @@
     "href": "dapla-team.html",
     "title": "Opprette Dapla-team",
     "section": "",
-    "text": "Dette kapitlet beskriver hva et Dapla-team er og hvordan man går frem for å opprette et nytt team på Dapla."
+    "text": "Kapitlet som beskriver hvordan man logger seg inn på Dapla vil fungere uten at du må gjøre noen forberedelser. Er man koblet på SSB sitt nettverk så vil alle SSB-ansatte kunne gå inn på plattformen og kode i Python og R. Men du har ikke tilgang til SSBs område for datalagring på plattformen. I praksis vil det si at man generere data med kode, men man ikke jobbe med skarpe data.\nFor å få muligheten til å jobbe skarpe data MÅ du først opprette et dapla-team. Dette er det første naturlige steget å ta når man skal begynne å jobbe med statistikkproduksjon på dapla. I dette kapitlet vil vi forklare det du trenger å vite om det å opprette og jobbe innenfor et team."
   },
   {
     "objectID": "hva-er-dapla-team.html",
@@ -189,39 +189,67 @@
     "text": "Dapla-teamet vil ha sitt eget gruppenavn i SSBs Active Directory. Endringer i denne gruppen, slik som å legge til eller fjerne medlemmer, gjøres ved å sende en epost til Kundeservice."
   },
   {
-    "objectID": "ssb-project.html",
-    "href": "ssb-project.html",
-    "title": "16  SSB-project",
+    "objectID": "ssbproject.html",
+    "href": "ssbproject.html",
+    "title": "SSB-project",
     "section": "",
-    "text": "Produksjonsløp på Dapla kan med fordel følge noen helt klare retningslinjer for arbeidsprosesser og kode. Dette bør blant annet inkludere:\nTeam Statistikktjenester har laget en CLI2 som skal gjøre dette lett å implemententere dette i kode. Den heter ssb-project og hjelper deg implementere det som til enhver tid er beste-praksis for koding."
+    "text": "versjonshåndtere med Git\nopprette et GitHub-repo\nopprette et virtuelt miljø som husker hvilke versjoner av pakker og programmeringsspråk du brukte\n\nI tillegg må alt dette konfigureres for hvordan SSB sine systemer er satt opp. Dette har vist seg å være unødvendig krevende for mange. Team Statistikktjenester har derfor utviklet et program som gjør alt dette for deg på en enkel måte som heter ssb-project.\nVi mener at ssb-project er et naturlig sted å starte når man skal bygge opp koden i Python eller R. Det gjelder både på bakken og på sky. I denne delen av boken forklarer vi først hvordan du bruker ssb-project i det første kapitlet. Siden programmet skjuler mye av kompleksiteten rundt dette, så bruker vi de andre kapitlene til å forklare hvordan man ville satt opp dette uten hjelp av programmet. Dermed vil det være lett for SSB-ansatte å skjønne hva som gjøres og hvorfor det er nødvendig."
   },
   {
-    "objectID": "ssb-project.html#opprett-ssb-project",
-    "href": "ssb-project.html#opprett-ssb-project",
-    "title": "16  SSB-project",
-    "section": "16.1 Opprett ssb-project",
-    "text": "16.1 Opprett ssb-project\n\n\n\n\n\n\nHar du Github bruker? Noe funksjonalitet i ssb-project krever det. Finne ut hvordan å opprette en på Git og Github siden.\n\n\n\nProgrammet ssb-project skal gjøre det enklere å organiserer kode etter god praksis i en statistikkproduksjoner. Som nevnt i innledningen vil progammet gi deg en mappestruktur, virtuelt miljø og en jupyter-kernel. Hvis du ønsker kan det også opprette et GitHub-repo. Ønsker du alt gjør du følgende:\n\nÅpne en terminal. De fleste vil gjøre dette i Jupyterlab på bakke eller sky og da kan de bare trykke på det blå +-tegnet i Jupyterlab og velge Terminal.\nFør vi kjører programmet må vi være obs på at ssb-project vil opprette en ny mappe der vi står. Gå derfor til den mappen du ønsker å ha den nye prosjektmappen. For å opprette et prosjekt som heter stat-testprod så skriver du følgende i terminalen:\n\nssb-project create stat-testprod\n\n\nHvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i bildet til høyre. 3. Den inneholder følgende :\n\n.git-mappe som blir opprettet for å versjonshåndtere med Git.\nsrc-mappe som skal inneholde all koden som utgjør produksjonsløpet.\ntests-mappe som inneholder tester du skriver for koden din.\nLICENCE-fil som skal benyttes for public-repos i SSB.\npoetry.lock-fil som inneholder alle versjoner av Python-pakker som blir brukt.\nREADME.md-fil som brukes for tekstlig innhold på GitHub-siden for prosjektet.\n\n\n\n\n\n\n\n16.1.1 Opprett også på Github\nOver så opprettet vi et ssb-project uten å opprette et GitHub-repo med samme navn. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:\nssb-project create stat-testprod --github --github-token='blablabla'\nKommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter stat-testprod med et GitHub-repo med samme navn. Repoet i GitHub ser da slik ut:"
+    "objectID": "nytt-ssbproject.html",
+    "href": "nytt-ssbproject.html",
+    "title": "16  Nytt ssb-project",
+    "section": "",
+    "text": "I dette kapitlet forklarer vi hvordan du oppretter et ssb-project og hva det innebærer. ssb-project er et CLI1 for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal\nssb-project create stat-testprod\nog du vil få en mappe som heter stat-testprod med følgende innhold:\nI tillegg lar ssb-project deg opprette et GitHub-repo hvis du ønsker. Les mer om hvordan du kan ta i bruk dette verktøyet under."
   },
   {
-    "objectID": "ssb-project.html#bygg-et-eksisterende-ssb-project",
-    "href": "ssb-project.html#bygg-et-eksisterende-ssb-project",
-    "title": "16  SSB-project",
-    "section": "16.2 Bygg et eksisterende ssb-project",
-    "text": "16.2 Bygg et eksisterende ssb-project\nHvis kollegaen din har opprettet et prosjekt vha. ssb-project, så kan du enkelt ta det i bruk på din Jupyter server:\n\nKlone repoet med git clone https://github.com/statisticsnorway/<prosjektnavn>\nGå til mappen med cd <prosjektnavn>\nSkape et virtuelt miljø og installere en tilsvarende Jupyter kernel med ssb-project build"
+    "objectID": "nytt-ssbproject.html#forberedelser",
+    "href": "nytt-ssbproject.html#forberedelser",
+    "title": "16  Nytt ssb-project",
+    "section": "16.1 Forberedelser",
+    "text": "16.1 Forberedelser\nFør du kan ta i bruk ssb-project så er det et par ting som må være på plass:\n\nDu må ha opprettet en git-bruker og git-epost lokalt der du skal kalle på programmet (les mer om hvordan her).\nHvis du ønsker at ssb-project også skal opprette et GitHub-repo for deg må du også følgende være på plass:\n\nDu må ha en GitHub-bruker (les hvordan her)\nSkru på 2-faktor autentifisering for GitHub-brukeren din (les hvordan her)\nVære koblet mot SSBs organisasjon statisticsnorway på GitHub (les hvordan her)\nOpprette Personal Access Token (PAT) og godkjenne det for bruk mot statisticsnorway (les hvordan her)\n\n\nHvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene."
   },
   {
-    "objectID": "ssb-project.html#rydd-opp-etter-deg",
-    "href": "ssb-project.html#rydd-opp-etter-deg",
-    "title": "16  SSB-project",
-    "section": "16.3 Rydd opp etter deg",
-    "text": "16.3 Rydd opp etter deg\nHvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre ssb-project clean stat-testprod som sletter Jupyter kernelen for prosjektet."
+    "objectID": "nytt-ssbproject.html#opprett-ssb-project",
+    "href": "nytt-ssbproject.html#opprett-ssb-project",
+    "title": "16  Nytt ssb-project",
+    "section": "16.2 Opprett ssb-project",
+    "text": "16.2 Opprett ssb-project\n\n\n\n\n\n\nHar du Github bruker? Noe funksjonalitet i ssb-project krever det. Finn ut hvordan ved å lese forrige kapitel.\n\n\n\nssb-project lar deg opprette en prosjekt-mappe med og uten GitHub-repo. La oss ta for oss hver av alternativene.\n\n16.2.1 Uten GitHub-repo\nFor å opprette et nytt ssb-project uten GitHub-repo gjør du følgende:\n\nÅpne en terminal. De fleste vil gjøre dette i Jupyterlab på bakke eller sky og da kan de bare trykke på det blå ➕-tegnet i Jupyterlab og velge Terminal.\nFør vi kjører programmet må vi være obs på at ssb-project vil opprette en ny mappe der vi står. Gå derfor til den mappen du ønsker å ha den nye prosjektmappen. For å opprette et prosjekt som heter stat-testprod så skriver du følgende i terminalen:\n\nssb-project create stat-testprod\n\n\nHvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i Figure 16.1. 2. Den inneholder følgende :\n\n.git-mappe som blir opprettet for å versjonshåndtere med Git.\nsrc-mappe som skal inneholde all koden som utgjør produksjonsløpet.\ntests-mappe som inneholder tester du skriver for koden din.\nLICENCE-fil som skal benyttes for public-repos i SSB.\npoetry.lock-fil som inneholder alle versjoner av Python-pakker som blir brukt.\nREADME.md-fil som brukes for tekstlig innhold på GitHub-siden for prosjektet.\n\n\n\n\n\n\nFigure 16.1: Mappen som ble opprettet av ssb-project.\n\n\n\n\n\n\n16.2.2 Med Github-repo\nOver så opprettet vi et ssb-project uten å opprette et GitHub-repo. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:\nssb-project create stat-testprod --github --github-token='blablabla'\nKommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter stat-testprod med et GitHub-repo med samme navn. Som du ser så må vi da sende med opsjonen --github og PAT med opsjonen --github-token='blablabla'. Repoet i GitHub ser da ut som i Figure 16.2.\n\n\n\nFigure 16.2: GitHub-repo som er opprettet av ssb-project\n\n\n\n\n\n\n\n\nNår du har opprettet et nytt ssb-project, eller bygget et eksisterende prosjekt, så kan det ta rundt 30 sekunder før kernelen viser seg i Jupterlab-launcher. Vær tålmodig!"
   },
   {
-    "objectID": "ssb-project.html#teknisk-dokumentasjon",
-    "href": "ssb-project.html#teknisk-dokumentasjon",
-    "title": "16  SSB-project",
-    "section": "16.4 Teknisk dokumentasjon",
-    "text": "16.4 Teknisk dokumentasjon\nDokumentasjonen for ssb-project finnes her: https://statisticsnorway.github.io/ssb-project-cli/\nDet oppdateres hver gang en ny versjon av ssb-project er slippet ut."
+    "objectID": "nytt-ssbproject.html#installere-pakker",
+    "href": "nytt-ssbproject.html#installere-pakker",
+    "title": "16  Nytt ssb-project",
+    "section": "16.3 Installere pakker",
+    "text": "16.3 Installere pakker\nFlytte fra kapittel 20 til hit. Fortelle at lock-file oppdateres automatisk ved installasjon. Vil lock-.file oppdateres selv om du ikke bruker pakken? Test. PyPI benyttes. Kun Python foreløpig."
+  },
+  {
+    "objectID": "nytt-ssbproject.html#push-til-github",
+    "href": "nytt-ssbproject.html#push-til-github",
+    "title": "16  Nytt ssb-project",
+    "section": "16.4 Push til GitHub",
+    "text": "16.4 Push til GitHub\nKort beskrivelse av hvordan man pusher til GitHub."
+  },
+  {
+    "objectID": "nytt-ssbproject.html#bygg-eksisterende-ssb-project",
+    "href": "nytt-ssbproject.html#bygg-eksisterende-ssb-project",
+    "title": "16  Nytt ssb-project",
+    "section": "16.5 Bygg eksisterende ssb-project",
+    "text": "16.5 Bygg eksisterende ssb-project\nNår vi skal samarbeide med andre om kode så gjør vi dette via GitHub. Når du pusher koden din til GitHub, så kan samarbeidspartnere pulle ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. ssb-project gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs. For å bygge opp det samme miløet så gjør du følgende:\n\nKlone repoet med git clone https://github.com/statisticsnorway/<prosjektnavn>\nGå til mappen med cd <prosjektnavn>\nSkape et virtuelt miljø og installere en tilsvarende Jupyter kernel med ssb-project build"
+  },
+  {
+    "objectID": "nytt-ssbproject.html#rydd-opp-etter-deg",
+    "href": "nytt-ssbproject.html#rydd-opp-etter-deg",
+    "title": "16  Nytt ssb-project",
+    "section": "16.6 Rydd opp etter deg",
+    "text": "16.6 Rydd opp etter deg\n\n16.6.1 Lokalt\nHvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre ssb-project clean stat-testprod som sletter Jupyter-kernelen og de installerte pakkene i prosjektet.\n\n\n16.6.2 Arkiver GitHub-repo\nMer kommer."
+  },
+  {
+    "objectID": "nytt-ssbproject.html#hva-med-r",
+    "href": "nytt-ssbproject.html#hva-med-r",
+    "title": "16  Nytt ssb-project",
+    "section": "16.7 Hva med R?",
+    "text": "16.7 Hva med R?\nBeskrive hvordan man kan lage virtuelle miljøer og installere med R. Flytte fra kap.20 hit"
   },
   {
     "objectID": "git-github.html",
@@ -235,7 +263,7 @@
     "href": "git-github.html#git",
     "title": "17  Git og Github",
     "section": "17.1 Git",
-    "text": "17.1 Git\nGit er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av Git, blant annet i Jupyterlab, SAS EG og RStudio. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan Git fungerer fra terminalen. Vi vil også fokusere på hvordan Git fungerer fra terminalen i Jupyterlab på Dapla.\n\n17.1.1 Hva er Git?\nKommer snart. Kort forklaring med lenke til mer utfyllende svar.\n\n\n17.1.2 Oppsett av Git\nKommer snart. Scriptet til Kvakk.\n\n\n17.1.3 Git og Notebooks\nKommer snart. Jupytext og nbsripout. json.\n\n\n17.1.4 Vanlige Git-operasjoner\nKommer snart. clone, add, commit, push, pull, merge, revert, etc."
+    "text": "17.1 Git\nGit er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av Git, blant annet i Jupyterlab, SAS EG og RStudio. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan Git fungerer fra terminalen. Vi vil også fokusere på hvordan Git fungerer fra terminalen i Jupyterlab på Dapla.\n\n17.1.1 Hva er Git?\nKommer snart. Kort forklaring med lenke til mer utfyllende svar.\n\n\n17.1.2 Oppsett av Git\nMer kommer.\n\n17.1.2.1 Minimal Git-konfigurasjon\nFor å brukt Git er det strengt tatt to ting som må konfigurere:\n\nBrukernavn\nE-post\n\nDenne informasjonen brukes av Git hver gang du sjekker inn en endring i koden slik at man kan vite hvem som gjorde endringen senere. Dette må settes én gang per miljø hvor du skal jobbe med Git. Hvis du f.eks. jobber i Jupyterlab på Dapla så kan du åpne en terminal og skrive følgende for å lagre ditt brukernavn:\ngit config --global user.name \"Ola Nordmann\"\nFor å sette e-post gjør du veldig lignende:\ngit config --global user.email olanordamnn@ssb.no\nNår du har kjørt disse to kommandoene så kan du bruke Git. Informasjonen du la til over brukes ikke til noe annet enn å fortelle de du samarbeider med om at du har gjort endringer på koden. Den er verken knyttet opp mot din SSB-bruker eller din GitHub-bruker.\n\n\n\n17.1.3 Git og Notebooks\nKommer snart. Jupytext og nbsripout. json.\n\n\n17.1.4 Vanlige Git-operasjoner\nKommer snart. clone, add, commit, push, pull, merge, revert, etc."
   },
   {
     "objectID": "git-github.html#github",

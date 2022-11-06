@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kom i gang med DAPLA - 18&nbsp; Virtuelle miljøer</title>
+<title>Kom i gang med DAPLA - 16&nbsp; Nytt ssb-project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./jupyter-kernel.html" rel="next">
-<link href="./git-github.html" rel="prev">
+<link href="./git-github.html" rel="next">
+<link href="./ssbproject.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,8 +63,8 @@ ul.task-list li input[type="checkbox"] {
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Kom i gang med DAPLA - 18&nbsp; Virtuelle miljøer">
-<meta property="og:description" content="Et python viretuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det viretuelt miljøet er aktivert.">
+<meta property="og:title" content="Kom i gang med DAPLA - 16&nbsp; Nytt ssb-project">
+<meta property="og:description" content="I dette kapitlet forklarer vi hvordan du oppretter et ssb-project og hva det innebærer.">
 <meta property="og:site-name" content="Kom i gang med DAPLA">
 </head>
 
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Virtuelle miljøer</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Nytt ssb-project</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -215,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Nytt ssb-project</span></a>
+  <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Nytt ssb-project</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -225,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./virtual-env.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Virtuelle miljøer</span></a>
+  <a href="./virtual-env.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Virtuelle miljøer</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -314,11 +314,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python"><span class="toc-section-number">18.1</span>  Python</a>
+  <li><a href="#forberedelser" id="toc-forberedelser" class="nav-link active" data-scroll-target="#forberedelser"><span class="toc-section-number">16.1</span>  Forberedelser</a></li>
+  <li><a href="#opprett-ssb-project" id="toc-opprett-ssb-project" class="nav-link" data-scroll-target="#opprett-ssb-project"><span class="toc-section-number">16.2</span>  Opprett ssb-project</a>
   <ul class="collapse">
-  <li><a href="#anbefalning" id="toc-anbefalning" class="nav-link" data-scroll-target="#anbefalning"><span class="toc-section-number">18.1.1</span>  Anbefalning</a></li>
+  <li><a href="#uten-github-repo" id="toc-uten-github-repo" class="nav-link" data-scroll-target="#uten-github-repo"><span class="toc-section-number">16.2.1</span>  Uten GitHub-repo</a></li>
+  <li><a href="#med-github-repo" id="toc-med-github-repo" class="nav-link" data-scroll-target="#med-github-repo"><span class="toc-section-number">16.2.2</span>  Med Github-repo</a></li>
   </ul></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r"><span class="toc-section-number">18.2</span>  R</a></li>
+  <li><a href="#installere-pakker" id="toc-installere-pakker" class="nav-link" data-scroll-target="#installere-pakker"><span class="toc-section-number">16.3</span>  Installere pakker</a></li>
+  <li><a href="#push-til-github" id="toc-push-til-github" class="nav-link" data-scroll-target="#push-til-github"><span class="toc-section-number">16.4</span>  Push til GitHub</a></li>
+  <li><a href="#bygg-eksisterende-ssb-project" id="toc-bygg-eksisterende-ssb-project" class="nav-link" data-scroll-target="#bygg-eksisterende-ssb-project"><span class="toc-section-number">16.5</span>  Bygg eksisterende ssb-project</a></li>
+  <li><a href="#rydd-opp-etter-deg" id="toc-rydd-opp-etter-deg" class="nav-link" data-scroll-target="#rydd-opp-etter-deg"><span class="toc-section-number">16.6</span>  Rydd opp etter deg</a>
+  <ul class="collapse">
+  <li><a href="#lokalt" id="toc-lokalt" class="nav-link" data-scroll-target="#lokalt"><span class="toc-section-number">16.6.1</span>  Lokalt</a></li>
+  <li><a href="#arkiver-github-repo" id="toc-arkiver-github-repo" class="nav-link" data-scroll-target="#arkiver-github-repo"><span class="toc-section-number">16.6.2</span>  Arkiver GitHub-repo</a></li>
+  </ul></li>
+  <li><a href="#hva-med-r" id="toc-hva-med-r" class="nav-link" data-scroll-target="#hva-med-r"><span class="toc-section-number">16.7</span>  Hva med R?</a></li>
   </ul>
 </nav>
     </div>
@@ -327,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Virtuelle miljøer</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Nytt ssb-project</span></h1>
 </div>
 
 
@@ -341,21 +351,152 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="python" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="python"><span class="header-section-number">18.1</span> Python</h2>
-<p>Et python viretuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det viretuelt miljøet er aktivert. Dette gjør at man ungår avhengighetskonflikter på tvers av prosjekter.</p>
-<p>Se her for <a href="https://docs.python.org/3/tutorial/venv.html">mer informasjon om viretuelle miljøer.</a></p>
-<section id="anbefalning" class="level3" data-number="18.1.1">
-<h3 data-number="18.1.1" class="anchored" data-anchor-id="anbefalning"><span class="header-section-number">18.1.1</span> Anbefalning</h3>
-<p>Det er anbefalt å benytte verktøyet poetry for å administrere prosjekter og deres viretuelle miljø.</p>
-<p>Poetry setter opp virtuelt miljø, gjør det enkelt å oppdatere avhengigheter, sette versjons begrensninger og reprodusere prosjektet.</p>
-<p>Poetry gjør dette ved å lagre avhengigheters eksakte versjon i prosjektets “poetry.lock”. Og eventuelle begrensninger i “pyproject.toml”. Dette gjør det enkelt for andre å bygge prosjektet med akkurat de samme pakkene og begrensningene.</p>
+<p>I dette kapitlet forklarer vi hvordan du oppretter et <a href="https://github.com/statisticsnorway/ssb-project-cli">ssb-project</a> og hva det innebærer. <strong>ssb-project</strong> er et CLI<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal</p>
+<p><code>ssb-project create stat-testprod</code></p>
+<p>og du vil få en mappe som heter <code>stat-testprod</code> med følgende innhold:</p>
+<ol type="1">
+<li><strong>Standard mappestruktur</strong><br>
+En standard mappestruktur gjør det lettere å dele og samarbeide om kode, som igjen reduserer sårbarheten knyttet til at få personer kjenner koden.</li>
+<li><strong>Virtuelt miljø</strong><br>
+Virtuelle miljøer isolerer og lagrer informasjon knyttet til kode. For eksempel hvilken versjon av Python du bruker og tilhørende pakkeversjoner. Det er viktig for at publiserte tall skal være reproduserbare.</li>
+<li><strong>Versjonshåndtering med Git</strong><br>
+Initierer versjonshåndtering med <a href="https://git-scm.com/">Git</a> og legger til SSBs anbefalte <em>.gitignore</em> og <em>.gitattributes</em>. Det sikrer at du ikke versjonhåndterer filer/informasjon som ikke skal versjonshåndteres.</li>
+</ol>
+<p>I tillegg lar <strong>ssb-project</strong> deg opprette et GitHub-repo hvis du ønsker. Les mer om hvordan du kan ta i bruk dette verktøyet under.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dokumentasjonen for <code>ssb-project</code> finnes her: <a href="https://statisticsnorway.github.io/ssb-project-cli/" class="uri">https://statisticsnorway.github.io/ssb-project-cli/</a>. Det oppdateres hver gang en ny versjon av <code>ssb-project</code> slippes.</p>
+</div>
+</div>
+<section id="forberedelser" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="forberedelser"><span class="header-section-number">16.1</span> Forberedelser</h2>
+<p>Før du kan ta i bruk <strong>ssb-project</strong> så er det et par ting som må være på plass:</p>
+<ol type="1">
+<li>Du må ha opprettet en <strong>git-bruker</strong> og <strong>git-epost</strong> lokalt der du skal kalle på programmet (<a href="https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#minimal-git-konfigurasjon">les mer om hvordan her</a>).</li>
+<li>Hvis du ønsker at <strong>ssb-project</strong> også skal opprette et GitHub-repo for deg må du også følgende være på plass:
+<ol type="a">
+<li>Du må ha en <strong>GitHub-bruker</strong> (<a href="https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#opprett-github-bruker">les hvordan her</a>)</li>
+<li>Skru på <strong>2-faktor autentifisering</strong> for GitHub-brukeren din (<a href="https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#sec-tofaktor">les hvordan her</a>)</li>
+<li>Være koblet mot SSBs organisasjon <a href="https://github.com/statisticsnorway">statisticsnorway</a> på GitHub (<a href="https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#koble-deg-til-ssb">les hvordan her</a>)</li>
+<li>Opprette <strong>Personal Access Token (PAT)</strong> og godkjenne det for bruk mot <strong>statisticsnorway</strong> (<a href="https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/git-github.html#sec-pat">les hvordan her</a>)</li>
+</ol></li>
+</ol>
+<p>Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.</p>
+</section>
+<section id="opprett-ssb-project" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="opprett-ssb-project"><span class="header-section-number">16.2</span> Opprett ssb-project</h2>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Har du Github bruker? Noe funksjonalitet i <code>ssb-project</code> krever det. Finn ut hvordan ved å lese <a href="https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/nytt-ssbproject.html#forberedelser">forrige kapitel</a>.</p>
+</div>
+</div>
+</div>
+<p><strong>ssb-project</strong> lar deg opprette en prosjekt-mappe med og uten GitHub-repo. La oss ta for oss hver av alternativene.</p>
+<section id="uten-github-repo" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="uten-github-repo"><span class="header-section-number">16.2.1</span> Uten GitHub-repo</h3>
+<p>For å opprette et nytt <strong>ssb-project</strong> uten GitHub-repo gjør du følgende:</p>
+<ol type="1">
+<li><p>Åpne en terminal. De fleste vil gjøre dette i Jupyterlab på bakke eller sky og da kan de bare trykke på det blå ➕-tegnet i Jupyterlab og velge <strong>Terminal</strong>.</p></li>
+<li><p>Før vi kjører programmet må vi være obs på at <strong>ssb-project</strong> vil opprette en ny mappe der vi står. Gå derfor til den mappen du ønsker å ha den nye prosjektmappen. For å opprette et prosjekt som heter <strong>stat-testprod</strong> så skriver du følgende i terminalen:</p></li>
+</ol>
+<p><code>ssb-project create stat-testprod</code></p>
+<div class="grid">
+<div class="g-col-8">
+<p>Hvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i <a href="#fig-ssb-proj-folder">Figure&nbsp;<span>16.1</span></a>. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Den inneholder følgende :</p>
+<ul>
+<li><strong>.git</strong>-mappe som blir opprettet for å versjonshåndtere med Git.</li>
+<li><strong>src</strong>-mappe som skal inneholde all koden som utgjør produksjonsløpet.</li>
+<li><strong>tests</strong>-mappe som inneholder tester du skriver for koden din.</li>
+<li><strong>LICENCE</strong>-fil som skal benyttes for public-repos i SSB.</li>
+<li><strong>poetry.lock</strong>-fil som inneholder alle versjoner av Python-pakker som blir brukt.</li>
+<li><strong>README.md</strong>-fil som brukes for tekstlig innhold på GitHub-siden for prosjektet.</li>
+</ul>
+</div>
+<div class="g-col-4">
+<div id="fig-ssb-proj-folder" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ssbproject_folders.png" class="img-fluid figure-img" alt="Bilde av filutforskeren i Jupyterlab med en mappe laget av ssb-project"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;16.1: Mappen som ble opprettet av ssb-project.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="med-github-repo" class="level3" data-number="16.2.2">
+<h3 data-number="16.2.2" class="anchored" data-anchor-id="med-github-repo"><span class="header-section-number">16.2.2</span> Med Github-repo</h3>
+<p>Over så opprettet vi et <strong>ssb-project</strong> uten å opprette et GitHub-repo. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:</p>
+<p><code>ssb-project create stat-testprod --github --github-token='blablabla'</code></p>
+<p>Kommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter <strong>stat-testprod</strong> med et GitHub-repo med samme navn. Som du ser så må vi da sende med opsjonen <code>--github</code> og PAT med opsjonen <code>--github-token='blablabla'</code>. Repoet i GitHub ser da ut som i <a href="#fig-ssb-proj-github">Figure&nbsp;<span>16.2</span></a>.</p>
+<div id="fig-ssb-proj-github" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/ssbproject_github.png" class="img-fluid figure-img" alt="Bilde av et GitHub-repo som ble opprettet av ssb-project"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;16.2: GitHub-repo som er opprettet av ssb-project</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Når du har opprettet et nytt ssb-project, eller bygget et eksisterende prosjekt, så kan det ta rundt 30 sekunder før kernelen viser seg i Jupterlab-launcher. Vær tålmodig!</p>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="r" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="r"><span class="header-section-number">18.2</span> R</h2>
+<section id="installere-pakker" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="installere-pakker"><span class="header-section-number">16.3</span> Installere pakker</h2>
+<p>Flytte fra kapittel 20 til hit. Fortelle at lock-file oppdateres automatisk ved installasjon. Vil lock-.file oppdateres selv om du ikke bruker pakken? Test. PyPI benyttes. Kun Python foreløpig.</p>
+</section>
+<section id="push-til-github" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="push-til-github"><span class="header-section-number">16.4</span> Push til GitHub</h2>
+<p>Kort beskrivelse av hvordan man pusher til GitHub.</p>
+</section>
+<section id="bygg-eksisterende-ssb-project" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="bygg-eksisterende-ssb-project"><span class="header-section-number">16.5</span> Bygg eksisterende ssb-project</h2>
+<p>Når vi skal samarbeide med andre om kode så gjør vi dette via <strong>GitHub</strong>. Når du <em>pusher</em> koden din til GitHub, så kan samarbeidspartnere <em>pulle</em> ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. <strong>ssb-project</strong> gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs. For å bygge opp det samme miløet så gjør du følgende:</p>
+<ol type="1">
+<li>Klone repoet med <code>git clone https://github.com/statisticsnorway/&lt;prosjektnavn&gt;</code></li>
+<li>Gå til mappen med <code>cd &lt;prosjektnavn&gt;</code></li>
+<li>Skape et virtuelt miljø og installere en tilsvarende Jupyter kernel med <code>ssb-project build</code></li>
+</ol>
+</section>
+<section id="rydd-opp-etter-deg" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="rydd-opp-etter-deg"><span class="header-section-number">16.6</span> Rydd opp etter deg</h2>
+<section id="lokalt" class="level3" data-number="16.6.1">
+<h3 data-number="16.6.1" class="anchored" data-anchor-id="lokalt"><span class="header-section-number">16.6.1</span> Lokalt</h3>
+<p>Hvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre <code>ssb-project clean stat-testprod</code> som sletter Jupyter-kernelen og de installerte pakkene i prosjektet.</p>
+</section>
+<section id="arkiver-github-repo" class="level3" data-number="16.6.2">
+<h3 data-number="16.6.2" class="anchored" data-anchor-id="arkiver-github-repo"><span class="header-section-number">16.6.2</span> Arkiver GitHub-repo</h3>
+<p>Mer kommer.</p>
+</section>
+</section>
+<section id="hva-med-r" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="hva-med-r"><span class="header-section-number">16.7</span> Hva med R?</h2>
+<p>Beskrive hvordan man kan lage virtuelle miljøer og installere med R. Flytte fra kap.20 hit</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Filer og mapper som starter med punktum er skjulte med mindre man ber om å se dem. I Jupyterlab kan disse vises i filutforskeren ved å velge <strong>View</strong> fra menylinjen, og deretter velge <strong>Show hidden files</strong>. I en terminal skriver man <code>ls -a</code> for å se de.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -459,13 +600,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./git-github.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Git og Github</span></span>
+      <a href="./ssbproject.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SSB-project</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./jupyter-kernel.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Jupyter-kernels</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./git-github.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Git og Github</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
