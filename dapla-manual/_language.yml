@@ -8,13 +8,13 @@ section-title-references: "Referanser"
 section-title-reuse: "Gjenbruk"
 section-title-citation: "Sitater"
 
-appendix-attribution-cite-as: "For attribution, please cite this work as:"
-appendix-attribution-bibtex: "BibTeX citation:"
+appendix-attribution-cite-as: "For attribusjon, vennligst siter dette verket som:"
+appendix-attribution-bibtex: "BibTeX sitering:"
 
 title-block-author-single: "Forfatter"
 title-block-author-plural: "Forfattere"
 title-block-affiliation-single: "Tilhører"
-title-block-affiliation-plural: "Affiliations"
+title-block-affiliation-plural: "Tilknytninger"
 title-block-published: "Opprettet"
 title-block-modified: "Endret"
 
@@ -28,7 +28,7 @@ code-summary: "Code"
 
 code-tools-menu-caption: "Kode"
 code-tools-show-all-code: "Vis all kode"
-code-tools-hide-all-code: "Skjl all kode"
+code-tools-hide-all-code: "Skjul all kode"
 code-tools-view-source: "Vis kilde"
 code-tools-source-code: "Kildekode"
 
