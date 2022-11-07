@@ -1,0 +1,29 @@
+# Slette data fra bøtter
+
+Sletting av filer og mapper fra bøtter kan gjøres fra [Google Cloud Console](./gcc.qmd). Søk opp "Cloud Storage" i søkefeltet og klikk på den bøtten hvor filen er lagret under "Buckets".
+
+Kryss av filen/katalogen som du ønsker å slette og trykk "Delete" (@fig-delete-file)
+
+![Sletting av en fil](./images/full-delete-step-1.png){ fig-alt="Bilde som viser hvordan man sletter en fil" width=100% #fig-delete-file }
+
+Siden bøtter på Dapla har versjonering får man opp en dialogboks som informerer om at objektet (dvs. filen) er versjonert (@fig-delete-file-confirm). Trykk på "Delete".
+
+![Bekreft sletting av fil](./images/full-delete-step-2.png){ fig-alt="Bilde som en dialogboks" width=100% #fig-delete-file-confirm }
+
+Slettingen kan ta noe tid. Når denne er ferdig vil filen være slettet, men den kan fortsatt gjenopprettes. Hvis du ønsker at filen skal slettes *permanent*, gjør følgende:
+
+1. Skru på visning av slettede filer med å bruke radioknappen "Show deleted data" (@fig-delete-file-show-hidden)
+
+![Skru på visning av slettede filer](./images/full-delete-step-3.png){ fig-alt="Bilde som viser hvordan man skrur på visning av slettede filer" width=100% #fig-delete-file-show-hidden }
+
+2. Finn frem til den slettede filen og trykk på linken "1 noncurrent version" eller tilsvarende (@fig-delete-file-select-version-history). Dette vil ta deg direkte til en side som viser filens versjonshistorikk.
+
+![Velg versjonshistorikk](./images/full-delete-step-4.png){ fig-alt="Bilde som viser hvordan kommer seg til filens versjonshistorikk" width=100% #fig-delete-file-select-version-history }
+
+3. Velg alle versjoner som vist på @fig-delete-all-versions og trykk "Delete"
+
+![Slett alle versioner](./images/full-delete-step-5.png){ fig-alt="Bilde som viser hvordan man sletter hele filens versjonshistorikk" width=100% #fig-delete-all-versions }
+
+4. Til slutt må man bekrefte at man ønsker å slette alle versioner (@fig-confirm-delete-all-versions) med å skrive inn DELETE og trykke på den blå "Delete"-knappen:
+
+![Bekreft sletting av alle versjoner](./images/full-delete-step-6.png){ fig-alt="Bilde som viser at man må bekrefte sletting" width=100% #fig-confirm-delete-all-versions }
