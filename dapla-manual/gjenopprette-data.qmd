@@ -1,0 +1,21 @@
+# Gjenopprette data fra bøtter
+
+Alle bøtter har automatisk versjonering. Dette gjør det mulig å tilbakeføre filer til en tidligere versjon eller  gjenopprette filer som er slettet ved et uhell.
+
+Logg inn på [Google Cloud Console](./gcc.qmd) og søk opp "Cloud Storage" i søkefeltet. Klikk på den bøtten hvor filen er lagret under "Buckets".
+
+## Gjenopprette en slettet fil
+
+Fra Cloud Storage skjermbildet kan man navigere seg frem til den mappen hvor filen tidligere er lagret og skru på radioknappen "Show deleted data" (@fig-show-deleted-file)
+
+![Skru på visning av slettede filer](./images/show-deleted-files.png){ fig-alt="Bilde som hvordan man skrur på visning av slettede filer" width=100% #fig-show-deleted-file }
+
+Nå vil man kunne se slettede filer i kursiv med teksten *(Deleted)* på slutten. Kolonnen "Version history" vil også vise hvor mange tidligere versjoner som finnes av denne filen. Trykk på filnavnet du ønsker å gjenopprette og velg deretter fanen "Version history". I listen av versjoner til denne filen har man mulighet til å gjenopprette til en tidligere versjon ved å klikke på "Restore" (@fig-restore-deleted-file).
+
+![Gjenoppretting av en slettet fil](./images/restore-deleted-file.png){ fig-alt="Bilde som viser hvordan man gjenoppretter en slettet fil" width=100% #fig-restore-deleted-file }
+
+## Gjenopprette en fil til en tidligere versjon
+
+Fra Cloud Storage skjermbildet kan man navigere seg frem til den mappen hvor filen er lagret, og trykke på filnavnet. Velg deretter fanen "Version history". I listen av versjoner til denne filen har man mulighet til å gjenopprette til en tidligere versjon ved å klikke på "Restore" (@fig-restore-file-version). 
+
+![Versjonshistorikk til en fil](./images/object-versioning.png){ fig-alt="Bilde som viser versjonshistorikk til en fil" width=100% #fig-restore-file-version }
