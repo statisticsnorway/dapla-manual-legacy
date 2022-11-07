@@ -182,9 +182,37 @@
     "text": "11.3 Sette opp overføringsjobber\nEnten man skal overføre filer opp til sky eller ned til bakken så bruker man den samme Data Transfer tjenesten. For å få tilgang til denne må man først logge seg inn i Google Cloud Console. Sjekk at du er logget inn med din SSB-konto (xxx@ssb.no).\nØverst på siden, til høyre for teksten Google Cloud finnes det en prosjektvelger, og her er det viktig å velge korrekt Google prosjekt. Hvis du trykker på prosjektvelgeren vil det åpnes opp et nytt vindu. Sjekk at det står SSB.NO øverst i dette vinduet. Trykk deretter på fanen ALL for å få opp alle tilgjengelige Google-prosjekter under organisasjonen ssb.no (Figur 11.1)\n\n\n\nFigur 11.1: Prosjektvelgeren i Google Cloud Console\n\n\nUnder ssb.no vil det ligge flere mapper. Åpne mappen som heter production og let frem en undermappe som har navnet på ditt Dapla-team. Strukturen skal se slik ut:\n    ssb.no\n    ├── production\n        └── <teamnavn>\n            ├── prod-<teamnavn>\n            └── <teamnavn>-ts\nDet underste nivået (prod-<teamnavn> og <teamnavn>-ts) viser prosjektene, nivået i mellom er mapper, og toppnivået er organisasjonen (ssb.no). Prosjektet <teamnavn>-ts er et separat prosjekt som bare teamets kildedataansvarlige har tilgang til, og det er her tjenesten Data Transfer skal settes opp.\n\nVelg derfor prosjektet <teamnavn>-ts.\nI søkefeltet til Google Cloud Console, skriv Data transfer og trykk på det valget som kommer opp.\nFørste gang man kommer inn på siden til Transfer Services vil man bli vist en blå knapp med teksten Set Up Connection. Når du trykker på denne vil det dukke opp et nytt felt hvor du får valget Create Pub-Sub Resources. Dette er noe som bare trengs å gjøre én gang. Trykk på den blå CREATE knappen, og deretter trykk på Close lenger nede.\nI navigasjonsmenyen til venstre trykk Transfer jobs, og deretter trykk på + Create transfer job øverst på siden for å opprette en ny overføringsjobb.\n\n\n11.3.1 Overføring fra Linuxstammen til Dapla\nFølgende oppskrift tar utgangspunkt i siden Create a transfer job (Figur 11.2):\n\n\n\nFigur 11.2: Opprett overføringsjobb i Google Cloud Console\n\n\n\nVelg POSIX filesystem under “Source type” og Google cloud storage under “Destination type” (eller motsatt hvis overføringsjobben skal gå fra Dapla til Linuxstammen). Trykk Next step\nNedtrekkslisten “Agent pool” skal normalt bare ha ett valg: transfer_service_default. Velg denne.\nI feltet “Source directory path” skal man kun skrive data/tilsky siden overføringsagenten kun har tilgang til mapper som ligger relativt plassert under /ssb/cloud_sync/<teamnavn>/. Trykk Next step\nVelg en destinasjon for overføringsjobben. Trykk på Browse og velg bøtten med navn som passer til ssb-prod-<teamnavn>-data-synk-opp. Vi anbefaler at du også oppretter en mappe inne i denne bøtten. Det gjøres ved å trykke på mappeikonet med et +-tegn foran. Skriv inn et passende mappenavn og trykk Select i bunnen av siden. Trykk deretter Next step\nNeste steg “Choose how and when to run this job” er opp til brukeren å bestemme. Hvis man f.eks. velger at Data Transfer skal overføre data en gang i uken, vil den kun starte en overføring hvis det finnes nye data. Trykk Next step\nBeskriv overføringsjobben, f.eks: “Flytter data for  til sky.”. Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.\n\nTrykk til slutt på den blå Create-knappen. Du vil kunne se kjørende jobber under menyen Transfer jobs.\nFor å sjekke om data har blitt overført, skriv inn cloud storage i søkefeltet øverst på siden og trykk på det første valget som kommer opp. Her vil du finne en oversikt over alle teamets bøtter, deriblant en med navn ssb-prod-<team-name>-data-synk-opp. Når overføringsjobben er ferdig vil du kunne finne igjen dataene i den mappen som ble definert i stegene overnfor.\n\n\n11.3.2 Overføring fra Dapla til Linuxstammen\nOverføringsjobben settes opp nesten identisk med Overføring fra Linuxstammen til Dapla med unntak av følgende:\n\nSteg 1: Velg Google cloud storage under “Source type” og POSIX filesystem under “Destination type”\nSteg 2: Velg bøtten ssb-prod-<team-name>-data-synk-ned\nStep 3: Velg transfer_service_default som “Agent pool” og skriv data/frasky inn i feltet for “Destination directory path”.\n\nFor å se om data har blitt overført til Linuxstammen må du nå gå til mappen /ssb/cloud_sync/<team-name>/data/frasky fra FileZilla.\nHusk: Du kan alltids gå tilbake og se på tidligere fullførte jobber, og starte en overføringsjobb manuelt fra menyen Transfer jobs."
   },
   {
+    "objectID": "slette-data.html",
+    "href": "slette-data.html",
+    "title": "14  Slette data fra bøtter",
+    "section": "",
+    "text": "Kryss av filen/katalogen som du ønsker å slette og trykk “Delete” (Figur 14.1)\n\n\n\nFigur 14.1: Sletting av en fil\n\n\nSiden bøtter på Dapla har versjonering får man opp en dialogboks som informerer om at objektet (dvs. filen) er versjonert (Figur 14.2). Trykk på “Delete”.\n\n\n\nFigur 14.2: Bekreft sletting av fil\n\n\nSlettingen kan ta noe tid. Når denne er ferdig vil filen være slettet, men den kan fortsatt gjenopprettes. Hvis du ønsker at filen skal slettes permanent, gjør følgende:\n\nSkru på visning av slettede filer med å bruke radioknappen “Show deleted data” (Figur 14.3)\n\n\n\n\nFigur 14.3: Skru på visning av slettede filer\n\n\n\nFinn frem til den slettede filen og trykk på linken “1 noncurrent version” eller tilsvarende (Figur 14.4). Dette vil ta deg direkte til en side som viser filens versjonshistorikk.\n\n\n\n\nFigur 14.4: Velg versjonshistorikk\n\n\n\nVelg alle versjoner som vist på Figur 14.5 og trykk “Delete”\n\n\n\n\nFigur 14.5: Slett alle versioner\n\n\n\nTil slutt må man bekrefte at man ønsker å slette alle versioner (Figur 14.6) med å skrive inn DELETE og trykke på den blå “Delete”-knappen:\n\n\n\n\nFigur 14.6: Bekreft sletting av alle versjoner"
+  },
+  {
+    "objectID": "gjenopprette-data.html",
+    "href": "gjenopprette-data.html",
+    "title": "15  Gjenopprette data fra bøtter",
+    "section": "",
+    "text": "Alle bøtter har automatisk versjonering. Dette gjør det mulig å tilbakeføre filer til en tidligere versjon eller gjenopprette filer som er slettet ved et uhell.\nLogg inn på Google Cloud Console og søk opp “Cloud Storage” i søkefeltet. Klikk på den bøtten hvor filen er lagret under “Buckets”."
+  },
+  {
+    "objectID": "gjenopprette-data.html#gjenopprette-en-slettet-fil",
+    "href": "gjenopprette-data.html#gjenopprette-en-slettet-fil",
+    "title": "15  Gjenopprette data fra bøtter",
+    "section": "15.1 Gjenopprette en slettet fil",
+    "text": "15.1 Gjenopprette en slettet fil\nFra Cloud Storage skjermbildet kan man navigere seg frem til den mappen hvor filen tidligere er lagret og skru på radioknappen “Show deleted data” (Figur 15.1)\n\n\n\nFigur 15.1: Skru på visning av slettede filer\n\n\nNå vil man kunne se slettede filer i kursiv med teksten (Deleted) på slutten. Kolonnen “Version history” vil også vise hvor mange tidligere versjoner som finnes av denne filen. Trykk på filnavnet du ønsker å gjenopprette og velg deretter fanen “Version history”. I listen av versjoner til denne filen har man mulighet til å gjenopprette til en tidligere versjon ved å klikke på “Restore” (Figur 15.2).\n\n\n\nFigur 15.2: Gjenoppretting av en slettet fil"
+  },
+  {
+    "objectID": "gjenopprette-data.html#gjenopprette-en-fil-til-en-tidligere-versjon",
+    "href": "gjenopprette-data.html#gjenopprette-en-fil-til-en-tidligere-versjon",
+    "title": "15  Gjenopprette data fra bøtter",
+    "section": "15.2 Gjenopprette en fil til en tidligere versjon",
+    "text": "15.2 Gjenopprette en fil til en tidligere versjon\nFra Cloud Storage skjermbildet kan man navigere seg frem til den mappen hvor filen er lagret, og trykke på filnavnet. Velg deretter fanen “Version history”. I listen av versjoner til denne filen har man mulighet til å gjenopprette til en tidligere versjon ved å klikke på “Restore” (Figur 15.3).\n\n\n\nFigur 15.3: Versjonshistorikk til en fil"
+  },
+  {
     "objectID": "administrasjon.html",
     "href": "administrasjon.html",
-    "title": "15  Administrasjon av team",
+    "title": "17  Administrasjon av team",
     "section": "",
     "text": "Dapla-teamet vil ha sitt eget gruppenavn i SSBs Active Directory. Endringer i denne gruppen, slik som å legge til eller fjerne medlemmer, gjøres ved å sende en epost til Kundeservice."
   },
@@ -198,225 +226,225 @@
   {
     "objectID": "nytt-ssbproject.html",
     "href": "nytt-ssbproject.html",
-    "title": "16  Nytt ssb-project",
+    "title": "18  Nytt ssb-project",
     "section": "",
     "text": "I dette kapitlet forklarer vi hvordan du oppretter et ssb-project og hva det innebærer. ssb-project er et CLI1 for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal\nssb-project create stat-testprod\nog du vil få en mappe som heter stat-testprod med følgende innhold:\nI tillegg lar ssb-project deg opprette et GitHub-repo hvis du ønsker. Les mer om hvordan du kan ta i bruk dette verktøyet under."
   },
   {
     "objectID": "nytt-ssbproject.html#forberedelser",
     "href": "nytt-ssbproject.html#forberedelser",
-    "title": "16  Nytt ssb-project",
-    "section": "16.1 Forberedelser",
-    "text": "16.1 Forberedelser\nFør du kan ta i bruk ssb-project så er det et par ting som må være på plass:\n\nDu må ha opprettet en git-bruker og git-epost lokalt der du skal kalle på programmet (les mer om hvordan her).\nHvis du ønsker at ssb-project også skal opprette et GitHub-repo for deg må du også følgende være på plass:\n\nDu må ha en GitHub-bruker (les hvordan her)\nSkru på 2-faktor autentifisering for GitHub-brukeren din (les hvordan her)\nVære koblet mot SSBs organisasjon statisticsnorway på GitHub (les hvordan her)\nOpprette Personal Access Token (PAT) og godkjenne det for bruk mot statisticsnorway (les hvordan her)\n\n\nHvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene."
+    "title": "18  Nytt ssb-project",
+    "section": "18.1 Forberedelser",
+    "text": "18.1 Forberedelser\nFør du kan ta i bruk ssb-project så er det et par ting som må være på plass:\n\nDu må ha opprettet en git-bruker og git-epost lokalt der du skal kalle på programmet (les mer om hvordan her).\nHvis du ønsker at ssb-project også skal opprette et GitHub-repo for deg må du også følgende være på plass:\n\nDu må ha en GitHub-bruker (les hvordan her)\nSkru på 2-faktor autentifisering for GitHub-brukeren din (les hvordan her)\nVære koblet mot SSBs organisasjon statisticsnorway på GitHub (les hvordan her)\nOpprette Personal Access Token (PAT) og godkjenne det for bruk mot statisticsnorway (les hvordan her)\n\n\nHvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene."
   },
   {
     "objectID": "nytt-ssbproject.html#opprett-ssb-project",
     "href": "nytt-ssbproject.html#opprett-ssb-project",
-    "title": "16  Nytt ssb-project",
-    "section": "16.2 Opprett ssb-project",
-    "text": "16.2 Opprett ssb-project\n\n\n\n\n\n\nHar du Github bruker? Noe funksjonalitet i ssb-project krever det. Finn ut hvordan ved å lese forrige kapitel.\n\n\n\nssb-project lar deg opprette en prosjekt-mappe med og uten GitHub-repo. La oss ta for oss hver av alternativene.\n\n16.2.1 Uten GitHub-repo\nFor å opprette et nytt ssb-project uten GitHub-repo gjør du følgende:\n\nÅpne en terminal. De fleste vil gjøre dette i Jupyterlab på bakke eller sky og da kan de bare trykke på det blå ➕-tegnet i Jupyterlab og velge Terminal.\nFør vi kjører programmet må vi være obs på at ssb-project vil opprette en ny mappe der vi står. Gå derfor til den mappen du ønsker å ha den nye prosjektmappen. For å opprette et prosjekt som heter stat-testprod så skriver du følgende i terminalen:\n\nssb-project create stat-testprod\n\n\nHvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i Figur 16.1. 2. Den inneholder følgende :\n\n.git-mappe som blir opprettet for å versjonshåndtere med Git.\nsrc-mappe som skal inneholde all koden som utgjør produksjonsløpet.\ntests-mappe som inneholder tester du skriver for koden din.\nLICENCE-fil som skal benyttes for public-repos i SSB.\npoetry.lock-fil som inneholder alle versjoner av Python-pakker som blir brukt.\nREADME.md-fil som brukes for tekstlig innhold på GitHub-siden for prosjektet.\n\n\n\n\n\n\nFigur 16.1: Mappen som ble opprettet av ssb-project.\n\n\n\n\n\n\n16.2.2 Med Github-repo\nOver så opprettet vi et ssb-project uten å opprette et GitHub-repo. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:\nssb-project create stat-testprod --github --github-token='blablabla'\nKommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter stat-testprod med et GitHub-repo med samme navn. Som du ser så må vi da sende med opsjonen --github og PAT med opsjonen --github-token='blablabla'. Repoet i GitHub ser da ut som i Figur 16.2.\n\n\n\nFigur 16.2: GitHub-repo som er opprettet av ssb-project\n\n\n\n\n\n\n\n\nNår du har opprettet et nytt ssb-project, eller bygget et eksisterende prosjekt, så kan det ta rundt 30 sekunder før kernelen viser seg i Jupterlab-launcher. Vær tålmodig!"
+    "title": "18  Nytt ssb-project",
+    "section": "18.2 Opprett ssb-project",
+    "text": "18.2 Opprett ssb-project\n\n\n\n\n\n\nHar du Github bruker? Noe funksjonalitet i ssb-project krever det. Finn ut hvordan ved å lese forrige kapitel.\n\n\n\nssb-project lar deg opprette en prosjekt-mappe med og uten GitHub-repo. La oss ta for oss hver av alternativene.\n\n18.2.1 Uten GitHub-repo\nFor å opprette et nytt ssb-project uten GitHub-repo gjør du følgende:\n\nÅpne en terminal. De fleste vil gjøre dette i Jupyterlab på bakke eller sky og da kan de bare trykke på det blå ➕-tegnet i Jupyterlab og velge Terminal.\nFør vi kjører programmet må vi være obs på at ssb-project vil opprette en ny mappe der vi står. Gå derfor til den mappen du ønsker å ha den nye prosjektmappen. For å opprette et prosjekt som heter stat-testprod så skriver du følgende i terminalen:\n\nssb-project create stat-testprod\n\n\nHvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i Figur 18.1. 2. Den inneholder følgende :\n\n.git-mappe som blir opprettet for å versjonshåndtere med Git.\nsrc-mappe som skal inneholde all koden som utgjør produksjonsløpet.\ntests-mappe som inneholder tester du skriver for koden din.\nLICENCE-fil som skal benyttes for public-repos i SSB.\npoetry.lock-fil som inneholder alle versjoner av Python-pakker som blir brukt.\nREADME.md-fil som brukes for tekstlig innhold på GitHub-siden for prosjektet.\n\n\n\n\n\n\nFigur 18.1: Mappen som ble opprettet av ssb-project.\n\n\n\n\n\n\n18.2.2 Med Github-repo\nOver så opprettet vi et ssb-project uten å opprette et GitHub-repo. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:\nssb-project create stat-testprod --github --github-token='blablabla'\nKommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter stat-testprod med et GitHub-repo med samme navn. Som du ser så må vi da sende med opsjonen --github og PAT med opsjonen --github-token='blablabla'. Repoet i GitHub ser da ut som i Figur 18.2.\n\n\n\nFigur 18.2: GitHub-repo som er opprettet av ssb-project\n\n\n\n\n\n\n\n\nNår du har opprettet et nytt ssb-project, eller bygget et eksisterende prosjekt, så kan det ta rundt 30 sekunder før kernelen viser seg i Jupterlab-launcher. Vær tålmodig!"
   },
   {
     "objectID": "nytt-ssbproject.html#installere-pakker",
     "href": "nytt-ssbproject.html#installere-pakker",
-    "title": "16  Nytt ssb-project",
-    "section": "16.3 Installere pakker",
-    "text": "16.3 Installere pakker\nFlytte fra kapittel 20 til hit. Fortelle at lock-file oppdateres automatisk ved installasjon. Vil lock-.file oppdateres selv om du ikke bruker pakken? Test. PyPI benyttes. Kun Python foreløpig."
+    "title": "18  Nytt ssb-project",
+    "section": "18.3 Installere pakker",
+    "text": "18.3 Installere pakker\nFlytte fra kapittel 20 til hit. Fortelle at lock-file oppdateres automatisk ved installasjon. Vil lock-.file oppdateres selv om du ikke bruker pakken? Test. PyPI benyttes. Kun Python foreløpig."
   },
   {
     "objectID": "nytt-ssbproject.html#push-til-github",
     "href": "nytt-ssbproject.html#push-til-github",
-    "title": "16  Nytt ssb-project",
-    "section": "16.4 Push til GitHub",
-    "text": "16.4 Push til GitHub\nKort beskrivelse av hvordan man pusher til GitHub."
+    "title": "18  Nytt ssb-project",
+    "section": "18.4 Push til GitHub",
+    "text": "18.4 Push til GitHub\nKort beskrivelse av hvordan man pusher til GitHub."
   },
   {
     "objectID": "nytt-ssbproject.html#bygg-eksisterende-ssb-project",
     "href": "nytt-ssbproject.html#bygg-eksisterende-ssb-project",
-    "title": "16  Nytt ssb-project",
-    "section": "16.5 Bygg eksisterende ssb-project",
-    "text": "16.5 Bygg eksisterende ssb-project\nNår vi skal samarbeide med andre om kode så gjør vi dette via GitHub. Når du pusher koden din til GitHub, så kan samarbeidspartnere pulle ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. ssb-project gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs. For å bygge opp det samme miløet så gjør du følgende:\n\nKlone repoet med git clone https://github.com/statisticsnorway/<prosjektnavn>\nGå til mappen med cd <prosjektnavn>\nSkape et virtuelt miljø og installere en tilsvarende Jupyter kernel med ssb-project build"
+    "title": "18  Nytt ssb-project",
+    "section": "18.5 Bygg eksisterende ssb-project",
+    "text": "18.5 Bygg eksisterende ssb-project\nNår vi skal samarbeide med andre om kode så gjør vi dette via GitHub. Når du pusher koden din til GitHub, så kan samarbeidspartnere pulle ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. ssb-project gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs. For å bygge opp det samme miløet så gjør du følgende:\n\nKlone repoet med git clone https://github.com/statisticsnorway/<prosjektnavn>\nGå til mappen med cd <prosjektnavn>\nSkape et virtuelt miljø og installere en tilsvarende Jupyter kernel med ssb-project build"
   },
   {
     "objectID": "nytt-ssbproject.html#rydd-opp-etter-deg",
     "href": "nytt-ssbproject.html#rydd-opp-etter-deg",
-    "title": "16  Nytt ssb-project",
-    "section": "16.6 Rydd opp etter deg",
-    "text": "16.6 Rydd opp etter deg\n\n16.6.1 Lokalt\nHvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre ssb-project clean stat-testprod som sletter Jupyter-kernelen og de installerte pakkene i prosjektet.\n\n\n16.6.2 Arkiver GitHub-repo\nMer kommer."
+    "title": "18  Nytt ssb-project",
+    "section": "18.6 Rydd opp etter deg",
+    "text": "18.6 Rydd opp etter deg\n\n18.6.1 Lokalt\nHvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre ssb-project clean stat-testprod som sletter Jupyter-kernelen og de installerte pakkene i prosjektet.\n\n\n18.6.2 Arkiver GitHub-repo\nMer kommer."
   },
   {
     "objectID": "nytt-ssbproject.html#hva-med-r",
     "href": "nytt-ssbproject.html#hva-med-r",
-    "title": "16  Nytt ssb-project",
-    "section": "16.7 Hva med R?",
-    "text": "16.7 Hva med R?\nBeskrive hvordan man kan lage virtuelle miljøer og installere med R. Flytte fra kap.20 hit"
+    "title": "18  Nytt ssb-project",
+    "section": "18.7 Hva med R?",
+    "text": "18.7 Hva med R?\nBeskrive hvordan man kan lage virtuelle miljøer og installere med R. Flytte fra kap.20 hit"
   },
   {
     "objectID": "git-github.html",
     "href": "git-github.html",
-    "title": "17  Git og Github",
+    "title": "19  Git og Github",
     "section": "",
     "text": "I SSB anbefales det man versjonhåndterer koden sin med Git og deler koden via GitHub. For å lære seg å bruke disse verktøyene på en god måte er det derfor viktig å forstå forskjellen mellom Git og Github. Helt overordnet er forskjellen følgende:\nAv definisjonene over så skjønner vi at det er Git som gir oss all funksjonalitet for å lagre versjoner av koden vår. GitHub er mer som et valg av mappesystem. Men måten kodemiljøene våre er satt opp på Dapla så har vi ingen fellesmappe som alle kan kjøre koden fra. Man utvikler kode i sin egen hjemmemappe, som bare du har tilgang til, og når du skal samarbeide med andre, så må du sende koden til GitHub. De du samarbeider med må deretter hente ned denne koden før de kan kjøre den.\nI dette kapitlet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet ssb-project for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapitlet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker."
   },
   {
     "objectID": "git-github.html#git",
     "href": "git-github.html#git",
-    "title": "17  Git og Github",
-    "section": "17.1 Git",
-    "text": "17.1 Git\nGit er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av Git, blant annet i Jupyterlab, SAS EG og RStudio. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan Git fungerer fra terminalen. Vi vil også fokusere på hvordan Git fungerer fra terminalen i Jupyterlab på Dapla.\n\n17.1.1 Hva er Git?\nKommer snart. Kort forklaring med lenke til mer utfyllende svar.\n\n\n17.1.2 Oppsett av Git\nMer kommer.\n\n17.1.2.1 Minimal Git-konfigurasjon\nFor å brukt Git er det strengt tatt to ting som må konfigurere:\n\nBrukernavn\nE-post\n\nDenne informasjonen brukes av Git hver gang du sjekker inn en endring i koden slik at man kan vite hvem som gjorde endringen senere. Dette må settes én gang per miljø hvor du skal jobbe med Git. Hvis du f.eks. jobber i Jupyterlab på Dapla så kan du åpne en terminal og skrive følgende for å lagre ditt brukernavn:\ngit config --global user.name \"Ola Nordmann\"\nFor å sette e-post gjør du veldig lignende:\ngit config --global user.email olanordamnn@ssb.no\nNår du har kjørt disse to kommandoene så kan du bruke Git. Informasjonen du la til over brukes ikke til noe annet enn å fortelle de du samarbeider med om at du har gjort endringer på koden. Den er verken knyttet opp mot din SSB-bruker eller din GitHub-bruker.\n\n\n\n17.1.3 Git og Notebooks\nKommer snart. Jupytext og nbsripout. json.\n\n\n17.1.4 Vanlige Git-operasjoner\nKommer snart. clone, add, commit, push, pull, merge, revert, etc."
+    "title": "19  Git og Github",
+    "section": "19.1 Git",
+    "text": "19.1 Git\nGit er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av Git, blant annet i Jupyterlab, SAS EG og RStudio. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan Git fungerer fra terminalen. Vi vil også fokusere på hvordan Git fungerer fra terminalen i Jupyterlab på Dapla.\n\n19.1.1 Hva er Git?\nKommer snart. Kort forklaring med lenke til mer utfyllende svar.\n\n\n19.1.2 Oppsett av Git\nMer kommer.\n\n19.1.2.1 Minimal Git-konfigurasjon\nFor å brukt Git er det strengt tatt to ting som må konfigurere:\n\nBrukernavn\nE-post\n\nDenne informasjonen brukes av Git hver gang du sjekker inn en endring i koden slik at man kan vite hvem som gjorde endringen senere. Dette må settes én gang per miljø hvor du skal jobbe med Git. Hvis du f.eks. jobber i Jupyterlab på Dapla så kan du åpne en terminal og skrive følgende for å lagre ditt brukernavn:\ngit config --global user.name \"Ola Nordmann\"\nFor å sette e-post gjør du veldig lignende:\ngit config --global user.email olanordamnn@ssb.no\nNår du har kjørt disse to kommandoene så kan du bruke Git. Informasjonen du la til over brukes ikke til noe annet enn å fortelle de du samarbeider med om at du har gjort endringer på koden. Den er verken knyttet opp mot din SSB-bruker eller din GitHub-bruker.\n\n\n\n19.1.3 Git og Notebooks\nKommer snart. Jupytext og nbsripout. json.\n\n\n19.1.4 Vanlige Git-operasjoner\nKommer snart. clone, add, commit, push, pull, merge, revert, etc."
   },
   {
     "objectID": "git-github.html#github",
     "href": "git-github.html#github",
-    "title": "17  Git og Github",
-    "section": "17.2 GitHub",
-    "text": "17.2 GitHub\n\n\n17.2.1 Opprett GitHub-bruker\nDette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke ssb-project-programmet til å generere et remote repo på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.\n\n\n\n\n\n\nSSB har valgt å ikke sette opp SSB-brukerne til de ansatte som GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som en del av den ansattes CV. For de som aldri har brukt GitHub før kan det virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent med denne arbeidsformen.\n\n\n\nSlik gjør du det:\n\nGå til https://github.com/\nTrykk Sign up øverst i høyre hjørne\nSvar på spørsmålene du blir stilt.\n\nHusk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker.\n\n\n17.2.2 To-faktor autentifisering\nHvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den slik ut:\n\nDet neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:\n\n\n\nTrykk på den lille pilen øverst til høyre og velg Settings(se bilde til høyre).\nDeretter velger du Password and authentification i menyen til venstre.\n\n\n\n\n\n\n\nUnder Two-factor authentication trykker du på Add. Da får du opp følgende bilde:\n\n\n\n\n\nStrekkoden over skal skannes i din Microsoft Authenticator-app på mobilen. Åpne appen, trykk på Bekreftede ID-er, og til slutt trykk på Skann QR-kode. Deretter skanner du QR-koden fra punkt 3.\nNår koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.\nTil slutt lagrer du Recovery-codes et trygt sted.\n\n\n\n\n\n\nNå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs “Github organisation” statisticsnorway.\n\n\n17.2.3 Koble deg til SSB\nI forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon statisticsnorway. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.\n\nGå til profilsiden din og velg Settings slik du gjorde i punkt 1 i forrige delkapitel.\nTrykk deretter på Organizations i menyen til venstre.\nTrykk deretter på New organization.\nSøk etter statisticsnorway.\n\n\n\n17.2.4 Personal Access Token (PAT)\nNår vi skal jobbe med SSB-kode som ligger lagret hos statistcsnorway på GitHub, så må vi autentisere oss. Måten vi gjøre det på er ved å generere et Personal Access Token (ofte forkortet PAT) som vi oppgir når vi vil hente eller oppdatere kode på GitHub. Da sender vi med PAT for å autentisere oss for GitHub.\n\n17.2.4.1 Opprette PAT\nFor å lage en PAT som er godkjent mot statisticsnorway så gjør man følgende:\n\nGå til din profilside på GitHub og åpne Settings slik som ble vist Seksjon 17.2.2.\nVelg Developer Settings i menyen til venstre.\nI menyen til venstre velger du Personal Access Token, og deretter Tokens (classic).\nUnder Note kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den dapla. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den prodsone eller noe annet som gjør det lett for det skjønne innholdet i ettertid.\nUnder Expiration velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. En grei mellomløsning kan være å velge 3 måneder. Når PAT utløper må du gjenta stegene i dette kapitlet.\nUnder Select scopes velger du Repo (se bilde under).\n\n\n\nTrykk på Generate token nederst på siden og du får opp noe som ser ut som dette:\n\n\n\nKopier deretter PAT til en midlertidig fil. Grunnen er at du aldri vil se det igjen her etter at vi har gjennomført neste steg.\nDeretter trykker du på Configure SSO og velger Authorize ved siden statisticsnorway. Svar deretter på spørsmålene som dukker opp.\n\n\nVi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med Git på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på statisticsnorway på GitHub.\n\n\n17.2.4.2 Lagre PAT\nDet er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en .netrc-fil. Vi oppretter da en fil som heter .netrc på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen:\nmachine github.com login <github-bruker> password <Personal Access Token>\nGitHub-bruker er da din personlige bruker og IKKE brukernavnet ditt i SSB. Personal Access Token er det vi lagde\nEn veldig enkel måte å lagre dette er som følger. Anta at min personlige GitHub-bruker er SSB-Chad og at min Personal Access Token er blablabla. Da kan jeg gjøre følgende for å lagre det i .netrc:\n\nGå inn i Jupyterlab og åpne en Python-notebook.\nI den første kodecellen skriver du: !echo \"machine github.com login SSB-Chad password blablabla\" >> ~/.netrc\n\nAlternativt kan du droppe det utropstegnet og kjøre det direkte i en terminal. Det vil gi samme resultat. Koden over legger til en linje med teksten machine github.com login SSB-Chad password blablabla i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token.\nHver gang du jobber mot GitHub vil Git sjekke om informasjon om autentifisering ligger i denne filen, og bruke den hvis den ligger der.\n\n\n17.2.4.3 Oppdater PAT\nI eksempelet over lagde vi en PAT som var gyldig i 90 dager. Dermed vil du ikke kunne jobbe mot GitHub med dette tokenet etter 90 dager. For å oppdatere tokenet gjør du følgende:\n\nLag et nytt PAT ved å repetere Seksjon 17.2.4.1.\nI miljøet der du skal jobbe med Git og GitHub går du inn i din .netrc og bytter ut token med det nye.\n\nOg med det er du klar til å jobbe mot statisticsnorway på GitHub."
+    "title": "19  Git og Github",
+    "section": "19.2 GitHub",
+    "text": "19.2 GitHub\n\n\n19.2.1 Opprett GitHub-bruker\nDette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke ssb-project-programmet til å generere et remote repo på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.\n\n\n\n\n\n\nSSB har valgt å ikke sette opp SSB-brukerne til de ansatte som GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som en del av den ansattes CV. For de som aldri har brukt GitHub før kan det virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent med denne arbeidsformen.\n\n\n\nSlik gjør du det:\n\nGå til https://github.com/\nTrykk Sign up øverst i høyre hjørne\nSvar på spørsmålene du blir stilt.\n\nHusk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker.\n\n\n19.2.2 To-faktor autentifisering\nHvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den slik ut:\n\nDet neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:\n\n\n\nTrykk på den lille pilen øverst til høyre og velg Settings(se bilde til høyre).\nDeretter velger du Password and authentification i menyen til venstre.\n\n\n\n\n\n\n\nUnder Two-factor authentication trykker du på Add. Da får du opp følgende bilde:\n\n\n\n\n\nStrekkoden over skal skannes i din Microsoft Authenticator-app på mobilen. Åpne appen, trykk på Bekreftede ID-er, og til slutt trykk på Skann QR-kode. Deretter skanner du QR-koden fra punkt 3.\nNår koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.\nTil slutt lagrer du Recovery-codes et trygt sted.\n\n\n\n\n\n\nNå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs “Github organisation” statisticsnorway.\n\n\n19.2.3 Koble deg til SSB\nI forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon statisticsnorway. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.\n\nGå til profilsiden din og velg Settings slik du gjorde i punkt 1 i forrige delkapitel.\nTrykk deretter på Organizations i menyen til venstre.\nTrykk deretter på New organization.\nSøk etter statisticsnorway.\n\n\n\n19.2.4 Personal Access Token (PAT)\nNår vi skal jobbe med SSB-kode som ligger lagret hos statistcsnorway på GitHub, så må vi autentisere oss. Måten vi gjøre det på er ved å generere et Personal Access Token (ofte forkortet PAT) som vi oppgir når vi vil hente eller oppdatere kode på GitHub. Da sender vi med PAT for å autentisere oss for GitHub.\n\n19.2.4.1 Opprette PAT\nFor å lage en PAT som er godkjent mot statisticsnorway så gjør man følgende:\n\nGå til din profilside på GitHub og åpne Settings slik som ble vist Seksjon 19.2.2.\nVelg Developer Settings i menyen til venstre.\nI menyen til venstre velger du Personal Access Token, og deretter Tokens (classic).\nUnder Note kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den dapla. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den prodsone eller noe annet som gjør det lett for det skjønne innholdet i ettertid.\nUnder Expiration velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. En grei mellomløsning kan være å velge 3 måneder. Når PAT utløper må du gjenta stegene i dette kapitlet.\nUnder Select scopes velger du Repo (se bilde under).\n\n\n\nTrykk på Generate token nederst på siden og du får opp noe som ser ut som dette:\n\n\n\nKopier deretter PAT til en midlertidig fil. Grunnen er at du aldri vil se det igjen her etter at vi har gjennomført neste steg.\nDeretter trykker du på Configure SSO og velger Authorize ved siden statisticsnorway. Svar deretter på spørsmålene som dukker opp.\n\n\nVi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med Git på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på statisticsnorway på GitHub.\n\n\n19.2.4.2 Lagre PAT\nDet er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en .netrc-fil. Vi oppretter da en fil som heter .netrc på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen:\nmachine github.com login <github-bruker> password <Personal Access Token>\nGitHub-bruker er da din personlige bruker og IKKE brukernavnet ditt i SSB. Personal Access Token er det vi lagde\nEn veldig enkel måte å lagre dette er som følger. Anta at min personlige GitHub-bruker er SSB-Chad og at min Personal Access Token er blablabla. Da kan jeg gjøre følgende for å lagre det i .netrc:\n\nGå inn i Jupyterlab og åpne en Python-notebook.\nI den første kodecellen skriver du: !echo \"machine github.com login SSB-Chad password blablabla\" >> ~/.netrc\n\nAlternativt kan du droppe det utropstegnet og kjøre det direkte i en terminal. Det vil gi samme resultat. Koden over legger til en linje med teksten machine github.com login SSB-Chad password blablabla i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token.\nHver gang du jobber mot GitHub vil Git sjekke om informasjon om autentifisering ligger i denne filen, og bruke den hvis den ligger der.\n\n\n19.2.4.3 Oppdater PAT\nI eksempelet over lagde vi en PAT som var gyldig i 90 dager. Dermed vil du ikke kunne jobbe mot GitHub med dette tokenet etter 90 dager. For å oppdatere tokenet gjør du følgende:\n\nLag et nytt PAT ved å repetere Seksjon 19.2.4.1.\nI miljøet der du skal jobbe med Git og GitHub går du inn i din .netrc og bytter ut token med det nye.\n\nOg med det er du klar til å jobbe mot statisticsnorway på GitHub."
   },
   {
     "objectID": "virtual-env.html",
     "href": "virtual-env.html",
-    "title": "18  Virtuelle miljøer",
+    "title": "20  Virtuelle miljøer",
     "section": "",
     "text": "Et python viretuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det viretuelt miljøet er aktivert. Dette gjør at man ungår avhengighetskonflikter på tvers av prosjekter.\nSe her for mer informasjon om viretuelle miljøer.\n\n\nDet er anbefalt å benytte verktøyet poetry for å administrere prosjekter og deres viretuelle miljø.\nPoetry setter opp virtuelt miljø, gjør det enkelt å oppdatere avhengigheter, sette versjons begrensninger og reprodusere prosjektet.\nPoetry gjør dette ved å lagre avhengigheters eksakte versjon i prosjektets “poetry.lock”. Og eventuelle begrensninger i “pyproject.toml”. Dette gjør det enkelt for andre å bygge prosjektet med akkurat de samme pakkene og begrensningene."
   },
   {
     "objectID": "virtual-env.html#r",
     "href": "virtual-env.html#r",
-    "title": "18  Virtuelle miljøer",
-    "section": "18.2 R",
-    "text": "18.2 R"
+    "title": "20  Virtuelle miljøer",
+    "section": "20.2 R",
+    "text": "20.2 R"
   },
   {
     "objectID": "pakke-install.html",
     "href": "pakke-install.html",
-    "title": "20  Installere pakker",
+    "title": "22  Installere pakker",
     "section": "",
     "text": "Installering av pakker er kun er mulig I et virtuelt miljø. Det er anbefalt å benytte poetry til dette. Eksemplene videre tar derfor utgangspunkt i et poetry prosjekt.\nDet er mulig å installere pakker med pip. Pakker kan installeres som normalt, hvis man har satt opp og aktivert et virtuelt miljø.\n\n\nDette eksemplet viser hvordan man setter oppe et enkelt poetry prosjekt kalt test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene.\nSett opp prosjektet:\npoetry new test\nNaviger inn i prosjektmappen:\ncd test\nBruk poetry install for å bygge prosjektet:\npoetry install\nHvis man får en tilbakemelding som denne er prosjektet satt opp korrekt:\nCreating virtualenv test-EojoH6Zm-py3.10 in /home/jovyan/.cache/pypoetry/virtualenvs \nUpdating dependencies \nResolving dependencies... (0.1s) \n\nWriting lock file \n\n\n\nFor å legge til pakker i et prosjekt benyttes kommandoen poetry add.\nSkal man legge til pakken “pendulum” vil det se slik ut:\npoetry add pendulum\nPoetry tilbyr måter å sette versjonsbegrensninger for pakker som legges til i et prosjekt, dette kan man lese mer om her.\n\n\n\nFor å fjerne pakker fra et prosjekt benytter man poetry remove.\nHvis man ønsker å fjerne “pendulum” fra et prosjekt vil kommandoen se slik ut:\npoetry remove pendulum\n\n\n\nFor å oppdatere pakker i et prosjekt benytter man kommandoen poetry update.\nSkal man oppdatere pakken “pendulum” bruker man:\npoetry update pendulum\nSkal man oppdatre alle pakken i et prosjekt benytter man:\npoetry update \n\n\n\nFor å kunne benytte det virtuelle miljøet i en notebook må man sette opp en kernel. Kernel burde gis samme navn som prosjektet.\nFørst legger man til ipykernel:\npoetry add ipykernel\nSå opprettes kernel med:\npoetry run python -m ipykernel install --user --name test\nEtter dette er kernelen test opprettet og kan velges for å benytte miljøet i en notebook.\n\n\n\nFor å fjerne en kernel med navn test bruker man:\njupyter kernelspec remove test\nDu vil bli spurt om å bekrefte, trykk y hvis man ønsker å slette:\nKernel specs to remove:\n  test                    /home/jovyan/.local/share/jupyter/kernels/test\nRemove 1 kernel specs [y/N]: y\nEtter dette er kernelen fjernet.\n\n\n\nHvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er en list med viktige tiltak som minimere risikoen:\n\nFør man installerer pakker bør man alltid søke de opp på https://pypi.org. Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.\nEr det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet?"
   },
   {
     "objectID": "pakke-install.html#r",
     "href": "pakke-install.html#r",
-    "title": "20  Installere pakker",
-    "section": "20.2 R",
-    "text": "20.2 R\nInstallering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av ssb-project. Men vi kan bruke renv. Mer kommer.\n\n20.2.1 Installering\nFor å installere dine egne R-pakker må du opprette et virtuelt miljø med renv. Gå inn i Jupyterlab og åpne R-notebook. Deretter skriver du inn følgende i kodecelle:\nrenv::init()\nDenne kommandoer aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:\nrenv.lock\nEn fil som inneholder versjoner av alle pakker du benytter i koden din.\nrenv\nMappe som inneholder alle pakkene du installerer.\nNå som vi har et virtuelle miljøet på plass kan vi installere en R-pakke. Du kan gjøre dette fra både terminalen og fra en Notebook. Vi anbefaler på gjøre det fra terminalen fordi du da får tilbakemelding på om installeringen gikk bra heller ikke. For å installere i terminalen gjør du følgende:\n\nÅpne en terminal i Jupyterlab\nStå i mappen der du aktiverte det virtuelle miljøet\nSkriv in R og trykk enter.\n\nDet vi nå har gjort er å åpne R fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en R Console. Nå kan du skrive inn en vanlig kommando for å installere R-pakker:\ninstall.packages(\"PxWebApiData\")\nOver installerte vi pakken PxWebApiData som er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank. La oss bruke pakken i koden vår med ved å skrive følgende i kodecelle i Notebooken vår:\nlibrary(PxWebApiData)\nApiData(\"https://data.ssb.no/api/v0/en/table/04861\", \n        Region = c(\"1103\", \"0301\"), ContentsCode = \"Bosatte\", Tid = c(1, 2, -2, -1))\nNår vi nå har brukt PxWebApiData i koden vår så kan vi kjøre en kommando som legger til den pakken i renv.lock. Men før vi kan gjøre det må vi være obs på at renv ikke klarer å gjenkjenne pakker som er i bruk Notebooks (ipynb-filer). Det er veldig upraktisk, men noe vi må forholde oss til når vi jobber med renv i Jupyterlab. En mulig løsning for dette er å bruke Jupytext til å synkronisere en ipynb-fil med en Rmd-fil. renv kjenner igjen både R- og Rmd-filer. For å synkronisere filene gjør du følgende:\n\nTrykk Ctrl+Shift C\nSkriv inn Pair i søkefeltet som dukker opp\nVelg Pair Notebook with R Markdown\n\nHvis du nå endrer en av filene så vil den andre oppdatere seg, og renv vil kunne oppdage om du bruker en pakke i koden din. Men for å trigge renv til å lete etter pakker som er i bruk så må du skrive følgende kode i Notebooken eller R Console:\nrenv::snapshot()\nKikker du nå inne i renv.lock-filen så ser du nå at verjsonen av PxWebApiData er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.\n\n\n\n20.2.2 Avinstallering\n\n\n20.2.3 Oppgradere pakker"
+    "title": "22  Installere pakker",
+    "section": "22.2 R",
+    "text": "22.2 R\nInstallering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av ssb-project. Men vi kan bruke renv. Mer kommer.\n\n22.2.1 Installering\nFor å installere dine egne R-pakker må du opprette et virtuelt miljø med renv. Gå inn i Jupyterlab og åpne R-notebook. Deretter skriver du inn følgende i kodecelle:\nrenv::init()\nDenne kommandoer aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:\nrenv.lock\nEn fil som inneholder versjoner av alle pakker du benytter i koden din.\nrenv\nMappe som inneholder alle pakkene du installerer.\nNå som vi har et virtuelle miljøet på plass kan vi installere en R-pakke. Du kan gjøre dette fra både terminalen og fra en Notebook. Vi anbefaler på gjøre det fra terminalen fordi du da får tilbakemelding på om installeringen gikk bra heller ikke. For å installere i terminalen gjør du følgende:\n\nÅpne en terminal i Jupyterlab\nStå i mappen der du aktiverte det virtuelle miljøet\nSkriv in R og trykk enter.\n\nDet vi nå har gjort er å åpne R fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en R Console. Nå kan du skrive inn en vanlig kommando for å installere R-pakker:\ninstall.packages(\"PxWebApiData\")\nOver installerte vi pakken PxWebApiData som er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank. La oss bruke pakken i koden vår med ved å skrive følgende i kodecelle i Notebooken vår:\nlibrary(PxWebApiData)\nApiData(\"https://data.ssb.no/api/v0/en/table/04861\", \n        Region = c(\"1103\", \"0301\"), ContentsCode = \"Bosatte\", Tid = c(1, 2, -2, -1))\nNår vi nå har brukt PxWebApiData i koden vår så kan vi kjøre en kommando som legger til den pakken i renv.lock. Men før vi kan gjøre det må vi være obs på at renv ikke klarer å gjenkjenne pakker som er i bruk Notebooks (ipynb-filer). Det er veldig upraktisk, men noe vi må forholde oss til når vi jobber med renv i Jupyterlab. En mulig løsning for dette er å bruke Jupytext til å synkronisere en ipynb-fil med en Rmd-fil. renv kjenner igjen både R- og Rmd-filer. For å synkronisere filene gjør du følgende:\n\nTrykk Ctrl+Shift C\nSkriv inn Pair i søkefeltet som dukker opp\nVelg Pair Notebook with R Markdown\n\nHvis du nå endrer en av filene så vil den andre oppdatere seg, og renv vil kunne oppdage om du bruker en pakke i koden din. Men for å trigge renv til å lete etter pakker som er i bruk så må du skrive følgende kode i Notebooken eller R Console:\nrenv::snapshot()\nKikker du nå inne i renv.lock-filen så ser du nå at verjsonen av PxWebApiData er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.\n\n\n\n22.2.2 Avinstallering\n\n\n22.2.3 Oppgradere pakker"
   },
   {
     "objectID": "samarbeid.html",
     "href": "samarbeid.html",
-    "title": "21  Samarbeid",
+    "title": "23  Samarbeid",
     "section": "",
     "text": "Noen har opprettet et ssb-project og pushet til Github. Hvordan skal kollegaer gå frem for å bidra inn i koden?"
   },
   {
     "objectID": "pakke-install-bakken.html",
     "href": "pakke-install-bakken.html",
-    "title": "23  Installere pakker",
+    "title": "25  Installere pakker",
     "section": "",
     "text": "Installering av pakker i Jupyter miljøer på bakken (f.eks https://sl-jupyter-p.ssb.no) foregår stort sett helt lik som på Dapla. Det er én viktig forskjell, og det er at installasjon skjer via en proxy som heter Nexus.\n\n\nPip er ferdig konfigurert for bruk av Nexus og kan kjøres som beskrevet for Dapla\n\n\n\nHvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.\npoetry source add --default nexus `echo $PIP_INDEX_URL`\nDa får man installere pakker som vanlig f.eks\npoetry add matplotlib\n\n\n\n\n\n\nHvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så må man fjerner nexus kilden ved å kjøre\npoetry source remove nexus"
   },
   {
     "objectID": "pakke-install-bakken.html#r",
     "href": "pakke-install-bakken.html#r",
-    "title": "23  Installere pakker",
-    "section": "23.2 R",
-    "text": "23.2 R\nProsessen med å installere pakker for R på bakken er veldig lik slik det gjøres på Dapla. Under beskriver hvordan det avviker fra prosedyren på Dapla.\n\n23.2.1 Installering\nVi installerer fra en proxy-server på bakken, og derfor må vi spesifisere denne adressen manuelt før vi kan installere R-pakker.\nrepos <- c(CRAN = \"https://nexus.ssb.no/repository/CRAN/\")\noptions(repos = repos)\nDeretter kan du initiere det virtuelle miljøet med følgende kommando:\nrenv::init()\nResten er likt som det som er forklart for Dapla.\n\n\n23.2.2 Avinstallering\n\n\n23.2.3 Oppgradere pakker"
+    "title": "25  Installere pakker",
+    "section": "25.2 R",
+    "text": "25.2 R\nProsessen med å installere pakker for R på bakken er veldig lik slik det gjøres på Dapla. Under beskriver hvordan det avviker fra prosedyren på Dapla.\n\n25.2.1 Installering\nVi installerer fra en proxy-server på bakken, og derfor må vi spesifisere denne adressen manuelt før vi kan installere R-pakker.\nrepos <- c(CRAN = \"https://nexus.ssb.no/repository/CRAN/\")\noptions(repos = repos)\nDeretter kan du initiere det virtuelle miljøet med følgende kommando:\nrenv::init()\nResten er likt som det som er forklart for Dapla.\n\n\n25.2.2 Avinstallering\n\n\n25.2.3 Oppgradere pakker"
   },
   {
     "objectID": "lese-data-bakken.html",
     "href": "lese-data-bakken.html",
-    "title": "24  Lese inn filer",
+    "title": "26  Lese inn filer",
     "section": "",
     "text": "Mer kommer."
   },
   {
     "objectID": "lese-data-bakken.html#sas7bdat",
     "href": "lese-data-bakken.html#sas7bdat",
-    "title": "24  Lese inn filer",
-    "section": "24.1 sas7bdat",
-    "text": "24.1 sas7bdat"
+    "title": "26  Lese inn filer",
+    "section": "26.1 sas7bdat",
+    "text": "26.1 sas7bdat"
   },
   {
     "objectID": "lese-data-bakken.html#oracle",
     "href": "lese-data-bakken.html#oracle",
-    "title": "24  Lese inn filer",
-    "section": "24.2 Oracle",
-    "text": "24.2 Oracle"
+    "title": "26  Lese inn filer",
+    "section": "26.2 Oracle",
+    "text": "26.2 Oracle"
   },
   {
     "objectID": "lese-data-bakken.html#fame",
     "href": "lese-data-bakken.html#fame",
-    "title": "24  Lese inn filer",
-    "section": "24.3 Fame",
-    "text": "24.3 Fame"
+    "title": "26  Lese inn filer",
+    "section": "26.3 Fame",
+    "text": "26.3 Fame"
   },
   {
     "objectID": "lese-data-bakken.html#tekstfiler",
     "href": "lese-data-bakken.html#tekstfiler",
-    "title": "24  Lese inn filer",
-    "section": "24.4 Tekstfiler",
-    "text": "24.4 Tekstfiler"
+    "title": "26  Lese inn filer",
+    "section": "26.4 Tekstfiler",
+    "text": "26.4 Tekstfiler"
   },
   {
     "objectID": "lese-data-bakken.html#parquet",
     "href": "lese-data-bakken.html#parquet",
-    "title": "24  Lese inn filer",
-    "section": "24.5 Parquet",
-    "text": "24.5 Parquet"
+    "title": "26  Lese inn filer",
+    "section": "26.5 Parquet",
+    "text": "26.5 Parquet"
   },
   {
     "objectID": "lese-data.html",
     "href": "lese-data.html",
-    "title": "25  Lese filer fra bøtte",
+    "title": "27  Lese filer fra bøtte",
     "section": "",
     "text": "Skal man lese fra en bøtte må man autentisere seg. For å gjøre dette kan man benytte pakken dapla-toolbelt."
   },
   {
     "objectID": "lese-data.html#eksempler",
     "href": "lese-data.html#eksempler",
-    "title": "25  Lese filer fra bøtte",
-    "section": "25.1 Eksempler",
-    "text": "25.1 Eksempler\n\n\n\n\n\n\n“navn-boette” eksisterer ikke og må byttes med en reel bøtte.\n\n\n\nLes json fil fra bøtte:\nimport dapla as dp\n\ndata_frame = dp.read_pandas(\"gs://ssb-staging-navn-boette/schema.json\",\n file_format=\"json\")\nList ut mapper i bøtta:\nfrom dapla import FileClient\n\nFileClient.ls(\"gs://ssb-staging-navn-boette/\")"
+    "title": "27  Lese filer fra bøtte",
+    "section": "27.1 Eksempler",
+    "text": "27.1 Eksempler\n\n\n\n\n\n\n“navn-boette” eksisterer ikke og må byttes med en reel bøtte.\n\n\n\nLes json fil fra bøtte:\nimport dapla as dp\n\ndata_frame = dp.read_pandas(\"gs://ssb-staging-navn-boette/schema.json\",\n file_format=\"json\")\nList ut mapper i bøtta:\nfrom dapla import FileClient\n\nFileClient.ls(\"gs://ssb-staging-navn-boette/\")"
   },
   {
     "objectID": "lese-data.html#vanlige-problemer",
     "href": "lese-data.html#vanlige-problemer",
-    "title": "25  Lese filer fra bøtte",
-    "section": "25.2 Vanlige problemer",
-    "text": "25.2 Vanlige problemer\n\n25.2.1 Feil miljø\nEn vanlig årsak til feil er at man forsøker å lese data fra et annet miljø enn det man befinner seg i. Sjekk at url feltet i nettleseren stemmer overens med bøttene man forsøker å aksessere.\nStagingbøtter starter med: gs://ssb-staging-\nProduksjonsbøtter starter med: gs://ssb-prod-\n\n\n\n\n\n\nI https://jupyter.dapla-staging.ssb.no/ kan man ikke lese produksjonsbøtter.\n\n\n\n\n\n\n\n\n\nI https://jupyter.dapla.ssb.no/ kan man ikke lese stagingbøtter.\n\n\n\n\n\n25.2.2 Omstart av Jupyter\nNoen ganger kan en restart av Jupyter løse problemet.\nI Jupyters filmeny velg: fil -> Hub Controll Panel.\nTrykk på knappen “Stop My Server”. Etter dette kan man trykke knappen “Start My Server”.\n\n\n\nStop My Server\n\n\n\n\n25.2.3 Opprett TMS sak\nHvis man fortsatt ikke har tilgang, kan man opprette en TMS sak. For at vi lettes mulig skal kunne hjelpe bør saken inneholde full feilmelding & relevant kode."
+    "title": "27  Lese filer fra bøtte",
+    "section": "27.2 Vanlige problemer",
+    "text": "27.2 Vanlige problemer\n\n27.2.1 Feil miljø\nEn vanlig årsak til feil er at man forsøker å lese data fra et annet miljø enn det man befinner seg i. Sjekk at url feltet i nettleseren stemmer overens med bøttene man forsøker å aksessere.\nStagingbøtter starter med: gs://ssb-staging-\nProduksjonsbøtter starter med: gs://ssb-prod-\n\n\n\n\n\n\nI https://jupyter.dapla-staging.ssb.no/ kan man ikke lese produksjonsbøtter.\n\n\n\n\n\n\n\n\n\nI https://jupyter.dapla.ssb.no/ kan man ikke lese stagingbøtter.\n\n\n\n\n\n27.2.2 Omstart av Jupyter\nNoen ganger kan en restart av Jupyter løse problemet.\nI Jupyters filmeny velg: fil -> Hub Controll Panel.\nTrykk på knappen “Stop My Server”. Etter dette kan man trykke knappen “Start My Server”.\n\n\n\nStop My Server\n\n\n\n\n27.2.3 Opprett TMS sak\nHvis man fortsatt ikke har tilgang, kan man opprette en TMS sak. For at vi lettes mulig skal kunne hjelpe bør saken inneholde full feilmelding & relevant kode."
   },
   {
     "objectID": "remote.html",
     "href": "remote.html",
-    "title": "26  IDE’er",
+    "title": "28  IDE’er",
     "section": "",
     "text": "Forklare situasjonen nå. Kun Jupyterlab. Kan kjøre remote session med Rstudio, Pycharm og VSCode."
   },
   {
     "objectID": "remote.html#rstudio",
     "href": "remote.html#rstudio",
-    "title": "26  IDE’er",
-    "section": "26.1 RStudio",
-    "text": "26.1 RStudio"
+    "title": "28  IDE’er",
+    "section": "28.1 RStudio",
+    "text": "28.1 RStudio"
   },
   {
     "objectID": "remote.html#vscode",
     "href": "remote.html#vscode",
-    "title": "26  IDE’er",
-    "section": "26.2 VSCode",
-    "text": "26.2 VSCode"
+    "title": "28  IDE’er",
+    "section": "28.2 VSCode",
+    "text": "28.2 VSCode"
   },
   {
     "objectID": "remote.html#pycharm",
     "href": "remote.html#pycharm",
-    "title": "26  IDE’er",
-    "section": "26.3 Pycharm",
-    "text": "26.3 Pycharm"
+    "title": "28  IDE’er",
+    "section": "28.3 Pycharm",
+    "text": "28.3 Pycharm"
   },
   {
     "objectID": "databaser.html#cloudsql",
     "href": "databaser.html#cloudsql",
-    "title": "28  Databaser",
-    "section": "28.2 CloudSQL",
-    "text": "28.2 CloudSQL"
+    "title": "30  Databaser",
+    "section": "30.2 CloudSQL",
+    "text": "30.2 CloudSQL"
   }
 ]
