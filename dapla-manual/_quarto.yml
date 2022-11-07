@@ -37,6 +37,8 @@ book:
       - overføre-data.qmd
       - lagre-data.qmd
       - hente-data.qmd
+      - slette-data.qmd
+      - gjenopprette-data.qmd
       - bakke-til-sky.qmd
       - administrasjon.qmd
     - part: ssbproject.qmd
@@ -75,6 +77,3 @@ collapse-level: 1
 
 comments:
   hypothesis: true
-
-
-
