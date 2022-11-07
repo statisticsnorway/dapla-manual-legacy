@@ -49,15 +49,15 @@ ul.task-list li input[type="checkbox"] {
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "treff",
+    "search-copy-link-title": "Kopier link til søk",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dokumentet",
+    "search-more-matches-text": "flere treff i dokumentet",
+    "search-clear-button-title": "Nullstill",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send"
   }
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
@@ -369,7 +369,7 @@ Initierer versjonshåndtering med <a href="https://git-scm.com/">Git</a> og legg
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Merk
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -414,7 +414,7 @@ Note
 <p><code>ssb-project create stat-testprod</code></p>
 <div class="grid">
 <div class="g-col-8">
-<p>Hvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i <a href="#fig-ssb-proj-folder">Figure&nbsp;<span>16.1</span></a>. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Den inneholder følgende :</p>
+<p>Hvis du stod i hjemmemappen din på når du skrev inn kommandoen over i terminalen, så har du fått mappestrukturen som vises i <a href="#fig-ssb-proj-folder">Figur&nbsp;<span>16.1</span></a>. <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Den inneholder følgende :</p>
 <ul>
 <li><strong>.git</strong>-mappe som blir opprettet for å versjonshåndtere med Git.</li>
 <li><strong>src</strong>-mappe som skal inneholde all koden som utgjør produksjonsløpet.</li>
@@ -428,7 +428,7 @@ Note
 <div id="fig-ssb-proj-folder" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/ssbproject_folders.png" class="img-fluid figure-img" alt="Bilde av filutforskeren i Jupyterlab med en mappe laget av ssb-project"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;16.1: Mappen som ble opprettet av ssb-project.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;16.1: Mappen som ble opprettet av ssb-project.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -438,11 +438,11 @@ Note
 <h3 data-number="16.2.2" class="anchored" data-anchor-id="med-github-repo"><span class="header-section-number">16.2.2</span> Med Github-repo</h3>
 <p>Over så opprettet vi et <strong>ssb-project</strong> uten å opprette et GitHub-repo. Hvis du ønsker å opprette et GitHub-repo også må du endre kommandoen over til:</p>
 <p><code>ssb-project create stat-testprod --github --github-token='blablabla'</code></p>
-<p>Kommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter <strong>stat-testprod</strong> med et GitHub-repo med samme navn. Som du ser så må vi da sende med opsjonen <code>--github</code> og PAT med opsjonen <code>--github-token='blablabla'</code>. Repoet i GitHub ser da ut som i <a href="#fig-ssb-proj-github">Figure&nbsp;<span>16.2</span></a>.</p>
+<p>Kommandoen over oppretter en mappestruktur slik vi så tidligere, men også et ssb-project som heter <strong>stat-testprod</strong> med et GitHub-repo med samme navn. Som du ser så må vi da sende med opsjonen <code>--github</code> og PAT med opsjonen <code>--github-token='blablabla'</code>. Repoet i GitHub ser da ut som i <a href="#fig-ssb-proj-github">Figur&nbsp;<span>16.2</span></a>.</p>
 <div id="fig-ssb-proj-github" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/ssbproject_github.png" class="img-fluid figure-img" alt="Bilde av et GitHub-repo som ble opprettet av ssb-project"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;16.2: GitHub-repo som er opprettet av ssb-project</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;16.2: GitHub-repo som er opprettet av ssb-project</figcaption><p></p>
 </figure>
 </div>
 <div class="callout-warning callout callout-style-simple">
@@ -540,7 +540,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert!");
     setTimeout(function() {
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');

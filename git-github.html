@@ -49,15 +49,15 @@ ul.task-list li input[type="checkbox"] {
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "treff",
+    "search-copy-link-title": "Kopier link til søk",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dokumentet",
+    "search-more-matches-text": "flere treff i dokumentet",
+    "search-clear-button-title": "Nullstill",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send"
   }
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
@@ -465,7 +465,7 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="17.2.4.1" class="anchored" data-anchor-id="sec-pat"><span class="header-section-number">17.2.4.1</span> Opprette PAT</h4>
 <p>For å lage en PAT som er godkjent mot <em>statisticsnorway</em> så gjør man følgende:</p>
 <ol type="1">
-<li><p>Gå til din profilside på GitHub og åpne <strong>Settings</strong> slik som ble vist <a href="#sec-tofaktor"><span>Section&nbsp;17.2.2</span></a>.</p></li>
+<li><p>Gå til din profilside på GitHub og åpne <strong>Settings</strong> slik som ble vist <a href="#sec-tofaktor"><span>Seksjon&nbsp;17.2.2</span></a>.</p></li>
 <li><p>Velg <strong>Developer Settings</strong> i menyen til venstre.</p></li>
 <li><p>I menyen til venstre velger du <strong>Personal Access Token</strong>, og deretter <strong>Tokens (classic)</strong>.</p></li>
 <li><p>Under <strong>Note</strong> kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den <em>dapla</em>. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den <em>prodsone</em> eller noe annet som gjør det lett for det skjønne innholdet i ettertid.</p></li>
@@ -501,7 +501,7 @@ ul.task-list li input[type="checkbox"] {
 <h4 data-number="17.2.4.3" class="anchored" data-anchor-id="oppdater-pat"><span class="header-section-number">17.2.4.3</span> Oppdater PAT</h4>
 <p>I eksempelet over lagde vi en PAT som var gyldig i 90 dager. Dermed vil du ikke kunne jobbe mot GitHub med dette tokenet etter 90 dager. For å oppdatere tokenet gjør du følgende:</p>
 <ol type="1">
-<li><p>Lag et nytt PAT ved å repetere <a href="#sec-pat"><span>Section&nbsp;17.2.4.1</span></a>.</p></li>
+<li><p>Lag et nytt PAT ved å repetere <a href="#sec-pat"><span>Seksjon&nbsp;17.2.4.1</span></a>.</p></li>
 <li><p>I miljøet der du skal jobbe med Git og GitHub går du inn i din <strong>.netrc</strong> og bytter ut token med det nye.</p></li>
 </ol>
 <p>Og med det er du klar til å jobbe mot <em>statisticsnorway</em> på <strong>GitHub</strong>.</p>
@@ -552,7 +552,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert!");
     setTimeout(function() {
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');

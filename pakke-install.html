@@ -112,15 +112,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "treff",
+    "search-copy-link-title": "Kopier link til søk",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dokumentet",
+    "search-more-matches-text": "flere treff i dokumentet",
+    "search-clear-button-title": "Nullstill",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send"
   }
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
@@ -423,11 +423,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="20.1.1" class="anchored" data-anchor-id="poetry-prosjekt-eksempel"><span class="header-section-number">20.1.1</span> Poetry prosjekt eksempel</h3>
 <p>Dette eksemplet viser hvordan man setter oppe et enkelt poetry prosjekt kalt test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene.</p>
 <p>Sett opp prosjektet:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> new test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> new test</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Naviger inn i prosjektmappen:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bruk poetry install for å bygge prosjektet:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> install</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hvis man får en tilbakemelding som denne er prosjektet satt opp korrekt:</p>
 <pre class="shell"><code>Creating virtualenv test-EojoH6Zm-py3.10 in /home/jovyan/.cache/pypoetry/virtualenvs 
 Updating dependencies 
@@ -439,36 +439,36 @@ Writing lock file </code></pre>
 <h3 data-number="20.1.2" class="anchored" data-anchor-id="installering"><span class="header-section-number">20.1.2</span> Installering</h3>
 <p>For å legge til pakker i et prosjekt benyttes kommandoen poetry add.</p>
 <p>Skal man legge til pakken “pendulum” vil det se slik ut:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add pendulum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add pendulum</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Poetry tilbyr måter å sette versjonsbegrensninger for pakker som legges til i et prosjekt, dette kan man <a href="https://python-poetry.org/docs/cli/#add">lese mer om her.</a></p>
 </section>
 <section id="avinstallering" class="level3" data-number="20.1.3">
 <h3 data-number="20.1.3" class="anchored" data-anchor-id="avinstallering"><span class="header-section-number">20.1.3</span> Avinstallering</h3>
 <p>For å fjerne pakker fra et prosjekt benytter man poetry remove.</p>
 <p>Hvis man ønsker å fjerne “pendulum” fra et prosjekt vil kommandoen se slik ut:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> remove pendulum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> remove pendulum</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="oppgradere-pakker" class="level3" data-number="20.1.4">
 <h3 data-number="20.1.4" class="anchored" data-anchor-id="oppgradere-pakker"><span class="header-section-number">20.1.4</span> Oppgradere pakker</h3>
 <p>For å oppdatere pakker i et prosjekt benytter man kommandoen poetry update.</p>
 <p>Skal man oppdatere pakken “pendulum” bruker man:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> update pendulum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> update pendulum</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Skal man oppdatre alle pakken i et prosjekt benytter man:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> update </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> update </span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="legge-til-kernel-for-poetry" class="level3" data-number="20.1.5">
 <h3 data-number="20.1.5" class="anchored" data-anchor-id="legge-til-kernel-for-poetry"><span class="header-section-number">20.1.5</span> Legge til kernel for poetry</h3>
 <p>For å kunne benytte det virtuelle miljøet i en notebook må man sette opp en kernel. Kernel burde gis samme navn som prosjektet.</p>
 <p>Først legger man til ipykernel:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add ipykernel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add ipykernel</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Så opprettes kernel med:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> run python <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> run python <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> test</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Etter dette er kernelen test opprettet og kan velges for å benytte miljøet i en notebook.</p>
 </section>
 <section id="fjerne-kernel" class="level3" data-number="20.1.6">
 <h3 data-number="20.1.6" class="anchored" data-anchor-id="fjerne-kernel"><span class="header-section-number">20.1.6</span> Fjerne kernel</h3>
 <p>For å fjerne en kernel med navn test bruker man:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec remove test</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> kernelspec remove test</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Du vil bli spurt om å bekrefte, trykk y hvis man ønsker å slette:</p>
 <pre class="shell"><code>Kernel specs to remove:
   test                    /home/jovyan/.local/share/jupyter/kernels/test
@@ -490,7 +490,7 @@ Remove 1 kernel specs [y/N]: y</code></pre>
 <section id="installering-1" class="level3" data-number="20.2.1">
 <h3 data-number="20.2.1" class="anchored" data-anchor-id="installering-1"><span class="header-section-number">20.2.1</span> Installering</h3>
 <p>For å installere dine egne R-pakker må du opprette et virtuelt miljø med <strong>renv</strong>. Gå inn i <strong>Jupyterlab</strong> og åpne R-notebook. Deretter skriver du inn følgende i kodecelle:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Denne kommandoer aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:</p>
 <p><strong>renv.lock</strong><br>
 En fil som inneholder versjoner av alle pakker du benytter i koden din.</p>
@@ -503,11 +503,11 @@ Mappe som inneholder alle pakkene du installerer.</p>
 <li>Skriv in <code>R</code> og trykk enter.</li>
 </ol>
 <p>Det vi nå har gjort er å åpne <strong>R</strong> fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en <em>R Console</em>. Nå kan du skrive inn en vanlig kommando for å installere R-pakker:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"PxWebApiData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"PxWebApiData"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Over installerte vi pakken <a href="https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html">PxWebApiData</a> som er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank. La oss bruke pakken i koden vår med ved å skrive følgende i kodecelle i Notebooken vår:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PxWebApiData)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ApiData</span>(<span class="st">"https://data.ssb.no/api/v0/en/table/04861"</span>, </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">Region =</span> <span class="fu">c</span>(<span class="st">"1103"</span>, <span class="st">"0301"</span>), <span class="at">ContentsCode =</span> <span class="st">"Bosatte"</span>, <span class="at">Tid =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">Region =</span> <span class="fu">c</span>(<span class="st">"1103"</span>, <span class="st">"0301"</span>), <span class="at">ContentsCode =</span> <span class="st">"Bosatte"</span>, <span class="at">Tid =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Når vi nå har brukt <strong>PxWebApiData</strong> i koden vår så kan vi kjøre en kommando som legger til den pakken i <strong>renv.lock</strong>. Men før vi kan gjøre det må vi være obs på at <strong>renv</strong> ikke klarer å gjenkjenne pakker som er i bruk Notebooks (ipynb-filer). Det er veldig upraktisk, men noe vi må forholde oss til når vi jobber med <strong>renv</strong> i Jupyterlab. En mulig løsning for dette er å bruke <a href="https://jupytext.readthedocs.io/en/latest/install.html">Jupytext</a> til å synkronisere en ipynb-fil med en Rmd-fil. <strong>renv</strong> kjenner igjen både R- og Rmd-filer. For å synkronisere filene gjør du følgende:</p>
 <ol type="1">
 <li>Trykk <code>Ctrl+Shift C</code></li>
@@ -515,7 +515,7 @@ Mappe som inneholder alle pakkene du installerer.</p>
 <li>Velg <strong>Pair Notebook with R Markdown</strong></li>
 </ol>
 <p>Hvis du nå endrer en av filene så vil den andre oppdatere seg, og <strong>renv</strong> vil kunne oppdage om du bruker en pakke i koden din. Men for å trigge <strong>renv</strong> til å lete etter pakker som er i bruk så må du skrive følgende kode i Notebooken eller <em>R Console</em>:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Kikker du nå inne i <strong>renv.lock</strong>-filen så ser du nå at verjsonen av <strong>PxWebApiData</strong> er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.</p>
 <p><img src="images/renv_install.png" class="img-fluid"></p>
 </section>
@@ -570,7 +570,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert!");
     setTimeout(function() {
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
