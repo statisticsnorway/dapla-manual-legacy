@@ -5,9 +5,7 @@ execute:
   freeze: auto
 
 book:
-  title: "Kom i gang med DAPLA"
-  author: "Øyvind Bruer-Skarsbø"
-  date: "10/9/2022"
+  title: "Dapla-manual"
   search: true
   cover-image: images/Dapla-Logo1.png
   repo-url: https://github.com/statisticsnorway/dapla-manual
