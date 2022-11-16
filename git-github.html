@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -417,6 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -429,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>GitHub</strong> er et slags felles mappesystem på internett som lar deg dele og samarbeide med andre om kode.</li>
 </ul>
 <p>Av definisjonene over så skjønner vi at det er <strong>Git</strong> som gir oss all funksjonalitet for å lagre versjoner av koden vår. GitHub er mer som et valg av mappesystem. Men måten kodemiljøene våre er satt opp på <strong>Dapla</strong> så har vi ingen fellesmappe som alle kan kjøre koden fra. Man utvikler kode i sin egen hjemmemappe, som bare du har tilgang til, og når du skal samarbeide med andre, så må du sende koden til GitHub. De du samarbeider med må deretter hente ned denne koden før de kan kjøre den.</p>
-<p>I dette kapitlet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet <strong>ssb-project</strong> for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapitlet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.</p>
+<p>I dette kapittelet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet <strong>ssb-project</strong> for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapittelet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.</p>
 <section id="git" class="level2" data-number="19.1">
 <h2 data-number="19.1" class="anchored" data-anchor-id="git"><span class="header-section-number">19.1</span> Git</h2>
 <p><strong>Git</strong> er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av <strong>Git</strong>, blant annet i <strong>Jupyterlab</strong>, <strong>SAS EG</strong> og <strong>RStudio</strong>. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan <strong>Git</strong> fungerer fra terminalen. Vi vil også fokusere på hvordan <strong>Git</strong> fungerer fra <strong>terminalen</strong> i <strong>Jupyterlab</strong> på <strong>Dapla</strong>.</p>
@@ -468,7 +469,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Kommer snart.</p>
 <section id="opprett-github-bruker" class="level3" data-number="19.2.1">
 <h3 data-number="19.2.1" class="anchored" data-anchor-id="opprett-github-bruker"><span class="header-section-number">19.2.1</span> Opprett GitHub-bruker</h3>
-<p>Dette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke <code>ssb-project</code>-programmet til å generere et <strong>remote repo</strong> på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.</p>
+<p>Dette kapittelet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke <code>ssb-project</code>-programmet til å generere et <strong>remote repo</strong> på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.</p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -525,7 +526,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 data-number="19.2.3" class="anchored" data-anchor-id="koble-deg-til-ssb"><span class="header-section-number">19.2.3</span> Koble deg til SSB</h3>
 <p>I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon <strong>statisticsnorway</strong>. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.</p>
 <ol type="1">
-<li><p>Gå til profilsiden din og velg <strong>Settings</strong> slik du gjorde i punkt 1 i forrige delkapitel.</p></li>
+<li><p>Gå til profilsiden din og velg <strong>Settings</strong> slik du gjorde i punkt 1 i forrige delkapittel.</p></li>
 <li><p>Trykk deretter på <strong>Organizations</strong> i menyen til venstre.</p></li>
 <li><p>Trykk deretter på <strong>New organization</strong>.</p></li>
 <li><p>Søk etter <strong>statisticsnorway</strong>.</p></li>
@@ -542,7 +543,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Velg <strong>Developer Settings</strong> i menyen til venstre.</p></li>
 <li><p>I menyen til venstre velger du <strong>Personal Access Token</strong>, og deretter <strong>Tokens (classic)</strong>.</p></li>
 <li><p>Under <strong>Note</strong> kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den <em>dapla</em>. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den <em>prodsone</em> eller noe annet som gjør det lett for det skjønne innholdet i ettertid.</p></li>
-<li><p>Under <strong>Expiration</strong> velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger <strong>365 dager</strong>. Når PAT utløper må du gjenta stegene i dette kapitlet.</p></li>
+<li><p>Under <strong>Expiration</strong> velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger <strong>365 dager</strong>. Når PAT utløper må du gjenta stegene i dette kapittelet.</p></li>
 <li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> slik som vist i <a href="#fig-github-token">Figur&nbsp;<span>19.1</span></a>.</p></li>
 </ol>
 <div id="fig-github-token" class="quarto-figure quarto-figure-center anchored">
@@ -576,7 +577,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 data-number="19.2.4.2" class="anchored" data-anchor-id="lagre-pat"><span class="header-section-number">19.2.4.2</span> Lagre PAT</h4>
 <p>Det er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en <strong>.netrc</strong>-fil. Vi oppretter da en fil som heter <strong>.netrc</strong> på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">machine</span> github.com login <span class="op">&lt;</span>github-bruker<span class="op">&gt;</span> password <span class="op">&lt;</span>Personal Access Token<span class="op">&gt;</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>GitHub-bruker</strong> er da din personlige bruker og IKKE brukernavnet ditt i SSB. <strong>Personal Access Token</strong> er det vi lagde i forrige kapitel.</p>
+<p><strong>GitHub-bruker</strong> er da din personlige bruker og IKKE brukernavnet ditt i SSB. <strong>Personal Access Token</strong> er det vi lagde i forrige kapittelet.</p>
 <p>En veldig enkel måte å lagre dette er som følger. Anta at min personlige GitHub-bruker er <strong>SSB-Chad</strong> og at min Personal Access Token er <strong>blablabla</strong>. Da kan jeg gjøre følgende for å lagre det i <strong>.netrc</strong>:</p>
 <ol type="1">
 <li><p>Gå inn i Jupyterlab og åpne en Python-notebook.</p></li>
@@ -644,7 +645,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Kopiert!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -680,24 +698,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
