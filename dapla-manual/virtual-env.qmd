@@ -1,14 +1,14 @@
 # Virtuelle miljøer
 
 ## Python
-Et python viretuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det viretuelt miljøet er aktivert. Dette gjør at man ungår avhengighetskonflikter på tvers av prosjekter.
+Et python virtuelt miljø inneholder en spesifikk versjon av python og et sett med pakker. Pakkene er kun tilgjengelige når det virtuelle miljøet er aktivert. Dette gjør at man ungår avhengighetskonflikter på tvers av prosjekter.
 
-Se her for [mer informasjon om viretuelle miljøer.](https://docs.python.org/3/tutorial/venv.html)
+Se her for [mer informasjon om virtuelle miljøer.](https://docs.python.org/3/tutorial/venv.html)
 
-### Anbefalning
-Det er anbefalt å benytte verktøyet poetry for å administrere prosjekter og deres viretuelle miljø.
+### Anbefaling
+Det er anbefalt å benytte verktøyet poetry for å administrere prosjekter og deres virtuelle miljø.
 
-Poetry setter opp virtuelt miljø, gjør det enkelt å oppdatere avhengigheter, sette versjons begrensninger og reprodusere prosjektet. 
+Poetry setter opp virtuelt miljø, gjør det enkelt å oppdatere avhengigheter, sette versjonsbegrensninger og reprodusere prosjektet. 
 
 Poetry gjør dette ved å lagre avhengigheters eksakte versjon i prosjektets "poetry.lock". Og eventuelle begrensninger i "pyproject.toml". Dette gjør det enkelt for andre å bygge prosjektet med akkurat de samme pakkene og begrensningene. 
 

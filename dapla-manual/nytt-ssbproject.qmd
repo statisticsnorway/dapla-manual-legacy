@@ -1,6 +1,6 @@
 # Nytt ssb-project
 
-I dette kapitlet forklarer vi hvordan du oppretter et [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) og hva det innebærer. **ssb-project** er et CLI^[CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.] for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal
+I dette kapittelet forklarer vi hvordan du oppretter et [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) og hva det innebærer. **ssb-project** er et CLI^[CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.] for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal
 
 ```bash
 ssb-project create stat-testprod
@@ -38,7 +38,7 @@ Det er også å anbefale at du [lagrer PAT lokalt](https://statisticsnorway.gith
 ## Opprett ssb-project
 
 ::: {.callout-warning appearance="simple"}
-Har du Github bruker? Noe funksjonalitet i `ssb-project` krever det. Finn ut hvordan ved å lese [ forrige kapitel](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/nytt-ssbproject.html#forberedelser).
+Har du Github bruker? Noe funksjonalitet i `ssb-project` krever det. Finn ut hvordan ved å lese [ forrige kapittel](https://jupyter.dapla.ssb.no/user/obr@ssb.no/proxy/4272/nytt-ssbproject.html#forberedelser).
 :::
 
 **ssb-project** lar deg opprette en prosjekt-mappe med og uten GitHub-repo. La oss ta for oss hver av alternativene.

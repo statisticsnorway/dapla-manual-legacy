@@ -1,7 +1,7 @@
 # Installere pakker 
 
 ## Python 
-Installering av pakker er kun er mulig I et [virtuelt miljø](virtual-env.qmd). Det er [anbefalt å benytte poetry](virtual-env.qmd#Anbefalning) til dette. Eksemplene videre tar derfor utgangspunkt i et poetry prosjekt.
+Installering av pakker er kun er mulig I et [virtuelt miljø](virtual-env.qmd). Det er [anbefalt å benytte poetry](virtual-env.qmd#Anbefaling) til dette. Eksemplene videre tar derfor utgangspunkt i et poetry prosjekt.
 
 Det er mulig å [installere pakker med pip](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/). Pakker kan installeres som normalt, hvis man har satt opp og aktivert et [virtuelt miljø](virtual-env.qmd). 
 

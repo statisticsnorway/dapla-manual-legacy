@@ -7,7 +7,7 @@ I SSB anbefales det man versjonhåndterer koden sin med [Git](https://git-scm.co
 
 Av definisjonene over så skjønner vi at det er **Git** som gir oss all funksjonalitet for å lagre versjoner av koden vår. GitHub er mer som et valg av mappesystem. Men måten kodemiljøene våre er satt opp på **Dapla** så har vi ingen fellesmappe som alle kan kjøre koden fra. Man utvikler kode i sin egen hjemmemappe, som bare du har tilgang til, og når du skal samarbeide med andre, så må du sende koden til GitHub. De du samarbeider med må deretter hente ned denne koden før de kan kjøre den.
 
-I dette kapitlet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet **ssb-project** for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapitlet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.
+I dette kapittelet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet **ssb-project** for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapittelet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.
 
 ## Git
 
@@ -53,7 +53,7 @@ Kommer snart.
 
 ### Opprett GitHub-bruker
 
-Dette kapitlet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke `ssb-project`-programmet til å generere et **remote repo** på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.
+Dette kapittelet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke `ssb-project`-programmet til å generere et **remote repo** på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.
 
 ::: {.callout-note appearance="simple"}
 SSB har valgt å ikke sette opp SSB-brukerne til de ansatte som GitHub-brukere. En viktig årsak er at er en GitHub-konto ofte regnes som en del av den ansattes CV. For de som aldri har brukt GitHub før kan det virke fremmed, men det er nok en fordel på sikt når alle blir godt kjent med denne arbeidsformen.
@@ -119,7 +119,7 @@ Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytt
 
 I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon **statisticsnorway**. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.
 
-1. Gå til profilsiden din og velg **Settings** slik du gjorde i punkt 1 i forrige delkapitel.
+1. Gå til profilsiden din og velg **Settings** slik du gjorde i punkt 1 i forrige delkapittel.
 
 2. Trykk deretter på **Organizations** i menyen til venstre.
 
@@ -144,7 +144,7 @@ For å lage en PAT som er godkjent mot *statisticsnorway* så gjør man følgend
 
 5. Under **Note** kan du gi PAT'en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den *dapla*. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den *prodsone* eller noe annet som gjør det lett for det skjønne innholdet i ettertid.
 
-6. Under **Expiration** velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger **365 dager**. Når PAT utløper må du gjenta stegene i dette kapitlet.
+6. Under **Expiration** velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger **365 dager**. Når PAT utløper må du gjenta stegene i dette kapittelet.
 
 7. Under **Select scopes** velger du **Repo** slik som vist i @fig-github-token.
 
@@ -170,7 +170,7 @@ Det er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med 
 machine github.com login <github-bruker> password <Personal Access Token>
 ```
 
-**GitHub-bruker** er da din personlige bruker og IKKE brukernavnet ditt i SSB. **Personal Access Token** er det vi lagde i forrige kapitel.
+**GitHub-bruker** er da din personlige bruker og IKKE brukernavnet ditt i SSB. **Personal Access Token** er det vi lagde i forrige kapittelet.
 
 En veldig enkel måte å lagre dette er som følger. Anta at min personlige GitHub-bruker er **SSB-Chad** og at min Personal Access Token er **blablabla**. Da kan jeg gjøre følgende for å lagre det i **.netrc**:
 
