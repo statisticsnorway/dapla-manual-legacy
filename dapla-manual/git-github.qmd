@@ -9,7 +9,7 @@ Av definisjonene over så skjønner vi at det er **Git** som gir oss all funksjo
 
 I dette kapittelet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet **ssb-project** for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapittelet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.
 
-## Git
+## Git {{< fa brands git-alt >}}
 
 **Git** er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av **Git**, blant annet i **Jupyterlab**, **SAS EG** og **RStudio**. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan **Git** fungerer fra terminalen. Vi vil også fokusere på hvordan **Git** fungerer fra **terminalen** i **Jupyterlab** på **Dapla**.
 
@@ -47,9 +47,9 @@ Kommer snart. Jupytext og nbsripout. json.
 Kommer snart. clone, add, commit, push, pull, merge, revert, etc.
 
 
-## GitHub
+## GitHub {{< fa brands github >}}
 
-Kommer snart.
+GitHub er et nettsted som fungerer som vårt felles mappesystem for deling av kode. SSB har sin egen organisasjonskonto med navn [statisticsnorway](https://github.com/statisticsnorway) 
 
 ### Opprett GitHub-bruker
 
@@ -63,61 +63,73 @@ Slik gjør du det:
 
 1. Gå til <https://github.com/>
 2. Trykk **Sign up** øverst i høyre hjørne
-3. Svar på spørsmålene du blir stilt.
+3. I dialogboksen som åpnes, se @fig-github-user-gen, skriver du inn din e-postkonto og lager et passord. Dette trenger ikke være din SSB-bruker og e-post.  Vi anbefaler at du bruker en personlig e-postkonto og velger ditt eget passord. Det samme gjelder **brukernavn** også.
 
-Husk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker.
+![Dialogboks for opprettelse av GitHub-bruker.](images/github_register.JPG){fig-alt="Bilde av GitHub-siden for å generere en brukerkonto" #fig-github-user-gen}
 
-### To-faktor autentifisering {#sec-tofaktor}
+Du har nå laget en egen GitHub-bruker. I neste steg skal vi knytte denne kontoen til din SSB-bruker.
 
-Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den slik ut:
+### To-faktor autentisering {#sec-tofaktor}
 
-![](images/github_profile.png)
+Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den ut som i @fig-github-exmaple-userpage.
 
-Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:
+![Et eksempel på hjemmeområdet til en GitHub-bruker](images/github_profile.png){fig-alt="Bilde av GitHub-siden for en bruker" #fig-github-exmaple-userpage}
+
+Det neste vi må gjøre er å aktivere 2-faktor autentisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentisering mot GitHub:
 
 ::: {.grid}
 
 ::: {.g-col-8}
-1. Trykk på den lille pilen øverst til høyre og velg **Settings**(se bilde til høyre).
+1. Trykk på den lille pilen øverst til høyre og velg **Settings**(se @fig-github-open-settings).
 
 2. Deretter velger du **Password and authentification** i menyen til venstre.
 
+3. Under **Two-factor authentication** trykker du på **Enable**.
+
 :::
 
 ::: {.g-col-4}
-![](images/github_settings_menu.png){ width=50% }
+![Åpne settings for din GitHub-bruker.](images/github_settings_menu.png){ fig-alt="Bilde av GitHub-menyen for å åpne Settings-menyen." #fig-github-open-settings width=50% }
 
 :::
 
 :::
 
-3. Under **Two-factor authentication** trykker du på **Add**. Da får du opp følgende bilde:
+4. @fig-github-enable-2fa viser dialogboksen som vises. Velg **Enable two-factor authentification**.
 
-![](images/github_2fa.png){ width=50% }
+![Dialogboks som åpnes når 2FA skrus på første gang.](images/github_2fa_enable.JPG){ fig-alt="Bilde av GitHub-dialogboks for å skru på 2-faktor autentisering." #fig-github-enable-2fa }
+
+5. @fig-github-2fa-app viser dialogboksen som vises for å velge hvordan man skal autentisere seg. Her anbefales det å velge **Set up using an app**, slik at du kan bruke *Microsoft Authenticator*-appen på din mobil. 
+
+![Dialogboks for å velge hvordan man skal autentisere seg med 2FA.](images/githbu_2fa_app.JPG){ fig-alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentisere seg med 2-faktor autentisering." #fig-github-2fa-app }
+
+@fig-github-QR viser QR-koden som vises. Denne skal vi bruke i neste steg.
+
+![QR-kode som skannes av Microsoft Authenticator.](images/github_2fa.png){ fig-alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentisere seg med 2-faktor autentisering." #fig-github-QR }
 
 ::: {.grid}
 
 ::: {.g-col-8}
-4. Strekkoden over skal skannes i din **Microsoft Authenticator**-app på mobilen. Åpne appen, trykk på **Bekreftede ID-er**, og til slutt trykk på **Skann QR-kode**. Deretter skanner du QR-koden fra punkt 3.
+6. Strekkoden over skal skannes i din **Microsoft Authenticator**-app på mobilen, som vist i @fig-authenticator. Åpne appen, trykk på **Bekreftede ID-er**, og til slutt trykk på **Skann QR-kode**. Deretter skanner du QR-koden fra punkt 5.
 
-5. Når koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.
+7. Når koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.
 
-6. Til slutt lagrer du **Recovery-codes** et trygt sted.
+8. Til slutt lagrer du **Recovery-codes** et trygt sted som bare du har tilgang til.
 
 :::
 
 ::: {.g-col-4}
-![](images/authenticator.jpg){ width=50% }
+![Mobilappen *Microsoft authenticator*](images/authenticator.jpg){ fig-alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentifisere seg med 2-faktor autentisering." #fig-authenticator width=50% }
 
 :::
 
 :::
 
-Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs "Github organisation" [**statisticsnorway**](https://github.com/statisticsnorway).
+Nå har vi aktivert 2-faktor autentisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs "Github organisation" [**statisticsnorway**](https://github.com/statisticsnorway).
 
 ### Koble deg til SSB
 
-I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon **statisticsnorway**. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.
+I forrige steg aktiverte vi 2-faktor autentisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon **statisticsnorway**. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.
 
 1. Gå til profilsiden din og velg **Settings** slik du gjorde i punkt 1 i forrige delkapittel.
 
@@ -188,7 +200,7 @@ Alternativt kan du droppe det utropstegnet og kjøre det direkte i en terminal. 
 
 i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token.
 
-Hver gang du jobber mot GitHub vil Git sjekke om informasjon om autentifisering ligger i denne filen, og bruke den hvis den ligger der.
+Hver gang du jobber mot GitHub vil Git sjekke om informasjon om autentisering ligger i denne filen, og bruke den hvis den ligger der.
 
 #### Oppdater PAT
 
