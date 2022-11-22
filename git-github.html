@@ -104,6 +104,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -387,17 +389,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#git" id="toc-git" class="nav-link active" data-scroll-target="#git"><span class="toc-section-number">19.1</span>  Git</a>
+  <li><a href="#git-fa-brands-git-alt" id="toc-git-fa-brands-git-alt" class="nav-link active" data-scroll-target="#git-fa-brands-git-alt"><span class="toc-section-number">19.1</span>  Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></a>
   <ul class="collapse">
   <li><a href="#hva-er-git" id="toc-hva-er-git" class="nav-link" data-scroll-target="#hva-er-git"><span class="toc-section-number">19.1.1</span>  Hva er Git?</a></li>
   <li><a href="#oppsett-av-git" id="toc-oppsett-av-git" class="nav-link" data-scroll-target="#oppsett-av-git"><span class="toc-section-number">19.1.2</span>  Oppsett av Git</a></li>
   <li><a href="#git-og-notebooks" id="toc-git-og-notebooks" class="nav-link" data-scroll-target="#git-og-notebooks"><span class="toc-section-number">19.1.3</span>  Git og Notebooks</a></li>
   <li><a href="#vanlige-git-operasjoner" id="toc-vanlige-git-operasjoner" class="nav-link" data-scroll-target="#vanlige-git-operasjoner"><span class="toc-section-number">19.1.4</span>  Vanlige Git-operasjoner</a></li>
   </ul></li>
-  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github"><span class="toc-section-number">19.2</span>  GitHub</a>
+  <li><a href="#github-fa-brands-github" id="toc-github-fa-brands-github" class="nav-link" data-scroll-target="#github-fa-brands-github"><span class="toc-section-number">19.2</span>  GitHub <i class="fa-brands fa-github" aria-label="github"></i></a>
   <ul class="collapse">
   <li><a href="#opprett-github-bruker" id="toc-opprett-github-bruker" class="nav-link" data-scroll-target="#opprett-github-bruker"><span class="toc-section-number">19.2.1</span>  Opprett GitHub-bruker</a></li>
-  <li><a href="#sec-tofaktor" id="toc-sec-tofaktor" class="nav-link" data-scroll-target="#sec-tofaktor"><span class="toc-section-number">19.2.2</span>  To-faktor autentifisering</a></li>
+  <li><a href="#sec-tofaktor" id="toc-sec-tofaktor" class="nav-link" data-scroll-target="#sec-tofaktor"><span class="toc-section-number">19.2.2</span>  To-faktor autentisering</a></li>
   <li><a href="#koble-deg-til-ssb" id="toc-koble-deg-til-ssb" class="nav-link" data-scroll-target="#koble-deg-til-ssb"><span class="toc-section-number">19.2.3</span>  Koble deg til SSB</a></li>
   <li><a href="#personal-access-token-pat" id="toc-personal-access-token-pat" class="nav-link" data-scroll-target="#personal-access-token-pat"><span class="toc-section-number">19.2.4</span>  Personal Access Token (PAT)</a></li>
   </ul></li>
@@ -431,8 +433,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Av definisjonene over så skjønner vi at det er <strong>Git</strong> som gir oss all funksjonalitet for å lagre versjoner av koden vår. GitHub er mer som et valg av mappesystem. Men måten kodemiljøene våre er satt opp på <strong>Dapla</strong> så har vi ingen fellesmappe som alle kan kjøre koden fra. Man utvikler kode i sin egen hjemmemappe, som bare du har tilgang til, og når du skal samarbeide med andre, så må du sende koden til GitHub. De du samarbeider med må deretter hente ned denne koden før de kan kjøre den.</p>
 <p>I dette kapittelet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet <strong>ssb-project</strong> for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapittelet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.</p>
-<section id="git" class="level2" data-number="19.1">
-<h2 data-number="19.1" class="anchored" data-anchor-id="git"><span class="header-section-number">19.1</span> Git</h2>
+<section id="git-fa-brands-git-alt" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="git-fa-brands-git-alt"><span class="header-section-number">19.1</span> Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></h2>
 <p><strong>Git</strong> er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av <strong>Git</strong>, blant annet i <strong>Jupyterlab</strong>, <strong>SAS EG</strong> og <strong>RStudio</strong>. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan <strong>Git</strong> fungerer fra terminalen. Vi vil også fokusere på hvordan <strong>Git</strong> fungerer fra <strong>terminalen</strong> i <strong>Jupyterlab</strong> på <strong>Dapla</strong>.</p>
 <section id="hva-er-git" class="level3" data-number="19.1.1">
 <h3 data-number="19.1.1" class="anchored" data-anchor-id="hva-er-git"><span class="header-section-number">19.1.1</span> Hva er Git?</h3>
@@ -464,9 +466,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Kommer snart. clone, add, commit, push, pull, merge, revert, etc.</p>
 </section>
 </section>
-<section id="github" class="level2" data-number="19.2">
-<h2 data-number="19.2" class="anchored" data-anchor-id="github"><span class="header-section-number">19.2</span> GitHub</h2>
-<p>Kommer snart.</p>
+<section id="github-fa-brands-github" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="github-fa-brands-github"><span class="header-section-number">19.2</span> GitHub <i class="fa-brands fa-github" aria-label="github"></i></h2>
+<p>GitHub er et nettsted som fungerer som vårt felles mappesystem for deling av kode. SSB har sin egen organisasjonskonto med navn <a href="https://github.com/statisticsnorway">statisticsnorway</a></p>
 <section id="opprett-github-bruker" class="level3" data-number="19.2.1">
 <h3 data-number="19.2.1" class="anchored" data-anchor-id="opprett-github-bruker"><span class="header-section-number">19.2.1</span> Opprett GitHub-bruker</h3>
 <p>Dette kapittelet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke <code>ssb-project</code>-programmet til å generere et <strong>remote repo</strong> på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.</p>
@@ -484,47 +486,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Gå til <a href="https://github.com/" class="uri">https://github.com/</a></li>
 <li>Trykk <strong>Sign up</strong> øverst i høyre hjørne</li>
-<li>Svar på spørsmålene du blir stilt.</li>
+<li>I dialogboksen som åpnes, se <a href="#fig-github-user-gen">Figur&nbsp;<span>19.1</span></a>, skriver du inn din e-postkonto og lager et passord. Dette trenger ikke være din SSB-bruker og e-post. Vi anbefaler at du bruker en personlig e-postkonto og velger ditt eget passord. Det samme gjelder <strong>brukernavn</strong> også.</li>
 </ol>
-<p>Husk at du lager en personlig konto uavhengig av SSB. Brukernavnet kan være noe annet enn brukernavnet ditt i SSB. I neste steg skal vi knytte denne kontoen til din SSB-bruker.</p>
+<div id="fig-github-user-gen" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github_register.JPG" class="img-fluid figure-img" alt="Bilde av GitHub-siden for å generere en brukerkonto"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.1: Dialogboks for opprettelse av GitHub-bruker.</figcaption><p></p>
+</figure>
+</div>
+<p>Du har nå laget en egen GitHub-bruker. I neste steg skal vi knytte denne kontoen til din SSB-bruker.</p>
 </section>
 <section id="sec-tofaktor" class="level3" data-number="19.2.2">
-<h3 data-number="19.2.2" class="anchored" data-anchor-id="sec-tofaktor"><span class="header-section-number">19.2.2</span> To-faktor autentifisering</h3>
-<p>Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den slik ut:</p>
-<p><img src="images/github_profile.png" class="img-fluid"></p>
-<p>Det neste vi må gjøre er å aktivere 2-faktor autentifisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentifisering mot GitHub:</p>
+<h3 data-number="19.2.2" class="anchored" data-anchor-id="sec-tofaktor"><span class="header-section-number">19.2.2</span> To-faktor autentisering</h3>
+<p>Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den ut som i <a href="#fig-github-exmaple-userpage">Figur&nbsp;<span>19.2</span></a>.</p>
+<div id="fig-github-exmaple-userpage" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github_profile.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for en bruker"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.2: Et eksempel på hjemmeområdet til en GitHub-bruker</figcaption><p></p>
+</figure>
+</div>
+<p>Det neste vi må gjøre er å aktivere 2-faktor autentisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentisering mot GitHub:</p>
 <div class="grid">
 <div class="g-col-8">
 <ol type="1">
-<li><p>Trykk på den lille pilen øverst til høyre og velg <strong>Settings</strong>(se bilde til høyre).</p></li>
+<li><p>Trykk på den lille pilen øverst til høyre og velg <strong>Settings</strong>(se <a href="#fig-github-open-settings">Figur&nbsp;<span>19.3</span></a>).</p></li>
 <li><p>Deretter velger du <strong>Password and authentification</strong> i menyen til venstre.</p></li>
+<li><p>Under <strong>Two-factor authentication</strong> trykker du på <strong>Enable</strong>.</p></li>
 </ol>
 </div>
 <div class="g-col-4">
-<p><img src="images/github_settings_menu.png" class="img-fluid" style="width:50.0%"></p>
+<div id="fig-github-open-settings" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github_settings_menu.png" class="img-fluid figure-img" style="width:50.0%" alt="Bilde av GitHub-menyen for å åpne Settings-menyen."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.3: Åpne settings for din GitHub-bruker.</figcaption><p></p>
+</figure>
 </div>
 </div>
-<ol start="3" type="1">
-<li>Under <strong>Two-factor authentication</strong> trykker du på <strong>Add</strong>. Da får du opp følgende bilde:</li>
+</div>
+<ol start="4" type="1">
+<li><a href="#fig-github-enable-2fa">Figur&nbsp;<span>19.4</span></a> viser dialogboksen som vises. Velg <strong>Enable two-factor authentification</strong>.</li>
 </ol>
-<p><img src="images/github_2fa.png" class="img-fluid" style="width:50.0%"></p>
+<div id="fig-github-enable-2fa" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github_2fa_enable.JPG" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for å skru på 2-faktor autentisering."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.4: Dialogboks som åpnes når 2FA skrus på første gang.</figcaption><p></p>
+</figure>
+</div>
+<ol start="5" type="1">
+<li><a href="#fig-github-2fa-app">Figur&nbsp;<span>19.5</span></a> viser dialogboksen som vises for å velge hvordan man skal autentisere seg. Her anbefales det å velge <strong>Set up using an app</strong>, slik at du kan bruke <em>Microsoft Authenticator</em>-appen på din mobil.</li>
+</ol>
+<div id="fig-github-2fa-app" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/githbu_2fa_app.JPG" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentisere seg med 2-faktor autentisering."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.5: Dialogboks for å velge hvordan man skal autentisere seg med 2FA.</figcaption><p></p>
+</figure>
+</div>
+<p><a href="#fig-github-QR">Figur&nbsp;<span>19.6</span></a> viser QR-koden som vises. Denne skal vi bruke i neste steg.</p>
+<div id="fig-github-QR" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github_2fa.png" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentisere seg med 2-faktor autentisering."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.6: QR-kode som skannes av Microsoft Authenticator.</figcaption><p></p>
+</figure>
+</div>
 <div class="grid">
 <div class="g-col-8">
-<ol start="4" type="1">
-<li><p>Strekkoden over skal skannes i din <strong>Microsoft Authenticator</strong>-app på mobilen. Åpne appen, trykk på <strong>Bekreftede ID-er</strong>, og til slutt trykk på <strong>Skann QR-kode</strong>. Deretter skanner du QR-koden fra punkt 3.</p></li>
+<ol start="6" type="1">
+<li><p>Strekkoden over skal skannes i din <strong>Microsoft Authenticator</strong>-app på mobilen, som vist i <a href="#fig-authenticator">Figur&nbsp;<span>19.7</span></a>. Åpne appen, trykk på <strong>Bekreftede ID-er</strong>, og til slutt trykk på <strong>Skann QR-kode</strong>. Deretter skanner du QR-koden fra punkt 5.</p></li>
 <li><p>Når koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.</p></li>
-<li><p>Til slutt lagrer du <strong>Recovery-codes</strong> et trygt sted.</p></li>
+<li><p>Til slutt lagrer du <strong>Recovery-codes</strong> et trygt sted som bare du har tilgang til.</p></li>
 </ol>
 </div>
 <div class="g-col-4">
-<p><img src="images/authenticator.jpg" class="img-fluid" style="width:50.0%"></p>
+<div id="fig-authenticator" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/authenticator.jpg" class="img-fluid figure-img" style="width:50.0%" alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentifisere seg med 2-faktor autentisering."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.7: Mobilappen <em>Microsoft authenticator</em></figcaption><p></p>
+</figure>
 </div>
 </div>
-<p>Nå har vi aktivert 2-faktor autentifisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs “Github organisation” <a href="https://github.com/statisticsnorway"><strong>statisticsnorway</strong></a>.</p>
+</div>
+<p>Nå har vi aktivert 2-faktor autentisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs “Github organisation” <a href="https://github.com/statisticsnorway"><strong>statisticsnorway</strong></a>.</p>
 </section>
 <section id="koble-deg-til-ssb" class="level3" data-number="19.2.3">
 <h3 data-number="19.2.3" class="anchored" data-anchor-id="koble-deg-til-ssb"><span class="header-section-number">19.2.3</span> Koble deg til SSB</h3>
-<p>I forrige steg aktiverte vi 2-faktor autentifisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon <strong>statisticsnorway</strong>. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.</p>
+<p>I forrige steg aktiverte vi 2-faktor autentisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon <strong>statisticsnorway</strong>. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.</p>
 <ol type="1">
 <li><p>Gå til profilsiden din og velg <strong>Settings</strong> slik du gjorde i punkt 1 i forrige delkapittel.</p></li>
 <li><p>Trykk deretter på <strong>Organizations</strong> i menyen til venstre.</p></li>
@@ -544,31 +589,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>I menyen til venstre velger du <strong>Personal Access Token</strong>, og deretter <strong>Tokens (classic)</strong>.</p></li>
 <li><p>Under <strong>Note</strong> kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den <em>dapla</em>. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den <em>prodsone</em> eller noe annet som gjør det lett for det skjønne innholdet i ettertid.</p></li>
 <li><p>Under <strong>Expiration</strong> velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger <strong>365 dager</strong>. Når PAT utløper må du gjenta stegene i dette kapittelet.</p></li>
-<li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> slik som vist i <a href="#fig-github-token">Figur&nbsp;<span>19.1</span></a>.</p></li>
+<li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> slik som vist i <a href="#fig-github-token">Figur&nbsp;<span>19.8</span></a>.</p></li>
 </ol>
 <div id="fig-github-token" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for generering av Personal Access Token"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;19.1: Gi token et kort og beskrivende navn</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.8: Gi token et kort og beskrivende navn</figcaption><p></p>
 </figure>
 </div>
 <ol start="8" type="1">
-<li>Trykk på <strong>Generate token</strong> nederst på siden og du får noe lignende det du ser i <a href="#fig-github-token-gen">Figur&nbsp;<span>19.2</span></a>.</li>
+<li>Trykk på <strong>Generate token</strong> nederst på siden og du får noe lignende det du ser i <a href="#fig-github-token-gen">Figur&nbsp;<span>19.9</span></a>.</li>
 </ol>
 <div id="fig-github-token-gen" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat2.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for det genererte tokenet"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;19.2: Token som ble generert.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.9: Token som ble generert.</figcaption><p></p>
 </figure>
 </div>
 <ol start="9" type="1">
 <li><p>Kopier deretter PAT til en midlertidig fil. Grunnen er at du aldri vil se det igjen her etter at vi har gjennomført neste steg.</p></li>
-<li><p>Deretter trykker du på <strong>Configure SSO</strong> og velger <strong>Authorize</strong> ved siden statisticsnorway, slik som vist i <a href="#fig-github-token-authorize">Figur&nbsp;<span>19.3</span></a>. Svar deretter på spørsmålene som dukker opp.</p></li>
+<li><p>Deretter trykker du på <strong>Configure SSO</strong> og velger <strong>Authorize</strong> ved siden statisticsnorway, slik som vist i <a href="#fig-github-token-authorize">Figur&nbsp;<span>19.10</span></a>. Svar deretter på spørsmålene som dukker opp.</p></li>
 </ol>
 <div id="fig-github-token-authorize" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat3.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for å autorisere Token mot statisticsnorway"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;19.3: Autorisering av Token mot SSBs GiHub-organisasjon.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.10: Autorisering av Token mot SSBs GiHub-organisasjon.</figcaption><p></p>
 </figure>
 </div>
 <p>Vi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med <strong>Git</strong> på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på <strong>statisticsnorway</strong> på GitHub.</p>
@@ -587,7 +632,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Alternativt kan du droppe det utropstegnet og kjøre det direkte i en terminal. Det vil gi samme resultat. Koden over legger til en linje med teksten</p>
 <p><strong>machine github.com login SSB-Chad password blablabla</strong></p>
 <p>i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token.</p>
-<p>Hver gang du jobber mot GitHub vil Git sjekke om informasjon om autentifisering ligger i denne filen, og bruke den hvis den ligger der.</p>
+<p>Hver gang du jobber mot GitHub vil Git sjekke om informasjon om autentisering ligger i denne filen, og bruke den hvis den ligger der.</p>
 </section>
 <section id="oppdater-pat" class="level4" data-number="19.2.4.3">
 <h4 data-number="19.2.4.3" class="anchored" data-anchor-id="oppdater-pat"><span class="header-section-number">19.2.4.3</span> Oppdater PAT</h4>
