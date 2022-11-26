@@ -136,3 +136,5 @@ dmypy.json
 /dapla_manual/_site/
 /dapla_manual/_book/
 /docs/
+
+/.luarc.json
