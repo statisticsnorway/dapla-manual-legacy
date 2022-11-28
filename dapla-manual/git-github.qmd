@@ -129,15 +129,16 @@ Nå har vi aktivert 2-faktor autentisering for GitHub og er klare til å knytte 
 
 ### Koble deg til SSB
 
-I forrige steg aktiverte vi 2-faktor autentisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon **statisticsnorway**. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.
+I forrige steg aktiverte vi 2-faktor autentisering for GitHub. Det neste vi må gjøre er å koble oss til **Single Sign On (SSO)** for SSB sin organisasjon på GitHub: 
 
-1. Gå til profilsiden din og velg **Settings** slik du gjorde i punkt 1 i forrige delkapittel.
+1. Trykk på lenken <https://github.com/orgs/statisticsnorway/sso>
+2. I dialogboksen som dukker opp trykker du på **Continue**, slik som vist i @fig-github-sso.
 
-2. Trykk deretter på **Organizations** i menyen til venstre.
+![Single Sign on (SSO) for SSB sin organisasjon på GitHub](images/github_sso.png){ fig-alt="Bilde av GitHub-dialogboks for single sign on." #fig-github-sso }
 
-3. Trykk deretter på **New organization**.
+Når du har gjennomført dette så har du tilgang til **statisticsnorway** på GitHub. Går du inn på [denne lenken](https://github.com/statisticsnorway?view_as=member) så skal du nå kunne lese både **Public**, **Private** og **Internal** repoer, slik som vist i  @fig-github-member.   
 
-4. Søk etter **statisticsnorway**.
+![Medlemsvisning for SSB sin GitHub-organisasjon.](images/github_asmember.png){ fig-alt="Bilde av repoene på GitHub for de som er tilknyttet staitsticsnorway." #fig-github-member }
 
 
 ### Personal Access Token (PAT)
