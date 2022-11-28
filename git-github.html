@@ -569,13 +569,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="koble-deg-til-ssb" class="level3" data-number="19.2.3">
 <h3 data-number="19.2.3" class="anchored" data-anchor-id="koble-deg-til-ssb"><span class="header-section-number">19.2.3</span> Koble deg til SSB</h3>
-<p>I forrige steg aktiverte vi 2-faktor autentisering for GitHub. Det neste vi må gjøre er å bruke denne autentiseringen til å koble oss til SSB sin organisasjon <strong>statisticsnorway</strong>. Det er dette som gjør at vi kan jobbe med SSB-kode som ligger lagret på GitHub.</p>
+<p>I forrige steg aktiverte vi 2-faktor autentisering for GitHub. Det neste vi må gjøre er å koble oss til <strong>Single Sign On (SSO)</strong> for SSB sin organisasjon på GitHub:</p>
 <ol type="1">
-<li><p>Gå til profilsiden din og velg <strong>Settings</strong> slik du gjorde i punkt 1 i forrige delkapittel.</p></li>
-<li><p>Trykk deretter på <strong>Organizations</strong> i menyen til venstre.</p></li>
-<li><p>Trykk deretter på <strong>New organization</strong>.</p></li>
-<li><p>Søk etter <strong>statisticsnorway</strong>.</p></li>
+<li>Trykk på lenken <a href="https://github.com/orgs/statisticsnorway/sso" class="uri">https://github.com/orgs/statisticsnorway/sso</a></li>
+<li>I dialogboksen som dukker opp trykker du på <strong>Continue</strong>, slik som vist i <a href="#fig-github-sso">Figur&nbsp;<span>19.8</span></a>.</li>
 </ol>
+<div id="fig-github-sso" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github_sso.png" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for single sign on."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.8: Single Sign on (SSO) for SSB sin organisasjon på GitHub</figcaption><p></p>
+</figure>
+</div>
+<p>Når du har gjennomført dette så har du tilgang til <strong>statisticsnorway</strong> på GitHub. Går du inn på <a href="https://github.com/statisticsnorway?view_as=member">denne lenken</a> så skal du nå kunne lese både <strong>Public</strong>, <strong>Private</strong> og <strong>Internal</strong> repoer, slik som vist i <a href="#fig-github-member">Figur&nbsp;<span>19.9</span></a>.</p>
+<div id="fig-github-member" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github_asmember.png" class="img-fluid figure-img" alt="Bilde av repoene på GitHub for de som er tilknyttet staitsticsnorway."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.9: Medlemsvisning for SSB sin GitHub-organisasjon.</figcaption><p></p>
+</figure>
+</div>
 </section>
 <section id="personal-access-token-pat" class="level3" data-number="19.2.4">
 <h3 data-number="19.2.4" class="anchored" data-anchor-id="personal-access-token-pat"><span class="header-section-number">19.2.4</span> Personal Access Token (PAT)</h3>
@@ -589,31 +600,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>I menyen til venstre velger du <strong>Personal Access Token</strong>, og deretter <strong>Tokens (classic)</strong>.</p></li>
 <li><p>Under <strong>Note</strong> kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den <em>dapla</em>. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den <em>prodsone</em> eller noe annet som gjør det lett for det skjønne innholdet i ettertid.</p></li>
 <li><p>Under <strong>Expiration</strong> velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger <strong>365 dager</strong>. Når PAT utløper må du gjenta stegene i dette kapittelet.</p></li>
-<li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> slik som vist i <a href="#fig-github-token">Figur&nbsp;<span>19.8</span></a>.</p></li>
+<li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> slik som vist i <a href="#fig-github-token">Figur&nbsp;<span>19.10</span></a>.</p></li>
 </ol>
 <div id="fig-github-token" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for generering av Personal Access Token"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;19.8: Gi token et kort og beskrivende navn</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.10: Gi token et kort og beskrivende navn</figcaption><p></p>
 </figure>
 </div>
 <ol start="8" type="1">
-<li>Trykk på <strong>Generate token</strong> nederst på siden og du får noe lignende det du ser i <a href="#fig-github-token-gen">Figur&nbsp;<span>19.9</span></a>.</li>
+<li>Trykk på <strong>Generate token</strong> nederst på siden og du får noe lignende det du ser i <a href="#fig-github-token-gen">Figur&nbsp;<span>19.11</span></a>.</li>
 </ol>
 <div id="fig-github-token-gen" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat2.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for det genererte tokenet"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;19.9: Token som ble generert.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.11: Token som ble generert.</figcaption><p></p>
 </figure>
 </div>
 <ol start="9" type="1">
 <li><p>Kopier deretter PAT til en midlertidig fil. Grunnen er at du aldri vil se det igjen her etter at vi har gjennomført neste steg.</p></li>
-<li><p>Deretter trykker du på <strong>Configure SSO</strong> og velger <strong>Authorize</strong> ved siden statisticsnorway, slik som vist i <a href="#fig-github-token-authorize">Figur&nbsp;<span>19.10</span></a>. Svar deretter på spørsmålene som dukker opp.</p></li>
+<li><p>Deretter trykker du på <strong>Configure SSO</strong> og velger <strong>Authorize</strong> ved siden statisticsnorway, slik som vist i <a href="#fig-github-token-authorize">Figur&nbsp;<span>19.12</span></a>. Svar deretter på spørsmålene som dukker opp.</p></li>
 </ol>
 <div id="fig-github-token-authorize" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat3.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for å autorisere Token mot statisticsnorway"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;19.10: Autorisering av Token mot SSBs GiHub-organisasjon.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;19.12: Autorisering av Token mot SSBs GiHub-organisasjon.</figcaption><p></p>
 </figure>
 </div>
 <p>Vi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med <strong>Git</strong> på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på <strong>statisticsnorway</strong> på GitHub.</p>
