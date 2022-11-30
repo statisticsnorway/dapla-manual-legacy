@@ -129,7 +129,7 @@ Nå som vi har et virtuelle miljøet på plass kan vi installere en R-pakke. Du 
 Det vi nå har gjort er å åpne **R** fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en *R Console*. Nå kan du skrive inn en vanlig kommando for å installere R-pakker:
 
 ```R
-install.packages("PxWebApiData")
+renv::install("PxWebApiData")
 
 ```
 
