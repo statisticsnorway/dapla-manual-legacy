@@ -294,108 +294,122 @@
     "text": "22.2 R\nInstallering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av ssb-project. Men vi kan bruke renv. Mer kommer.\n\n22.2.1 Installering\nFor å installere dine egne R-pakker må du opprette et virtuelt miljø med renv. Gå inn i Jupyterlab og åpne R-notebook. Deretter skriver du inn følgende i kodecelle:\nrenv::init()\nDenne kommandoer aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:\nrenv.lock\nEn fil som inneholder versjoner av alle pakker du benytter i koden din.\nrenv\nMappe som inneholder alle pakkene du installerer.\nNå som vi har et virtuelle miljøet på plass kan vi installere en R-pakke. Du kan gjøre dette fra både terminalen og fra en Notebook. Vi anbefaler på gjøre det fra terminalen fordi du da får tilbakemelding på om installeringen gikk bra heller ikke. For å installere i terminalen gjør du følgende:\n\nÅpne en terminal i Jupyterlab\nStå i mappen der du aktiverte det virtuelle miljøet\nSkriv in R og trykk enter.\n\nDet vi nå har gjort er å åpne R fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en R Console. Nå kan du skrive inn en vanlig kommando for å installere R-pakker:\nrenv::install(\"PxWebApiData\")\nOver installerte vi pakken PxWebApiData som er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank. La oss bruke pakken i koden vår med ved å skrive følgende i kodecelle i Notebooken vår:\nlibrary(PxWebApiData)\nApiData(\"https://data.ssb.no/api/v0/en/table/04861\", \n        Region = c(\"1103\", \"0301\"), ContentsCode = \"Bosatte\", Tid = c(1, 2, -2, -1))\nNår vi nå har brukt PxWebApiData i koden vår så kan vi kjøre en kommando som legger til den pakken i renv.lock. Men før vi kan gjøre det må vi være obs på at renv ikke klarer å gjenkjenne pakker som er i bruk Notebooks (ipynb-filer). Det er veldig upraktisk, men noe vi må forholde oss til når vi jobber med renv i Jupyterlab. En mulig løsning for dette er å bruke Jupytext til å synkronisere en ipynb-fil med en Rmd-fil. renv kjenner igjen både R- og Rmd-filer. For å synkronisere filene gjør du følgende:\n\nTrykk Ctrl+Shift C\nSkriv inn Pair i søkefeltet som dukker opp\nVelg Pair Notebook with R Markdown\n\nHvis du nå endrer en av filene så vil den andre oppdatere seg, og renv vil kunne oppdage om du bruker en pakke i koden din. Men for å trigge renv til å lete etter pakker som er i bruk så må du skrive følgende kode i Notebooken eller R Console:\nrenv::snapshot()\nKikker du nå inne i renv.lock-filen så ser du nå at verjsonen av PxWebApiData er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.\n\n\n\n22.2.2 Avinstallering\n\n\n22.2.3 Oppgradere pakker"
   },
   {
+    "objectID": "pyspark-venv.html#legg-til-pyspark-i-det-virtuelle-miljøet",
+    "href": "pyspark-venv.html#legg-til-pyspark-i-det-virtuelle-miljøet",
+    "title": "23  Bruk av pyspark i virtuelle miljøer",
+    "section": "23.1 Legg til pyspark i det virtuelle miljøet",
+    "text": "23.1 Legg til pyspark i det virtuelle miljøet\nDenne kommandoen legger til pakken pyspark i prosjektet (med samme versjon som på jupyterlab).\npoetry add pyspark==$(pip show pyspark | grep Version | egrep -o \"([0-9]{1,}\\.)+[0-9]{1,}\")"
+  },
+  {
+    "objectID": "pyspark-venv.html#pakkehåndtering-i-pyspark",
+    "href": "pyspark-venv.html#pakkehåndtering-i-pyspark",
+    "title": "23  Bruk av pyspark i virtuelle miljøer",
+    "section": "23.2 Pakkehåndtering i pyspark",
+    "text": "23.2 Pakkehåndtering i pyspark\nPyspark kan kjøres enten på lokal maskin eller på flere maskiner samtidig i en såkalt klynge (cluster). Sistnevnte kan være mer effektivt å bruke når man har større mengder data, men det krever også mer konfigurasjon.\n\n23.2.1 Pyspark på lokal maskin\nOppsettet for Pyspark på lokal maskin er det enkleste å sette opp siden Pyspark vil ha direkte tilgang til det lokale filsystemet. Man kan bruke miljøvariabelen PYSPARK_PYTHON til å peke på det virtuelle miljøet, og dermed vil Pyspark også ha tilgang til alle pakkene som er installert der. I en notebook vil dette kunne settes opp slik:\nimport os\nimport subprocess\n\n# Finner filstien til det virtuelle miljøet\npython_path = subprocess.run(['poetry', 'run', 'which', 'python'],\n                             capture_output=True, text=True).stdout.rstrip('\\n')\n\nos.environ[\"PYSPARK_PYTHON\"] = python_path\nos.environ[\"PYSPARK_SUBMIT_ARGS\"] = os.environ[\"PYSPARK_LOCAL_SUBMIT_ARGS\"]\nTil slutt må man kjøre et script for å initialisere pyspark for lokal maskin:\n%run /usr/local/share/jupyter/kernels/pyspark_local/init.py\nDette scriptet vil sette et spark objekt som brukes for å kalle API’et til pyspark.\n\n\n23.2.2 Pyspark i et cluster\nHvis man vil kjøre Pyspark i et cluster (dvs. på flere maskiner) så vil databehandlingen foregå på andre maskiner som ikke har tilgang til det lokale filsystemet. Man må dermed lage en “pakke” av det virtuelle miljøet på lokal maskin og tilgjengeliggjøre dette for alle maskinene i clusteret. For å lage en slik “pakke” kan man bruke et bibliotek som heter venv-pack. Dette kan kjøres fra et terminalvindu slik:\nvenv-pack -p .venv -o pyspark_venv.tar.gz\nMerk at kommandoen over må kjøres fra rot-mappen i prosjektet ditt. Her er pyspark_venv.tar.gz et tilfeldig valgt filnavn, men dette filnavnet skal brukes videre i notebooken.\nimport os\nimport subprocess\n\n# Miljøvariabel som peker på en utpakket versjon av det virtuelle miljøet\nos.environ[\"PYSPARK_PYTHON\"] = \"./environment/bin/python\"\n\n# Legg til et flagg, --archives, som peker på \"pakken\" med det virtuelle miljøet\nconf = os.environ[\"PYSPARK_K8S_SUBMIT_ARGS\"].split(' ')\nlast_index = conf.index('pyspark-shell')\nconf[last_index:last_index] = ['--archives', 'pyspark_venv.tar.gz#environment']\nos.environ[\"PYSPARK_SUBMIT_ARGS\"] = ' '.join(conf)\nTil slutt må man kjøre et script for å initialisere pyspark cluster:\n%run /usr/local/share/jupyter/kernels/pyspark_k8s/init.py\nDette scriptet vil sette et spark objekt som brukes for å kalle API’et til pyspark."
+  },
+  {
     "objectID": "samarbeid.html",
     "href": "samarbeid.html",
-    "title": "23  Samarbeid",
+    "title": "24  Samarbeid",
     "section": "",
     "text": "Noen har opprettet et ssb-project og pushet til Github. Hvordan skal kollegaer gå frem for å bidra inn i koden?"
   },
   {
     "objectID": "pakke-install-bakken.html#python",
     "href": "pakke-install-bakken.html#python",
-    "title": "25  Installere pakker",
-    "section": "25.1 Python",
-    "text": "25.1 Python\nInstallering av pakker i Jupyter miljøer på bakken (f.eks https://sl-jupyter-p.ssb.no) foregår stort sett helt lik som på Dapla. Det er én viktig forskjell, og det er at installasjon skjer via en proxy som heter Nexus.\n\n25.1.1 Pip\nPip er ferdig konfigurert for bruk av Nexus og kan kjøres som beskrevet for Dapla\n\n\n25.1.2 Poetry\nHvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.\npoetry source add --default nexus `echo $PIP_INDEX_URL`\nDa får man installere pakker som vanlig f.eks\npoetry add matplotlib\n\n\n\n\n\n\nHvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så må man fjerner nexus kilden ved å kjøre\npoetry source remove nexus"
+    "title": "26  Installere pakker",
+    "section": "26.1 Python",
+    "text": "26.1 Python\nInstallering av pakker i Jupyter miljøer på bakken (f.eks https://sl-jupyter-p.ssb.no) foregår stort sett helt lik som på Dapla. Det er én viktig forskjell, og det er at installasjon skjer via en proxy som heter Nexus.\n\n26.1.1 Pip\nPip er ferdig konfigurert for bruk av Nexus og kan kjøres som beskrevet for Dapla\n\n\n26.1.2 Poetry\nHvis man bruker Poetry for håndtering av pakker i et prosjekt, så må man kjøre følgende kommando i prosjekt-mappe etter prosjektet er opprettet.\npoetry source add --default nexus `echo $PIP_INDEX_URL`\nDa får man installere pakker som vanlig f.eks\npoetry add matplotlib\n\n\n\n\n\n\nHvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så må man fjerner nexus kilden ved å kjøre\npoetry source remove nexus"
   },
   {
     "objectID": "pakke-install-bakken.html#r",
     "href": "pakke-install-bakken.html#r",
-    "title": "25  Installere pakker",
-    "section": "25.2 R",
-    "text": "25.2 R\nProsessen med å installere pakker for R på bakken er veldig lik slik det gjøres på Dapla. Under beskriver hvordan det avviker fra prosedyren på Dapla.\n\n25.2.1 Installering\nVi installerer fra en proxy-server på bakken, og derfor må vi spesifisere denne adressen manuelt før vi kan installere R-pakker.\nrepos <- c(CRAN = \"https://nexus.ssb.no/repository/CRAN/\")\noptions(repos = repos)\nDeretter kan du initiere det virtuelle miljøet med følgende kommando:\nrenv::init()\nResten er likt som det som er forklart for Dapla.\n\n\n25.2.2 Avinstallering\n\n\n25.2.3 Oppgradere pakker"
+    "title": "26  Installere pakker",
+    "section": "26.2 R",
+    "text": "26.2 R\nProsessen med å installere pakker for R på bakken er veldig lik slik det gjøres på Dapla. Under beskriver hvordan det avviker fra prosedyren på Dapla.\n\n26.2.1 Installering\nVi installerer fra en proxy-server på bakken, og derfor må vi spesifisere denne adressen manuelt før vi kan installere R-pakker.\nrepos <- c(CRAN = \"https://nexus.ssb.no/repository/CRAN/\")\noptions(repos = repos)\nDeretter kan du initiere det virtuelle miljøet med følgende kommando:\nrenv::init()\nResten er likt som det som er forklart for Dapla.\n\n\n26.2.2 Avinstallering\n\n\n26.2.3 Oppgradere pakker"
   },
   {
     "objectID": "lese-data-bakken.html#sas7bdat",
     "href": "lese-data-bakken.html#sas7bdat",
-    "title": "26  Lese inn filer",
-    "section": "26.1 sas7bdat",
-    "text": "26.1 sas7bdat"
+    "title": "27  Lese inn filer",
+    "section": "27.1 sas7bdat",
+    "text": "27.1 sas7bdat"
   },
   {
     "objectID": "lese-data-bakken.html#oracle",
     "href": "lese-data-bakken.html#oracle",
-    "title": "26  Lese inn filer",
-    "section": "26.2 Oracle",
-    "text": "26.2 Oracle"
+    "title": "27  Lese inn filer",
+    "section": "27.2 Oracle",
+    "text": "27.2 Oracle"
   },
   {
     "objectID": "lese-data-bakken.html#fame",
     "href": "lese-data-bakken.html#fame",
-    "title": "26  Lese inn filer",
-    "section": "26.3 Fame",
-    "text": "26.3 Fame"
+    "title": "27  Lese inn filer",
+    "section": "27.3 Fame",
+    "text": "27.3 Fame"
   },
   {
     "objectID": "lese-data-bakken.html#tekstfiler",
     "href": "lese-data-bakken.html#tekstfiler",
-    "title": "26  Lese inn filer",
-    "section": "26.4 Tekstfiler",
-    "text": "26.4 Tekstfiler"
+    "title": "27  Lese inn filer",
+    "section": "27.4 Tekstfiler",
+    "text": "27.4 Tekstfiler"
   },
   {
     "objectID": "lese-data-bakken.html#parquet",
     "href": "lese-data-bakken.html#parquet",
-    "title": "26  Lese inn filer",
-    "section": "26.5 Parquet",
-    "text": "26.5 Parquet"
+    "title": "27  Lese inn filer",
+    "section": "27.5 Parquet",
+    "text": "27.5 Parquet"
   },
   {
     "objectID": "lese-data.html#eksempler",
     "href": "lese-data.html#eksempler",
-    "title": "27  Lese filer fra bøtte",
-    "section": "27.1 Eksempler",
-    "text": "27.1 Eksempler\n\n\n\n\n\n\n“navn-boette” eksisterer ikke og må byttes med en reel bøtte.\n\n\n\nLes json fil fra bøtte:\nimport dapla as dp\n\ndata_frame = dp.read_pandas(\"gs://ssb-staging-navn-boette/schema.json\",\n file_format=\"json\")\nList ut mapper i bøtta:\nfrom dapla import FileClient\n\nFileClient.ls(\"gs://ssb-staging-navn-boette/\")"
+    "title": "28  Lese filer fra bøtte",
+    "section": "28.1 Eksempler",
+    "text": "28.1 Eksempler\n\n\n\n\n\n\n“navn-boette” eksisterer ikke og må byttes med en reel bøtte.\n\n\n\nLes json fil fra bøtte:\nimport dapla as dp\n\ndata_frame = dp.read_pandas(\"gs://ssb-staging-navn-boette/schema.json\",\n file_format=\"json\")\nList ut mapper i bøtta:\nfrom dapla import FileClient\n\nFileClient.ls(\"gs://ssb-staging-navn-boette/\")"
   },
   {
     "objectID": "lese-data.html#vanlige-problemer",
     "href": "lese-data.html#vanlige-problemer",
-    "title": "27  Lese filer fra bøtte",
-    "section": "27.2 Vanlige problemer",
-    "text": "27.2 Vanlige problemer\n\n27.2.1 Feil miljø\nEn vanlig årsak til feil er at man forsøker å lese data fra et annet miljø enn det man befinner seg i. Sjekk at url feltet i nettleseren stemmer overens med bøttene man forsøker å aksessere.\nStagingbøtter starter med: gs://ssb-staging-\nProduksjonsbøtter starter med: gs://ssb-prod-\n\n\n\n\n\n\nI https://jupyter.dapla-staging.ssb.no/ kan man ikke lese produksjonsbøtter.\n\n\n\n\n\n\n\n\n\nI https://jupyter.dapla.ssb.no/ kan man ikke lese stagingbøtter.\n\n\n\n\n\n27.2.2 Omstart av Jupyter\nNoen ganger kan en restart av Jupyter løse problemet.\nI Jupyters filmeny velg: fil -> Hub Controll Panel.\nTrykk på knappen “Stop My Server”. Etter dette kan man trykke knappen “Start My Server”.\n\n\n\nStop My Server\n\n\n\n\n27.2.3 Opprett TMS sak\nHvis man fortsatt ikke har tilgang, kan man opprette en TMS sak. For at vi lettes mulig skal kunne hjelpe bør saken inneholde full feilmelding & relevant kode."
+    "title": "28  Lese filer fra bøtte",
+    "section": "28.2 Vanlige problemer",
+    "text": "28.2 Vanlige problemer\n\n28.2.1 Feil miljø\nEn vanlig årsak til feil er at man forsøker å lese data fra et annet miljø enn det man befinner seg i. Sjekk at url feltet i nettleseren stemmer overens med bøttene man forsøker å aksessere.\nStagingbøtter starter med: gs://ssb-staging-\nProduksjonsbøtter starter med: gs://ssb-prod-\n\n\n\n\n\n\nI https://jupyter.dapla-staging.ssb.no/ kan man ikke lese produksjonsbøtter.\n\n\n\n\n\n\n\n\n\nI https://jupyter.dapla.ssb.no/ kan man ikke lese stagingbøtter.\n\n\n\n\n\n28.2.2 Omstart av Jupyter\nNoen ganger kan en restart av Jupyter løse problemet.\nI Jupyters filmeny velg: fil -> Hub Controll Panel.\nTrykk på knappen “Stop My Server”. Etter dette kan man trykke knappen “Start My Server”.\n\n\n\nStop My Server\n\n\n\n\n28.2.3 Opprett TMS sak\nHvis man fortsatt ikke har tilgang, kan man opprette en TMS sak. For at vi lettes mulig skal kunne hjelpe bør saken inneholde full feilmelding & relevant kode."
   },
   {
     "objectID": "remote.html#rstudio",
     "href": "remote.html#rstudio",
-    "title": "28  IDE’er",
-    "section": "28.1 RStudio",
-    "text": "28.1 RStudio"
+    "title": "29  IDE’er",
+    "section": "29.1 RStudio",
+    "text": "29.1 RStudio"
   },
   {
     "objectID": "remote.html#vscode",
     "href": "remote.html#vscode",
-    "title": "28  IDE’er",
-    "section": "28.2 VSCode",
-    "text": "28.2 VSCode"
+    "title": "29  IDE’er",
+    "section": "29.2 VSCode",
+    "text": "29.2 VSCode"
   },
   {
     "objectID": "remote.html#pycharm",
     "href": "remote.html#pycharm",
-    "title": "28  IDE’er",
-    "section": "28.3 Pycharm",
-    "text": "28.3 Pycharm"
+    "title": "29  IDE’er",
+    "section": "29.3 Pycharm",
+    "text": "29.3 Pycharm"
   },
   {
     "objectID": "databaser.html#bigquery",
     "href": "databaser.html#bigquery",
-    "title": "30  Databaser",
-    "section": "30.1 BigQuery",
-    "text": "30.1 BigQuery"
+    "title": "31  Databaser",
+    "section": "31.1 BigQuery",
+    "text": "31.1 BigQuery"
   },
   {
     "objectID": "databaser.html#cloudsql",
     "href": "databaser.html#cloudsql",
-    "title": "30  Databaser",
-    "section": "30.2 CloudSQL",
-    "text": "30.2 CloudSQL"
+    "title": "31  Databaser",
+    "section": "31.2 CloudSQL",
+    "text": "31.2 CloudSQL"
   }
 ]
