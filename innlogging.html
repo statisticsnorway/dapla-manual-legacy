@@ -432,19 +432,41 @@ ul.task-list li input[type="checkbox"] {
 <section id="bakkemiljøet" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="bakkemiljøet"><span class="header-section-number">4.2</span> Bakkemiljøet</h2>
 <p>Jupyter-miljøet på bakken bruker <a href="https://github.com/statisticsnorway/jupyterlab-common">samme base-image</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Merk
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Fom. 5. desember 2022 har vi byttet ut Jupyter-miljøet på bakken. Beskrivelsene under gjelder derfor det nye miljøet. Fram til 15. januar vil du kunne bruke det gamle miljøet ved å gå inn på lenken <a href="https://jupyter-prod.ssb.no/" class="uri">https://jupyter-prod.ssb.no/</a> manuelt i Google Chrome. Etter 15. januar blir det gamle Jupyter-miljøet avviklet.</p>
+</div>
+</div>
 <section id="prod-1" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="prod-1"><span class="header-section-number">4.2.1</span> Prod</h3>
 <p>Du logger deg inn på prod i bakkemiljøet på følgende måte:</p>
 <ol type="1">
 <li>Logg deg inn på Citrix-Windows i bakkemiljøet. Det kan gjøres ved å bruke lenken <strong>Citrix</strong> på Byrånettet, som også vises i <a href="#fig-intranett">Figur&nbsp;<span>4.1</span></a>.</li>
-<li>Åpne Chrome-nettleseren</li>
-<li>Gå inn på denne nettadressen: <a href="https://sl-jupyter-p.ssb.no/" class="uri">https://sl-jupyter-p.ssb.no/</a></li>
-<li>Skriv inn ditt brukernavn og passord som du bruker når du logger deg på maskinen din hver morgen.</li>
+<li>Trykk på Jupyterlab-ikonet, som vist på <span class="citation" data-cites="jupyter-icon">(<a href="references.html#ref-jupyter-icon" role="doc-biblioref"><strong>jupyter-icon?</strong></a>)</span>, og logg deg inn med vanlig brukernavn og passord.</li>
 </ol>
+<div id="jupyter-icon" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/citrix_jupyter_icon.png" class="img-fluid figure-img" style="width:75.0%" alt="Bildet som viser hvordan man åpner Jupyterlab-miljet på bakken."></p>
+<p></p><figcaption class="figure-caption">Jupyterlab-ikon på Skrivebordet i Citrix-Windows.</figcaption><p></p>
+</figure>
+</div>
+<p>Når du trykker på ikonet blir du tatt til nettadressen <a href="https://sl-jupyter-p.ssb.no/" class="uri">https://sl-jupyter-p.ssb.no/</a>. Du kunne også åpnet Jupyterlab ved åpne Chrome-nettleseren og skrive inn adressen manuelt.</p>
 </section>
 <section id="staging-1" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="staging-1"><span class="header-section-number">4.2.2</span> Staging</h3>
-<p>Innlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå <a href="https://sl-jupyter-t.ssb.no/" class="uri">https://sl-jupyter-t.ssb.no/</a>.</p>
+<p>Innlogging til staging-miljøet har ingen snarvei på Skrivebordet, og du må gjøre følgende for å åpne miljøet:</p>
+<ol type="1">
+<li>Åpne Chrome-nettleseren i Citrix-Windows.</li>
+<li>Skriv inn url-en <a href="https://sl-jupyter-t.ssb.no/" class="uri">https://sl-jupyter-t.ssb.no/</a></li>
+</ol>
 
 
 </section>
