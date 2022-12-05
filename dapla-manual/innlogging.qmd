@@ -58,11 +58,19 @@ Fom. 5. desember 2022 har vi byttet ut Jupyter-miljøet på bakken. Beskrivelsen
 Du logger deg inn på prod i bakkemiljøet på følgende måte: 
 
 1. Logg deg inn på Citrix-Windows i bakkemiljøet. Det kan gjøres ved å bruke lenken **Citrix** på Byrånettet, som også vises i @fig-intranett.
-2. Åpne Chrome-nettleseren
-3. Gå inn på denne nettadressen: <https://sl-jupyter-p.ssb.no/>
-4. Skriv inn ditt brukernavn og passord som du bruker når du logger deg på maskinen din hver morgen.
+2. Trykk på Jupyterlab-ikonet, som vist på @jupyter-icon, og logg deg inn med vanlig brukernavn og passord.
+
+![Jupyterlab-ikon på Skrivebordet i Citrix-Windows.](./images/citrix_jupyter_icon.png){ fig-alt="Bildet som viser hvordan man åpner Jupyterlab-miljet på bakken." width=75% #jupyter-icon }
+
+
+
+Når du trykker på ikonet blir du tatt til nettadressen <https://sl-jupyter-p.ssb.no/>. Du kunne også åpnet Jupyterlab ved åpne Chrome-nettleseren og skrive inn adressen manuelt. 
+
 
 
 ### Staging
 
-Innlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå <https://sl-jupyter-t.ssb.no/>.
+Innlogging til staging-miljøet har ingen snarvei på Skrivebordet, og du må gjøre følgende for å åpne miljøet: 
+
+1. Åpne Chrome-nettleseren i Citrix-Windows.
+2. Skriv inn url-en <https://sl-jupyter-t.ssb.no/>
