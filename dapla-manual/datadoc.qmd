@@ -1,0 +1,41 @@
+# DataDoc
+
+For å kunne gjenfinne data i SSB er man helt avhengig av at det finnes et enhetlig system for metadata knyttet til dataene. [DataDoc](https://github.com/statisticsnorway/datadoc) er SSBs system for å dokumentere datasett på den nye dataplattformen **Dapla**. 
+
+Det er bygget et grensesnitt i Python for å gjøre det enklest mulig å dokumentere et datasett. Foreløpig støtter løsningen følgende filformater: 
+
+1. parquet
+2. sas7bdat
+
+Under finner du beskrivelse av hvordan du kan begynne å bruke løsningen til å dokumentere datasett.
+
+## Prøv DataDoc
+
+DataDoc skal være installert i alle [Jupyter-miljøene i SSB](./innlogging.qmd), så man trenger du ikke installere pakken selv. La oss lage noe falsk data slik at vi kan leke oss litt med DataDoc: 
+
+```python
+import pandas as pd
+from datadoc import main
+  
+# Create fake data
+data = {'id': ['9999999999', '8888888888', '7777777777', '6666666666'],
+        'fylke': ["01", "02", "03", "03"],
+        'inntekt': [500000, 250000, 400000, 440000],
+        'rente': [3.2, 4.1, 3.3, 3.4]}
+  
+# Creates a Pandas dataframe
+df = pd.DataFrame(data)
+
+# Write a Parquet-file to current folder
+df.to_parquet("./test.parquet")
+```
+Nå har vi en fil som heter `test.parquet` i mappen vi står. Da kan vi åpne DataDoc-grensesnittet for å legge inn metadataen: 
+
+```python
+main("./test.parquet")
+```
+
+@fig-datadoc-ux viser hvordan DataDoc-grensesnittet ser ut. 
+
+![Gif som viser hvordan DataDoc-grensesnittet ser ut.](./images/datdoc_gif.gif){fig-alt="Gif som viser hvordan DataDoc kan brukes." #fig-datadoc-ux}
+

@@ -59,6 +59,7 @@ book:
       - remote.qmd
       - schedulering.qmd
       - databaser.qmd
+      - datadoc.qmd
     - references.qmd
 
 bibliography: references.bib
