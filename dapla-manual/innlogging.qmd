@@ -49,6 +49,10 @@ Litt mer om hva som er tilgjenglig her kommer.
 
 Jupyter-miljøet på bakken bruker [samme base-image](https://github.com/statisticsnorway/jupyterlab-common)^[Hva er base-image?] for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.
 
+:::{.callout-note}
+Fom. 5. desember 2022 har vi byttet ut Jupyter-miljøet på bakken. Beskrivelsene under gjelder derfor det nye miljøet. Fram til 15. januar vil du kunne bruke det gamle miljøet ved å gå inn på lenken <https://jupyter-prod.ssb.no/> manuelt i Google Chrome. Etter 15. januar blir det gamle Jupyter-miljøet avviklet.  
+:::
+
 ### Prod
 
 Du logger deg inn på prod i bakkemiljøet på følgende måte: 
