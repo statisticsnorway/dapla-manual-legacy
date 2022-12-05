@@ -46,6 +46,7 @@ book:
       - virtual-env.qmd
       - jupyter-kernel.qmd
       - pakke-install.qmd
+      - pyspark-venv.qmd
       - samarbeid.qmd
       - vedlikehold.qmd
     - part: jupyter-pa-bakken.qmd

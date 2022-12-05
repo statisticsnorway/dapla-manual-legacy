@@ -1,0 +1,71 @@
+# Bruk av pyspark i virtuelle miljøer
+
+For å kunne benytte det virtuelle miljøet i en notebook må man sette opp en kernel. Dette er beskrevet [her](pakke-install.qmd#legge-til-kernel-for-poetry). Denne kernelen er imidlertid ikke satt opp til å bruke pyspark som standard, og for å få til det må man gjøre noen manuelle steg.
+
+## Legg til pyspark i det virtuelle miljøet 
+
+Denne kommandoen legger til pakken pyspark i prosjektet (med samme versjon som på jupyterlab).
+```bash 
+poetry add pyspark==$(pip show pyspark | grep Version | egrep -o "([0-9]{1,}\.)+[0-9]{1,}")
+``` 
+
+## Pakkehåndtering i pyspark
+
+Pyspark kan kjøres enten på lokal maskin eller på flere maskiner samtidig i en såkalt klynge (cluster). Sistnevnte kan være mer effektivt å bruke når man har større mengder data, men det krever også mer konfigurasjon.
+
+### Pyspark på lokal maskin
+
+Oppsettet for Pyspark på lokal maskin er det enkleste å sette opp siden Pyspark vil ha direkte tilgang til det lokale filsystemet. Man kan bruke miljøvariabelen `PYSPARK_PYTHON` til å peke på det virtuelle miljøet, og dermed vil Pyspark også ha tilgang til alle pakkene som er installert der. I en notebook vil dette kunne settes opp slik:
+
+```python
+import os
+import subprocess
+
+# Finner filstien til det virtuelle miljøet
+python_path = subprocess.run(['poetry', 'run', 'which', 'python'],
+                             capture_output=True, text=True).stdout.rstrip('\n')
+
+os.environ["PYSPARK_PYTHON"] = python_path
+os.environ["PYSPARK_SUBMIT_ARGS"] = os.environ["PYSPARK_LOCAL_SUBMIT_ARGS"]
+``` 
+
+Til slutt må man kjøre et script for å initialisere pyspark for lokal maskin:
+
+```python
+%run /usr/local/share/jupyter/kernels/pyspark_local/init.py
+``` 
+
+Dette scriptet vil sette et `spark` objekt som brukes for å kalle API'et til pyspark.
+
+### Pyspark i et cluster
+
+Hvis man vil kjøre Pyspark i et cluster (dvs. på flere maskiner) så vil databehandlingen foregå på andre maskiner som ikke har tilgang til det lokale filsystemet. Man må dermed lage en "pakke" av det virtuelle miljøet på lokal maskin og tilgjengeliggjøre dette for alle maskinene i clusteret. For å lage en slik "pakke" kan man bruke et bibliotek som heter `venv-pack`. Dette kan kjøres fra et terminalvindu slik:
+
+```bash 
+venv-pack -p .venv -o pyspark_venv.tar.gz
+``` 
+
+Merk at kommandoen over må kjøres fra rot-mappen i prosjektet ditt. Her er `pyspark_venv.tar.gz` et tilfeldig valgt filnavn, men dette filnavnet skal brukes videre i notebooken.
+
+```python
+import os
+import subprocess
+
+# Miljøvariabel som peker på en utpakket versjon av det virtuelle miljøet
+os.environ["PYSPARK_PYTHON"] = "./environment/bin/python"
+
+# Legg til et flagg, --archives, som peker på "pakken" med det virtuelle miljøet
+conf = os.environ["PYSPARK_K8S_SUBMIT_ARGS"].split(' ')
+last_index = conf.index('pyspark-shell')
+conf[last_index:last_index] = ['--archives', 'pyspark_venv.tar.gz#environment']
+os.environ["PYSPARK_SUBMIT_ARGS"] = ' '.join(conf)
+``` 
+
+Til slutt må man kjøre et script for å initialisere pyspark cluster:
+
+```python
+%run /usr/local/share/jupyter/kernels/pyspark_k8s/init.py
+``` 
+
+Dette scriptet vil sette et `spark` objekt som brukes for å kalle API'et til pyspark.
+
