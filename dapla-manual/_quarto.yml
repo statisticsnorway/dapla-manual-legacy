@@ -68,8 +68,6 @@ format:
   html:
     theme: cosmo
     code-copy: true
-  pdf:
-    documentclass: scrreprt
 
 toc: true
 toc-title: "Innhold"
