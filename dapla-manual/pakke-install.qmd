@@ -65,6 +65,20 @@ Skal man oppdatre alle pakken i et prosjekt benytter man:
 poetry update 
 ```
 
+### Dependabot
+
+Dependabot er en tjeneste som automatisk oppdaterer avhengighetspakker i et GitHub-repoet ditt. Oppdaterte avhengighetspakker kan ha feilrettinger
+og forbedringer som kan gjøre programmet ditt mer stabil og sikkert. Hvis du ikke bruker Dependabot eller andre verktøy for å holde avhengighetspakkene 
+dine oppdaterte, kan dette føre til at programmet ditt kjører på en usikker eller ustabil måte. Dependabot holder pakker oppdatert ved å generere pull 
+requests med oppdaterte versjoner av avhengighetspakkene og sende dem til repository-eieren for godkjenning. Dette kan være nyttig 
+for å holde avhengighetspakkene dine oppdaterte og sikre at programmet ditt kjører så sikkert og effektivt som mulig.
+
+For å sette opp Dependabot i et GitHub-repo, må du først logge inn på GitHub-kontoen din og navigere til repoet du vil 
+sette det opp i. Deretter kan du gå til innstillingssiden for repoet, og under "Verktøy"-fanen, finner du "Dependabot"-innstillingene. 
+Her kan du aktivere Dependabot for repoet ditt og konfigurere innstillingene for oppdatering av avhengighetspakker. Du kan også velge å 
+bare aktivere Dependabot for bestemte avhengighetspakker eller bestemte filer i repoet. Når du har lagret innstillingene, vil Dependabot begynne 
+å generere pull requests for å holde avhengighetspakkene dine oppdaterte.
+
 ### Legge til kernel for poetry
 For å kunne benytte det virtuelle miljøet i en notebook må man sette opp en kernel. Kernel burde gis samme navn som prosjektet.
 
