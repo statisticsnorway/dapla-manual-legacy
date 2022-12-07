@@ -411,5 +411,12 @@
     "title": "31  Databaser",
     "section": "31.2 CloudSQL",
     "text": "31.2 CloudSQL"
+  },
+  {
+    "objectID": "datadoc.html#prøv-datadoc",
+    "href": "datadoc.html#prøv-datadoc",
+    "title": "32  DataDoc",
+    "section": "32.1 Prøv DataDoc",
+    "text": "32.1 Prøv DataDoc\nDataDoc skal være installert i alle Jupyter-miljøene i SSB, så man trenger du ikke installere pakken selv. La oss lage noe falsk data slik at vi kan leke oss litt med DataDoc:\nimport pandas as pd\nfrom datadoc import main\n  \n# Create fake data\ndata = {'id': ['9999999999', '8888888888', '7777777777', '6666666666'],\n        'fylke': [\"01\", \"02\", \"03\", \"03\"],\n        'inntekt': [500000, 250000, 400000, 440000],\n        'rente': [3.2, 4.1, 3.3, 3.4]}\n  \n# Creates a Pandas dataframe\ndf = pd.DataFrame(data)\n\n# Write a Parquet-file to current folder\ndf.to_parquet(\"./test.parquet\")\nNå har vi en fil som heter test.parquet i mappen vi står. Da kan vi åpne DataDoc-grensesnittet for å legge inn metadataen:\nmain(\"./test.parquet\")\nFigur 32.1 viser hvordan DataDoc-grensesnittet ser ut.\n\n\n\nFigur 32.1: Gif som viser hvordan DataDoc-grensesnittet ser ut."
   }
 ]

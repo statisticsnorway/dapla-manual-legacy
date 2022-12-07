@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual - 4&nbsp; Innlogging</title>
+<title>Dapla-manual - 32&nbsp; DataDoc</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -30,8 +93,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./jupyterlab.html" rel="next">
-<link href="./arkitektur.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./databaser.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,8 +126,8 @@ ul.task-list li input[type="checkbox"] {
 <script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Dapla-manual - 4&nbsp; Innlogging">
-<meta property="og:description" content="Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk.">
+<meta property="og:title" content="Dapla-manual - 32&nbsp; DataDoc">
+<meta property="og:description" content="For å kunne gjenfinne data i SSB er man helt avhengig av at det finnes et enhetlig system for metadata knyttet til dataene.">
 <meta property="og:site-name" content="Dapla-manual">
 </head>
 
@@ -74,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Innlogging</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">DataDoc</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -113,11 +176,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./introduksjon.html" class="sidebar-item-text sidebar-link">Introduksjon</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hva er Dapla?</span></a>
@@ -135,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./innlogging.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Innlogging</span></a>
+  <a href="./innlogging.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Innlogging</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,11 +351,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lese-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></a>
@@ -315,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datadoc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">DataDoc</span></a>
+  <a href="./datadoc.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">DataDoc</span></a>
   </div>
 </li>
       </ul>
@@ -334,16 +397,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#dapla" id="toc-dapla" class="nav-link active" data-scroll-target="#dapla"><span class="toc-section-number">4.1</span>  Dapla</a>
-  <ul class="collapse">
-  <li><a href="#prod" id="toc-prod" class="nav-link" data-scroll-target="#prod"><span class="toc-section-number">4.1.1</span>  Prod</a></li>
-  <li><a href="#staging" id="toc-staging" class="nav-link" data-scroll-target="#staging"><span class="toc-section-number">4.1.2</span>  Staging</a></li>
-  </ul></li>
-  <li><a href="#bakkemiljøet" id="toc-bakkemiljøet" class="nav-link" data-scroll-target="#bakkemiljøet"><span class="toc-section-number">4.2</span>  Bakkemiljøet</a>
-  <ul class="collapse">
-  <li><a href="#prod-1" id="toc-prod-1" class="nav-link" data-scroll-target="#prod-1"><span class="toc-section-number">4.2.1</span>  Prod</a></li>
-  <li><a href="#staging-1" id="toc-staging-1" class="nav-link" data-scroll-target="#staging-1"><span class="toc-section-number">4.2.2</span>  Staging</a></li>
-  </ul></li>
+  <li><a href="#prøv-datadoc" id="toc-prøv-datadoc" class="nav-link active" data-scroll-target="#prøv-datadoc"><span class="toc-section-number">32.1</span>  Prøv DataDoc</a></li>
   </ul>
 </nav>
     </div>
@@ -352,7 +406,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Innlogging</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">DataDoc</span></h1>
 </div>
 
 
@@ -367,120 +421,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Innlogging på Dapla er veldig enkelt. Dapla er en nettadresse som alle SSB-ere kan gå inn på hvis de er logget på SSB sitt nettverk. Å være logget på SSB sitt nettverk betyr i denne sammenhengen at man er logget på med <strong>VPN</strong>, enten man er på kontoret eller på hjemmekontor. For å gjøre det enda enklere har vi laget en fast snarvei til denne nettadressen <a href="https://ssbno.sharepoint.com/sites/byraanettet">på vårt intranett/Byrånettet</a>(se <a href="#fig-intranett">Figur&nbsp;<span>4.1</span></a>).</p>
-<div id="fig-intranett" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/intranett_dapla.png" class="img-fluid figure-img" alt="Bilde av SSB sitt intranett der Dapla-lenken er uthevet"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;4.1: Snarvei til Dapla fra intranett</figcaption><p></p>
-</figure>
-</div>
-<p>Men samtidig som det er lett å logge seg på, så er det noen kompliserende ting som fortjener en forklaring. Noe skyldes at vi mangler et klart språk for å definere bakkemiljøet og skymiljøet slik at alle skjønner hva man snakker om. I denne boken definerer bakkemiljøet som stedet der man har drevet med statistikkproduksjon de siste tiårene. Skymiljøet er den nye dataplattformen <strong>Dapla</strong> på Google Cloud.</p>
-<p>Det som gjør ting litt komplisert er at vi har 2 Jupyter-miljøer på både bakke og sky. Årsaken er at vi har ett test- og ett prod-område for hver, og det blir i alt 4 Jupyter-miljøer. <a href="#fig-four_envs">Figur&nbsp;<span>4.2</span></a> viser dette.</p>
-<div id="fig-four_envs" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/bakke_vs_sky.png" class="img-fluid figure-img" style="width:75.0%" alt="Bilde som viser de 4 Jupyter-miljøene i SSB"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;4.2: De 4 Jupyter-miljøene i SSB. Et test-miljø og et prod-miljø på bakke og sky/Dapla</figcaption><p></p>
-</figure>
-</div>
-<p>Hver av disse miljøene har sin egen nettadresse og sitt eget bruksområde.</p>
-<section id="dapla" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="dapla"><span class="header-section-number">4.1</span> Dapla</h2>
-<p>I de fleste tilfeller vil en statistikker eller forsker ønske å logge seg inn i prod-miljøet. Det er her man skal kjøre koden sin i et produksjonsløp som skal publiseres eller utvikles. I noen tilfeller hvor man ber om å få tilgjengliggjort en ny tjeneste så vil denne først rulles ut i testområdet som vi kaller <strong>staging-området</strong>. Årsaken er at vi ønsker å beskytte prod-miljøet fra software som potensielt ødelegger for eksisterende funksjonalitet. Derfor ruller vi ut nye ting i staging først. Av den grunn vil de fleste oppleve å bli bedt om å logge seg inn der for testing en eller annen gang. Under forklarer vi hvordan man går frem for å logge seg på de to ulike miljøene på Dapla.</p>
-<section id="prod" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="prod"><span class="header-section-number">4.1.1</span> Prod</h3>
-<p>For å logge seg inn inn i prod-miljøet på Dapla kan man gjøre følgende:</p>
+<p>For å kunne gjenfinne data i SSB er man helt avhengig av at det finnes et enhetlig system for metadata knyttet til dataene. <a href="https://github.com/statisticsnorway/datadoc">DataDoc</a> er SSBs system for å dokumentere datasett på den nye dataplattformen <strong>Dapla</strong>.</p>
+<p>Det er bygget et grensesnitt i Python for å gjøre det enklest mulig å dokumentere et datasett. Foreløpig støtter løsningen følgende filformater:</p>
 <ol type="1">
-<li>Gå inn på lenken <a href="https://jupyter.dapla.ssb.no/" class="uri">https://jupyter.dapla.ssb.no/</a> i en Chrome-nettleser eller klikk på lenken på Byrånettet som vist i <a href="#fig-intranett">Figur&nbsp;<span>4.1</span></a>.</li>
-<li>Alle i SSB har en Google Cloud-konto som må brukes når man logger seg på Dapla. Brukernavnet i Google er det samme som din <em>korte</em> epost-adresse (f.eks. cth@ssb.no). Hvis du ikke allerede er logget inn i Google vil du få spørsmål om å velge hvilken Google-konto som skal brukes (<a href="#fig-login-1">Figur&nbsp;<span>4.3</span></a>). Logg inn med din Google-konto (ssb.no) og ditt AD-passord.</li>
+<li>parquet</li>
+<li>sas7bdat</li>
 </ol>
-<div id="fig-login-1" class="quarto-figure quarto-figure-center anchored">
+<p>Under finner du beskrivelse av hvordan du kan begynne å bruke løsningen til å dokumentere datasett.</p>
+<section id="prøv-datadoc" class="level2" data-number="32.1">
+<h2 data-number="32.1" class="anchored" data-anchor-id="prøv-datadoc"><span class="header-section-number">32.1</span> Prøv DataDoc</h2>
+<p>DataDoc skal være installert i alle <a href="./innlogging.html">Jupyter-miljøene i SSB</a>, så man trenger du ikke installere pakken selv. La oss lage noe falsk data slik at vi kan leke oss litt med DataDoc:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datadoc <span class="im">import</span> main</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create fake data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'id'</span>: [<span class="st">'9999999999'</span>, <span class="st">'8888888888'</span>, <span class="st">'7777777777'</span>, <span class="st">'6666666666'</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fylke'</span>: [<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>, <span class="st">"03"</span>],</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'inntekt'</span>: [<span class="dv">500000</span>, <span class="dv">250000</span>, <span class="dv">400000</span>, <span class="dv">440000</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">'rente'</span>: [<span class="fl">3.2</span>, <span class="fl">4.1</span>, <span class="fl">3.3</span>, <span class="fl">3.4</span>]}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Creates a Pandas dataframe</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Write a Parquet-file to current folder</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>df.to_parquet(<span class="st">"./test.parquet"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nå har vi en fil som heter <code>test.parquet</code> i mappen vi står. Da kan vi åpne DataDoc-grensesnittet for å legge inn metadataen:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>main(<span class="st">"./test.parquet"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><a href="#fig-datadoc-ux">Figur&nbsp;<span>32.1</span></a> viser hvordan DataDoc-grensesnittet ser ut.</p>
+<div id="fig-datadoc-ux" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="./images/login-1.png" class="img-fluid figure-img" style="width:75.0%" alt="Bilde som vise påloggingsvindu fra Google"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;4.3: Velg en Google-konto</figcaption><p></p>
+<p><img src="./images/datdoc_gif.gif" class="img-fluid figure-img" alt="Gif som viser hvordan DataDoc kan brukes."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;32.1: Gif som viser hvordan DataDoc-grensesnittet ser ut.</figcaption><p></p>
 </figure>
 </div>
-<ol start="3" type="1">
-<li>Deretter blir man spurt om man godtar at ssb.no (altså Dapla) kan bruke din Google Cloud-konto (<a href="#fig-login-2">Figur&nbsp;<span>4.4</span></a>). Trykk <strong>Allow</strong>.</li>
-</ol>
-<div id="fig-login-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/login-2.png" class="img-fluid figure-img" style="width:75.0%" alt="Spørsmål om å godta at SSB-profilen din blir brukt av Google"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;4.4: Tillat at ssb.no får bruke din Google Cloud-konto</figcaption><p></p>
-</figure>
-</div>
-<ol start="4" type="1">
-<li>Deretter lander man på en side som lar deg avgjøre hvor mye maskinkraft som skal holdes av til deg (<a href="#fig-login-3">Figur&nbsp;<span>4.5</span></a>). Det øverste alternativet er valgt som standard, og er tilstrekkelig for de fleste.</li>
-</ol>
-<div id="fig-login-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/login-3.png" class="img-fluid figure-img" style="width:75.0%" alt="Spørsmål om å godta at SSB-profilen din blir brukt av Google"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;4.5: Velg hvor mye maskinkraft du trenger</figcaption><p></p>
-</figure>
-</div>
-<ol start="5" type="1">
-<li>Vent til maskinen din starter opp (<a href="#fig-login-4">Figur&nbsp;<span>4.6</span></a>). Oppstartstiden kan variere.</li>
-</ol>
-<div id="fig-login-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/login-4.png" class="img-fluid figure-img" style="width:100.0%" alt="Bilde som viser oppstart av Jupyter"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;4.6: Starter opp Jupyter</figcaption><p></p>
-</figure>
-</div>
-<p>Etter dette er man logget inn i et Jupyter-miljø som kjører på en minimal Ubuntu-maskin. Hvis man er del av <a href="./dapla.team.html">et Dapla-team</a> får man også tilgang til alt teamet har tilgang til.</p>
-</section>
-<section id="staging" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="staging"><span class="header-section-number">4.1.2</span> Staging</h3>
-<p>Innlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå <a href="https://jupyter.dapla-staging.ssb.no/" class="uri">https://jupyter.dapla-staging.ssb.no/</a>.</p>
-<p>Litt mer om hva som er tilgjenglig her kommer.</p>
-</section>
-</section>
-<section id="bakkemiljøet" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="bakkemiljøet"><span class="header-section-number">4.2</span> Bakkemiljøet</h2>
-<p>Jupyter-miljøet på bakken bruker <a href="https://github.com/statisticsnorway/jupyterlab-common">samme base-image</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Merk
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Fom. 5. desember 2022 har vi byttet ut Jupyter-miljøet på bakken. Beskrivelsene under gjelder derfor det nye miljøet. Fram til 15. januar vil du kunne bruke det gamle miljøet ved å gå inn på lenken <a href="https://jupyter-prod.ssb.no/" class="uri">https://jupyter-prod.ssb.no/</a> manuelt i Google Chrome. Etter 15. januar blir det gamle Jupyter-miljøet avviklet.</p>
-</div>
-</div>
-<section id="prod-1" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="prod-1"><span class="header-section-number">4.2.1</span> Prod</h3>
-<p>Du logger deg inn på prod i bakkemiljøet på følgende måte:</p>
-<ol type="1">
-<li>Logg deg inn på Citrix-Windows i bakkemiljøet. Det kan gjøres ved å bruke lenken <strong>Citrix</strong> på Byrånettet, som også vises i <a href="#fig-intranett">Figur&nbsp;<span>4.1</span></a>.</li>
-<li>Trykk på Jupyterlab-ikonet, som vist på <span class="citation" data-cites="jupyter-icon">(<a href="references.html#ref-jupyter-icon" role="doc-biblioref"><strong>jupyter-icon?</strong></a>)</span>, og logg deg inn med vanlig brukernavn og passord.</li>
-</ol>
-<div id="jupyter-icon" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./images/citrix_jupyter_icon.png" class="img-fluid figure-img" style="width:75.0%" alt="Bildet som viser hvordan man åpner Jupyterlab-miljet på bakken."></p>
-<p></p><figcaption class="figure-caption">Jupyterlab-ikon på Skrivebordet i Citrix-Windows.</figcaption><p></p>
-</figure>
-</div>
-<p>Når du trykker på ikonet blir du tatt til nettadressen <a href="https://sl-jupyter-p.ssb.no/" class="uri">https://sl-jupyter-p.ssb.no/</a>. Du kunne også åpnet Jupyterlab ved åpne Chrome-nettleseren og skrive inn adressen manuelt.</p>
-</section>
-<section id="staging-1" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="staging-1"><span class="header-section-number">4.2.2</span> Staging</h3>
-<p>Innlogging til staging-miljøet har ingen snarvei på Skrivebordet, og du må gjøre følgende for å åpne miljøet:</p>
-<ol type="1">
-<li>Åpne Chrome-nettleseren i Citrix-Windows.</li>
-<li>Skriv inn url-en <a href="https://sl-jupyter-t.ssb.no/" class="uri">https://sl-jupyter-t.ssb.no/</a></li>
-</ol>
 
 
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Hva er base-image?<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -619,13 +594,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./arkitektur.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Arkitektur</span></span>
+      <a href="./databaser.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Databaser</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./jupyterlab.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jupyterlab</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">Referanser</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
