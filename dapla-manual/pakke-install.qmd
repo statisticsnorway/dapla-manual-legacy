@@ -67,17 +67,24 @@ poetry update
 
 ### Dependabot
 
-Dependabot er en tjeneste som automatisk oppdaterer avhengighetspakker i et GitHub-repoet ditt. Oppdaterte avhengighetspakker kan ha feilrettinger
-og forbedringer som kan gjøre programmet ditt mer stabil og sikkert. Hvis du ikke bruker Dependabot eller andre verktøy for å holde avhengighetspakkene 
-dine oppdaterte, kan dette føre til at programmet ditt kjører på en usikker eller ustabil måte. Dependabot holder pakker oppdatert ved å generere pull 
-requests med oppdaterte versjoner av avhengighetspakkene og sende dem til repository-eieren for godkjenning. Dette kan være nyttig 
-for å holde avhengighetspakkene dine oppdaterte og sikre at programmet ditt kjører så sikkert og effektivt som mulig.
+Når man installerer pakker så vil det etter hvert utvikle seg et sett av potensielt kompliserte avhengigheter mellom disse pakkene. Dette skyldes at en pakke kan benytte seg av funksjonalitet i andre pakker, som igjen benytter seg av funksjonalitet i andre pakker, osv.. Hvis noen finner en sikkerhetssårbarhet i en pakke så kan det fikses ved at en ny versjon av den pakken slippes, som igjen kan få konsekvenser for pakker som er avhengig av denne. 
 
-For å sette opp Dependabot i et GitHub-repo, må du først logge inn på GitHub-kontoen din og navigere til repoet du vil 
-sette det opp i. Deretter kan du gå til innstillingssiden for repoet, og under "Verktøy"-fanen, finner du "Dependabot"-innstillingene. 
-Her kan du aktivere Dependabot for repoet ditt og konfigurere innstillingene for oppdatering av avhengighetspakker. Du kan også velge å 
-bare aktivere Dependabot for bestemte avhengighetspakker eller bestemte filer i repoet. Når du har lagret innstillingene, vil Dependabot begynne 
-å generere pull requests for å holde avhengighetspakkene dine oppdaterte.
+I SSB er det tilrettelagt for at alle som versjonshåndterer koden sin på GitHub kan skanne pakkene sine for sårbarheter og nye versjoner av pakker med [Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates). Dependabot hjelper oss med å finne og fikse sårbarheter og gamle pakkeversjoner. Dette er spesielt viktig når man installerer sine egne pakker.
+
+Det er anbefalt at alle som installerer sine egne pakker i SSB skrur på Dependabot i sine GitHub-repoer. Du kan skru på ved å gjøre følgende: 
+
+- Gå inn repoet
+- Trykk på **Settings** for det repoet som vist på @fig-github-repo-settings-button.
+
+![Åpne *Settings* for et GitHub-repo.](images/github_repo_settings_button.png){fig-alt="Bilde av knappen man trykker på for å komme inn i repo-settings" #fig-github-repo-settings-button}
+
+- I menyen til venstre velger du **Code security and analysis**
+
+- Under seksjonen **Dependabot** velger **Enable** på minst **Dependabot alerts** og **Dependabot security updates**, slik som vist i @fig-github-dependabot.  
+
+![Skru på Dependabot i GitHub.](images/github_dependabot.png){fig-alt="Bilde som indikerer hvor man skrur på Dependabot i GitHub" #fig-github-dependabot}
+
+Når du har gjort dette vil GitHub varsle deg hvis det finnes en kjent sårbarhet i pakkene som benyttes. 
 
 ### Legge til kernel for poetry
 For å kunne benytte det virtuelle miljøet i en notebook må man sette opp en kernel. Kernel burde gis samme navn som prosjektet.
