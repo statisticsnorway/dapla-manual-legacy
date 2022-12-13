@@ -9,6 +9,9 @@ Det er bygget et grensesnitt i Python for å gjøre det enklest mulig å dokumen
 
 Under finner du beskrivelse av hvordan du kan begynne å bruke løsningen til å dokumentere datasett.
 
+::: {.callout-warning}
+Vi ønsker at du skal teste DataDoc-applikasjonen. Den viktigste funksjonaliteten skal være tilgjengelig, og det er fullt mulig å benytte DataDoc i SSBs Jupyter-miljøer. Det er imidlertid viktig å være klar over at applikasjonen fortsatt er i en utviklings- og testfase (beta-løsning) og kan inneholde feil og mangler. Har du spørsmål, eventuelt vil rapporterer om feil og mangler, så setter vi pris på om du gjør dette i Yammer-gruppa `Dapla`.
+:::
 ::: {.callout-important}
 ## Viktig informasjon
 
