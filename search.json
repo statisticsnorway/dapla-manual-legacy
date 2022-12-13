@@ -413,10 +413,24 @@
     "text": "31.2 CloudSQL"
   },
   {
-    "objectID": "datadoc.html#prøv-datadoc",
-    "href": "datadoc.html#prøv-datadoc",
+    "objectID": "datadoc.html#hvordan-dokumentere-datasett-og-variabler-med-datadoc",
+    "href": "datadoc.html#hvordan-dokumentere-datasett-og-variabler-med-datadoc",
     "title": "32  DataDoc",
-    "section": "32.1 Prøv DataDoc",
-    "text": "32.1 Prøv DataDoc\nDataDoc skal være installert i alle Jupyter-miljøene i SSB, så man trenger du ikke installere pakken selv. La oss lage noe falsk data slik at vi kan leke oss litt med DataDoc:\nimport pandas as pd\nfrom datadoc import main\n  \n# Create fake data\ndata = {'id': ['9999999999', '8888888888', '7777777777', '6666666666'],\n        'fylke': [\"01\", \"02\", \"03\", \"03\"],\n        'inntekt': [500000, 250000, 400000, 440000],\n        'rente': [3.2, 4.1, 3.3, 3.4]}\n  \n# Creates a Pandas dataframe\ndf = pd.DataFrame(data)\n\n# Write a Parquet-file to current folder\ndf.to_parquet(\"./test.parquet\")\nNå har vi en fil som heter test.parquet i mappen vi står. Da kan vi åpne DataDoc-grensesnittet for å legge inn metadataen:\nmain(\"./test.parquet\")\nFigur 32.1 viser hvordan DataDoc-grensesnittet ser ut.\n\n\n\nFigur 32.1: Gif som viser hvordan DataDoc-grensesnittet ser ut."
+    "section": "32.1 Hvordan dokumentere datasett og variabler med DataDoc",
+    "text": "32.1 Hvordan dokumentere datasett og variabler med DataDoc\nFør du tar i bruk DataDoc-applikasjonen er det viktig å forstå hvilken informasjon som skal til for å dokumentere et datasett. I DataDoc-applikasjonen skal du fylle ut flere felter om både datasettet og variablene som inngår i datasettet, eksempelvis\n\nkortnavn\nnavn\ndatatilstand\npopulasjonsbeskrivelse\n++\n\nDet er utarbeidet en detaljert beskrivelse hva hvert felt betyr, og hvordan de skal fylles ut både for datasett og variabler: - DataDoc - hvordan dokumentere et datasett - DataDoc - hvordan dokumentere variablene (variabelforekomstene) som inngår i datasettet\nDataDoc skal være installert i alle Jupyter-miljøene i SSB, så du trenger ikke installere pakken selv.\n\n\n\n\n\n\nViktig informasjon\n\n\n\nDataDoc kan foreløpig ikke kjøres i Jupyter notebook med virtuelle miljøer (f.eks. et ssb-project), men må startes i den vanlige kernelen i en notebook."
+  },
+  {
+    "objectID": "datadoc.html#prøve-datadoc",
+    "href": "datadoc.html#prøve-datadoc",
+    "title": "32  DataDoc",
+    "section": "32.2 Prøve DataDoc",
+    "text": "32.2 Prøve DataDoc\nLa oss lage et test-datasett slik at vi kan leke oss litt med DataDoc:\nimport pandas as pd\nfrom datadoc import main\n  \n# Create fake data\ndata = {'id': ['9999999999', '8888888888', '7777777777', '6666666666'],\n        'fylke': [\"01\", \"02\", \"03\", \"03\"],\n        'inntekt': [500000, 250000, 400000, 440000],\n        'rente': [3.2, 4.1, 3.3, 3.4]}\n  \n# Creates a Pandas dataframe\ndf = pd.DataFrame(data)\n\n# Write a Parquet-file to current folder\ndf.to_parquet(\"./test.parquet\")\nNå har vi en fil som heter test.parquet i mappen vi står. Da kan vi åpne DataDoc-grensesnittet for å legge inn metadataene:\nmain(\"./test.parquet\")\nFigur 32.1 viser hvordan DataDoc-grensesnittet ser ut.\n\n\n\nFigur 32.1: Gif som viser hvordan DataDoc-grensesnittet ser ut."
+  },
+  {
+    "objectID": "datadoc.html#hvor-lagres-datadoc-dokumentasjonen-metadata",
+    "href": "datadoc.html#hvor-lagres-datadoc-dokumentasjonen-metadata",
+    "title": "32  DataDoc",
+    "section": "32.3 Hvor lagres DataDoc-dokumentasjonen (metadata)",
+    "text": "32.3 Hvor lagres DataDoc-dokumentasjonen (metadata)\nNår du trykker på Lagre-knappen i DataDoc så skrives alle metadata til en fil i samme mappe (katalog) som datafilen. Dette er en JSON-fil med nesten samme navn som datafilen. Navnekonvensjonen for metadatafilen er\n<navn på datafil uten endelse>__DOC.json\nEksempelvis hvis datafilen har navnet skattedata_p2022_v1.parquet, så vil DataDoc lagre metadata i filen skattedata_p2022_v1__DOC.json.\nFordelen med å benytte en JSON-fil til å lagre metadata er at denne filen kan kopieres og flyttes like enkelt som selve datafilen. JSON-filer er strukturerte tekstfiler som kan leses av både maskiner (Python/R) og av mennesker (åpnes i en tekst-editor).\nSe et eksempel på JSON metadata-fil lagret av DataDoc.\n\n\n\n\n\n\nInformasjon\n\n\n\nI Dapla skal det bygges en felles datakatalog for SSB. Tanken er at alle metadata, eksempelvis datasett-dokumentasjon fra DataDoc (JSON-filene), skal inngå i SSBs datakatalog. Datakatalogen gjør det mulig å finne (søke etter), forstår og gjenbruke data både internt og ekstern."
   }
 ]
