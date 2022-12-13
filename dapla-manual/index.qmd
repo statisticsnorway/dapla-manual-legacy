@@ -8,4 +8,4 @@ Denne boken er skrevet med [Quarto](https://quarto.org/) og er publisert på <ht
 
 ## Bidragsytere {.unnumbered}
 
-Dapla-manualen er initiert og skrevet av **Team Statistikktjenester** i SSB. Bidragsytere er Øyvind Bruer-Skarsbø, Miles Winther, Bjørn Andre Skaar og Anders Lunde. Ved behov for oppdateringer og nytt innhold håper vi at alle i SSB kan bidra. 
+Dapla-manualen er initiert og skrevet av **Team Statistikktjenester** i SSB. Bidragsytere er Øyvind Bruer-Skarsbø, Miles Winther, Bjørn Andre Skaar, Anders Lunde og Damir Medakovic. Ved behov for oppdateringer og nytt innhold håper vi at alle i SSB kan bidra. 
