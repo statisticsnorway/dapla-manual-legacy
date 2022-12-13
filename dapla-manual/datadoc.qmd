@@ -9,14 +9,9 @@ Det er bygget et grensesnitt i Python for å gjøre det enklest mulig å dokumen
 
 Under finner du beskrivelse av hvordan du kan begynne å bruke løsningen til å dokumentere datasett.
 
----
-**VIKTIG INFORMASJON**
-
-*Vi ønsker at du skal teste DataDoc-applikasjonen. Den viktigste funksjonaliteten skal være tilgjengelig, og det er fullt mulig å benytte DataDoc i SSBs Jupyter-miljøer. **Det er imidlertid viktig å være klar over at applikasjonen fortsatt er i en utviklings- og testfase (beta-løsning) og kan inneholde feil og mangler.***
-
-*Har du spørsmål, eventuelt vil rapporterer om feil og mangler, så setter vi pris på om du gjør dette i Yammer-gruppa "Dapla".*
-
----
+::: {.callout-warning}
+Vi ønsker at du skal teste DataDoc-applikasjonen. Den viktigste funksjonaliteten skal være tilgjengelig, og det er fullt mulig å benytte DataDoc i SSBs Jupyter-miljøer. Det er imidlertid viktig å være klar over at applikasjonen fortsatt er i en utviklings- og testfase (beta-løsning) og kan inneholde feil og mangler. Har du spørsmål, eventuelt vil rapporterer om feil og mangler, så setter vi pris på om du gjør dette i Yammer-gruppa `Dapla`.
+:::
 
 ## Hvordan dokumentere datasett og variabler med DataDoc
 
@@ -28,9 +23,9 @@ Det er utarbeidet en detaljert beskrivelse hva hvert felt betyr, og hvordan de s
 
 DataDoc skal være installert i alle [Jupyter-miljøene i SSB](./innlogging.qmd), så du trenger ikke installere pakken selv.
 
-**VIKTIG:** DataDoc kan foreløpig ikke kjøres i Jupyter notebook med virtuelle miljøer (*ssb-project/virtuelt miljø*), men **må startes i en"Python 3 (ipykernal)" notebook**.
-
----
+::: {.callout-warning}
+DataDoc kan foreløpig ikke kjøres i Jupyter notebook med virtuelle miljøer (*ssb-project/virtuelt miljø*), men **må startes i en "Python 3 (ipykernal)" notebook**
+:::
 
 ## Prøve DataDoc
 
@@ -72,9 +67,6 @@ Fordelen med å benytte en JSON-fil til å lagre metadata er at denne filen kan 
 
 Se et [eksempel på JSON metadata-fil](https://github.com/statisticsnorway/datadoc/blob/master/klargjorte_data/befolkning/person_testdata_p2021-12-31_p2021-12-31_v1__DOC.json) lagret av DataDoc.
 
----
-**INFORMASJON**
-
-*I Dapla skal det bygges en felles datakatalog for SSB. Tanken er at alle metadata, eksempelvis datasett-dokumentasjon fra DataDoc (JSON-filene), skal inngå i SSBs datakatalog. Datakatalogen gjør det mulig å finne (søke etter), forstår og gjenbruke data både internt og ekstern.*
-
----
+::: {.callout-note}
+I Dapla skal det bygges en felles datakatalog for SSB. Tanken er at alle metadata, eksempelvis datasett-dokumentasjon fra DataDoc (JSON-filene), skal inngå i SSBs datakatalog. Datakatalogen gjør det mulig å finne (søke etter), forstår og gjenbruke data både internt og ekstern.
+:::
