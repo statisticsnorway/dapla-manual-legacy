@@ -9,9 +9,32 @@ Det er bygget et grensesnitt i Python for å gjøre det enklest mulig å dokumen
 
 Under finner du beskrivelse av hvordan du kan begynne å bruke løsningen til å dokumentere datasett.
 
-## Prøv DataDoc
+---
+**VIKTIG INFORMASJON**
 
-DataDoc skal være installert i alle [Jupyter-miljøene i SSB](./innlogging.qmd), så man trenger du ikke installere pakken selv. La oss lage noe falsk data slik at vi kan leke oss litt med DataDoc: 
+*Vi ønsker at du skal teste DataDoc-applikasjonen. Den viktigste funksjonaliteten skal være tilgjengelig, og det er fullt mulig å benytte DataDoc i SSBs Jupyter-miljøer. **Det er imidlertid viktig å være klar over at applikasjonen fortsatt er i en utviklings- og testfase (beta-løsning) og kan inneholde feil og mangler.***
+
+*Har du spørsmål, eventuelt vil rapporterer om feil og mangler, så setter vi pris på om du gjør dette i Yammer-gruppa "Dapla".*
+
+---
+
+## Hvordan dokumentere datasett og variabler med DataDoc
+
+**Før du tar i bruk DataDoc-applikasjonen er det viktig å forstå hvilken informasjon som skal til for å dokumentere et datasett.** I DataDoc-applikasjonen skal du fylle ut flere felter om både datasettet og variablene som inngår i datasettet, eksempelvis feltene *kortnavn*, *navn*, *datatilstand*, *populasjonsbeskrivelse*, osv.
+
+Det er utarbeidet en detaljert beskrivelse hva hvert felt betyr, og hvordan de skal fylles ut både for datasett og variabler:
+- DataDoc - [hvordan dokumentere et **datasett**](https://statistics-norway.atlassian.net/l/cp/i4Wysf9Q)
+- DataDoc - [hvordan dokumentere **variablene**](https://statistics-norway.atlassian.net/l/cp/zpX2YZwU) (variabelforekomstene) som inngår i datasettet
+
+DataDoc skal være installert i alle [Jupyter-miljøene i SSB](./innlogging.qmd), så du trenger ikke installere pakken selv.
+
+**VIKTIG:** DataDoc kan foreløpig ikke kjøres i Jupyter notebook med virtuelle miljøer (*ssb-project/virtuelt miljø*), men **må startes i en"Python 3 (ipykernal)" notebook**.
+
+---
+
+## Prøve DataDoc
+
+La oss lage et test-datasett slik at vi kan leke oss litt med DataDoc: 
 
 ```python
 import pandas as pd
@@ -29,7 +52,7 @@ df = pd.DataFrame(data)
 # Write a Parquet-file to current folder
 df.to_parquet("./test.parquet")
 ```
-Nå har vi en fil som heter `test.parquet` i mappen vi står. Da kan vi åpne DataDoc-grensesnittet for å legge inn metadataen: 
+Nå har vi en fil som heter `test.parquet` i mappen vi står. Da kan vi åpne DataDoc-grensesnittet for å legge inn metadataene: 
 
 ```python
 main("./test.parquet")
@@ -39,3 +62,19 @@ main("./test.parquet")
 
 ![Gif som viser hvordan DataDoc-grensesnittet ser ut.](./images/datdoc_gif.gif){fig-alt="Gif som viser hvordan DataDoc kan brukes." #fig-datadoc-ux}
 
+---
+
+## Hvor lagres DataDoc-dokumentasjonen (metadata)
+
+Når du trykker på **Lagre**-knappen i DataDoc så skrives alle metadata til en fil i samme mappe (katalog) som datafilen. Dette er en JSON-fil med nesten samme navn som datafilen. Navnekonvensjonen for metadatafilen er `[navn på datafil uten endelse]__DOC.json`, eksempelvis hvis datafilen har navnet ***skattedata_p2022_v1.parquet***, så vil DataDoc lagre metadata i filen ***skattedata_p2022_v1__DOC.json***.
+
+Fordelen med å benytte en JSON-fil til å lagre metadata er at denne filen kan kopieres og flyttes like enkelt som selve datafilen. JSON-filer er strukturerte tekstfiler som kan leses av både maskiner (Python/R) og av mennesker (åpnes i en tekst-editor).
+
+Se et [eksempel på JSON metadata-fil](https://github.com/statisticsnorway/datadoc/blob/master/klargjorte_data/befolkning/person_testdata_p2021-12-31_p2021-12-31_v1__DOC.json) lagret av DataDoc.
+
+---
+**INFORMASJON**
+
+*I Dapla skal det bygges en felles datakatalog for SSB. Tanken er at alle metadata, eksempelvis datasett-dokumentasjon fra DataDoc (JSON-filene), skal inngå i SSBs datakatalog. Datakatalogen gjør det mulig å finne (søke etter), forstår og gjenbruke data både internt og ekstern.*
+
+---
