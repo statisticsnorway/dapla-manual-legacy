@@ -1,0 +1,191 @@
+# Jobbe med data
+
+Når vi oppretter et **dapla-team** så får vi tildelt et eget området for lagring av data. For å kunne lese og skrive data fra Jupyter til disse områdene må vi autentisere oss, siden Jupyter og lagringsområdet er to separate sikkerhetsoner. 
+
+@fig-storage viser dette klarer skillet mellom hvor vi koder og hvor dataene ligger på Dapla^[I de tidligere systemene på bakken så var det ikke nødvendig med autentisering mellom kodemiljø og datalagringen]. I dette kapitlet beskriver vi nærmere hvordan du kan jobbe med dataene dine på Dapla. 
+
+![Tydelig skille mellom kodemiljø og datalagring på Dapla.](images/data-storage-image.png){ fig-alt="Bilde som viser forskjellen mellom kodemiljø og hvor data lagres." #fig-storage }
+
+## dapla-toolbelt
+
+For å gjøre det enklere å jobbe data på tvers av Jupyter og lagringsområdet er det laget en egen Python-pakke som heter [dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) forenkler lesing og skriving av filer i SSB. Denne er foreløpig kun tilgjengelig for de som jobber med **Python**, men det utvikles også en tilsvarende [pakke for **R**](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html) også.
+
+Selv om man kan sette opp koden for å jobbe mot SSB-data mer manuelt, tilbyr **dapla-toolbelt** et mer Pandas-aktig tilnærming til dette. For å importere hele biblioteket til en notebook så skriver man bare
+
+```python
+import dapla as dp
+```
+
+**dapla-toolbelt** er installert i standard-kernelen på dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med ipykernel.
+
+::: {.callout-tip}
+## Felles data på Dapla
+
+Det finnes et område som alle SSB-ansatte har lese- og skrivetilgang til. Det er **gs://ssb-prod-dapla-felles-data-delt/** i prod-miljøet på Dapla, og **gs://ssb-staging-dapla-felles-data-delt/** i staging-miljøet. I eksemplene under bruker vi disse mappene side alle har tilgang til de og derfor kan kjøre eksemplene selv.
+:::
+
+## Liste ut innhold
+
+Å liste ut innhold i et gitt mappe på Dapla er enkelt. Under ser du hvordan du kan liste ut innholdet i mappen **gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases**:
+
+```python
+from dapla import FileClient
+
+FileClient.ls("gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases")
+```
+Syntaxen med `ls` er veldig lik det man vil de som bruker en Linux-terminal er vant til. 
+
+## Skrive ut filer
+
+Å skrive filer til et lagringsområde på Dapla er også enkelt. Det ligner mye på den syntaxen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
+
+### Parquet
+
+Under lager vi en dataframe i en notebook og skriver den ut til en parquet-fil. Stien vi skriver til er **gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases/data.parquet**:
+
+::: {.panel-tabset}
+
+## Python
+
+```python
+```python
+
+import dapla as dp
+import pandas as pd
+
+# Create pandas dataframe
+data = {
+    'apples': [3, 2, 0, 1], 
+    'oranges': [0, 3, 7, 2]
+}
+purchases = pd.DataFrame(data, index=['June', 'Robert', 'Lily', 'David'])
+
+# Write pandas dataframe to GCS bucket
+dp.write_pandas(purchases, 'gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases/data.parquet')
+```
+
+## R
+
+Kommer snart
+
+:::
+
+
+
+### Tekstfiler
+
+Kommer snart eksempler på hvordan man kan skrive ut tekstfiler som CSV, JSON og XML.
+
+::: {.panel-tabset}
+
+## Python
+
+```python
+import numpy as np
+import pandas as pd
+from dapla import FileClient
+
+# Folder to write to
+path_base = "gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases"
+
+# Create a dataframe with Pandas
+df = pd.DataFrame(np.random.randn(10, 5), columns=["A", "B", "C", "D", "E"])
+
+# Save dataframe as json with dapla-toolbelt
+FileClient.save_pandas_to_json(df, f"{path_base}/df.json")
+```	
+
+## R
+
+Kommer snart
+
+:::
+
+### xlsx
+
+Det er ikke anbefalt å bruke xlsx-formatet, men her ser du hvordan det kan skrives ut. Mer kommer. 
+
+::: {.panel-tabset}
+
+## Python
+
+Kommer snart.
+
+## R
+
+Kommer snart
+
+:::
+
+
+
+## Lese inn filer
+
+Å lese inn filer på med dapla-toolbelt er nesten like rett frem som med Pandas. Under finner du eksempler på hvordan du kan lese inn data til en Jupyter Notebooks på Dapla.
+
+### Parquet
+
+::: {.panel-tabset}
+
+## Python
+
+```python
+import dapla as dp
+
+# Read path into pandas dataframe 
+dp.read_pandas('gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases')
+```
+
+## R
+
+Kommer snart
+
+:::
+
+### Tekstfiler
+
+Kommer mer snart. Python-koden under bygger på eksempelet over. 
+
+::: {.panel-tabset}
+
+## Python
+
+
+```python
+from dapla import FileClient
+
+# Folder to write to
+path_base = "gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases"
+
+# Read in json-file from dapla-storage
+df = FileClient.load_json_to_pandas(f"{path_base}/df.json")
+```
+
+
+## R
+
+Kommer snart
+
+:::
+
+### xlsx
+
+::: {.panel-tabset}
+
+## Python
+
+Kommer snart
+
+## R
+
+Kommer snart
+
+:::
+
+## Slette filer
+
+Kommer snart.
+
+## Flytte filer
+
+Kommer snart. 
