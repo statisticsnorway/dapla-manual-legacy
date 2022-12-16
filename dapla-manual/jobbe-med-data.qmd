@@ -24,20 +24,44 @@ import dapla as dp
 Det finnes et område som alle SSB-ansatte har lese- og skrivetilgang til. Det er **gs://ssb-prod-dapla-felles-data-delt/** i prod-miljøet på Dapla, og **gs://ssb-staging-dapla-felles-data-delt/** i staging-miljøet. I eksemplene under bruker vi disse mappene side alle har tilgang til de og derfor kan kjøre eksemplene selv.
 :::
 
-## Liste ut innhold
+## Liste ut innhold i mappe
 
-Å liste ut innhold i et gitt mappe på Dapla er enkelt. Under ser du hvordan du kan liste ut innholdet i mappen **gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases**:
+Å liste ut innhold i et gitt mappe på Dapla er ganske enkelt. Under ser du hvordan du kan liste ut innholdet i mappen:  
+`gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases`:
+
+::: {.panel-tabset}
+
+## Python
+
+Vi bruker modulen `FileClient` fra **dapla-toolbelt** for å liste ut innholdet i en mappe.
 
 ```python
 from dapla import FileClient
 
-FileClient.ls("gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases")
+# Set path to folder
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler/purchases"
+
+FileClient.ls(bucket + folder)
 ```
-Syntaxen med `ls` er veldig lik det man vil de som bruker en Linux-terminal er vant til. 
+
+Med kommandoen over får du listet ut alle filnavn i mappen. Hvis du vil ha mer informasjon om filene så kan du bruke `ls`-kommandoen med `detail = True`, som under:
+
+```python
+FileClient.ls(bucket + folder, detail = True)
+```
+Syntaxen med `ls` er veldig lik det man kjenner fra en Linux-terminal. Men når vi bruker `detail = True` blir metadata om filene returnert som en Python-liste med dictionaries. Det kan være svært nyttig når du f.eks. trenger å vite dato og tidspunkt for når en fil ble opprettet, eller når den sist ble oppdatert.
+
+## R
+
+Kommer snart
+
+:::
+ 
 
 ## Skrive ut filer
 
-Å skrive filer til et lagringsområde på Dapla er også enkelt. Det ligner mye på den syntaxen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
+Å skrive filer til et lagringsområde på Dapla er også ganske enkelt. Det ligner mye på den syntaxen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
 
 ### Parquet
 
@@ -47,22 +71,33 @@ Under lager vi en dataframe i en notebook og skriver den ut til en parquet-fil. 
 
 ## Python
 
-```python
+Når vi leser en Parquet-fil med **dapla-toolbelt** så bruker den [pyarrow](https://arrow.apache.org/docs/python/index.html) i bakgrunnen. Dette er en av de raskeste måtene å lese og skrive Parquet-filer på.
+
 ```python
 
 import dapla as dp
 import pandas as pd
+import numpy as np
+
+# Set path to folder
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler/purchases"
 
 # Create pandas dataframe
-data = {
-    'apples': [3, 2, 0, 1], 
-    'oranges': [0, 3, 7, 2]
-}
-purchases = pd.DataFrame(data, index=['June', 'Robert', 'Lily', 'David'])
+purchases = pd.DataFrame(np.random.randn(10, 5), columns=["A", "B", "C", "D", "E"])
 
-# Write pandas dataframe to GCS bucket
-dp.write_pandas(purchases, 'gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases/data.parquet')
+# Write pandas dataframe as parquet to GCS bucket
+dp.write_pandas(df = purchases,
+                gcs_path = f"{bucket}{folder}/data.parquet",
+                file_format = "parquet",)
 ```
+Når vi kalte `write_pandas` så spesifiserte vi at filformatet skulle være `parquet`. Dette er default, så vi kunne også ha skrevet det slik:
+
+```python
+dp.write_pandas(df = purchases,
+                gcs_path = f"{bucket}{folder}/data.parquet")
+```
+Men for de andre filformatene må vi spesifisere dette.
 
 ## R
 
@@ -80,20 +115,27 @@ Kommer snart eksempler på hvordan man kan skrive ut tekstfiler som CSV, JSON og
 
 ## Python
 
+dapla-toolbelt kan skrive ut json, csv og posisjonsfiler (fixed-width-files/fwf) til lagringsområdet. Måten den gjør det på er å bruke Pandas sine funksjoner `read_json`, `read_csv`, `read_fwf` under panseret. Dette kan være nyttig å vite for skjønne hvordan dapla-toolbelt håndterer ulike strukturer i (spesielt hierarkiske) tekstfiler. Under ser du hvordan du kan skrive ut en dataframe til en json-fil.
+
 ```python
 import numpy as np
 import pandas as pd
 from dapla import FileClient
 
-# Folder to write to
-path_base = "gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases"
+# Set path to folder
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler/purchases"
 
 # Create a dataframe with Pandas
 df = pd.DataFrame(np.random.randn(10, 5), columns=["A", "B", "C", "D", "E"])
 
 # Save dataframe as json with dapla-toolbelt
-FileClient.save_pandas_to_json(df, f"{path_base}/df.json")
+dp.write_pandas(df = df,
+                gcs_path = f"{bucket}{folder}/test.json",
+                file_format = "json")
 ```	
+
+Som vi ser at syntaxen over så kunne vi skrevet ut til noe annet enn json ved å endre verdien i argumentet `file_format`.
 
 ## R
 
@@ -132,9 +174,22 @@ Kommer snart
 ```python
 import dapla as dp
 
+# Set path to folder
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler/purchases"
+
 # Read path into pandas dataframe 
-dp.read_pandas('gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases')
+dp.read_pandas(gcs_path= f"{bucket}{folder}/data.parquet",
+               file_format = "parquet",
+               columns = None,)
 ```
+
+Som vi så med `write_pandas` så er `file_format` default satt til `parquet`, og default for `columns = None`, så vi kunne også ha skrevet det slik:
+
+```python
+dp.read_pandas(gcs_path= f"{bucket}{folder}/data.parquet")
+```
+`columns`-argumentet er en liste med kolonnenavn som vi ønsker å lese inn. Hvis vi ikke spesifiserer noen kolonner så vil alle kolonnene leses inn.
 
 ## R
 
@@ -152,13 +207,15 @@ Kommer mer snart. Python-koden under bygger på eksempelet over.
 
 
 ```python
-from dapla import FileClient
+import dapla as dp
 
-# Folder to write to
-path_base = "gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases"
+# Path to write to
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler/purchases"
 
 # Read in json-file from dapla-storage
-df = FileClient.load_json_to_pandas(f"{path_base}/df.json")
+df = dp.read_pandas(gcs_path = f"{bucket}{folder}/test3.json",
+               file_format = "json")
 ```
 
 
