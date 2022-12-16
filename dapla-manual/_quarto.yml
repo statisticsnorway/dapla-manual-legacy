@@ -33,8 +33,7 @@ book:
       - bøtter.qmd
       - gcc.qmd
       - overføre-data.qmd
-      - lagre-data.qmd
-      - hente-data.qmd
+      - jobbe-med-data.qmd
       - slette-data.qmd
       - gjenopprette-data.qmd
       - bakke-til-sky.qmd
