@@ -6,32 +6,67 @@ Når vi oppretter et **dapla-team** så får vi tildelt et eget området for lag
 
 ![Tydelig skille mellom kodemiljø og datalagring på Dapla.](images/data-storage-image.png){ fig-alt="Bilde som viser forskjellen mellom kodemiljø og hvor data lagres." #fig-storage }
 
-## dapla-toolbelt
+## SSB-biblioteker
 
-For å gjøre det enklere å jobbe data på tvers av Jupyter og lagringsområdet er det laget en egen Python-pakke som heter [dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) forenkler lesing og skriving av filer i SSB. Denne er foreløpig kun tilgjengelig for de som jobber med **Python**, men det utvikles også en tilsvarende [pakke for **R**](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html) også.
+For å gjøre det enklere å jobbe data på tvers av Jupyter og lagringsområdet er det laget noen egne SSB-utviklede biblioteker for å gjøre vanlige operasjoner mot lagringsområdet. Siden både R og Python skal brukes på Dapla, så er det laget to biblioteker, en for hver av disse språkene. [fellesr](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html) er biblioteket for R, og [dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er biblioteket for Python.
 
-Selv om man kan sette opp koden for å jobbe mot SSB-data mer manuelt, tilbyr **dapla-toolbelt** et mer Pandas-aktig tilnærming til dette. For å importere hele biblioteket til en notebook så skriver man bare
+### dapla-toolbelt
+
+[dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er en en pakke som lar deg enkelt lese og skrive til lagringsområdet uten å måtte autentifisere deg manuelt. Den har en **Pandas**-aktig syntaks som forhåpentlig er gjenkjennbar for de fleste. Pakken er installert i **ipykernel**-kernelen på Dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med ipykernel. For å importere hele biblioteket i en notebook skriver du bare
 
 ```python
 import dapla as dp
 ```
 
-**dapla-toolbelt** er installert i standard-kernelen på dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med ipykernel.
+**dapla-toolbelt** bruker en pakke som heter **gcsfs** for å kommunisere med lagringsområdet. **gcsfs** er en pakke som lar deg bruke Google Cloud Storage (GCS) som om det var en filsystem. Det betyr at du kan bruke samme syntaks som du bruker for å lese og skrive til filer på din egen maskin. Du kan lese mulighetene i gcsfs [her](https://gcsfs.readthedocs.io/en/latest/api.html). Et eksempel på hvordan de to pakkene kan brukes sammen ser du her:
 
-::: {.callout-tip}
-## Felles data på Dapla
+```python
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
 
-Det finnes et område som alle SSB-ansatte har lese- og skrivetilgang til. Det er **gs://ssb-prod-dapla-felles-data-delt/** i prod-miljøet på Dapla, og **gs://ssb-staging-dapla-felles-data-delt/** i staging-miljøet. I eksemplene under bruker vi disse mappene side alle har tilgang til de og derfor kan kjøre eksemplene selv.
-:::
+# Example of how you can use gcsfs and dapla-toolbelt together
+fs.mkdir("gs://my-bucket/my-folder")
+```
+I koden over brukte jeg kommandoen `mkdir` fra [gcsfs](https://gcsfs.readthedocs.io/en/latest/api.html) og `FileClient` fra dapla-toolbelt for å opprette en mappe i lagringsområdet.
+
+I kapitlene under finner du konkrete eksempler på hvordan du kan bruke **dapla-toolbelt** til å jobbe med data i SSBs lagringsområdet.
+
+### fellesr
+
+R-pakken [fellesr](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html) er under utvikling og gir mye av den samme funksjonaliteten som **dapla-toolbelt** gir for Python. I tillegg til å kunne lese og skrive til lagringsområdet på Dapla, så har **fellesr** også funksjoner for å jobbe med metadata på Dapla.
+
+**fellesr** er foreløpig ikke tilgjengeliggjort som en pakke som kan installeres. For å bruke pakken kan du gjøre følgende: 
+
+1. Kopiere scriptet [DAPLA_funcs.R](https://github.com/statisticsnorway/fellesr/blob/main/R/DAPLA_funcs.R) og legg den i en fil sammen med Notebooken din
+3. I en R-notebook som ligger i samme mappe som filen **DAPLA_funcs.R** starter du med å skrive
+
+```r
+source("DAPLA_funcs.R")
+```
+
+Da er alle funksjonene tilgjengelig for deg i Notebooken din.
+
 
 ## Liste ut innhold i mappe
 
-Å liste ut innhold i et gitt mappe på Dapla er ganske enkelt. Under ser du hvordan du kan liste ut innholdet i mappen:  
-`gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases`:
+::: {.callout-tip}
+## Eksempeldata
+
+Det finnes et område som alle SSB-ansatte har lese- og skrivetilgang til. Det er  
+**gs://ssb-prod-dapla-felles-data-delt/** i prod-miljøet på Dapla, og  
+**gs://ssb-staging-dapla-felles-data-delt/** i staging-miljøet. Eksemplene under bruker førstnevnte i koden, slik at alle kan kjøre koden selv. 
+
+Kode-eksemplene finnes for både R og Python, og du kan velge hvilken du skal se ved å trykke på den arkfanen du er interessert i.
+:::
+
+Å liste ut innhold i et gitt mappe på Dapla er ganske enkelt. Under ser du hvordan du kan liste ut innholdet i følgende mappe:
+
+`gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases`
+
 
 ::: {.panel-tabset}
 
-## Python
+## Python {{< fa brands python >}}
 
 Vi bruker modulen `FileClient` fra **dapla-toolbelt** for å liste ut innholdet i en mappe.
 
@@ -50,26 +85,37 @@ Med kommandoen over får du listet ut alle filnavn i mappen. Hvis du vil ha mer 
 ```python
 FileClient.ls(bucket + folder, detail = True)
 ```
-Syntaxen med `ls` er veldig lik det man kjenner fra en Linux-terminal. Men når vi bruker `detail = True` blir metadata om filene returnert som en Python-liste med dictionaries. Det kan være svært nyttig når du f.eks. trenger å vite dato og tidspunkt for når en fil ble opprettet, eller når den sist ble oppdatert.
+Syntaksen med `ls` er veldig lik det man kjenner fra en Linux-terminal. Men når vi bruker `detail = True` blir metadata om filene returnert som en Python-liste med dictionaries. Det kan være svært nyttig når du f.eks. trenger å vite dato og tidspunkt for når en fil ble opprettet, eller når den sist ble oppdatert.
 
-## R
+## {{< fa brands r-project >}}
 
-Kommer snart
+```r
+# Loading functions into notebook
+source("DAPLA_funcs.R")
+
+# Path to folder
+bucket <- "ssb-prod-dapla-felles-data-delt/"
+folder <- "felles/veiledning/python/eksempler/purchases"
+
+# List files in folder 
+list.files(paste0(bucket, folder))
+```
 
 :::
  
 
 ## Skrive ut filer
 
-Å skrive filer til et lagringsområde på Dapla er også ganske enkelt. Det ligner mye på den syntaxen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
+Å skrive filer til et lagringsområde på Dapla er også ganske enkelt. Det ligner mye på den syntaksen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
 
 ### Parquet
 
-Under lager vi en dataframe i en notebook og skriver den ut til en parquet-fil. Stien vi skriver til er **gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases/data.parquet**:
+Under lager vi en dataframe i en notebook og skriver den ut til en parquet-fil. Stien vi skriver til er  
+`gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases`:
 
 ::: {.panel-tabset}
 
-## Python
+## Python {{< fa brands python >}}
 
 Når vi leser en Parquet-fil med **dapla-toolbelt** så bruker den [pyarrow](https://arrow.apache.org/docs/python/index.html) i bakgrunnen. Dette er en av de raskeste måtene å lese og skrive Parquet-filer på.
 
@@ -84,22 +130,23 @@ bucket = "gs://ssb-prod-dapla-felles-data-delt/"
 folder = "felles/veiledning/python/eksempler/purchases"
 
 # Create pandas dataframe
-purchases = pd.DataFrame(np.random.randn(10, 5), columns=["A", "B", "C", "D", "E"])
+purchases = pd.DataFrame(np.random.randn(10, 5),
+                        columns=["A", "B", "C", "D", "E"])
 
 # Write pandas dataframe as parquet to GCS bucket
 dp.write_pandas(df = purchases,
                 gcs_path = f"{bucket}{folder}/data.parquet",
                 file_format = "parquet",)
 ```
-Når vi kalte `write_pandas` så spesifiserte vi at filformatet skulle være `parquet`. Dette er default, så vi kunne også ha skrevet det slik:
+Når vi kalte `write_pandas` over så spesifiserte vi at filformatet skulle være `parquet`. Dette er default, så vi kunne også ha skrevet det slik:
 
 ```python
 dp.write_pandas(df = purchases,
                 gcs_path = f"{bucket}{folder}/data.parquet")
 ```
-Men for de andre filformatene må vi spesifisere dette.
+Men for de andre filformatene må vi altså spesifisere dette.
 
-## R
+## {{< fa brands r-project >}}
 
 Kommer snart
 
@@ -113,7 +160,7 @@ Kommer snart eksempler på hvordan man kan skrive ut tekstfiler som CSV, JSON og
 
 ::: {.panel-tabset}
 
-## Python
+## Python {{< fa brands python >}}
 
 dapla-toolbelt kan skrive ut json, csv og posisjonsfiler (fixed-width-files/fwf) til lagringsområdet. Måten den gjør det på er å bruke Pandas sine funksjoner `read_json`, `read_csv`, `read_fwf` under panseret. Dette kan være nyttig å vite for skjønne hvordan dapla-toolbelt håndterer ulike strukturer i (spesielt hierarkiske) tekstfiler. Under ser du hvordan du kan skrive ut en dataframe til en json-fil.
 
@@ -135,9 +182,9 @@ dp.write_pandas(df = df,
                 file_format = "json")
 ```	
 
-Som vi ser at syntaxen over så kunne vi skrevet ut til noe annet enn json ved å endre verdien i argumentet `file_format`.
+Som vi ser at syntaksen over så kunne vi skrevet ut til noe annet enn json ved å endre verdien i argumentet `file_format`.
 
-## R
+## {{< fa brands r-project >}}
 
 Kommer snart
 
@@ -149,11 +196,11 @@ Det er ikke anbefalt å bruke xlsx-formatet, men her ser du hvordan det kan skri
 
 ::: {.panel-tabset}
 
-## Python
+## Python {{< fa brands python >}}
 
 Kommer snart.
 
-## R
+## {{< fa brands r-project >}}
 
 Kommer snart
 
@@ -169,7 +216,7 @@ Kommer snart
 
 ::: {.panel-tabset}
 
-## Python
+## Python {{< fa brands python >}}
 
 ```python
 import dapla as dp
@@ -191,7 +238,7 @@ dp.read_pandas(gcs_path= f"{bucket}{folder}/data.parquet")
 ```
 `columns`-argumentet er en liste med kolonnenavn som vi ønsker å lese inn. Hvis vi ikke spesifiserer noen kolonner så vil alle kolonnene leses inn.
 
-## R
+## {{< fa brands r-project >}}
 
 Kommer snart
 
@@ -203,7 +250,7 @@ Kommer mer snart. Python-koden under bygger på eksempelet over.
 
 ::: {.panel-tabset}
 
-## Python
+## Python {{< fa brands python >}}
 
 
 ```python
@@ -219,7 +266,7 @@ df = dp.read_pandas(gcs_path = f"{bucket}{folder}/test3.json",
 ```
 
 
-## R
+## {{< fa brands r-project >}}
 
 Kommer snart
 
@@ -229,11 +276,11 @@ Kommer snart
 
 ::: {.panel-tabset}
 
-## Python
+## Python {{< fa brands python >}}
 
 Kommer snart
 
-## R
+## {{< fa brands r-project >}}
 
 Kommer snart
 
@@ -241,8 +288,126 @@ Kommer snart
 
 ## Slette filer
 
-Kommer snart.
+Å slette filer fra lagringsområdet kan gjøres på flere måter. I kapitlet om [sletting av data](./slette-data.html) viste vi hvordan man gjør det med pek-og-klikk i [Google Cloud Console](https://console.cloud.google.com/). Under ser du hvordan du kan slette filer med **dapla-toolbelt** og **gcsfs**. 
+
+::: {.panel-tabset}
+
+## Python {{< fa brands python >}}
+
+```python	
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
+
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler/purchases"
+
+fs.rm(f"{bucket}{from_folder}/df.json")
+
+```
+
+## {{< fa brands r-project >}}
+
+Kommer snart
+
+:::
+
+## Kopiere filer
+
+Å kopiere filer mellom mapper på et Linux-filsystem innebærer som regel bruke `cp`-kommandoen. På Dapla er det ikke så mye forskjell. Vi bruker en ligende tilnærming nå vi skal kopiere mellom bøtter eller mapper på lagringsområdet til SSB. Under ser du hvordan du kan kopiere en fil fra en mappe til en annen.
+
+::: {.panel-tabset}
+
+## Python {{< fa brands python >}}
+
+La oss begynne med et eksempel der vi kopierer en fil fra en mappe til en annen i samme bøtte.
+
+```python	
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
+
+# Path to folders
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+from_folder = "felles/veiledning/python/eksempler/purchases"
+to_folder = "felles/veiledning/python/eksempler"
+
+# Copy file
+fs.cp(f"{bucket}{from_folder}/data.parquet",
+      f"{bucket}{to_folder}/data_copy.parquet")
+
+```
+Det også fungere for å kopiere filer mellom bøtter. 
+
+Et annet scenario vi ofte vil støte på er at vi ønsker å kopiere en fil fra vår Jupyter-filsystem til en mappe på lagringsområdet. Her kan vi bruke `fs.put`-metoden. 
+
+```python
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
+
+# Create a new file in your home directory called test.txt
+with open('/home/jovyan/test.txt', 'w') as f:
+    f.write('Create a new text file!')
+
+#Path to folder
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler"
+
+# Copy file from local to remote file system
+fs.put(lpath=f"/home/jovyan/test.txt", rpath=f"{bucket}{folder}/test.txt")
+
+```
+
+## {{< fa brands r-project >}}
+
+Kommer snart
+
+:::
 
 ## Flytte filer
 
-Kommer snart. 
+::: {.panel-tabset}
+
+## Python {{< fa brands python >}}
+
+```python	
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
+
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+from_folder = "felles/veiledning/python/eksempler/purchases"
+to_folder = "felles/veiledning/python/eksempler"
+
+fs.mv(f"{bucket}{from_folder}/data.parquet", f"{bucket}{to_folder}/data.parquet")
+
+```
+
+## {{< fa brands r-project >}}
+
+Kommer snart
+
+:::
+
+## Opprette mapper
+
+::: {.panel-tabset}
+
+## Python {{< fa brands python >}}
+
+```python
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
+
+#Path to folder
+bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+folder = "felles/veiledning/python/eksempler"
+
+# Create folder
+fs.mkdir(f"{bucket}{folder}/testmappe/")
+```
+
+## {{< fa brands r-project >}}
+
+Kommer snart
+
+:::
+
+
