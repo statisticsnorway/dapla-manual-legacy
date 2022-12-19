@@ -12,13 +12,13 @@ For å gjøre det enklere å jobbe data på tvers av Jupyter og lagringsområdet
 
 ### dapla-toolbelt
 
-[dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er en en pakke som lar deg enkelt lese og skrive til lagringsområdet uten å måtte autentifisere deg manuelt. Den har en **Pandas**-aktig syntax som forhåpentlig er gjenkjennbar for de fleste. Pakken er installert i **ipykernel**-kernelen på Dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med ipykernel. For å importere hele biblioteket i en notebook skriver du bare
+[dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er en en pakke som lar deg enkelt lese og skrive til lagringsområdet uten å måtte autentifisere deg manuelt. Den har en **Pandas**-aktig syntaks som forhåpentlig er gjenkjennbar for de fleste. Pakken er installert i **ipykernel**-kernelen på Dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med ipykernel. For å importere hele biblioteket i en notebook skriver du bare
 
 ```python
 import dapla as dp
 ```
 
-**dapla-toolbelt** bruker en pakke som heter **gcsfs** for å kommunisere med lagringsområdet. **gcsfs** er en pakke som lar deg bruke Google Cloud Storage (GCS) som om det var en filsystem. Det betyr at du kan bruke samme syntax som du bruker for å lese og skrive til filer på din egen maskin. Du kan lese mulighetene i gcsfs [her](https://gcsfs.readthedocs.io/en/latest/api.html). Et eksempel på hvordan de to pakkene kan brukes sammen ser du her:
+**dapla-toolbelt** bruker en pakke som heter **gcsfs** for å kommunisere med lagringsområdet. **gcsfs** er en pakke som lar deg bruke Google Cloud Storage (GCS) som om det var en filsystem. Det betyr at du kan bruke samme syntaks som du bruker for å lese og skrive til filer på din egen maskin. Du kan lese mulighetene i gcsfs [her](https://gcsfs.readthedocs.io/en/latest/api.html). Et eksempel på hvordan de to pakkene kan brukes sammen ser du her:
 
 ```python
 from dapla import FileClient
@@ -85,7 +85,7 @@ Med kommandoen over får du listet ut alle filnavn i mappen. Hvis du vil ha mer 
 ```python
 FileClient.ls(bucket + folder, detail = True)
 ```
-Syntaxen med `ls` er veldig lik det man kjenner fra en Linux-terminal. Men når vi bruker `detail = True` blir metadata om filene returnert som en Python-liste med dictionaries. Det kan være svært nyttig når du f.eks. trenger å vite dato og tidspunkt for når en fil ble opprettet, eller når den sist ble oppdatert.
+Syntaksen med `ls` er veldig lik det man kjenner fra en Linux-terminal. Men når vi bruker `detail = True` blir metadata om filene returnert som en Python-liste med dictionaries. Det kan være svært nyttig når du f.eks. trenger å vite dato og tidspunkt for når en fil ble opprettet, eller når den sist ble oppdatert.
 
 ## {{< fa brands r-project >}}
 
@@ -106,7 +106,7 @@ list.files(paste0(bucket, folder))
 
 ## Skrive ut filer
 
-Å skrive filer til et lagringsområde på Dapla er også ganske enkelt. Det ligner mye på den syntaxen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
+Å skrive filer til et lagringsområde på Dapla er også ganske enkelt. Det ligner mye på den syntaksen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
 
 ### Parquet
 
@@ -182,7 +182,7 @@ dp.write_pandas(df = df,
                 file_format = "json")
 ```	
 
-Som vi ser at syntaxen over så kunne vi skrevet ut til noe annet enn json ved å endre verdien i argumentet `file_format`.
+Som vi ser at syntaksen over så kunne vi skrevet ut til noe annet enn json ved å endre verdien i argumentet `file_format`.
 
 ## {{< fa brands r-project >}}
 
