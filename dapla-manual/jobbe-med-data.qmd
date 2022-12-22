@@ -12,7 +12,7 @@ For å gjøre det enklere å jobbe data på tvers av Jupyter og lagringsområdet
 
 ### dapla-toolbelt
 
-[dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er en en pakke som lar deg enkelt lese og skrive til lagringsområdet uten å måtte autentifisere deg manuelt. Den har en **Pandas**-aktig syntaks som forhåpentlig er gjenkjennbar for de fleste. Pakken er installert i **ipykernel**-kernelen på Dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med ipykernel. For å importere hele biblioteket i en notebook skriver du bare
+[dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er en en pakke som lar deg enkelt lese og skrive til lagringsområdet uten å måtte autentifisere deg manuelt. Den har en **Pandas**-aktig syntaks som forhåpentlig er gjenkjennbar for de fleste. Pakken er installert i alle Python-kernels på Dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med Python3 for eksempel. For å importere hele biblioteket i en notebook skriver du bare
 
 ```python
 import dapla as dp
