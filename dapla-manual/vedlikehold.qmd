@@ -10,6 +10,5 @@ Programmet lar deg enkelt liste ut medlemmer og hvilke tilgangsgrupper de er i v
 dpteam groups list-members 
 ``` 
 
-Dersom du allerede befinner deg i en team-mappe når du kjører kommandoen så vil `dpteam` automatisk liste ut medlemmer som tilhører det teamet. Hvis du ikke 
-er i en team-mappe vil du bli spurt om hvilket team (feks. demo-enhjoern-a) du ønsker å se medlemmene og tilgangsgruppene til.
+Når du kjører kommandoen vil du bli spurt om hvilket team (feks. demo-enhjoern-a) du ønsker å se medlemmene og tilgangsgruppene til.
 
