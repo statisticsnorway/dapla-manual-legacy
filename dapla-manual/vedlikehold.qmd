@@ -1,1 +1,15 @@
 # Vedlikehold
+
+
+## Se medlemmer og tilganger i et team
+
+Ønsker du å se hvilke medlemmer som tilhører et team eller hvilke tilgangsgrupper de er i så du gjøre dette med `dpteam`-programmet.
+Programmet lar deg enkelt liste ut medlemmer og hvilke tilgangsgrupper de er i ved hjelp av kommandoen under.
+
+```bash 
+dpteam groups list-members 
+``` 
+
+Dersom du allerede befinner deg i en team-mappe når du kjører kommandoen så vil `dpteam` automatisk liste ut medlemmer som tilhører det teamet. Hvis du ikke 
+er i en team-mappe vil du bli spurt om hvilket team (feks. demo-enhjoern-a) du ønsker å se medlemmene og tilgangsgruppene til.
+
