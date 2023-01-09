@@ -1,18 +1,18 @@
 # Hva er Dapla-team?
 
-Dapla-team er et begrep som brukes på Dapla for å beskrive en gruppe personer som jobber med et eller flere emneområder på Dapla. Hvert Dapla-team har et eget prosjektområde i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester. 
+For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla-team**. Et dapla-team er en gruppe personer som jobber med et eller flere emneområder på SSBs nye dataplattform/Dapla. Når man [oppretter et Dapla-team](./opprette-dapla-team.html) i SSB får man følgende: 
 
-Når man oppretter et Dapla-team i SSB får man følgende: 
-
-- Lagringsområde for data i Google Cloud Storage (GCS)
+- Lagringsområde for data i [Google Cloud Storage (GCS)](https://cloud.google.com/storage#section-1)^[Lagringsområdet tilsvarer *stammene* på bakken.]
 - Tilgangskontroll til lagringsområdet
 - Tjeneste for synkronisering av data mellom bakke og sky (Transfer Service)
 
 Men et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team , som er bestemt av SSB selv. I det følgende forklarer vi begge deler.
 
+
+
 ## Google-tjenester
 
-Når man oppretter et Dapla-team får man tilgang til en del tjenester som blir ferdig satt opp for oss. Det er viktig å forstå hva disse tjenestene er, og hvordan de kan brukes.
+Når man oppretter et Dapla-team får man tilgang til en del tjenester som blir ferdig satt opp for oss. Det er viktig å forstå hva disse tjenestene er, og hvordan de kan brukes. Vi velger her å bruke navnene på tjenestene som Google bruker, for å gjøre det lettere for deg å lese om dette andre steder.
 
 ### Google project
 
