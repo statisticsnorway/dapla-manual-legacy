@@ -21,7 +21,7 @@ At endringer i team må gjøres via Kundeservice er midlertidig. Vi jobber med �
 
 ## Se medlemmer og tilganger i et team
 
-Ønsker du å se hvilke medlemmer som tilhører et team eller hvilke tilgangsgrupper de er i så du gjøre dette med `dpteam`-programmet.
+Ønsker du å se hvilke medlemmer som tilhører et team eller hvilke tilgangsgrupper de er i så du gjøre dette med [dpteam](https://statisticsnorway.github.io/dapla-team-cli/guide/)-programmet. Dette programmet er et kommandolinjeverktøy som er utviklet i SSB.
 
 Programmet lar deg enkelt liste ut medlemmer og hvilke tilgangsgrupper de er i ved hjelp av kommandoen under.
 
