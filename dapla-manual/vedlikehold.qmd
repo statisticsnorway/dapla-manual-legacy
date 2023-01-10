@@ -1,1 +1,39 @@
 # Vedlikehold
+
+I dette kapitlet viser vi hvordan du kan gjøre endringer i et eksisterende team. Typiske endringer er å: 
+
+- Legge til eller fjerne medlemmer i et team
+- Liste ut medlemmer og tilgangsgrupper i et team
+
+Mer kommer snart.
+
+## Legge til eller fjerne medlemmer i et team
+
+For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en **Kundeservice-sak**. Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (data-admin, developer, etc.).
+
+Endringer i team må godkjennes av seksjonsleder før de blir gjort.
+
+::: {.callout-note}
+## Midlertidig løsning
+
+At endringer i team må gjøres via Kundeservice er midlertidig. Vi jobber med å lage et eget verktøy for dette.
+:::
+
+## Se medlemmer og tilganger i et team
+
+Ønsker du å se hvilke medlemmer som tilhører et team eller hvilke tilgangsgrupper de er i så du gjøre dette med [dpteam](https://statisticsnorway.github.io/dapla-team-cli/guide/)-programmet. Dette programmet er et kommandolinjeverktøy som er utviklet i SSB.
+
+Programmet lar deg enkelt liste ut medlemmer og hvilke tilgangsgrupper de er i ved hjelp av kommandoen under.
+
+Gjør følgende: 
+
+1. [Logg inn i Jupyter-miljøet på Dapla](./innlogging.html#prod)
+2. Åpne en terminal
+3. Kjør følgende kommando i terminalen:
+
+```bash 
+dpteam groups list-members 
+``` 
+
+Når du kjører kommandoen vil du bli spurt om hvilket team (feks. demo-enhjoern-a) du ønsker å se medlemmene og tilgangsgruppene til.
+
