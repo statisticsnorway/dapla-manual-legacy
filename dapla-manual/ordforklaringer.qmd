@@ -1,0 +1,68 @@
+# Ordforklaringer {.unnumbered}
+
+
+##### **bip**
+
+*bip* er det tidligere navnet på den underliggende plattformen som SSB bygger i [GCP](./ordforklaringer.html#google-cloud-platform-(gcp)), hovedsakelig ment for utviklere som bygger tjenester på Dapla. Plattformen skulle være selvbetjent for utviklere og basert på DevOps-prinsipper. *bip* eksisterer fortsatt, men er nå blitt en del av det større begrepet [dapla](./ordforklaringer.html#dapla). 
+
+##### **bucket**
+
+*bucket* (eller *bøtte* på norsk) er en lagringsenhet på Dapla. Det ligner litt på en klassisk diskstasjon, for eksempel X-disken eller C-disken på en lokal maskin. I en *bøtte* kan det ligge undermapper slik som i et klassisk filsystem.
+
+##### **consumer**
+
+*consumer* er en AD-gruppe som gir tilgang til et [Dapla-team](./ordforklaringer.html#dapla-team) sin [delt-bøtte](./ordforklaringer.qmd#delt-bøtte). En SSB-ansatt som skal bruke data fra et Dapla-team må være medlem av *consumer*-gruppen til det aktuelle Dapla-teamet.
+
+##### **dapla**
+
+*Dapla* er et akronym for den nye dataplattformen til SSB, der *Da* står for *Data* og *pla* står for *Plattform*. Dapla er en plattform for lagring, prosessering og deling av SSB sine data. Den består både av Jupyter-miljøet, som er et verktøy for å utføre beregninger og analysere data, og et eget område for lagre data. I tillegg inkluderer begrepet *Dapla* også en rekke andre verktøy som er nødvendige for å kunne bruke plattformen.
+
+##### **dapla-team**
+
+Kommer snart. 
+
+##### **dapla-toolbelt**
+
+Kommer snart. 
+
+##### **data-admin**
+
+*data-admin* er en AD-gruppe som gir de videste tilgangene i et [dapla-team](./ordforklaringer.html#dapla-team). En SSB-ansatt som har *data-admin*-rollen i et Dapla-team har tilgang til alle [bøtter](./ordforklaringer.qmd#bucket) for det teamet, inkludert [kilde-bøtta](./ordforklaringer.qmd#kilde-bøtte) som kan inneha sensitive data.
+
+Kommer snart.
+
+##### **dapla-start**
+
+*dapla-start** er et brukergrensesnitt der SSB-ansatte kan søke om å få opprettet et nytt [dapla-team](./ordforklaringer.html#dapla-team).
+
+##### **delt-bøtte**
+
+Kommer snart.
+
+##### **developer**
+
+Kommer snart. 
+
+##### **google cloud platform (gcp)**
+
+Kommer snart. 
+
+##### **gcp**
+
+Forkortelse for Google Cloud Platform. Se forklaring under [google cloud platform (GCP)](./ordforklaringer.html#google-cloud-platform-(gcp)).
+
+##### **kilde-bøtte**
+
+Kommer snart.
+
+##### **produkt-bøtte**
+
+Kommer snart.
+
+##### **ssb-project**
+
+Kommer snart. 
+
+##### **transfer service**
+
+Kommer snart. 

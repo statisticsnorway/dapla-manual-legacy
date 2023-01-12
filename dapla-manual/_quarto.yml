@@ -59,6 +59,7 @@ book:
       - schedulering.qmd
       - databaser.qmd
       - datadoc.qmd
+    - ordforklaringer.qmd
     - references.qmd
 
 bibliography: references.bib
