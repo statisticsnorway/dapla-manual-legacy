@@ -245,11 +245,18 @@
     "text": "14.2 Gjenopprette en fil til en tidligere versjon\nFra Cloud Storage skjermbildet kan man navigere seg frem til den mappen hvor filen er lagret, og trykke på filnavnet. Velg deretter fanen “Version history”. I listen av versjoner til denne filen har man mulighet til å gjenopprette til en tidligere versjon ved å klikke på “Restore” (Figur 14.3).\n\n\n\nFigur 14.3: Versjonshistorikk til en fil"
   },
   {
-    "objectID": "administrasjon.html#legge-til-eller-fjerne-medlemmer",
-    "href": "administrasjon.html#legge-til-eller-fjerne-medlemmer",
+    "objectID": "administrasjon.html#legge-til-eller-fjerne-medlemmer-i-et-team",
+    "href": "administrasjon.html#legge-til-eller-fjerne-medlemmer-i-et-team",
     "title": "16  Administrasjon av team",
-    "section": "16.1 Legge til eller fjerne medlemmer",
-    "text": "16.1 Legge til eller fjerne medlemmer\nDapla-teamet vil ha sitt eget gruppenavn i SSBs Active Directory. Endringer i denne gruppen, slik som å legge til eller fjerne medlemmer, gjøres ved å sende en epost til Kundeservice."
+    "section": "16.1 Legge til eller fjerne medlemmer i et team",
+    "text": "16.1 Legge til eller fjerne medlemmer i et team\nFor å legge til eller fjerne medlemmer i et team må du foreløpig opprette en Kundeservice-sak. Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (data-admin, developer, etc.).\nEndringer i team må godkjennes av seksjonsleder før de blir gjort.\n\n\n\n\n\n\nMidlertidig løsning\n\n\n\nAt endringer i team må gjøres via Kundeservice er midlertidig. Vi jobber med å lage et eget verktøy for dette."
+  },
+  {
+    "objectID": "administrasjon.html#se-medlemmer-og-tilganger-i-et-team",
+    "href": "administrasjon.html#se-medlemmer-og-tilganger-i-et-team",
+    "title": "16  Administrasjon av team",
+    "section": "16.2 Se medlemmer og tilganger i et team",
+    "text": "16.2 Se medlemmer og tilganger i et team\nØnsker du å se hvilke medlemmer som tilhører et team eller hvilke tilgangsgrupper de er i så du gjøre dette med dpteam-programmet. Dette programmet er et kommandolinjeverktøy som er utviklet i SSB.\nProgrammet lar deg enkelt liste ut medlemmer og hvilke tilgangsgrupper de er i ved hjelp av kommandoen under.\nGjør følgende:\n\nLogg inn i Jupyter-miljøet på Dapla\nÅpne en terminal\nKjør følgende kommando i terminalen:\n\ndpteam groups list-members \nNår du kjører kommandoen vil du bli spurt om hvilket team (feks. demo-enhjoern-a) du ønsker å se medlemmene og tilgangsgruppene til."
   },
   {
     "objectID": "ssbproject.html",
@@ -371,18 +378,11 @@
     "text": "Noen har opprettet et ssb-project og pushet til Github. Hvordan skal kollegaer gå frem for å bidra inn i koden?"
   },
   {
-    "objectID": "vedlikehold.html#legge-til-eller-fjerne-medlemmer-i-et-team",
-    "href": "vedlikehold.html#legge-til-eller-fjerne-medlemmer-i-et-team",
+    "objectID": "vedlikehold.html",
+    "href": "vedlikehold.html",
     "title": "24  Vedlikehold",
-    "section": "24.1 Legge til eller fjerne medlemmer i et team",
-    "text": "24.1 Legge til eller fjerne medlemmer i et team\nFor å legge til eller fjerne medlemmer i et team må du foreløpig opprette en Kundeservice-sak. Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (data-admin, developer, etc.).\nEndringer i team må godkjennes av seksjonsleder før de blir gjort.\n\n\n\n\n\n\nMidlertidig løsning\n\n\n\nAt endringer i team må gjøres via Kundeservice er midlertidig. Vi jobber med å lage et eget verktøy for dette."
-  },
-  {
-    "objectID": "vedlikehold.html#se-medlemmer-og-tilganger-i-et-team",
-    "href": "vedlikehold.html#se-medlemmer-og-tilganger-i-et-team",
-    "title": "24  Vedlikehold",
-    "section": "24.2 Se medlemmer og tilganger i et team",
-    "text": "24.2 Se medlemmer og tilganger i et team\nØnsker du å se hvilke medlemmer som tilhører et team eller hvilke tilgangsgrupper de er i så du gjøre dette med dpteam-programmet. Dette programmet er et kommandolinjeverktøy som er utviklet i SSB.\nProgrammet lar deg enkelt liste ut medlemmer og hvilke tilgangsgrupper de er i ved hjelp av kommandoen under.\nGjør følgende:\n\nLogg inn i Jupyter-miljøet på Dapla\nÅpne en terminal\nKjør følgende kommando i terminalen:\n\ndpteam groups list-members \nNår du kjører kommandoen vil du bli spurt om hvilket team (feks. demo-enhjoern-a) du ønsker å se medlemmene og tilgangsgruppene til."
+    "section": "",
+    "text": "Kommer snart."
   },
   {
     "objectID": "pakke-install-bakken.html#python",
