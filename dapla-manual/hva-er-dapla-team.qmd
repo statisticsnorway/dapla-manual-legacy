@@ -4,7 +4,7 @@ For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla
 
 - Lagringsområde for data i [Google Cloud Storage (GCS)](https://cloud.google.com/storage#section-1)^[Lagringsområdet tilsvarer *stammene* på bakken.]
 - Tilgangskontroll til lagringsområdet
-- Tjeneste for synkronisering av data mellom bakke og sky (Transfer Service)
+- Tjeneste for synkronisering av data mellom bakke og sky ([Transfer Service](https://cloud.google.com/storage-transfer-service))
 
 Men et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team , som er bestemt av SSB selv. I det følgende forklarer vi begge deler.
 
@@ -12,18 +12,20 @@ Men et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en grupp
 
 ## Google-tjenester
 
-Når man oppretter et Dapla-team får man tilgang til en del tjenester som blir ferdig satt opp for oss. Det er viktig å forstå hva disse tjenestene er, og hvordan de kan brukes. Vi velger her å bruke navnene på tjenestene som Google bruker, for å gjøre det lettere for deg å lese om dette andre steder.
+Når man oppretter et Dapla-team får man tilgang til en del tjenester som er ferdig satt opp for oss. Det er viktig å forstå hva disse tjenestene er, og hvordan de kan brukes. Vi velger her å bruke navnene på tjenestene som Google bruker, for å gjøre det lettere for deg å lese om dette andre steder.
 
 ### Google project
 
-Når et Dapla-team etableres lages det to [*Google Projects*](https://cloud.google.com/storage/docs/projects) i GCP. Google-prosjektene er det som samler alle tjenestene på plattformen som du får tilgang til. De to miljøene som opprettes er^[Les mer om hvordan du logger deg inn i de ulike miljøene [her](./innlogging.html).]: 
+Når et Dapla-team etableres lages det to [*Google Projects*](https://cloud.google.com/storage/docs/projects) i GCP. Google-prosjektene er det som samler alle tjenestene på plattformen som du får tilgang til. Litt forenklet kan man si at teamet deres får deres egne områder på SSB sin skyplattformen på GCP, og for å opprette de benyttes *Google Project*. De to områdene som opprettes er^[Les mer om hvordan du logger deg inn i de ulike miljøene [her](./innlogging.html).]: 
 
 1. [Prod-miljø](https://jupyter.dapla.ssb.no/)
 2. [Staging-miljø](https://jupyter.dapla.staging.ssb.no/)
 
-Disse to prosjektene er helt isolerte områder på GCP, for helt forskjellige formål. Men de deler samme tilgangsroller og lagringsområder.
+Disse to prosjektene er helt isolerte områder på GCP, for helt forskjellige formål. Men de deler samme tilgangsroller.
 
-Prod-prosjektet er det som skal brukes i statistikkproduksjon, mens staging-prosjektet er et testmiljø som kan brukes til å teste nye tjenester eller nye versjoner av eksisterende tjenester. Sistnevnte kan er også der du kan teste koden som skal brukes i prod^[Staging-miljøet skal ikke ha *ekte* data. Man skal teste på egne test-data]. I løpende produksjon bruker man alltid prod-miljøet.
+**Prod-prosjektet** er det som skal brukes i statistikkproduksjon, mens **staging-prosjektet** er et testmiljø som kan brukes til å teste nye tjenester eller nye versjoner av eksisterende tjenester. Sistnevnte kan er også der du kan teste koden som skal brukes i prod^[Staging-miljøet skal ikke ha *ekte* data. Man skal teste på egne test-data]. I løpende produksjon bruker man alltid prod-miljøet.
+
+Dedikerte lagringsbøtter til hver av de. Høy sikkerhet på prod-bøttene, lavere på staging-bøttene.
 
 
 ### Datalagring
