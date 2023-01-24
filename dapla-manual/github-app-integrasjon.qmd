@@ -1,0 +1,57 @@
+# Automatisering av kildedata
+
+Her kommer en beskrivelse av automatiseringsløsningen.
+
+## Automatisering fra kode i Github
+
+For at automatiseringsløsningen på Dapla skal kunne settes opp automatisk må denne ha tilgang til å lese fra prosjektets **IAC-repo**[^1]. Dette avsnittet vil beskrive denne prosessen. Merk at dette er en engangsjobb som må gjøres av prosjektets kildedataansvarlige. 
+
+::: {.callout-note appearance="simple"}
+**Viktig**: Prosjektets kildedataansvarlige også må ha administrator-rettigheter til IAC-repoet i Github.
+:::
+
+[^1]: IAC-repo er et en kodebase i Github på formen https://github.com/statisticsnorway/**team-navn**-iac.
+
+* Logg inn på [Google Cloud Console](./gcc.qmd) og velg det prosjektet som skal konfigureres øverst venstre hjørte. Søk opp `Cloud Build` i søkefeltet og trykk på det valget som kommer opp.
+
+* Det skal nå være en venstremeny tilgjengelig med tittel `Cloud Build`. Trykk på menyvalget som heter `Triggers` (@fig-github-app-trigger)
+
+![Bilde av venstremeny](images/github-app-1.png){fig-alt="Bilde av venstremeny" #fig-github-app-trigger width="50%"}
+
+* I nedtrekkslisten Region sørg for at `europe-north1` er valgt (@fig-github-app-region)
+
+![Velg korrekt region](images/github-app-2.png){fig-alt="Bilde som viser nedtrekksliste for region" #fig-github-app-region width="70%"}
+
+* Trykk deretter på en link som heter `CONNECT REPOSITORY` ca. midt på siden.
+
+![Oversikt over triggers](images/github-app-3.png){fig-alt="Oversikt over triggers" #fig-github-app-connect}
+
+* Nå vil det dukke opp et vindu på høyre side med overskrift `Connect repository` (@fig-github-app-connect-source). Velg GitHub (Cloud Build GitHub App) og trykk på `CONTINUE`
+
+![Vindu for å velge Cloud Build Github App](images/github-app-4.png){fig-alt="Vindu for å velge Cloud Build Github App" #fig-github-app-connect-source}
+
+* Et pop-up vindu tilsvarende @fig-github-app-connect-popup vil komme opp. Trykk på `Authorize`. Vinduet vil etter hvert lukke seg og man kommer videre til et steg som heter `Select repository` (@fig-github-app-connect-repo)
+
+![Pop-up vindu for Github](images/github-app-5.png){fig-alt="Pop-up vindu for Github" #fig-github-app-connect-popup}
+
+![Valg av Github repository](images/github-app-6.png){fig-alt="Valg av Github repository" #fig-github-app-connect-repo}
+
+* Trykk på nedtrekkslisten `Repository`. Her vil det kunne listes ut flere Github-repoer som allerede er konfigurert. For å legge til et nytt repo skal man trykke på `EDIT REPOSITORIES ON GITHUB` (@fig-github-app-connect-edit-github)
+
+![Valg av Github repository](images/github-app-7.png){fig-alt="Valg av Github repository" #fig-github-app-connect-edit-github}
+
+* Et nytt pop-up vindu vil dukke opp. Først må man autentisere seg på nytt mot Github, se @fig-github-app-connect-github-2fa:
+
+![Tofaktor-autentisering mot Github](images/github-app-8.png){fig-alt="Tofaktor-autentisering mot Github" #fig-github-app-connect-github-2fa}
+
+* Deretter må man velge å gi `Google Cloud Build` tilgang til å lese fra utvalgte Github prosjekter (@fig-github-app-authorize-github). Trykk på nedtrekkslisten `Select repositories` og søk deg frem til prosjektets IAC-repo. Trykk til slutt på `Update access`.
+
+![Gi Google Build tilgang til Github repository](images/github-app-9.png){fig-alt="Gi Google Build tilgang til Github repository" #fig-github-app-authorize-github}
+
+* Nå vil du komme tilbake til skjermbildet `Connect repository`. Kryss av i sjekkboksen og trykk `CONNECT` (@fig-github-app-connect-github-confirm)
+
+![Bekreft nytt Github repository](images/github-app-10.png){fig-alt="Bekreft nytt Github repository" #fig-github-app-connect-github-confirm}
+
+* Til slutt vil skjermbildet se ut som vist i @fig-github-app-connect-trigger. Det siste steget `Create a trigger` kan du hoppe over. Dette vil bli satt opp av automatiseringsløsningen senere. Trykk på knappen `DONE`
+
+![Siste steg - Create a trigger](images/github-app-11.png){fig-alt="Skjermbilde som viser siste trinn i konfigurasjonen - create a trigger" #fig-github-app-connect-trigger}
