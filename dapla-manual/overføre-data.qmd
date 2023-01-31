@@ -1,42 +1,18 @@
 # Overføre data
 
-For å overføre data mellom bakke og sky brukes **Data Transfer**, som er en tjeneste i [Google Cloud Console](gcc.qmd). Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets kildedataansvarlige.
+For å overføre data mellom bakke og sky brukes **Data Transfer**, som er en tjeneste i [Google Cloud Console](gcc.qmd). Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets **kildedataansvarlige**.
+
+For å få tilgang til å overføre filer må man be om dette ved opprettelsen av teamet. Ber man om det skjer følgende: 
+
+1. En mappe blir opprettet på Linux i prodsonen under `/ssb/cloud_sync/`
+2. Et [Google Project](https://cloud.google.com/storage/docs/projects) blir opprettet med navn `<team navn>-ts`.
+
+Dette Google-prosjektet er ikke det samme som der du lagrer annen data. Det har navnet `<team navn>-ts`, og filstiene på bakken og sky vises i @fig-data-transfer. 
+
+![Hvordan Transfer Service kan flytte filer mellom bakke og sky.](./images/tranferservice-diagram.png){fig-alt="Bilde som viser hvilke mapper eller bøtter som Data Transfer flytter mellom." #fig-data-transfer}
 
 Teamets kildedataansvarlige vil være spesifisert som en del av å [opprette et Dapla-team](./opprette-dapla-team.qmd).
 
-## Forberedelser
-
-### Logg inn i produksjonssonen
-
-Logg inn i produksjonssonen [fra denne linken](https://portal.ssb.no/). Dette krever pålogging med SSBs brukernavn og passord, samt tofaktorautentisering.
-
-## Få tilgang til Linuxstammen
-
-For å få tilgang til Linuxstammen må du først koble deg opp mot en Linux-maskin. Dette kan gjøres på følgende måte:
-
-* Åpne FileZilla
-* Velg `Fil > Tjeneroppsett` fra menyen
-* Under Tjeneroppsett velg mappen `Tjenere`. Trykk på `Ny Tjener` og skriv inn et valgfritt navn.
-* I feltene til høyre må du fylle inn `Protokoll`. Velg `SFTP - SSH File Transfer Protocol`
-* I feltet `Vert` må du skrive inn en adresse til en Linux-maskin som du har tilgang til (prøv f.eks `sl-sas-work-1.ssb.no` ).
-* I feltet `Port` skriv inn `22`
-* Nedtrekkslisten `Innloggingstype` kan være satt til `Normal`
-* I feltet `Bruker` skriv inn ditt 3-bokstavers brukernavn (samme som i eposten din)
-* I feltet `Passord` skriver du inn ditt SSB-passord (fra AD)
-* Trykk `Koble til` og `OK`. Du vil kanskje få opp set spørsmål med `Ukjent vertsnøkkel: Tjenerens vertsnøkkel er ukjent` etc.
-  Kryss av `Godta alltid denne tjeneren` og trykk `OK`.
-* Vent på at FileZilla får koblet opp og skriver ut meldingen `Status: Connected to <machine-name>`
-* Du kan nå navigere i filsystemet til Linuxstammen under `Ekstern tjener`
-
-FileZilla kan også brukes til å kopiere filer mellom andre nettverksdisker og Linuxstammen.
-
-### Få tilgang til overføringsmapper 
-
-Mapper som brukes til å overføre data mellom produksjonssonen og Dapla ligger på Linuxstammen.
-
-Hvert team vil ha mappene `/ssb/cloud_sync/<teamnavn>/data/tilsky` og `/ssb/cloud_sync/<teamnavn>/data/frasky` (erstatt *\<teamnavn\>* med navnet på ditt Dapla-team, f.eks "kostra", "skatt-naering", "gro-grunnskole", etc.). 
-
-Filer som flyttes fra produksjonssonen *til Dapla* legges i mappen `tilsky` og filer som skal flyttes *fra Dapla* til produksjonssonen havner i mappen `frasky`. Det er viktig og huske at filer som flyttes enten opp til skyen eller ned til bakken vil bli slettet fra den respektive mappen når overførselen er gjennomført. 
 
 ## Sette opp overføringsjobber
 
@@ -96,3 +72,16 @@ Overføringsjobben settes opp nesten identisk med [Overføring fra Linuxstammen 
 For å se om data har blitt overført til Linuxstammen må du nå gå til mappen `/ssb/cloud_sync/<team-name>/data/frasky` fra FileZilla.
 
 Husk: Du kan alltids gå tilbake og se på tidligere fullførte jobber, og starte en overføringsjobb manuelt fra menyen `Transfer jobs`.
+
+## Skrive ut data
+
+Når du har satt opp en, enten for å overføre fra sky eller til sky, kan du skrive ut data til mappen eller bøtten som du har bedt **Transfer Service** om å overføre data fra. 
+
+Hvis du skal overføre data fra bakken/prodsonen til sky, så må de med **data-admins**-rollen skrive ut data til Linux-mappen `/ssb/cloud_sync/<team navn>/data/tilsky`, og det vil ende opp i Dapla-bøtta `gs://ssb-prod-<team navn>-data-synk-opp` Dette kan du gjøre med alle programmeringsverktøy som har en kobling til Linux-stammene der dataene ligger. For eksempel:
+
+- SAS EG
+- SAS-installasjon på Linux
+- Jupyterlab i prodsonen
+- Rstudio på sl-stata-03
+
+Skal du flytte data fra Dapla til bakken/prodsonen, så må **data-admins** skrive ut data til `gs://ssb-prod-<team navn>-data-synk-opp`-bøtta på Dapla. Det er noe man typisk gjør fra **Jupyterlab** på Dapla. 
