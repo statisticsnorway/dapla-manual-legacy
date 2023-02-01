@@ -84,4 +84,4 @@ Hvis du skal overføre data fra bakken/prodsonen til sky, så må teamets kilded
 - Jupyterlab i prodsonen
 - Rstudio på sl-stata-03
 
-Skal du flytte data fra Dapla til bakken/prodsonen, så må **data-admins** skrive ut data til `gs://ssb-prod-<team navn>-data-synk-opp`-bøtta på Dapla. Det er noe man typisk gjør fra **Jupyterlab** på Dapla. 
+Skal du flytte data fra Dapla til bakken/prodsonen, så må teamets kildedataansvarlige skrive ut data til `gs://ssb-prod-<team navn>-data-synk-opp`-bøtta på Dapla. Det er noe man typisk gjør fra **Jupyterlab** på Dapla. 
