@@ -77,7 +77,7 @@ Husk: Du kan alltids gå tilbake og se på tidligere fullførte jobber, og start
 
 Når du har satt opp en, enten for å overføre fra sky eller til sky, kan du skrive ut data til mappen eller bøtten som du har bedt **Transfer Service** om å overføre data fra. 
 
-Hvis du skal overføre data fra bakken/prodsonen til sky, så må de med **data-admins**-rollen skrive ut data til Linux-mappen `/ssb/cloud_sync/<team navn>/data/tilsky`, og det vil ende opp i Dapla-bøtta `gs://ssb-prod-<team navn>-data-synk-opp` Dette kan du gjøre med alle programmeringsverktøy som har en kobling til Linux-stammene der dataene ligger. For eksempel:
+Hvis du skal overføre data fra bakken/prodsonen til sky, så må teamets kildedataansvarlige skrive ut data til Linux-mappen `/ssb/cloud_sync/<team navn>/data/tilsky`, og det vil ende opp i Dapla-bøtta `gs://ssb-prod-<team navn>-data-synk-opp` Dette kan du gjøre med alle programmeringsverktøy som har en kobling til Linux-stammene der dataene ligger. For eksempel:
 
 - SAS EG
 - SAS-installasjon på Linux
