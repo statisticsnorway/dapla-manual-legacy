@@ -9,7 +9,7 @@ Mer kommer snart.
 
 ## Legge til eller fjerne medlemmer i et team
 
-For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en **Kundeservice-sak**. Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (*data-admins*, *developers* eller *consumers*).
+For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en [Kundeservice-sak](https://ssb.pureservice.com/#/new/7). Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (*data-admins*, *developers* eller *consumers*).
 
 Endringer i team må godkjennes av seksjonsleder før de blir gjort.
 
