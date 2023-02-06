@@ -186,7 +186,7 @@ Som vi ser at syntaksen over så kunne vi skrevet ut til noe annet enn json ved 
 
 ## {{< fa brands r-project >}}
 
-Kommer snart
+Kommer snart.
 
 :::
 
@@ -198,7 +198,20 @@ Det er ikke anbefalt å bruke xlsx-formatet, men her ser du hvordan det kan skri
 
 ## Python {{< fa brands python >}}
 
-Kommer snart.
+```python
+import pandas as pd
+from dapla import AuthClient
+
+# Henter token for å kunne lese fra Dapla
+token = AuthClient.fetch_google_credentials()
+
+# Filsti
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
+folder = "felles/veiledning/python/eksempler/purchases"
+
+df.to_excel(f"{bucket}/{folder}/test.xlsx",
+           storage_options={"token": token})
+```
 
 ## {{< fa brands r-project >}}
 
@@ -278,7 +291,18 @@ Kommer snart
 
 ## Python {{< fa brands python >}}
 
-Kommer snart
+```python
+import pandas as pd
+from dapla import AuthClient
+
+# Hent token
+token = AuthClient.fetch_google_credentials()
+
+# Les inn fil
+df = pd.read_excel("gs://ssb-prod-arbmark-skjema-data-produkt/test_gcp.xlsx",
+    storage_options={"token": token})
+
+```
 
 ## {{< fa brands r-project >}}
 
@@ -353,6 +377,18 @@ folder = "felles/veiledning/python/eksempler"
 
 # Copy file from local to remote file system
 fs.put(lpath=f"/home/jovyan/test.txt", rpath=f"{bucket}/{folder}/test.txt")
+
+```
+Ønsker vi å kopiere en hel mappe fra lagringsområdet til Jupyter-filsystemet, kan vi bruke `fs.get`-metoden, med opsjonen `recursive=True.` 
+
+```python
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
+
+# Copy file
+fs.get(<from_bucket>,
+      "/home/jovyan/sesongjustering/",
+      recursive=True)
 
 ```
 
