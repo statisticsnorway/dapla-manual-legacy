@@ -28,7 +28,10 @@ website:
       Kom i gang med Dapla
   navbar:
     logo: images/dapla-long.png
-    background: light
+    # Colour is "Dark 1" from https://design.ssb.no/#/components/color
+    background: "#F0F8F9"
+    # Colour is "Dark 5" from https://design.ssb.no/#/components/color
+    foreground: "#274247"
     right:
       - icon: people-fill
         href: https://start.dapla.ssb.no/
