@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual - 10&nbsp; Google Cloud Console</title>
+<title>Dapla-manual – gcc</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./overføre-data.html" rel="next">
-<link href="./bøtter.html" rel="prev">
+<link href="./images/dapla-favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -60,21 +59,56 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Send"
   }
 }</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Dapla-manual - 10&nbsp; Google Cloud Console">
-<meta property="og:description" content="Google Cloud er SSBs leverandør av skytjenester som Dapla er bygget på.">
-<meta property="og:site-name" content="Dapla-manual">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/dapla-long.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dapla-manual</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://start.dapla.ssb.no/"><i class="bi bi-people-fill" role="img" aria-label="Opprette Dapla-team">
+</i> 
+ <span class="menu-text">Opprette Dapla-team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://web.yammer.com/main/org/ssb.no/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5MDUzMjA2In0/all"><i class="bi bi-question-lg" role="img">
+</i> 
+ <span class="menu-text">Stille spørsmål</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ssb.pureservice.com/#/new/7"><i class="bi bi-send-fill" role="img" aria-label="Åpne en sak hos Kundeservice">
+</i> 
+ <span class="menu-text">Melde sak</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/statisticsnorway/dapla-manual"><i class="bi bi-github" role="img" aria-label="Dapla-manual GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></h1>
+      <h1 class="quarto-secondary-nav-title"></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -82,17 +116,9 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Dapla-manual</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/statisticsnorway/dapla-manual" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-</div>
-    </div>
-      </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -120,32 +146,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hva er Dapla?</span></a>
+  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link">Hva er Dapla?</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hvorfor-dapla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Hvorfor Dapla?</span></a>
+  <a href="./hvorfor-dapla.html" class="sidebar-item-text sidebar-link">Hvorfor Dapla?</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./arkitektur.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Arkitektur</span></a>
+  <a href="./arkitektur.html" class="sidebar-item-text sidebar-link">Arkitektur</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./innlogging.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Innlogging</span></a>
+  <a href="./innlogging.html" class="sidebar-item-text sidebar-link">Innlogging</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jupyterlab.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jupyterlab</span></a>
+  <a href="./jupyterlab.html" class="sidebar-item-text sidebar-link">Jupyterlab</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bakke-sky.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bakke vs.&nbsp;sky</span></a>
+  <a href="./bakke-sky.html" class="sidebar-item-text sidebar-link">Bakke vs.&nbsp;sky</a>
   </div>
 </li>
       </ul>
@@ -160,52 +186,52 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hva er Dapla-team?</span></a>
+  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">Hva er Dapla-team?</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./opprette-dapla-team.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Opprette Dapla-team</span></a>
+  <a href="./opprette-dapla-team.html" class="sidebar-item-text sidebar-link">Opprette Dapla-team</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bøtter.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></a>
+  <a href="./bøtter.html" class="sidebar-item-text sidebar-link">Bøtter</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gcc.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></a>
+  <a href="./gcc.html" class="sidebar-item-text sidebar-link active">Google Cloud Console</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overføre-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Overføre data</span></a>
+  <a href="./overføre-data.html" class="sidebar-item-text sidebar-link">Overføre data</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Jobbe med data</span></a>
+  <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link">Jobbe med data</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slette-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Slette data fra bøtter</span></a>
+  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">Slette data fra bøtter</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Gjenopprette data fra bøtter</span></a>
+  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">Gjenopprette data fra bøtter</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bakke-til-sky.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Fra bakke til sky</span></a>
+  <a href="./bakke-til-sky.html" class="sidebar-item-text sidebar-link">Fra bakke til sky</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./administrasjon.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Administrasjon av team</span></a>
+  <a href="./administrasjon.html" class="sidebar-item-text sidebar-link">Administrasjon av team</a>
   </div>
 </li>
       </ul>
@@ -220,42 +246,42 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Nytt ssb-project</span></a>
+  <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link">Nytt ssb-project</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./git-github.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Git og Github</span></a>
+  <a href="./git-github.html" class="sidebar-item-text sidebar-link">Git og Github</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./virtual-env.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Virtuelle miljøer</span></a>
+  <a href="./virtual-env.html" class="sidebar-item-text sidebar-link">Virtuelle miljøer</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jupyter-kernel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Jupyter-kernels</span></a>
+  <a href="./jupyter-kernel.html" class="sidebar-item-text sidebar-link">Jupyter-kernels</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Installere pakker</span></a>
+  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pyspark-venv.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Bruk av pyspark i virtuelle miljøer</span></a>
+  <a href="./pyspark-venv.html" class="sidebar-item-text sidebar-link">Bruk av pyspark i virtuelle miljøer</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./samarbeid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Samarbeid</span></a>
+  <a href="./samarbeid.html" class="sidebar-item-text sidebar-link">Samarbeid</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vedlikehold.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Vedlikehold</span></a>
+  <a href="./vedlikehold.html" class="sidebar-item-text sidebar-link">Vedlikehold</a>
   </div>
 </li>
       </ul>
@@ -270,12 +296,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Installere pakker</span></a>
+  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data-bakken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Lese inn filer</span></a>
+  <a href="./lese-data-bakken.html" class="sidebar-item-text sidebar-link">Lese inn filer</a>
   </div>
 </li>
       </ul>
@@ -290,27 +316,27 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></a>
+  <a href="./lese-data.html" class="sidebar-item-text sidebar-link">Lese filer fra bøtte</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./remote.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">IDE’er</span></a>
+  <a href="./remote.html" class="sidebar-item-text sidebar-link">IDE’er</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Schedulering</span></a>
+  <a href="./schedulering.html" class="sidebar-item-text sidebar-link">Schedulering</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./databaser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Databaser</span></a>
+  <a href="./databaser.html" class="sidebar-item-text sidebar-link">Databaser</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datadoc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">DataDoc</span></a>
+  <a href="./datadoc.html" class="sidebar-item-text sidebar-link">DataDoc</a>
   </div>
 </li>
       </ul>
@@ -330,28 +356,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#google-cloud-console" id="toc-google-cloud-console" class="nav-link active" data-scroll-target="#google-cloud-console">Google Cloud Console</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
+<section id="google-cloud-console" class="level1">
+<h1>Google Cloud Console</h1>
 <p>Google Cloud er SSBs leverandør av skytjenester som Dapla er bygget på.</p>
 <p>Google Cloud Console er et web-basert grensesnitt for å administrere ressurser og tjenester på Google Cloud. For å bruke denne må man ha en Google-konto. Alle i SSB har en konto knyttet opp mot Google.</p>
 <div class="callout-note callout callout-style-simple">
@@ -366,6 +385,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -501,18 +521,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./bøtter.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./overføre-data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Overføre data</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

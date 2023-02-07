@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual - 18&nbsp; Git og Github</title>
+<title>Dapla-manual – git-github</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,8 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./virtual-env.html" rel="next">
-<link href="./nytt-ssbproject.html" rel="prev">
+<link href="./images/dapla-favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,21 +124,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Send"
   }
 }</script>
-<script async="" src="https://hypothes.is/embed.js"></script>
 
 
-<meta property="og:title" content="Dapla-manual - 18&nbsp; Git og Github">
-<meta property="og:description" content="I SSB anbefales det man versjonhåndterer koden sin med Git og deler koden via GitHub.">
-<meta property="og:site-name" content="Dapla-manual">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/dapla-long.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dapla-manual</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://start.dapla.ssb.no/"><i class="bi bi-people-fill" role="img" aria-label="Opprette Dapla-team">
+</i> 
+ <span class="menu-text">Opprette Dapla-team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://web.yammer.com/main/org/ssb.no/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5MDUzMjA2In0/all"><i class="bi bi-question-lg" role="img">
+</i> 
+ <span class="menu-text">Stille spørsmål</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ssb.pureservice.com/#/new/7"><i class="bi bi-send-fill" role="img" aria-label="Åpne en sak hos Kundeservice">
+</i> 
+ <span class="menu-text">Melde sak</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/statisticsnorway/dapla-manual"><i class="bi bi-github" role="img" aria-label="Dapla-manual GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Git og Github</span></h1>
+      <h1 class="quarto-secondary-nav-title"></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -147,17 +181,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">Dapla-manual</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/statisticsnorway/dapla-manual" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-</div>
-    </div>
-      </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
@@ -185,32 +211,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Hva er Dapla?</span></a>
+  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link">Hva er Dapla?</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hvorfor-dapla.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Hvorfor Dapla?</span></a>
+  <a href="./hvorfor-dapla.html" class="sidebar-item-text sidebar-link">Hvorfor Dapla?</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./arkitektur.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Arkitektur</span></a>
+  <a href="./arkitektur.html" class="sidebar-item-text sidebar-link">Arkitektur</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./innlogging.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Innlogging</span></a>
+  <a href="./innlogging.html" class="sidebar-item-text sidebar-link">Innlogging</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jupyterlab.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Jupyterlab</span></a>
+  <a href="./jupyterlab.html" class="sidebar-item-text sidebar-link">Jupyterlab</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bakke-sky.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bakke vs.&nbsp;sky</span></a>
+  <a href="./bakke-sky.html" class="sidebar-item-text sidebar-link">Bakke vs.&nbsp;sky</a>
   </div>
 </li>
       </ul>
@@ -225,52 +251,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Hva er Dapla-team?</span></a>
+  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">Hva er Dapla-team?</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./opprette-dapla-team.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Opprette Dapla-team</span></a>
+  <a href="./opprette-dapla-team.html" class="sidebar-item-text sidebar-link">Opprette Dapla-team</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bøtter.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Bøtter</span></a>
+  <a href="./bøtter.html" class="sidebar-item-text sidebar-link">Bøtter</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gcc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Google Cloud Console</span></a>
+  <a href="./gcc.html" class="sidebar-item-text sidebar-link">Google Cloud Console</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overføre-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Overføre data</span></a>
+  <a href="./overføre-data.html" class="sidebar-item-text sidebar-link">Overføre data</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Jobbe med data</span></a>
+  <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link">Jobbe med data</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slette-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Slette data fra bøtter</span></a>
+  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">Slette data fra bøtter</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Gjenopprette data fra bøtter</span></a>
+  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">Gjenopprette data fra bøtter</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bakke-til-sky.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Fra bakke til sky</span></a>
+  <a href="./bakke-til-sky.html" class="sidebar-item-text sidebar-link">Fra bakke til sky</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./administrasjon.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Administrasjon av team</span></a>
+  <a href="./administrasjon.html" class="sidebar-item-text sidebar-link">Administrasjon av team</a>
   </div>
 </li>
       </ul>
@@ -285,42 +311,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Nytt ssb-project</span></a>
+  <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link">Nytt ssb-project</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./git-github.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Git og Github</span></a>
+  <a href="./git-github.html" class="sidebar-item-text sidebar-link active">Git og Github</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./virtual-env.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Virtuelle miljøer</span></a>
+  <a href="./virtual-env.html" class="sidebar-item-text sidebar-link">Virtuelle miljøer</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jupyter-kernel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Jupyter-kernels</span></a>
+  <a href="./jupyter-kernel.html" class="sidebar-item-text sidebar-link">Jupyter-kernels</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Installere pakker</span></a>
+  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pyspark-venv.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Bruk av pyspark i virtuelle miljøer</span></a>
+  <a href="./pyspark-venv.html" class="sidebar-item-text sidebar-link">Bruk av pyspark i virtuelle miljøer</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./samarbeid.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Samarbeid</span></a>
+  <a href="./samarbeid.html" class="sidebar-item-text sidebar-link">Samarbeid</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vedlikehold.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Vedlikehold</span></a>
+  <a href="./vedlikehold.html" class="sidebar-item-text sidebar-link">Vedlikehold</a>
   </div>
 </li>
       </ul>
@@ -335,12 +361,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Installere pakker</span></a>
+  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data-bakken.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Lese inn filer</span></a>
+  <a href="./lese-data-bakken.html" class="sidebar-item-text sidebar-link">Lese inn filer</a>
   </div>
 </li>
       </ul>
@@ -355,27 +381,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Lese filer fra bøtte</span></a>
+  <a href="./lese-data.html" class="sidebar-item-text sidebar-link">Lese filer fra bøtte</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./remote.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">IDE’er</span></a>
+  <a href="./remote.html" class="sidebar-item-text sidebar-link">IDE’er</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedulering.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Schedulering</span></a>
+  <a href="./schedulering.html" class="sidebar-item-text sidebar-link">Schedulering</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./databaser.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Databaser</span></a>
+  <a href="./databaser.html" class="sidebar-item-text sidebar-link">Databaser</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datadoc.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">DataDoc</span></a>
+  <a href="./datadoc.html" class="sidebar-item-text sidebar-link">DataDoc</a>
   </div>
 </li>
       </ul>
@@ -399,19 +425,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#git-fa-brands-git-alt" id="toc-git-fa-brands-git-alt" class="nav-link active" data-scroll-target="#git-fa-brands-git-alt"><span class="toc-section-number">18.1</span>  Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></a>
+  <li><a href="#git-og-github" id="toc-git-og-github" class="nav-link active" data-scroll-target="#git-og-github">Git og Github</a>
   <ul class="collapse">
-  <li><a href="#hva-er-git" id="toc-hva-er-git" class="nav-link" data-scroll-target="#hva-er-git"><span class="toc-section-number">18.1.1</span>  Hva er Git?</a></li>
-  <li><a href="#oppsett-av-git" id="toc-oppsett-av-git" class="nav-link" data-scroll-target="#oppsett-av-git"><span class="toc-section-number">18.1.2</span>  Oppsett av Git</a></li>
-  <li><a href="#git-og-notebooks" id="toc-git-og-notebooks" class="nav-link" data-scroll-target="#git-og-notebooks"><span class="toc-section-number">18.1.3</span>  Git og Notebooks</a></li>
-  <li><a href="#vanlige-git-operasjoner" id="toc-vanlige-git-operasjoner" class="nav-link" data-scroll-target="#vanlige-git-operasjoner"><span class="toc-section-number">18.1.4</span>  Vanlige Git-operasjoner</a></li>
+  <li><a href="#git-fa-brands-git-alt" id="toc-git-fa-brands-git-alt" class="nav-link" data-scroll-target="#git-fa-brands-git-alt">Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></a>
+  <ul class="collapse">
+  <li><a href="#hva-er-git" id="toc-hva-er-git" class="nav-link" data-scroll-target="#hva-er-git">Hva er Git?</a></li>
+  <li><a href="#oppsett-av-git" id="toc-oppsett-av-git" class="nav-link" data-scroll-target="#oppsett-av-git">Oppsett av Git</a></li>
+  <li><a href="#git-og-notebooks" id="toc-git-og-notebooks" class="nav-link" data-scroll-target="#git-og-notebooks">Git og Notebooks</a></li>
+  <li><a href="#vanlige-git-operasjoner" id="toc-vanlige-git-operasjoner" class="nav-link" data-scroll-target="#vanlige-git-operasjoner">Vanlige Git-operasjoner</a></li>
   </ul></li>
-  <li><a href="#github-fa-brands-github" id="toc-github-fa-brands-github" class="nav-link" data-scroll-target="#github-fa-brands-github"><span class="toc-section-number">18.2</span>  GitHub <i class="fa-brands fa-github" aria-label="github"></i></a>
+  <li><a href="#github-fa-brands-github" id="toc-github-fa-brands-github" class="nav-link" data-scroll-target="#github-fa-brands-github">GitHub <i class="fa-brands fa-github" aria-label="github"></i></a>
   <ul class="collapse">
-  <li><a href="#opprett-github-bruker" id="toc-opprett-github-bruker" class="nav-link" data-scroll-target="#opprett-github-bruker"><span class="toc-section-number">18.2.1</span>  Opprett GitHub-bruker</a></li>
-  <li><a href="#sec-tofaktor" id="toc-sec-tofaktor" class="nav-link" data-scroll-target="#sec-tofaktor"><span class="toc-section-number">18.2.2</span>  To-faktor autentisering</a></li>
-  <li><a href="#koble-deg-til-ssb" id="toc-koble-deg-til-ssb" class="nav-link" data-scroll-target="#koble-deg-til-ssb"><span class="toc-section-number">18.2.3</span>  Koble deg til SSB</a></li>
-  <li><a href="#personal-access-token-pat" id="toc-personal-access-token-pat" class="nav-link" data-scroll-target="#personal-access-token-pat"><span class="toc-section-number">18.2.4</span>  Personal Access Token (PAT)</a></li>
+  <li><a href="#opprett-github-bruker" id="toc-opprett-github-bruker" class="nav-link" data-scroll-target="#opprett-github-bruker">Opprett GitHub-bruker</a></li>
+  <li><a href="#sec-tofaktor" id="toc-sec-tofaktor" class="nav-link" data-scroll-target="#sec-tofaktor">To-faktor autentisering</a></li>
+  <li><a href="#koble-deg-til-ssb" id="toc-koble-deg-til-ssb" class="nav-link" data-scroll-target="#koble-deg-til-ssb">Koble deg til SSB</a></li>
+  <li><a href="#personal-access-token-pat" id="toc-personal-access-token-pat" class="nav-link" data-scroll-target="#personal-access-token-pat">Personal Access Token (PAT)</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -419,23 +448,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Git og Github</span></h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
+<section id="git-og-github" class="level1">
+<h1>Git og Github</h1>
 <p>I SSB anbefales det man versjonhåndterer koden sin med <a href="https://git-scm.com/">Git</a> og deler koden via <a href="https://github.com/">GitHub</a>. For å lære seg å bruke disse verktøyene på en god måte er det derfor viktig å forstå forskjellen mellom Git og Github. Helt overordnet er forskjellen følgende:</p>
 <ul>
 <li><strong>Git</strong> er programvare som er installert på maskinen du jobber på og som sporer endringer i koden din.</li>
@@ -443,18 +459,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Av definisjonene over så skjønner vi at det er <strong>Git</strong> som gir oss all funksjonalitet for å lagre versjoner av koden vår. GitHub er mer som et valg av mappesystem. Men måten kodemiljøene våre er satt opp på <strong>Dapla</strong> så har vi ingen fellesmappe som alle kan kjøre koden fra. Man utvikler kode i sin egen hjemmemappe, som bare du har tilgang til, og når du skal samarbeide med andre, så må du sende koden til GitHub. De du samarbeider med må deretter hente ned denne koden før de kan kjøre den.</p>
 <p>I dette kapittelet ser vi nærmere på Git og Github og hvordan de er implementert i SSB. Selv om SSB har laget programmet <strong>ssb-project</strong> for å gjøre det lettere å bl.a. forholde seg til Git og GitHub, så vil vi dette kapittelet forklare nærmere hvordan det funker uten dette hjelpemiddelet. Forhåpentligvis vil det gjøre det lettere å håndtere mer kompliserte situasjoner som oppstår i arbeidshverdagen som statistikker.</p>
-<section id="git-fa-brands-git-alt" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="git-fa-brands-git-alt"><span class="header-section-number">18.1</span> Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></h2>
+<section id="git-fa-brands-git-alt" class="level2">
+<h2 class="anchored" data-anchor-id="git-fa-brands-git-alt">Git <i class="fa-brands fa-git-alt" aria-label="git-alt"></i></h2>
 <p><strong>Git</strong> er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av <strong>Git</strong>, blant annet i <strong>Jupyterlab</strong>, <strong>SAS EG</strong> og <strong>RStudio</strong>. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan <strong>Git</strong> fungerer fra terminalen. Vi vil også fokusere på hvordan <strong>Git</strong> fungerer fra <strong>terminalen</strong> i <strong>Jupyterlab</strong> på <strong>Dapla</strong>.</p>
-<section id="hva-er-git" class="level3" data-number="18.1.1">
-<h3 data-number="18.1.1" class="anchored" data-anchor-id="hva-er-git"><span class="header-section-number">18.1.1</span> Hva er Git?</h3>
+<section id="hva-er-git" class="level3">
+<h3 class="anchored" data-anchor-id="hva-er-git">Hva er Git?</h3>
 <p>Kommer snart. Kort forklaring med lenke til mer utfyllende svar.</p>
 </section>
-<section id="oppsett-av-git" class="level3" data-number="18.1.2">
-<h3 data-number="18.1.2" class="anchored" data-anchor-id="oppsett-av-git"><span class="header-section-number">18.1.2</span> Oppsett av Git</h3>
+<section id="oppsett-av-git" class="level3">
+<h3 class="anchored" data-anchor-id="oppsett-av-git">Oppsett av Git</h3>
 <p>Mer kommer.</p>
-<section id="minimal-git-konfigurasjon" class="level4" data-number="18.1.2.1">
-<h4 data-number="18.1.2.1" class="anchored" data-anchor-id="minimal-git-konfigurasjon"><span class="header-section-number">18.1.2.1</span> Minimal Git-konfigurasjon</h4>
+<section id="minimal-git-konfigurasjon" class="level4">
+<h4 class="anchored" data-anchor-id="minimal-git-konfigurasjon">Minimal Git-konfigurasjon</h4>
 <p>For å brukt Git er det strengt tatt to ting som må konfigurere:</p>
 <ol type="1">
 <li>Brukernavn</li>
@@ -467,20 +483,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Når du har kjørt disse to kommandoene så kan du bruke Git. Informasjonen du la til over brukes ikke til noe annet enn å fortelle de du samarbeider med om at du har gjort endringer på koden. Den er verken knyttet opp mot din SSB-bruker eller din GitHub-bruker.</p>
 </section>
 </section>
-<section id="git-og-notebooks" class="level3" data-number="18.1.3">
-<h3 data-number="18.1.3" class="anchored" data-anchor-id="git-og-notebooks"><span class="header-section-number">18.1.3</span> Git og Notebooks</h3>
+<section id="git-og-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="git-og-notebooks">Git og Notebooks</h3>
 <p>Kommer snart. Jupytext og nbsripout. json.</p>
 </section>
-<section id="vanlige-git-operasjoner" class="level3" data-number="18.1.4">
-<h3 data-number="18.1.4" class="anchored" data-anchor-id="vanlige-git-operasjoner"><span class="header-section-number">18.1.4</span> Vanlige Git-operasjoner</h3>
+<section id="vanlige-git-operasjoner" class="level3">
+<h3 class="anchored" data-anchor-id="vanlige-git-operasjoner">Vanlige Git-operasjoner</h3>
 <p>Kommer snart. clone, add, commit, push, pull, merge, revert, etc.</p>
 </section>
 </section>
-<section id="github-fa-brands-github" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="github-fa-brands-github"><span class="header-section-number">18.2</span> GitHub <i class="fa-brands fa-github" aria-label="github"></i></h2>
+<section id="github-fa-brands-github" class="level2">
+<h2 class="anchored" data-anchor-id="github-fa-brands-github">GitHub <i class="fa-brands fa-github" aria-label="github"></i></h2>
 <p>GitHub er et nettsted som fungerer som vårt felles mappesystem for deling av kode. SSB har sin egen organisasjonskonto med navn <a href="https://github.com/statisticsnorway">statisticsnorway</a></p>
-<section id="opprett-github-bruker" class="level3" data-number="18.2.1">
-<h3 data-number="18.2.1" class="anchored" data-anchor-id="opprett-github-bruker"><span class="header-section-number">18.2.1</span> Opprett GitHub-bruker</h3>
+<section id="opprett-github-bruker" class="level3">
+<h3 class="anchored" data-anchor-id="opprett-github-bruker">Opprett GitHub-bruker</h3>
 <p>Dette kapittelet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke <code>ssb-project</code>-programmet til å generere et <strong>remote repo</strong> på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.</p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
@@ -496,30 +512,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Gå til <a href="https://github.com/" class="uri">https://github.com/</a></li>
 <li>Trykk <strong>Sign up</strong> øverst i høyre hjørne</li>
-<li>I dialogboksen som åpnes, se <a href="#fig-github-user-gen">Figur&nbsp;<span>18.1</span></a>, skriver du inn din e-postkonto og lager et passord. Dette trenger ikke være din SSB-bruker og e-post. Vi anbefaler at du bruker en personlig e-postkonto og velger ditt eget passord. Det samme gjelder <strong>brukernavn</strong> også.</li>
+<li>I dialogboksen som åpnes, se <a href="#fig-github-user-gen">Figur&nbsp;1</a>, skriver du inn din e-postkonto og lager et passord. Dette trenger ikke være din SSB-bruker og e-post. Vi anbefaler at du bruker en personlig e-postkonto og velger ditt eget passord. Det samme gjelder <strong>brukernavn</strong> også.</li>
 </ol>
 <div id="fig-github-user-gen" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_register.JPG" class="img-fluid figure-img" alt="Bilde av GitHub-siden for å generere en brukerkonto"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.1: Dialogboks for opprettelse av GitHub-bruker.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;1: Dialogboks for opprettelse av GitHub-bruker.</figcaption><p></p>
 </figure>
 </div>
 <p>Du har nå laget en egen GitHub-bruker. I neste steg skal vi knytte denne kontoen til din SSB-bruker.</p>
 </section>
-<section id="sec-tofaktor" class="level3" data-number="18.2.2">
-<h3 data-number="18.2.2" class="anchored" data-anchor-id="sec-tofaktor"><span class="header-section-number">18.2.2</span> To-faktor autentisering</h3>
-<p>Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den ut som i <a href="#fig-github-exmaple-userpage">Figur&nbsp;<span>18.2</span></a>.</p>
+<section id="sec-tofaktor" class="level3">
+<h3 class="anchored" data-anchor-id="sec-tofaktor">To-faktor autentisering</h3>
+<p>Hvis du har fullført forrige steg så har du nå en GitHub-konto. Hvis du står på din profil-side så ser den ut som i <a href="#fig-github-exmaple-userpage">Figur&nbsp;2</a>.</p>
 <div id="fig-github-exmaple-userpage" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_profile.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for en bruker"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.2: Et eksempel på hjemmeområdet til en GitHub-bruker</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;2: Et eksempel på hjemmeområdet til en GitHub-bruker</figcaption><p></p>
 </figure>
 </div>
 <p>Det neste vi må gjøre er å aktivere 2-faktor autentisering, siden det er dette som benyttes i SSB. Hvis du står på siden i bildet over, så gjør du følgende for å aktivere 2-faktor autentisering mot GitHub:</p>
 <div class="grid">
 <div class="g-col-8">
 <ol type="1">
-<li><p>Trykk på den lille pilen øverst til høyre og velg <strong>Settings</strong>(se <a href="#fig-github-open-settings">Figur&nbsp;<span>18.3</span></a>).</p></li>
+<li><p>Trykk på den lille pilen øverst til høyre og velg <strong>Settings</strong>(se <a href="#fig-github-open-settings">Figur&nbsp;3</a>).</p></li>
 <li><p>Deretter velger du <strong>Password and authentification</strong> i menyen til venstre.</p></li>
 <li><p>Under <strong>Two-factor authentication</strong> trykker du på <strong>Enable</strong>.</p></li>
 </ol>
@@ -528,40 +544,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="fig-github-open-settings" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_settings_menu.png" class="img-fluid figure-img" style="width:50.0%" alt="Bilde av GitHub-menyen for å åpne Settings-menyen."></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.3: Åpne settings for din GitHub-bruker.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;3: Åpne settings for din GitHub-bruker.</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <ol start="4" type="1">
-<li><a href="#fig-github-enable-2fa">Figur&nbsp;<span>18.4</span></a> viser dialogboksen som vises. Velg <strong>Enable two-factor authentification</strong>.</li>
+<li><a href="#fig-github-enable-2fa">Figur&nbsp;4</a> viser dialogboksen som vises. Velg <strong>Enable two-factor authentification</strong>.</li>
 </ol>
 <div id="fig-github-enable-2fa" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_2fa_enable.JPG" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for å skru på 2-faktor autentisering."></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.4: Dialogboks som åpnes når 2FA skrus på første gang.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;4: Dialogboks som åpnes når 2FA skrus på første gang.</figcaption><p></p>
 </figure>
 </div>
 <ol start="5" type="1">
-<li><a href="#fig-github-2fa-app">Figur&nbsp;<span>18.5</span></a> viser dialogboksen som vises for å velge hvordan man skal autentisere seg. Her anbefales det å velge <strong>Set up using an app</strong>, slik at du kan bruke <em>Microsoft Authenticator</em>-appen på din mobil.</li>
+<li><a href="#fig-github-2fa-app">Figur&nbsp;5</a> viser dialogboksen som vises for å velge hvordan man skal autentisere seg. Her anbefales det å velge <strong>Set up using an app</strong>, slik at du kan bruke <em>Microsoft Authenticator</em>-appen på din mobil.</li>
 </ol>
 <div id="fig-github-2fa-app" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/githbu_2fa_app.JPG" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentisere seg med 2-faktor autentisering."></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.5: Dialogboks for å velge hvordan man skal autentisere seg med 2FA.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;5: Dialogboks for å velge hvordan man skal autentisere seg med 2FA.</figcaption><p></p>
 </figure>
 </div>
-<p><a href="#fig-github-QR">Figur&nbsp;<span>18.6</span></a> viser QR-koden som vises. Denne skal vi bruke i neste steg.</p>
+<p><a href="#fig-github-QR">Figur&nbsp;6</a> viser QR-koden som vises. Denne skal vi bruke i neste steg.</p>
 <div id="fig-github-QR" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_2fa.png" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentisere seg med 2-faktor autentisering."></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.6: QR-kode som skannes av Microsoft Authenticator.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;6: QR-kode som skannes av Microsoft Authenticator.</figcaption><p></p>
 </figure>
 </div>
 <div class="grid">
 <div class="g-col-8">
 <ol start="6" type="1">
-<li><p>Strekkoden over skal skannes i din <strong>Microsoft Authenticator</strong>-app på mobilen, som vist i <a href="#fig-authenticator">Figur&nbsp;<span>18.7</span></a>. Åpne appen, trykk på <strong>Bekreftede ID-er</strong>, og til slutt trykk på <strong>Skann QR-kode</strong>. Deretter skanner du QR-koden fra punkt 5.</p></li>
+<li><p>Strekkoden over skal skannes i din <strong>Microsoft Authenticator</strong>-app på mobilen, som vist i <a href="#fig-authenticator">Figur&nbsp;7</a>. Åpne appen, trykk på <strong>Bekreftede ID-er</strong>, og til slutt trykk på <strong>Skann QR-kode</strong>. Deretter skanner du QR-koden fra punkt 5.</p></li>
 <li><p>Når koden er skannet har du fått opp følgende bilde på appens hovedside (se bilde til høyre). Skriv inn den 6-siffer koden på GitHub-siden med QR-koden.</p></li>
 <li><p>Til slutt lagrer du <strong>Recovery-codes</strong> et trygt sted som bare du har tilgang til.</p></li>
 </ol>
@@ -570,77 +586,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="fig-authenticator" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/authenticator.jpg" class="img-fluid figure-img" style="width:50.0%" alt="Bilde av GitHub-dialogboks for å velge hvordan man skal autentifisere seg med 2-faktor autentisering."></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.7: Mobilappen <em>Microsoft authenticator</em></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;7: Mobilappen <em>Microsoft authenticator</em></figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Nå har vi aktivert 2-faktor autentisering for GitHub og er klare til å knytte vår personlige konto til vår SSB-bruker på SSBs “Github organisation” <a href="https://github.com/statisticsnorway"><strong>statisticsnorway</strong></a>.</p>
 </section>
-<section id="koble-deg-til-ssb" class="level3" data-number="18.2.3">
-<h3 data-number="18.2.3" class="anchored" data-anchor-id="koble-deg-til-ssb"><span class="header-section-number">18.2.3</span> Koble deg til SSB</h3>
+<section id="koble-deg-til-ssb" class="level3">
+<h3 class="anchored" data-anchor-id="koble-deg-til-ssb">Koble deg til SSB</h3>
 <p>I forrige steg aktiverte vi 2-faktor autentisering for GitHub. Det neste vi må gjøre er å koble oss til <strong>Single Sign On (SSO)</strong> for SSB sin organisasjon på GitHub:</p>
 <ol type="1">
 <li>Trykk på lenken <a href="https://github.com/orgs/statisticsnorway/sso" class="uri">https://github.com/orgs/statisticsnorway/sso</a></li>
-<li>I dialogboksen som dukker opp trykker du på <strong>Continue</strong>, slik som vist i <a href="#fig-github-sso">Figur&nbsp;<span>18.8</span></a>.</li>
+<li>I dialogboksen som dukker opp trykker du på <strong>Continue</strong>, slik som vist i <a href="#fig-github-sso">Figur&nbsp;8</a>.</li>
 </ol>
 <div id="fig-github-sso" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_sso.png" class="img-fluid figure-img" alt="Bilde av GitHub-dialogboks for single sign on."></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.8: Single Sign on (SSO) for SSB sin organisasjon på GitHub</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;8: Single Sign on (SSO) for SSB sin organisasjon på GitHub</figcaption><p></p>
 </figure>
 </div>
-<p>Når du har gjennomført dette så har du tilgang til <strong>statisticsnorway</strong> på GitHub. Går du inn på <a href="https://github.com/statisticsnorway?view_as=member">denne lenken</a> så skal du nå kunne lese både <strong>Public</strong>, <strong>Private</strong> og <strong>Internal</strong> repoer, slik som vist i <a href="#fig-github-member">Figur&nbsp;<span>18.9</span></a>.</p>
+<p>Når du har gjennomført dette så har du tilgang til <strong>statisticsnorway</strong> på GitHub. Går du inn på <a href="https://github.com/statisticsnorway?view_as=member">denne lenken</a> så skal du nå kunne lese både <strong>Public</strong>, <strong>Private</strong> og <strong>Internal</strong> repoer, slik som vist i <a href="#fig-github-member">Figur&nbsp;9</a>.</p>
 <div id="fig-github-member" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_asmember.png" class="img-fluid figure-img" alt="Bilde av repoene på GitHub for de som er tilknyttet staitsticsnorway."></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.9: Medlemsvisning for SSB sin GitHub-organisasjon.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;9: Medlemsvisning for SSB sin GitHub-organisasjon.</figcaption><p></p>
 </figure>
 </div>
 </section>
-<section id="personal-access-token-pat" class="level3" data-number="18.2.4">
-<h3 data-number="18.2.4" class="anchored" data-anchor-id="personal-access-token-pat"><span class="header-section-number">18.2.4</span> Personal Access Token (PAT)</h3>
+<section id="personal-access-token-pat" class="level3">
+<h3 class="anchored" data-anchor-id="personal-access-token-pat">Personal Access Token (PAT)</h3>
 <p>Når vi skal jobbe med SSB-kode som ligger lagret hos <strong>statistcsnorway</strong> på GitHub, så må vi autentisere oss. Måten vi gjøre det på er ved å generere et <strong>Personal Access Token</strong> (ofte forkortet <em>PAT</em>) som vi oppgir når vi vil hente eller oppdatere kode på GitHub. Da sender vi med PAT for å autentisere oss for GitHub.</p>
-<section id="sec-pat" class="level4" data-number="18.2.4.1">
-<h4 data-number="18.2.4.1" class="anchored" data-anchor-id="sec-pat"><span class="header-section-number">18.2.4.1</span> Opprette PAT</h4>
+<section id="sec-pat" class="level4">
+<h4 class="anchored" data-anchor-id="sec-pat">Opprette PAT</h4>
 <p>For å lage en PAT som er godkjent mot <em>statisticsnorway</em> så gjør man følgende:</p>
 <ol type="1">
-<li><p>Gå til din profilside på GitHub og åpne <strong>Settings</strong> slik som ble vist <a href="#sec-tofaktor"><span>Seksjon&nbsp;18.2.2</span></a>.</p></li>
+<li><p>Gå til din profilside på GitHub og åpne <strong>Settings</strong> slik som ble vist <a href="#sec-tofaktor">Seksjon&nbsp;1.2.2</a>.</p></li>
 <li><p>Velg <strong>Developer Settings</strong> i menyen til venstre.</p></li>
 <li><p>I menyen til venstre velger du <strong>Personal Access Token</strong>, og deretter <strong>Tokens (classic)</strong>.</p></li>
 <li><p>Under <strong>Note</strong> kan du gi PAT’en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den <em>dapla</em>. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den <em>prodsone</em> eller noe annet som gjør det lett for det skjønne innholdet i ettertid.</p></li>
 <li><p>Under <strong>Expiration</strong> velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger <strong>365 dager</strong>. Når PAT utløper må du gjenta stegene i dette kapittelet.</p></li>
-<li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> slik som vist i <a href="#fig-github-token">Figur&nbsp;<span>18.10</span></a>.</p></li>
+<li><p>Under <strong>Select scopes</strong> velger du <strong>Repo</strong> slik som vist i <a href="#fig-github-token">Figur&nbsp;10</a>.</p></li>
 </ol>
 <div id="fig-github-token" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for generering av Personal Access Token"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.10: Gi token et kort og beskrivende navn</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;10: Gi token et kort og beskrivende navn</figcaption><p></p>
 </figure>
 </div>
 <ol start="8" type="1">
-<li>Trykk på <strong>Generate token</strong> nederst på siden og du får noe lignende det du ser i <a href="#fig-github-token-gen">Figur&nbsp;<span>18.11</span></a>.</li>
+<li>Trykk på <strong>Generate token</strong> nederst på siden og du får noe lignende det du ser i <a href="#fig-github-token-gen">Figur&nbsp;11</a>.</li>
 </ol>
 <div id="fig-github-token-gen" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat2.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for det genererte tokenet"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.11: Token som ble generert.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;11: Token som ble generert.</figcaption><p></p>
 </figure>
 </div>
 <ol start="9" type="1">
 <li><p>Kopier deretter PAT til en midlertidig fil. Grunnen er at du aldri vil se det igjen her etter at vi har gjennomført neste steg.</p></li>
-<li><p>Deretter trykker du på <strong>Configure SSO</strong> og velger <strong>Authorize</strong> ved siden statisticsnorway, slik som vist i <a href="#fig-github-token-authorize">Figur&nbsp;<span>18.12</span></a>. Svar deretter på spørsmålene som dukker opp.</p></li>
+<li><p>Deretter trykker du på <strong>Configure SSO</strong> og velger <strong>Authorize</strong> ved siden statisticsnorway, slik som vist i <a href="#fig-github-token-authorize">Figur&nbsp;12</a>. Svar deretter på spørsmålene som dukker opp.</p></li>
 </ol>
 <div id="fig-github-token-authorize" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github_pat3.png" class="img-fluid figure-img" alt="Bilde av GitHub-siden for å autorisere Token mot statisticsnorway"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;18.12: Autorisering av Token mot SSBs GiHub-organisasjon.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;12: Autorisering av Token mot SSBs GiHub-organisasjon.</figcaption><p></p>
 </figure>
 </div>
 <p>Vi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med <strong>Git</strong> på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på <strong>statisticsnorway</strong> på GitHub.</p>
 </section>
-<section id="lagre-pat" class="level4" data-number="18.2.4.2">
-<h4 data-number="18.2.4.2" class="anchored" data-anchor-id="lagre-pat"><span class="header-section-number">18.2.4.2</span> Lagre PAT</h4>
+<section id="lagre-pat" class="level4">
+<h4 class="anchored" data-anchor-id="lagre-pat">Lagre PAT</h4>
 <p>Det er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en <strong>.netrc</strong>-fil. Vi oppretter da en fil som heter <strong>.netrc</strong> på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">machine</span> github.com login <span class="op">&lt;</span>github-bruker<span class="op">&gt;</span> password <span class="op">&lt;</span>Personal Access Token<span class="op">&gt;</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>GitHub-bruker</strong> er da din personlige bruker og IKKE brukernavnet ditt i SSB. <strong>Personal Access Token</strong> er det vi lagde i forrige kapittelet.</p>
@@ -655,16 +671,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token.</p>
 <p>Hver gang du jobber mot GitHub vil Git sjekke om informasjon om autentisering ligger i denne filen, og bruke den hvis den ligger der.</p>
 </section>
-<section id="oppdater-pat" class="level4" data-number="18.2.4.3">
-<h4 data-number="18.2.4.3" class="anchored" data-anchor-id="oppdater-pat"><span class="header-section-number">18.2.4.3</span> Oppdater PAT</h4>
+<section id="oppdater-pat" class="level4">
+<h4 class="anchored" data-anchor-id="oppdater-pat">Oppdater PAT</h4>
 <p>I eksempelet over lagde vi en PAT som var gyldig i 90 dager. Dermed vil du ikke kunne jobbe mot GitHub med dette tokenet etter 90 dager. For å oppdatere tokenet gjør du følgende:</p>
 <ol type="1">
-<li><p>Lag et nytt PAT ved å repetere <a href="#sec-pat"><span>Seksjon&nbsp;18.2.4.1</span></a>.</p></li>
+<li><p>Lag et nytt PAT ved å repetere <a href="#sec-pat">Seksjon&nbsp;1.2.4.1</a>.</p></li>
 <li><p>I miljøet der du skal jobbe med Git og GitHub går du inn i din <strong>.netrc</strong> og bytter ut token med det nye.</p></li>
 </ol>
 <p>Og med det er du klar til å jobbe mot <em>statisticsnorway</em> på <strong>GitHub</strong>.</p>
 
 
+</section>
 </section>
 </section>
 </section>
@@ -803,18 +820,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./nytt-ssbproject.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Nytt ssb-project</span></span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./virtual-env.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Virtuelle miljøer</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

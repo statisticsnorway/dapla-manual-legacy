@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – vedlikehold</title>
+<title>Dapla-manual – github-app-integrasjon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -239,11 +239,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./ssbproject.html" class="sidebar-item-text sidebar-link">SSB-project</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link">Nytt ssb-project</a>
@@ -281,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vedlikehold.html" class="sidebar-item-text sidebar-link active">Vedlikehold</a>
+  <a href="./vedlikehold.html" class="sidebar-item-text sidebar-link">Vedlikehold</a>
   </div>
 </li>
       </ul>
@@ -360,7 +360,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#vedlikehold" id="toc-vedlikehold" class="nav-link active" data-scroll-target="#vedlikehold">Vedlikehold</a></li>
+  <li><a href="#automatisering-av-kildedata" id="toc-automatisering-av-kildedata" class="nav-link active" data-scroll-target="#automatisering-av-kildedata">Automatisering av kildedata</a>
+  <ul class="collapse">
+  <li><a href="#automatisering-fra-kode-i-github" id="toc-automatisering-fra-kode-i-github" class="nav-link" data-scroll-target="#automatisering-fra-kode-i-github">Automatisering fra kode i Github</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -369,14 +372,131 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="vedlikehold" class="level1">
-<h1>Vedlikehold</h1>
-<p>Kommer snart.</p>
+<section id="automatisering-av-kildedata" class="level1">
+<h1>Automatisering av kildedata</h1>
+<p>Her kommer en beskrivelse av automatiseringsløsningen.</p>
+<section id="automatisering-fra-kode-i-github" class="level2">
+<h2 class="anchored" data-anchor-id="automatisering-fra-kode-i-github">Automatisering fra kode i Github</h2>
+<p>For at automatiseringsløsningen på Dapla skal kunne settes opp automatisk må denne ha tilgang til å lese fra prosjektets <strong>IAC-repo</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Dette avsnittet vil beskrive denne prosessen. Merk at dette er en engangsjobb som må gjøres av prosjektets kildedataansvarlige.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Viktig</strong>: Prosjektets kildedataansvarlige også må ha administrator-rettigheter til IAC-repoet i Github.</p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Logg inn på <a href="./gcc.html">Google Cloud Console</a> og velg det prosjektet som skal konfigureres øverst venstre hjørte. Søk opp <code>Cloud Build</code> i søkefeltet og trykk på det valget som kommer opp.</p></li>
+<li><p>Det skal nå være en venstremeny tilgjengelig med tittel <code>Cloud Build</code>. Trykk på menyvalget som heter <code>Triggers</code> (<a href="#fig-github-app-trigger">Figur&nbsp;1</a>)</p></li>
+</ul>
+<div id="fig-github-app-trigger" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-1.png" class="img-fluid figure-img" style="width:50.0%" alt="Bilde av venstremeny"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;1: Bilde av venstremeny</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>I nedtrekkslisten Region sørg for at <code>europe-north1</code> er valgt (<a href="#fig-github-app-region">Figur&nbsp;2</a>)</li>
+</ul>
+<div id="fig-github-app-region" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-2.png" class="img-fluid figure-img" style="width:70.0%" alt="Bilde som viser nedtrekksliste for region"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;2: Velg korrekt region</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Trykk deretter på en link som heter <code>CONNECT REPOSITORY</code> ca. midt på siden.</li>
+</ul>
+<div id="fig-github-app-connect" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-3.png" class="img-fluid figure-img" alt="Oversikt over triggers"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;3: Oversikt over triggers</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Nå vil det dukke opp et vindu på høyre side med overskrift <code>Connect repository</code> (<a href="#fig-github-app-connect-source">Figur&nbsp;4</a>). Velg GitHub (Cloud Build GitHub App) og trykk på <code>CONTINUE</code></li>
+</ul>
+<div id="fig-github-app-connect-source" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-4.png" class="img-fluid figure-img" alt="Vindu for å velge Cloud Build Github App"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;4: Vindu for å velge Cloud Build Github App</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Et pop-up vindu tilsvarende <a href="#fig-github-app-connect-popup">Figur&nbsp;5</a> vil komme opp. Trykk på <code>Authorize</code>. Vinduet vil etter hvert lukke seg og man kommer videre til et steg som heter <code>Select repository</code> (<a href="#fig-github-app-connect-repo">Figur&nbsp;6</a>)</li>
+</ul>
+<div id="fig-github-app-connect-popup" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-5.png" class="img-fluid figure-img" alt="Pop-up vindu for Github"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;5: Pop-up vindu for Github</figcaption><p></p>
+</figure>
+</div>
+<div id="fig-github-app-connect-repo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-6.png" class="img-fluid figure-img" alt="Valg av Github repository"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;6: Valg av Github repository</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Trykk på nedtrekkslisten <code>Repository</code>. Her vil det kunne listes ut flere Github-repoer som allerede er konfigurert. For å legge til et nytt repo skal man trykke på <code>EDIT REPOSITORIES ON GITHUB</code> (<a href="#fig-github-app-connect-edit-github">Figur&nbsp;7</a>)</li>
+</ul>
+<div id="fig-github-app-connect-edit-github" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-7.png" class="img-fluid figure-img" alt="Valg av Github repository"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;7: Valg av Github repository</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Et nytt pop-up vindu vil dukke opp. Først må man autentisere seg på nytt mot Github, se <a href="#fig-github-app-connect-github-2fa">Figur&nbsp;8</a>:</li>
+</ul>
+<div id="fig-github-app-connect-github-2fa" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-8.png" class="img-fluid figure-img" alt="Tofaktor-autentisering mot Github"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;8: Tofaktor-autentisering mot Github</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Deretter må man velge å gi <code>Google Cloud Build</code> tilgang til å lese fra utvalgte Github prosjekter (<a href="#fig-github-app-authorize-github">Figur&nbsp;9</a>). Trykk på nedtrekkslisten <code>Select repositories</code> og søk deg frem til prosjektets IAC-repo. Trykk til slutt på <code>Update access</code>.</li>
+</ul>
+<div id="fig-github-app-authorize-github" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-9.png" class="img-fluid figure-img" alt="Gi Google Build tilgang til Github repository"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;9: Gi Google Build tilgang til Github repository</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Nå vil du komme tilbake til skjermbildet <code>Connect repository</code>. Kryss av i sjekkboksen og trykk <code>CONNECT</code> (<a href="#fig-github-app-connect-github-confirm">Figur&nbsp;10</a>)</li>
+</ul>
+<div id="fig-github-app-connect-github-confirm" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-10.png" class="img-fluid figure-img" alt="Bekreft nytt Github repository"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;10: Bekreft nytt Github repository</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Til slutt vil skjermbildet se ut som vist i <a href="#fig-github-app-connect-trigger">Figur&nbsp;11</a>. Det siste steget <code>Create a trigger</code> kan du hoppe over. Dette vil bli satt opp av automatiseringsløsningen senere. Trykk på knappen <code>DONE</code></li>
+</ul>
+<div id="fig-github-app-connect-trigger" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/github-app-11.png" class="img-fluid figure-img" alt="Skjermbilde som viser siste trinn i konfigurasjonen - create a trigger"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;11: Siste steg - Create a trigger</figcaption><p></p>
+</figure>
+</div>
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p>IAC-repo er et en kodebase i Github på formen https://github.com/statisticsnorway/<strong>team-navn</strong>-iac.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
