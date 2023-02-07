@@ -133,8 +133,8 @@ dmypy.json
 
 # My personal ignores
 /dapla-manual/.quarto/
-/dapla_manual/_site/
-/dapla_manual/_book/
+/dapla-manual/_site/
+/dapla-manual/_book/
 /docs/
 
 /.luarc.json
