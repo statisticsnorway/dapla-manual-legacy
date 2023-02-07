@@ -6,19 +6,19 @@ I dette kapittelet forklarer vi hvordan du oppretter et [ssb-project](https://gi
 ssb-project create stat-testprod
 ```
 
-og du vil få en mappe som heter **stat-testprod** med følgende innhold: 
+og du vil få en mappe som heter **stat-testprod** med følgende innhold:
 
-1. **Standard mappestruktur**  
+1. **Standard mappestruktur**
 En standard mappestruktur gjør det lettere å dele og samarbeide om kode, som igjen reduserer sårbarheten knyttet til at få personer kjenner koden.
-2. **Virtuelt miljø**  
+2. **Virtuelt miljø**
 Virtuelle miljøer isolerer og lagrer informasjon knyttet til kode. For eksempel hvilken versjon av Python du bruker og tilhørende pakkeversjoner. Det er viktig for at publiserte tall skal være reproduserbare. Verktøyet for å lage virtuelt miljø er [Poetry](https://python-poetry.org/docs/).
-3. **Versjonshåndtering med Git**  
+3. **Versjonshåndtering med Git**
 Initierer versjonshåndtering med [Git](https://git-scm.com/) og legger til SSBs anbefalte *.gitignore* og *.gitattributes*. Det sikrer at du ikke versjonhåndterer filer/informasjon som ikke skal versjonshåndteres.
 
 I tillegg lar **ssb-project** deg opprette et GitHub-repo hvis du ønsker. Les mer om hvordan du kan ta i bruk dette verktøyet under.
 
 :::{.callout-note}
-Dokumentasjonen for `ssb-project` finnes her: <https://statisticsnorway.github.io/ssb-project-cli/>. 
+Dokumentasjonen for `ssb-project` finnes her: <https://statisticsnorway.github.io/ssb-project-cli/>.
 Det oppdateres hver gang en ny versjon av `ssb-project` slippes.
 :::
 
@@ -26,14 +26,14 @@ Det oppdateres hver gang en ny versjon av `ssb-project` slippes.
 
 Før du kan ta i bruk **ssb-project** så er det et par ting som må være på plass:
 
-1. Du må ha opprettet en **git-bruker** og **git-epost** lokalt der du skal kalle på programmet ([les mer om hvordan her](https://statisticsnorway.github.io/dapla-manual/git-github.html#minimal-git-konfigurasjon)).
+1. Du må ha opprettet en **git-bruker** og **git-epost** lokalt der du skal kalle på programmet ([les mer om hvordan her](git-github.html#minimal-git-konfigurasjon)).
 2. Hvis du ønsker at **ssb-project** også skal opprette et GitHub-repo for deg må du også følgende være på plass:
-    a. Du må ha en **GitHub-bruker** ([les hvordan her](https://statisticsnorway.github.io/dapla-manual/git-github.html#opprett-github-bruker))
-    b. Skru på **2-faktor autentifisering** for GitHub-brukeren din ([les hvordan her](https://statisticsnorway.github.io/dapla-manual/git-github.html#sec-tofaktor))
-    c. Være koblet mot SSBs organisasjon [statisticsnorway](https://github.com/statisticsnorway) på GitHub ([les hvordan her](https://statisticsnorway.github.io/dapla-manual/git-github.html#koble-deg-til-ssb))
-    d. Opprette **Personal Access Token (PAT)** og godkjenne det for bruk mot **statisticsnorway** ([les hvordan her](https://statisticsnorway.github.io/dapla-manual/git-github.html#personal-access-token-pat))
+    a. Du må ha en **GitHub-bruker** ([les hvordan her](git-github.html#opprett-github-bruker))
+    b. Skru på **2-faktor autentifisering** for GitHub-brukeren din ([les hvordan her](git-github.html#sec-tofaktor))
+    c. Være koblet mot SSBs organisasjon [statisticsnorway](https://github.com/statisticsnorway) på GitHub ([les hvordan her](git-github.html#koble-deg-til-ssb))
+    d. Opprette **Personal Access Token (PAT)** og godkjenne det for bruk mot **statisticsnorway** ([les hvordan her](git-github.html#personal-access-token-pat))
 
-Det er også å anbefale at du [lagrer PAT lokalt](https://statisticsnorway.github.io/dapla-manual/git-github.html#lagre-pat) slik at du ikke trenger å forholde deg til det når jobber med Git og GitHub. Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.
+Det er også å anbefale at du [lagrer PAT lokalt](git-github.html#lagre-pat) slik at du ikke trenger å forholde deg til det når jobber med Git og GitHub. Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.
 
 ## Opprett ssb-project
 
@@ -90,14 +90,14 @@ Kommandoen over oppretter en mappestruktur slik vi så tidligere, men også et s
 ![GitHub-repo som er opprettet av ssb-project](images/ssbproject_github.png){fig-alt="Bilde av et GitHub-repo som ble opprettet av ssb-project" #fig-ssb-proj-github}
 
 ::: {.callout-warning appearance="simple"}
-Når du har opprettet et nytt ssb-project, eller bygget et eksisterende prosjekt, så kan det ta rundt 30 sekunder før kernelen viser seg i Jupterlab-launcher. Vær tålmodig! 
+Når du har opprettet et nytt ssb-project, eller bygget et eksisterende prosjekt, så kan det ta rundt 30 sekunder før kernelen viser seg i Jupterlab-launcher. Vær tålmodig!
 :::
 
 ## Installere pakker
 
 Når du har opprettet et **ssb-project** så kan du installere de python-pakkene du trenger [fra PyPI](https://pypi.org/). Hvis du for eksempel ønsker å installere [Pandas](https://pandas.pydata.org/), et populært data wrangling bibliotek, så kan du gjøre følgende:
 
-1. Åpne en terminal i Jupyterlab. 
+1. Åpne en terminal i Jupyterlab.
 2. Gå inn i prosjektmappen din ved å skrive
 
 ```bash
@@ -118,12 +118,12 @@ poetry add pandas
 
 ![Installasjon av Pandas med ssb-project](./images/jupyterlab_terminal_install.png){fig-alt="Bilde av et GitHub-repo som ble opprettet av ssb-project" #fig-ssb-proj-install}
 
-@fig-ssb-proj-install viser hvordan dette vil se ut i en Jupyterlab-terminal. Kommandoen for å installere noe er `poetry add` etterfulgt av pakkenavnet. Vi ser også at den automatisk legger til Pandas-versjonen i filen **poetry.lock**. Les mer om [hvordan man installerer pakker](https://statisticsnorway.github.io/dapla-manual/pakke-install.html#python) her.
+@fig-ssb-proj-install viser hvordan dette vil se ut i en Jupyterlab-terminal. Kommandoen for å installere noe er `poetry add` etterfulgt av pakkenavnet. Vi ser også at den automatisk legger til Pandas-versjonen i filen **poetry.lock**. Les mer om [hvordan man installerer pakker](pakke-install.html#python) her.
 
 
 ## Push til GitHub
 
-Når du nå har installert en pakke så har filen **poetry.lock** endret seg. La oss for eksempelets skyld anta at du ønsker å bruke **Git** til å dokumentere denne hendelsen, og dele det med en kollega via GitHub. Hvis vi har opprettet et **ssb-project** [med et GitHub-repo](https://statisticsnorway.github.io/dapla-manual/nytt-ssbproject.html#med-github-repo) så kan vi gjøre akkurat dette:
+Når du nå har installert en pakke så har filen **poetry.lock** endret seg. La oss for eksempelets skyld anta at du ønsker å bruke **Git** til å dokumentere denne hendelsen, og dele det med en kollega via GitHub. Hvis vi har opprettet et **ssb-project** [med et GitHub-repo](nytt-ssbproject.html#med-github-repo) så kan vi gjøre akkurat dette:
 
 1. Vi kan *stage* alle endringer med følgende kommando i terminalen når vi står i prosjektmappen:
 
@@ -131,13 +131,13 @@ Når du nå har installert en pakke så har filen **poetry.lock** endret seg. La
 git add -A
 ```
 
-2. Videre kan *commit* en endring, dvs. ta et stillbilde av koden i dette øyeblikket, ved å skrive følgende: 
+2. Videre kan *commit* en endring, dvs. ta et stillbilde av koden i dette øyeblikket, ved å skrive følgende:
 
 ```bash
 git commit -m "Installert pandas"
 ```
 
-3. Push det opp til GitHub^[Å pushe til GitHub uten å sende ved *Personal Access Token* fordrer at du har lagret det lokalt så Git kan finne det. [Her et eksempel på hvordan det kan gjøres](https://statisticsnorway.github.io/dapla-manual/git-github.html#lagre-pat).]. Anta at vi gjorde dette i *branchen* *install-pandas* som ble opprettet tidligere. Da kan vi skrive følgende: 
+3. Push det opp til GitHub^[Å pushe til GitHub uten å sende ved *Personal Access Token* fordrer at du har lagret det lokalt så Git kan finne det. [Her et eksempel på hvordan det kan gjøres](git-github.html#lagre-pat).]. Anta at vi gjorde dette i *branchen* *install-pandas* som ble opprettet tidligere. Da kan vi skrive følgende:
 
 ```bash
 git push --set-upstream origin install-pandas
@@ -150,24 +150,24 @@ Mer kommer her.
 
 Når vi skal samarbeide med andre om kode så gjør vi dette via **GitHub**. Når du *pusher* koden din til GitHub, så kan samarbeidspartnere *pulle* ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. **ssb-project** gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs.
 
-For at samarbeidspartneren din skal kunne bygge miljøet på nytt, må de ha gjort en minimal konfigurering av Git. [Les mer om hvordan](https://statisticsnorway.github.io/dapla-manual/git-github.html#minimal-git-konfigurasjon) du frem for å gjøre dette her. 
+For at samarbeidspartneren din skal kunne bygge miljøet på nytt, må de ha gjort en minimal konfigurering av Git. [Les mer om hvordan](git-github.html#minimal-git-konfigurasjon) du frem for å gjøre dette her.
 
 
 For å bygge opp et eksisterende miljø gjør du følgende:
 
-1. Først må du kopiere prosjektet ned lokalt, eller *klone* repoet med git-terminologi 
+1. Først må du kopiere prosjektet ned lokalt, eller *klone* repoet med git-terminologi
 
 ```bash
 git clone https://github.com/statisticsnorway/<prosjektnavn>
 ```
 
-2. Gå inn i mappen du klonet 
+2. Gå inn i mappen du klonet
 
 ```bash
 cd <prosjektnavn>
 ```
 
-3. Skape et virtuelt miljø og installere en tilsvarende Jupyter kernel med 
+3. Skape et virtuelt miljø og installere en tilsvarende Jupyter kernel med
 
 ```bash
 ssb-project build
@@ -175,11 +175,11 @@ ssb-project build
 
 ## Rydd opp etter deg
 
-Det vil være tilfeller hvor man ønsker å slette et ssb-project, enten fordi man ikke trenger koden lenger eller fordi man bare testet litt. 
+Det vil være tilfeller hvor man ønsker å slette et ssb-project, enten fordi man ikke trenger koden lenger eller fordi man bare testet litt.
 
 ### Lokalt
 
-Hvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre 
+Hvis man jobber med flere prosjekter så kan det fort bli mange Jupyter kerneler hengende igjen. Derfor er det også mulighet å kjøre
 
 ```bash
 ssb-project clean stat-testprod
@@ -191,11 +191,11 @@ som sletter Jupyter-kernelen og de installerte pakkene i prosjektet. Hvis du ogs
 rm -rf ~/stat-testprod/
 ```
 
-Prosjektmappen over lå direkte i hjemmemappen min og hjemmemappen på Linux kan alltid referes til med et tilda-tegn **~**. 
+Prosjektmappen over lå direkte i hjemmemappen min og hjemmemappen på Linux kan alltid referes til med et tilda-tegn **~**.
 
 ### Arkiver GitHub-repo
 
-GitHub-repoer som er opprettet under SSB sin organinasjons [statisticsnorway]() på GitHub kan ikke slettes, bare arkiveres. Grunnen er at hvis man oppdager en sårbarhet senere så er det viktig å kunne se repoet for å forstå hva som har skjedd. 
+GitHub-repoer som er opprettet under SSB sin organinasjons [statisticsnorway]() på GitHub kan ikke slettes, bare arkiveres. Grunnen er at hvis man oppdager en sårbarhet senere så er det viktig å kunne se repoet for å forstå hva som har skjedd.
 
 Hvis du ikke trenger et GitHub-repo lenger kan man **arkivere repoet**. Det gjør du på følgende måte:
 
@@ -215,8 +215,8 @@ Når det er gjort så er repoet lesbart, men man kan ikke jobbe med det. Men som
 
 ## Hva med R?
 
-Vi har foreløpig ikke integret **R** i **ssb-project**. Grunnen er at det mest populære *virtuelle miljø*-verktøet for R, [renv](https://rstudio.github.io/renv/index.html), kun tilbyr å passe på versjoner av R-pakker og ikke selve R-installasjonen. Det er en svakhet som trolig gjør det vanskeligere enn nødvendig å gjenskape tidligere publiserte resultater med **ssb-project**. I tillegg klarer den ikke å gjenkjenne pakker som blir brukt i ipynb-filer. 
+Vi har foreløpig ikke integret **R** i **ssb-project**. Grunnen er at det mest populære *virtuelle miljø*-verktøet for R, [renv](https://rstudio.github.io/renv/index.html), kun tilbyr å passe på versjoner av R-pakker og ikke selve R-installasjonen. Det er en svakhet som trolig gjør det vanskeligere enn nødvendig å gjenskape tidligere publiserte resultater med **ssb-project**. I tillegg klarer den ikke å gjenkjenne pakker som blir brukt i ipynb-filer.
 
-Planen er å finne et annet verktøy enn **renv** som kan også reprodusere R-versjonen. Team Statistikktjenester ser nærmere på hvilke alternativer som finnes og vil tilby noe i fremtiden. 
+Planen er å finne et annet verktøy enn **renv** som kan også reprodusere R-versjonen. Team Statistikktjenester ser nærmere på hvilke alternativer som finnes og vil tilby noe i fremtiden.
 
-I mellomtiden kan man bruke renv slik det er [beskrevet her for skymiljøet](https://statisticsnorway.github.io/dapla-manual/pakke-install.html#r), og med [denne modifiseringen](https://statisticsnorway.github.io/dapla-manual/pakke-install-bakken.html#r) for bakkemiljøet. 
+I mellomtiden kan man bruke renv slik det er [beskrevet her for skymiljøet](pakke-install.html#r), og med [denne modifiseringen](pakke-install-bakken.html#r) for bakkemiljøet.
