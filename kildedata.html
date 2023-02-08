@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – bøtter</title>
+<title>Dapla-manual – kildedata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -179,11 +198,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Opprette Dapla-team</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">Hva er Dapla-team?</a>
@@ -196,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bøtter.html" class="sidebar-item-text sidebar-link active">Bøtter</a>
+  <a href="./bøtter.html" class="sidebar-item-text sidebar-link">Bøtter</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -289,11 +308,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./data.html" class="sidebar-item-text sidebar-link">Data</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">Datatilstander</a>
@@ -301,12 +320,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./kildedata.html" class="sidebar-item-text sidebar-link">Kildedata</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a href="./kildedata.html" class="sidebar-item-text sidebar-link active">Kildedata</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kildedata-prosessering.html" class="sidebar-item-text sidebar-link">Kildedata prosessering</a>
@@ -400,12 +419,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#bøtter" id="toc-bøtter" class="nav-link active" data-scroll-target="#bøtter">Bøtter</a>
-  <ul class="collapse">
-  <li><a href="#bøttenavn-i-produksjonsmiljøet" id="toc-bøttenavn-i-produksjonsmiljøet" class="nav-link" data-scroll-target="#bøttenavn-i-produksjonsmiljøet">Bøttenavn i Produksjonsmiljøet</a></li>
-  <li><a href="#andre-miljøer" id="toc-andre-miljøer" class="nav-link" data-scroll-target="#andre-miljøer">Andre miljøer</a></li>
-  <li><a href="#fellesbøtter" id="toc-fellesbøtter" class="nav-link" data-scroll-target="#fellesbøtter">Fellesbøtter</a></li>
-  </ul></li>
+  <li><a href="#kildedata" id="toc-kildedata" class="nav-link active" data-scroll-target="#kildedata">Kildedata</a></li>
   </ul>
 </nav>
     </div>
@@ -414,61 +428,42 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="bøtter" class="level1">
-<h1>Bøtter</h1>
-<p>Hvert statistikkteam har sitt eget datalager som heter Google Cloud Storage (GCS). Disse er delt inn i flere datalagringsområder som kalles <em>bøtter</em>. Dette kan sees på som et filsystem som kan organiseres med flere undermapper og filer. Navnet på bøttene må være unikt på tvers av alle Dapla-team. Derfor blir disse opprettet etter en navnekonvensjon basert på kjøremiljø, teamnavn og hvilke data bøtta skal inneholde.</p>
-<section id="bøttenavn-i-produksjonsmiljøet" class="level2">
-<h2 class="anchored" data-anchor-id="bøttenavn-i-produksjonsmiljøet">Bøttenavn i Produksjonsmiljøet</h2>
+<section id="kildedata" class="level1">
+<h1>Kildedata</h1>
+<blockquote class="blockquote">
+<p>Kildedata er data lagret slik de ble levert til SSB fra dataeier, det vil si på dataeiers dataformat og med informasjon om tidspunkt og rekkefølge for avlevering. Kildedata er en del av statistikkenes dokumentasjon, og kan være en nødvendig kilde for forskning og nye statistikker. Uten kildedataene vil det ikke være mulig å etterprøve SSB sine statistikker. De originale kildedataene vil ofte komprimeres og krypteres etter at relevante deler er transformert til inndata.</p>
+</blockquote>
+<p><span class="citation" data-cites="datatilstander">(<a href="#ref-datatilstander" role="doc-biblioref">Standardutvalget 2021, 7</a>)</span></p>
+<blockquote class="blockquote">
+<p>Statistikkloven § 9 Informasjonssikkerhet stiller krav om at direkte identifiserende opplysninger skal behandles og lagres adskilt fra øvrige opplysninger, med mindre det vil være uforenlig med formålet med behandlingen eller åpenbart unødvendig. I henhold til policy om Datatilstander er kildedata i utgangspunktet den eneste datatilstanden som kan inneholde denne type data. I øvrige tilstander skal direkteidentifiserende opplysninger som hovedregel være pseudonymisert. Avvik skal dokumenteres og godkjennes av seksjonsleder som er ansvarlig for avviket.</p>
+</blockquote>
+<p><span class="citation" data-cites="tilgangsstyring">(<a href="#ref-tilgangsstyring" role="doc-biblioref"><span>“Klassifisering Og Tilgangsstyring På DAPLA”</span> 2022, 2</a>)</span></p>
+<p>Fordi Kildedata kan inneholde PII<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> implementerer Dapla følgende tiltak:</p>
 <ul>
-<li><p><strong>ssb-prod-<em>teamnavn</em>-data-kilde</strong>: Inneholder pseudonymiserte rådata fra datakildene</p></li>
-<li><p><strong>ssb-prod-<em>teamnavn</em>-data-produkt</strong>: Inneholder data knyttet til statistikkproduktet, med følgende underkataloger:</p>
-<ul>
-<li><em>inndata</em></li>
-<li><em>klargjorte-data</em></li>
-<li><em>statistikk</em></li>
-<li><em>utdata</em></li>
-</ul></li>
-<li><p><strong>ssb-prod-<em>teamnavn</em>-data-delt</strong>: Inneholder data knyttet til statistikkproduktet som kan deles med andre statistikkteam. Disse vil ha følgende underkataloger:</p>
-<ul>
-<li><em>inndata</em></li>
-<li><em>klargjorte-data</em></li>
-<li><em>statistikk</em></li>
-<li><em>utdata</em></li>
-</ul></li>
-</ul>
-<div class="callout-note callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Underkatalogene <em>inndata, klargjorte-data, statistikk og utdata</em> gjenspeiler SSBs datatilstander. Se <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">Datatilstander i SSB</a> for mer informasjon.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="andre-miljøer" class="level2">
-<h2 class="anchored" data-anchor-id="andre-miljøer">Andre miljøer</h2>
-<p>På samme måte som i produksjonsmiljøet finnes det bøtter for utviklings- og testformål:</p>
-<ul>
-<li><strong>ssb-staging-<em>teamnavn</em>-data-kilde</strong></li>
-<li><strong>ssb-staging-<em>teamnavn</em>-data-produkt</strong></li>
-<li><strong>ssb-staging-<em>teamnavn</em>-data-delt</strong></li>
-</ul>
-</section>
-<section id="fellesbøtter" class="level2">
-<h2 class="anchored" data-anchor-id="fellesbøtter">Fellesbøtter</h2>
-<p>I tillegg til disse finnes det noen bøtter med data som kan deles med alle i SSB og og som kan brukes til kurs og opplæring (bl.a. denne manualen). Disse bøttene er:</p>
-<ul>
-<li><strong>ssb-prod-dapla-data-delt</strong></li>
-<li><strong>ssb-staging-dapla-data-delt</strong></li>
+<li>Kildedata er lagret adskilt fra andre datatilstander.</li>
+<li>Tilgang til dataene begrenses så langt som mulig, kun en begrenset gruppe personer<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> har tilgang til kildedata.</li>
+<li>Prosessering av kildedata utføres automatisk for minske behov for tilgang til dataene.</li>
 </ul>
 
 
-</section>
+
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referanser</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-tilgangsstyring" class="csl-entry" role="doc-biblioentry">
+<span>“Klassifisering Og Tilgangsstyring På DAPLA.”</span> 2022. Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/:w:/r/sites/Statistikktjenester/Shared%20Documents/General/2022-37_Vedlegg_Klassifisering%20og%20tilgangsstyring_220912%20(002).docx?d=w7f261943752f4705b640d77071edde4d&amp;csf=1&amp;web=1&amp;e=drd8On">https://ssbno.sharepoint.com/:w:/r/sites/Statistikktjenester/Shared%20Documents/General/2022-37_Vedlegg_Klassifisering%20og%20tilgangsstyring_220912%20(002).docx?d=w7f261943752f4705b640d77071edde4d&amp;csf=1&amp;web=1&amp;e=drd8On</a>.
+</div>
+<div id="ref-datatilstander" class="csl-entry" role="doc-biblioentry">
+Standardutvalget. 2021. <span>“Datatilstander i SSB.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p><a href="./ordforklaringer.html#personidentifiserende-informasjon-pii">Personidentifiserende Informasjon</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="./ordforklaringer.html#data-admin">Data admins</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

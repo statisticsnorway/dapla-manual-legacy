@@ -288,12 +288,52 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./jupyter-pa-bakken.html" class="sidebar-item-text sidebar-link">Jupyterlab på bakken</a>
+            <a href="./data.html" class="sidebar-item-text sidebar-link">Data</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">Datatilstander</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./kildedata.html" class="sidebar-item-text sidebar-link">Kildedata</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kildedata-prosessering.html" class="sidebar-item-text sidebar-link">Kildedata prosessering</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github-app-integrasjon.html" class="sidebar-item-text sidebar-link">Koble prosjektet til Github</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kildedata-prosessering-avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./jupyter-pa-bakken.html" class="sidebar-item-text sidebar-link">Jupyterlab på bakken</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
@@ -309,11 +349,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lese-data.html" class="sidebar-item-text sidebar-link">Lese filer fra bøtte</a>
@@ -412,13 +452,23 @@ ul.task-list li input[type="checkbox"] {
 <h5 class="anchored" data-anchor-id="developer"><strong>developer</strong></h5>
 <p>Kommer snart.</p>
 </section>
+<section id="personidentifiserende-informasjon-pii" class="level5">
+<h5 class="anchored" data-anchor-id="personidentifiserende-informasjon-pii"><strong>Personidentifiserende Informasjon (PII)</strong></h5>
+<p>PII er variabler som kan identifisere en person i et datasett.</p>
+<p>Mer informasjon finnes <a href="https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/">hos Datatilsynet</a>.</p>
+</section>
 <section id="google-cloud-platform-gcp" class="level5">
 <h5 class="anchored" data-anchor-id="google-cloud-platform-gcp"><strong>google cloud platform (gcp)</strong></h5>
-<p>Kommer snart.</p>
+<p>Allmenn skyplattform utviklet og levert av Google. Konkurrent med Amazon Web Services (AWS) og Microsoft Azure. Dapla primært benytter seg av tjenester på GCP.</p>
+<p><a href="https://www.youtube.com/watch?v=kzKFuHk8ovk">Video som forklarer hva GCP er.</a></p>
 </section>
 <section id="gcp" class="level5">
 <h5 class="anchored" data-anchor-id="gcp"><strong>gcp</strong></h5>
-<p>Forkortelse for Google Cloud Platform. Se forklaring under <a href="./ordforklaringer.html#google-cloud-platform-(gcp)">google cloud platform (GCP)</a>.</p>
+<p>Forkortelse for Google Cloud Platform. Se forklaring under <a href="#google-cloud-platform-(gcp)">google cloud platform (GCP)</a>.</p>
+</section>
+<section id="infrastructure-as-code-iac" class="level5">
+<h5 class="anchored" data-anchor-id="infrastructure-as-code-iac"><strong>Infrastructure as Code (IaC)</strong></h5>
+<p><em>Infrastuktur som kode</em> på norsk. Kode som defineres ressurser, typisk på en allmenn skyplatform som <a href="#google-cloud-platform-(gcp)">GCP</a>. Eksempler av ressurser er <a href="./ordforklaringer.html#bucket">bøtter</a>, databaser, virtuelle maskiner, nettverk og sikkerhetsregler.</p>
 </section>
 <section id="kilde-bøtte" class="level5">
 <h5 class="anchored" data-anchor-id="kilde-bøtte"><strong>kilde-bøtte</strong></h5>
@@ -427,6 +477,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="produkt-bøtte" class="level5">
 <h5 class="anchored" data-anchor-id="produkt-bøtte"><strong>produkt-bøtte</strong></h5>
 <p>Kommer snart.</p>
+</section>
+<section id="pull-request-pr" class="level5">
+<h5 class="anchored" data-anchor-id="pull-request-pr"><strong>Pull Request (PR)</strong></h5>
+<p>En PR er en Github konsept, som gir et forum for kodegjennomgang, diskusjon og ikke minst dokumentasjon av kodeendringer.</p>
+<p>Dette er <a href="https://statistics-norway.atlassian.net/wiki/spaces/BEST/pages/3041492993/Regler+og+anbefalinger+for+versjonskontroll+med+Git#A-009-Anbefaling%3A-Bruk-pull-request-til-%C3%A5-f%C3%A5-andre-til-%C3%A5-lese-gjennom-kodeendringer-f%C3%B8r-de-merges.">anbefalt av KVAKK</a> som måten å endre kode på i SSB.</p>
 </section>
 <section id="ssb-project" class="level5">
 <h5 class="anchored" data-anchor-id="ssb-project"><strong>ssb-project</strong></h5>

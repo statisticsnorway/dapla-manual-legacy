@@ -2,166 +2,190 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/bakke-til-sky.html</loc>
-    <lastmod>2023-02-07T13:51:36.999Z</lastmod>
+    <lastmod>2023-02-08T14:45:51.859Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/pyspark-venv.html</loc>
-    <lastmod>2023-02-07T13:51:37.727Z</lastmod>
+    <lastmod>2023-02-08T14:45:52.911Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/preface.html</loc>
-    <lastmod>2023-02-07T13:51:38.131Z</lastmod>
+    <lastmod>2023-02-08T14:45:53.403Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/hva-er-dapla-team.html</loc>
-    <lastmod>2023-02-07T13:51:38.479Z</lastmod>
+    <lastmod>2023-02-08T14:45:53.807Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/git-github.html</loc>
-    <lastmod>2023-02-07T13:51:39.031Z</lastmod>
+    <lastmod>2023-02-08T14:45:54.475Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/jupyter-pa-bakken.html</loc>
-    <lastmod>2023-02-07T13:51:39.343Z</lastmod>
+    <lastmod>2023-02-08T14:45:54.863Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/avansert.html</loc>
-    <lastmod>2023-02-07T13:51:39.659Z</lastmod>
+    <lastmod>2023-02-08T14:45:55.255Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/slette-data.html</loc>
-    <lastmod>2023-02-07T13:51:40.003Z</lastmod>
+    <lastmod>2023-02-08T14:45:55.675Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/introduksjon.html</loc>
-    <lastmod>2023-02-07T13:51:40.347Z</lastmod>
+    <lastmod>2023-02-08T14:45:56.107Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/statisticsnorway/dapla-manual/kildedata-prosessering.html</loc>
+    <lastmod>2023-02-08T14:45:56.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/statisticsnorway/dapla-manual/kildedata-prosessering-avansert.html</loc>
+    <lastmod>2023-02-08T14:45:57.111Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/index.html</loc>
-    <lastmod>2023-02-07T13:51:40.691Z</lastmod>
+    <lastmod>2023-02-08T14:45:57.531Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/lese-data.html</loc>
-    <lastmod>2023-02-07T13:51:41.067Z</lastmod>
+    <lastmod>2023-02-08T14:45:57.971Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/hva-er-dapla.html</loc>
-    <lastmod>2023-02-07T13:51:41.383Z</lastmod>
+    <lastmod>2023-02-08T14:45:58.415Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/lese-data-bakken.html</loc>
-    <lastmod>2023-02-07T13:51:41.703Z</lastmod>
+    <lastmod>2023-02-08T14:45:58.819Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/nytt-ssbproject.html</loc>
-    <lastmod>2023-02-07T13:51:42.259Z</lastmod>
+    <lastmod>2023-02-08T14:45:59.503Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/github-app-integrasjon.html</loc>
-    <lastmod>2023-02-07T13:51:42.659Z</lastmod>
+    <lastmod>2023-02-08T14:45:59.999Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/statisticsnorway/dapla-manual/automatisering.html</loc>
+    <lastmod>2023-02-08T14:46:00.399Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/schedulering.html</loc>
-    <lastmod>2023-02-07T13:51:42.975Z</lastmod>
+    <lastmod>2023-02-08T14:46:00.791Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/remote.html</loc>
-    <lastmod>2023-02-07T13:51:43.291Z</lastmod>
+    <lastmod>2023-02-08T14:46:01.195Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/gjenopprette-data.html</loc>
-    <lastmod>2023-02-07T13:51:43.655Z</lastmod>
+    <lastmod>2023-02-08T14:46:01.651Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/references.html</loc>
-    <lastmod>2023-02-07T13:51:43.971Z</lastmod>
+    <lastmod>2023-02-08T14:46:02.039Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/statisticsnorway/dapla-manual/kildedata.html</loc>
+    <lastmod>2023-02-08T14:46:02.515Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/administrasjon.html</loc>
-    <lastmod>2023-02-07T13:51:44.343Z</lastmod>
+    <lastmod>2023-02-08T14:46:02.947Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/pakke-install.html</loc>
-    <lastmod>2023-02-07T13:51:45.043Z</lastmod>
+    <lastmod>2023-02-08T14:46:03.859Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/virtual-env.html</loc>
-    <lastmod>2023-02-07T13:51:45.371Z</lastmod>
+    <lastmod>2023-02-08T14:46:04.267Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/overføre-data.html</loc>
-    <lastmod>2023-02-07T13:51:45.995Z</lastmod>
+    <lastmod>2023-02-08T14:46:05.059Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/datadoc.html</loc>
-    <lastmod>2023-02-07T13:51:46.387Z</lastmod>
+    <lastmod>2023-02-08T14:46:05.539Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/hvorfor-dapla.html</loc>
-    <lastmod>2023-02-07T13:51:46.735Z</lastmod>
+    <lastmod>2023-02-08T14:46:05.947Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/jobbe-med-data.html</loc>
-    <lastmod>2023-02-07T13:51:47.511Z</lastmod>
+    <lastmod>2023-02-08T14:46:06.987Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/bakke-sky.html</loc>
-    <lastmod>2023-02-07T13:51:47.823Z</lastmod>
+    <lastmod>2023-02-08T14:46:07.375Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/dapla-team.html</loc>
-    <lastmod>2023-02-07T13:51:48.175Z</lastmod>
+    <lastmod>2023-02-08T14:46:07.775Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/pakke-install-bakken.html</loc>
-    <lastmod>2023-02-07T13:51:48.735Z</lastmod>
+    <lastmod>2023-02-08T14:46:08.499Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/bøtter.html</loc>
-    <lastmod>2023-02-07T13:51:49.095Z</lastmod>
+    <lastmod>2023-02-08T14:46:08.947Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/gcc.html</loc>
-    <lastmod>2023-02-07T13:51:49.431Z</lastmod>
+    <lastmod>2023-02-08T14:46:09.383Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/ssbproject.html</loc>
-    <lastmod>2023-02-07T13:51:49.755Z</lastmod>
+    <lastmod>2023-02-08T14:46:09.803Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/innlogging.html</loc>
-    <lastmod>2023-02-07T13:51:50.143Z</lastmod>
+    <lastmod>2023-02-08T14:46:10.327Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/opprette-dapla-team.html</loc>
-    <lastmod>2023-02-07T13:51:50.467Z</lastmod>
+    <lastmod>2023-02-08T14:46:10.739Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/statisticsnorway/dapla-manual/data.html</loc>
+    <lastmod>2023-02-08T14:46:11.147Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/arkitektur.html</loc>
-    <lastmod>2023-02-07T13:51:50.783Z</lastmod>
+    <lastmod>2023-02-08T14:46:11.535Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/ordforklaringer.html</loc>
-    <lastmod>2023-02-07T13:51:51.155Z</lastmod>
+    <lastmod>2023-02-08T14:46:11.983Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/statisticsnorway/dapla-manual/datatilstander.html</loc>
+    <lastmod>2023-02-08T14:46:12.431Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/jupyterlab.html</loc>
-    <lastmod>2023-02-07T13:51:51.483Z</lastmod>
+    <lastmod>2023-02-08T14:46:12.835Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/vedlikehold.html</loc>
-    <lastmod>2023-02-07T13:51:51.799Z</lastmod>
+    <lastmod>2023-02-08T14:46:13.227Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/samarbeid.html</loc>
-    <lastmod>2023-02-07T13:51:52.139Z</lastmod>
+    <lastmod>2023-02-08T14:46:13.655Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/jupyter-kernel.html</loc>
-    <lastmod>2023-02-07T13:51:52.455Z</lastmod>
+    <lastmod>2023-02-08T14:46:14.055Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/dapla-manual/databaser.html</loc>
-    <lastmod>2023-02-07T13:51:52.767Z</lastmod>
+    <lastmod>2023-02-08T14:46:14.483Z</lastmod>
   </url>
 </urlset>
