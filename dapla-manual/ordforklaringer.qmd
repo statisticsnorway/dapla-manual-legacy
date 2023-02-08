@@ -3,7 +3,7 @@
 
 ##### **bip**
 
-*bip* er det tidligere navnet på den underliggende plattformen som SSB bygger i [GCP](./ordforklaringer.html#google-cloud-platform-(gcp)), hovedsakelig ment for utviklere som bygger tjenester på Dapla. Plattformen skulle være selvbetjent for utviklere og basert på DevOps-prinsipper. *bip* eksisterer fortsatt, men er nå blitt en del av det større begrepet [dapla](./ordforklaringer.html#dapla). 
+*bip* er det tidligere navnet på den underliggende plattformen som SSB bygger i [GCP](./ordforklaringer.html#google-cloud-platform-(gcp)), hovedsakelig ment for utviklere som bygger tjenester på Dapla. Plattformen skulle være selvbetjent for utviklere og basert på DevOps-prinsipper. *bip* eksisterer fortsatt, men er nå blitt en del av det større begrepet [dapla](./ordforklaringer.html#dapla).
 
 ##### **bucket**
 
@@ -19,11 +19,11 @@
 
 ##### **dapla-team**
 
-Kommer snart. 
+Kommer snart.
 
 ##### **dapla-toolbelt**
 
-Kommer snart. 
+Kommer snart.
 
 ##### **data-admin**
 
@@ -41,15 +41,27 @@ Kommer snart.
 
 ##### **developer**
 
-Kommer snart. 
+Kommer snart.
+
+##### **Personidentifiserende Informasjon (PII)**
+
+PII er variabler som kan identifisere en person i et datasett.
+
+Mer informasjon finnes [hos Datatilsynet](https://www.datatilsynet.no/rettigheter-og-plikter/personopplysninger/).
 
 ##### **google cloud platform (gcp)**
 
-Kommer snart. 
+Allmenn skyplattform utviklet og levert av Google. Konkurrent med Amazon Web Services (AWS) og Microsoft Azure. Dapla primært benytter seg av tjenester på GCP.
+
+[Video som forklarer hva GCP er.](https://www.youtube.com/watch?v=kzKFuHk8ovk)
 
 ##### **gcp**
 
-Forkortelse for Google Cloud Platform. Se forklaring under [google cloud platform (GCP)](./ordforklaringer.html#google-cloud-platform-(gcp)).
+Forkortelse for Google Cloud Platform. Se forklaring under [google cloud platform (GCP)](#google-cloud-platform-(gcp)).
+
+##### **Infrastructure as Code (IaC)**
+
+_Infrastuktur som kode_ på norsk. Kode som defineres ressurser, typisk på en allmenn skyplatform som [GCP](#google-cloud-platform-(gcp)). Eksempler av ressurser er [bøtter](./ordforklaringer.qmd#bucket), databaser, virtuelle maskiner, nettverk og sikkerhetsregler.
 
 ##### **kilde-bøtte**
 
@@ -59,10 +71,16 @@ Kommer snart.
 
 Kommer snart.
 
+##### **Pull Request (PR)**
+
+En PR er en Github konsept, som gir et forum for kodegjennomgang, diskusjon og ikke minst dokumentasjon av kodeendringer.
+
+Dette er [anbefalt av KVAKK](https://statistics-norway.atlassian.net/wiki/spaces/BEST/pages/3041492993/Regler+og+anbefalinger+for+versjonskontroll+med+Git#A-009-Anbefaling%3A-Bruk-pull-request-til-%C3%A5-f%C3%A5-andre-til-%C3%A5-lese-gjennom-kodeendringer-f%C3%B8r-de-merges.) som måten å endre kode på i SSB.
+
 ##### **ssb-project**
 
-Kommer snart. 
+Kommer snart.
 
 ##### **transfer service**
 
-Kommer snart. 
+Kommer snart.

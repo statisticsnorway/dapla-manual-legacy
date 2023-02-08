@@ -1,0 +1,19 @@
+# Kildedata
+
+> Kildedata er data lagret slik de ble levert til SSB fra dataeier, det vil si på dataeiers dataformat og med informasjon om tidspunkt og rekkefølge for avlevering. Kildedata er en del av statistikkenes dokumentasjon, og kan være en nødvendig kilde for forskning og nye statistikker. Uten kildedataene vil det ikke være mulig å etterprøve SSB sine statistikker. De originale kildedataene vil ofte komprimeres og krypteres etter at relevante deler er transformert til inndata.
+
+[@datatilstander pp. 7]
+
+> Statistikkloven § 9 Informasjonssikkerhet stiller krav om at direkte identifiserende opplysninger skal behandles og lagres adskilt fra øvrige opplysninger, med mindre det vil være uforenlig med formålet med behandlingen eller åpenbart unødvendig. I henhold til policy om Datatilstander er kildedata i utgangspunktet den eneste datatilstanden som kan inneholde denne type data. I øvrige tilstander skal direkteidentifiserende opplysninger som hovedregel være pseudonymisert. Avvik skal dokumenteres og godkjennes av seksjonsleder som er ansvarlig for avviket.
+
+[@tilgangsstyring pp. 2]
+
+Fordi Kildedata kan inneholde PII[^1] implementerer Dapla følgende tiltak:
+
+- Kildedata er lagret adskilt fra andre datatilstander.
+- Tilgang til dataene begrenses så langt som mulig, kun en begrenset gruppe personer[^2] har tilgang til kildedata.
+- Prosessering av kildedata utføres automatisk for minske behov for tilgang til dataene.
+
+[^1]: [Personidentifiserende Informasjon](ordforklaringer.qmd#personidentifiserende-informasjon-pii)
+[^2]: [Data admins](ordforklaringer.qmd#data-admin)
+

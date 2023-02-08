@@ -82,6 +82,14 @@ website:
         - pyspark-venv.qmd
         - samarbeid.qmd
         - vedlikehold.qmd
+      - section: data.qmd
+        contents:
+        - datatilstander.qmd
+        - section: kildedata.qmd
+          contents:
+            - kildedata-prosessering.qmd
+            - github-app-integrasjon.qmd
+            - kildedata-prosessering-avansert.qmd
       - section: jupyter-pa-bakken.qmd
         contents:
         - pakke-install-bakken.qmd

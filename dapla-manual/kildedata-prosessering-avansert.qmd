@@ -1,0 +1,35 @@
+# Avansert
+
+## Infrastruktur oversikt
+
+![Infrastruktur](images/dapla-cloud-run-processor-example.png){fig-alt="Infrastruktur oversikt diagram" #fig-infrastruktur width="100%"}
+
+## Ressurser
+
+Som utgangspunkt, får hver prosesseringsinstans standard ressurstildeling for Cloud Run, dvs. 1 CPU kjerne og 512MB minne. Dette kan være for lite i noen tilfeller, særlig for større kildedatafiler. Hvis det oppleves at mer minne kreves, ta gjerne kontakt med [Dapla Kundeservice](https://ssb.pureservice.com/#/new/7) for å ordne dette.
+
+## Tilgjengelige pakker
+
+En liste over Python pakker man kan benytte seg av i `process_source_data.py` finnes [her](https://github.com/statisticsnorway/dapla-source-data-processor/blob/main/requirements.txt). Ta gjerne kontakt med [Dapla Kundeservice](https://ssb.pureservice.com/#/new/7) hvis man har behov for ytterligere.
+
+## Skalering
+
+Hver kilde kan skalere opp med parallele prosesseringsinstanser. Det gjør det kjappere å prosessere mange filer. I utgangspunktet er dette begrenset til 5 parallele instanser, men det kan økes ved behov.
+
+## Validering
+
+For å gi raskt tilbakemelding på noen mulige feilsituasjoner, så kjøres det enkel validering på kilde config og `process_source_data.py` når en [PR](./ordforklaringer.html#pull-request-pr) er opprettet.
+
+Hvis valideringen feiler, så må feilen rettes før PRen merges.
+
+## Utrulling
+
+Endringer til `process_source_data.py` blir automatisk rullet ut når en [PR](./ordforklaringer.html#pull-request-pr) er merget til `main` branchen.
+
+## Monitorering
+
+Man får en oversikt over kildene man har konfigurert prosessering for og statusen på dem ved hjelp av konsollet på [GCP](./ordforklaringer.html#google-cloud-platform-gcp). Der navigerer man til siden for `Cloud Run` (se @fig-cloud-run-dashboard) som er kjøremiljøet som kildedata prosessering benyttes av. Eksempel URl er: `https://console.cloud.google.com/run?project=<teamets-prosjekt-id>`
+
+Her får man en oversikt av ressursbruk og loggene til prosesseringen.
+
+![Cloud Run dashboard](images/cloud-run-dashboard.png){fig-alt="Cloud Run dashboard" #fig-cloud-run-dashboard width="100%"}

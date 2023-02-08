@@ -1,10 +1,6 @@
-# Automatisering av kildedata
+# Koble prosjektet til Github
 
-Her kommer en beskrivelse av automatiseringsløsningen.
-
-## Automatisering fra kode i Github
-
-For at automatiseringsløsningen på Dapla skal kunne settes opp automatisk må denne ha tilgang til å lese fra prosjektets **IAC-repo**[^1]. Dette avsnittet vil beskrive denne prosessen. Merk at dette er en engangsjobb som må gjøres av prosjektets kildedataansvarlige. 
+For at automatiseringsløsningen på Dapla skal kunne settes opp automatisk må denne ha tilgang til å lese fra prosjektets **IAC-repo**[^1]. Dette avsnittet vil beskrive denne prosessen. Merk at dette er en engangsjobb som må gjøres av prosjektets kildedataansvarlige.
 
 ::: {.callout-note appearance="simple"}
 **Viktig**: Prosjektets kildedataansvarlige også må ha administrator-rettigheter til IAC-repoet i Github.
