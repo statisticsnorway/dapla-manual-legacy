@@ -491,7 +491,10 @@ div.csl-indent {
   <li><a href="#konfigurere-en-kilde" id="toc-konfigurere-en-kilde" class="nav-link" data-scroll-target="#konfigurere-en-kilde">Konfigurere en kilde</a></li>
   <li><a href="#eksempel" id="toc-eksempel" class="nav-link" data-scroll-target="#eksempel">Eksempel</a></li>
   </ul></li>
-  <li><a href="#skrive-prosesseringsscriptet" id="toc-skrive-prosesseringsscriptet" class="nav-link" data-scroll-target="#skrive-prosesseringsscriptet">Skrive prosesseringsscriptet</a></li>
+  <li><a href="#skrive-prosesseringsscriptet" id="toc-skrive-prosesseringsscriptet" class="nav-link" data-scroll-target="#skrive-prosesseringsscriptet">Skrive prosesseringsscriptet</a>
+  <ul class="collapse">
+  <li><a href="#logging" id="toc-logging" class="nav-link" data-scroll-target="#logging">Logging</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -705,9 +708,17 @@ div.csl-indent {
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    destination_path <span class="op">=</span> file_path.replace(source_bucket_name, destination_bucket_name)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    fs.copy(file_path, destination_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="logging" class="level3">
+<h3 class="anchored" data-anchor-id="logging">Logging</h3>
+<p>Det anbefales å bruke Pythons <a href="https://docs.python.org/3/library/logging.html">logging modul</a> for å logge, og ikke bruke <code>print</code> eller skrive til stdout/stderr. Det er satt opp en standard logger-konfigurasjon som skriver informasjonsmeldinger (log level <code>info</code>) til <code>stdout</code> og feilmeldinger (log level <code>warning</code> eller <code>error</code>) til <code>stderr</code>. Feil som ikke blir håndtert blir automatisk fanget opp og logget av automatiseringsløsningen. Eksemplet nedenfor logger en informasjonsmelding, en advarsel og en feilmelding:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>logging.info(<span class="st">'Til info'</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>logging.warning(<span class="st">'Advarsel!'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>logging.error(<span class="st">'En feil oppstod!'</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
+</section>
 </section>
 </section>
 
