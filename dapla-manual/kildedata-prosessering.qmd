@@ -180,4 +180,18 @@ from dapla import FileClient
     fs.copy(file_path, destination_path)
 ```
 
+### Logging
+
+Det anbefales å bruke Pythons [logging modul](https://docs.python.org/3/library/logging.html) for å logge, og ikke bruke `print` eller skrive til stdout/stderr. Det er satt opp en standard logger-konfigurasjon som skriver
+informasjonsmeldinger (log level `info`) til `stdout` og feilmeldinger (log level `warning` eller `error`) til `stderr`. Feil som ikke blir håndtert blir automatisk fanget opp og logget av automatiseringsløsningen.
+Eksemplet nedenfor logger en informasjonsmelding, en advarsel og en feilmelding:
+
+```python
+import logging
+logging.info('Til info')
+logging.warning('Advarsel!')
+logging.error('En feil oppstod!')
+```
+
+
 [^1]: [Personidentifiserende Informasjon](ordforklaringer.qmd#personidentifiserende-informasjon-pii)
