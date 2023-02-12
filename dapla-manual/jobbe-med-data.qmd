@@ -12,7 +12,7 @@ For å gjøre det enklere å jobbe data på tvers av Jupyter og lagringsområdet
 
 ### dapla-toolbelt
 
-[dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er en en pakke som lar deg enkelt lese og skrive til lagringsområdet uten å måtte autentifisere deg manuelt. Den har en **Pandas**-aktig syntaks som forhåpentlig er gjenkjennbar for de fleste. Pakken er installert i **ipykernel**-kernelen på Dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med ipykernel. For å importere hele biblioteket i en notebook skriver du bare
+[dapla-toolbelt](https://github.com/statisticsnorway/dapla-toolbelt) er en en pakke som lar deg enkelt lese og skrive til lagringsområdet uten å måtte autentifisere deg manuelt. Den har en **Pandas**-aktig syntaks som forhåpentlig er gjenkjennbar for de fleste. Pakken er installert i alle Python-kernels på Dapla, så du trenger ikke å installere den selv hvis du åpner en notebook med Python3 for eksempel. For å importere hele biblioteket i en notebook skriver du bare
 
 ```python
 import dapla as dp
@@ -74,16 +74,16 @@ Vi bruker modulen `FileClient` fra **dapla-toolbelt** for å liste ut innholdet 
 from dapla import FileClient
 
 # Set path to folder
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler/purchases"
 
-FileClient.ls(bucket + folder)
+FileClient.ls(f"{bucket}/{folder}")
 ```
 
 Med kommandoen over får du listet ut alle filnavn i mappen. Hvis du vil ha mer informasjon om filene så kan du bruke `ls`-kommandoen med `detail = True`, som under:
 
 ```python
-FileClient.ls(bucket + folder, detail = True)
+FileClient.ls(f"{bucket}/{folder}", detail = True)
 ```
 Syntaksen med `ls` er veldig lik det man kjenner fra en Linux-terminal. Men når vi bruker `detail = True` blir metadata om filene returnert som en Python-liste med dictionaries. Det kan være svært nyttig når du f.eks. trenger å vite dato og tidspunkt for når en fil ble opprettet, eller når den sist ble oppdatert.
 
@@ -126,7 +126,7 @@ import pandas as pd
 import numpy as np
 
 # Set path to folder
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler/purchases"
 
 # Create pandas dataframe
@@ -135,14 +135,14 @@ purchases = pd.DataFrame(np.random.randn(10, 5),
 
 # Write pandas dataframe as parquet to GCS bucket
 dp.write_pandas(df = purchases,
-                gcs_path = f"{bucket}{folder}/data.parquet",
+                gcs_path = f"{bucket}/{folder}/data.parquet",
                 file_format = "parquet",)
 ```
 Når vi kalte `write_pandas` over så spesifiserte vi at filformatet skulle være `parquet`. Dette er default, så vi kunne også ha skrevet det slik:
 
 ```python
 dp.write_pandas(df = purchases,
-                gcs_path = f"{bucket}{folder}/data.parquet")
+                gcs_path = f"{bucket}/{folder}/data.parquet")
 ```
 Men for de andre filformatene må vi altså spesifisere dette.
 
@@ -170,7 +170,7 @@ import pandas as pd
 from dapla import FileClient
 
 # Set path to folder
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler/purchases"
 
 # Create a dataframe with Pandas
@@ -178,7 +178,7 @@ df = pd.DataFrame(np.random.randn(10, 5), columns=["A", "B", "C", "D", "E"])
 
 # Save dataframe as json with dapla-toolbelt
 dp.write_pandas(df = df,
-                gcs_path = f"{bucket}{folder}/test.json",
+                gcs_path = f"{bucket}/{folder}/test.json",
                 file_format = "json")
 ```	
 
@@ -186,7 +186,7 @@ Som vi ser at syntaksen over så kunne vi skrevet ut til noe annet enn json ved 
 
 ## {{< fa brands r-project >}}
 
-Kommer snart
+Kommer snart.
 
 :::
 
@@ -198,7 +198,20 @@ Det er ikke anbefalt å bruke xlsx-formatet, men her ser du hvordan det kan skri
 
 ## Python {{< fa brands python >}}
 
-Kommer snart.
+```python
+import pandas as pd
+from dapla import AuthClient
+
+# Henter token for å kunne lese fra Dapla
+token = AuthClient.fetch_google_credentials()
+
+# Filsti
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
+folder = "felles/veiledning/python/eksempler/purchases"
+
+df.to_excel(f"{bucket}/{folder}/test.xlsx",
+           storage_options={"token": token})
+```
 
 ## {{< fa brands r-project >}}
 
@@ -222,11 +235,11 @@ Kommer snart
 import dapla as dp
 
 # Set path to folder
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler/purchases"
 
 # Read path into pandas dataframe 
-dp.read_pandas(gcs_path= f"{bucket}{folder}/data.parquet",
+dp.read_pandas(gcs_path= f"{bucket}/{folder}/data.parquet",
                file_format = "parquet",
                columns = None,)
 ```
@@ -234,7 +247,7 @@ dp.read_pandas(gcs_path= f"{bucket}{folder}/data.parquet",
 Som vi så med `write_pandas` så er `file_format` default satt til `parquet`, og default for `columns = None`, så vi kunne også ha skrevet det slik:
 
 ```python
-dp.read_pandas(gcs_path= f"{bucket}{folder}/data.parquet")
+dp.read_pandas(gcs_path= f"{bucket}/{folder}/data.parquet")
 ```
 `columns`-argumentet er en liste med kolonnenavn som vi ønsker å lese inn. Hvis vi ikke spesifiserer noen kolonner så vil alle kolonnene leses inn.
 
@@ -257,11 +270,11 @@ Kommer mer snart. Python-koden under bygger på eksempelet over.
 import dapla as dp
 
 # Path to write to
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler/purchases"
 
 # Read in json-file from dapla-storage
-df = dp.read_pandas(gcs_path = f"{bucket}{folder}/test3.json",
+df = dp.read_pandas(gcs_path = f"{bucket}/{folder}/test3.json",
                file_format = "json")
 ```
 
@@ -278,7 +291,18 @@ Kommer snart
 
 ## Python {{< fa brands python >}}
 
-Kommer snart
+```python
+import pandas as pd
+from dapla import AuthClient
+
+# Hent token
+token = AuthClient.fetch_google_credentials()
+
+# Les inn fil
+df = pd.read_excel("gs://ssb-prod-arbmark-skjema-data-produkt/test_gcp.xlsx",
+    storage_options={"token": token})
+
+```
 
 ## {{< fa brands r-project >}}
 
@@ -298,10 +322,10 @@ Kommer snart
 from dapla import FileClient
 fs = FileClient.get_gcs_file_system()
 
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler/purchases"
 
-fs.rm(f"{bucket}{from_folder}/df.json")
+fs.rm(f"{bucket}/{from_folder}/df.json")
 
 ```
 
@@ -326,13 +350,13 @@ from dapla import FileClient
 fs = FileClient.get_gcs_file_system()
 
 # Path to folders
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 from_folder = "felles/veiledning/python/eksempler/purchases"
 to_folder = "felles/veiledning/python/eksempler"
 
 # Copy file
-fs.cp(f"{bucket}{from_folder}/data.parquet",
-      f"{bucket}{to_folder}/data_copy.parquet")
+fs.cp(f"{bucket}/{from_folder}/data.parquet",
+      f"{bucket}/{to_folder}/data_copy.parquet")
 
 ```
 Det også fungere for å kopiere filer mellom bøtter. 
@@ -348,11 +372,23 @@ with open('/home/jovyan/test.txt', 'w') as f:
     f.write('Create a new text file!')
 
 #Path to folder
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler"
 
 # Copy file from local to remote file system
-fs.put(lpath=f"/home/jovyan/test.txt", rpath=f"{bucket}{folder}/test.txt")
+fs.put(lpath=f"/home/jovyan/test.txt", rpath=f"{bucket}/{folder}/test.txt")
+
+```
+Ønsker vi å kopiere en hel mappe fra lagringsområdet til Jupyter-filsystemet, kan vi bruke `fs.get`-metoden, med opsjonen `recursive=True.` 
+
+```python
+from dapla import FileClient
+fs = FileClient.get_gcs_file_system()
+
+# Copy file
+fs.get(<from_bucket>,
+      "/home/jovyan/sesongjustering/",
+      recursive=True)
 
 ```
 
@@ -372,11 +408,11 @@ Kommer snart
 from dapla import FileClient
 fs = FileClient.get_gcs_file_system()
 
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 from_folder = "felles/veiledning/python/eksempler/purchases"
 to_folder = "felles/veiledning/python/eksempler"
 
-fs.mv(f"{bucket}{from_folder}/data.parquet", f"{bucket}{to_folder}/data.parquet")
+fs.mv(f"{bucket}/{from_folder}/data.parquet", f"{bucket}/{to_folder}/data.parquet")
 
 ```
 
@@ -397,11 +433,11 @@ from dapla import FileClient
 fs = FileClient.get_gcs_file_system()
 
 #Path to folder
-bucket = "gs://ssb-prod-dapla-felles-data-delt/"
+bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler"
 
 # Create folder
-fs.mkdir(f"{bucket}{folder}/testmappe/")
+fs.mkdir(f"{bucket}/{folder}/testmappe/")
 ```
 
 ## {{< fa brands r-project >}}

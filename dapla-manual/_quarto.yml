@@ -1,65 +1,8 @@
 project:
-  type: book
+  type: website
 
 execute:
   freeze: auto
-
-book:
-  title: "Dapla-manual"
-  search: true
-  cover-image: images/Dapla-Logo1.png
-  repo-url: https://github.com/statisticsnorway/dapla-manual
-  open-graph: true
-  sidebar:
-    collapse-level: 1
-  page-footer:
-    center: |
-      Kom i gang med Dapla
-  chapters:
-    - index.qmd
-    - preface.qmd
-    - part: introduksjon.qmd
-      chapters:
-      - hva-er-dapla.qmd
-      - hvorfor-dapla.qmd
-      - arkitektur.qmd
-      - innlogging.qmd
-      - jupyterlab.qmd
-      - bakke-sky.qmd
-    - part: dapla-team.qmd
-      chapters:
-      - hva-er-dapla-team.qmd
-      - opprette-dapla-team.qmd
-      - bøtter.qmd
-      - gcc.qmd
-      - overføre-data.qmd
-      - jobbe-med-data.qmd
-      - slette-data.qmd
-      - gjenopprette-data.qmd
-      - bakke-til-sky.qmd
-      - administrasjon.qmd
-    - part: ssbproject.qmd
-      chapters:
-      - nytt-ssbproject.qmd
-      - git-github.qmd
-      - virtual-env.qmd
-      - jupyter-kernel.qmd
-      - pakke-install.qmd
-      - pyspark-venv.qmd
-      - samarbeid.qmd
-      - vedlikehold.qmd
-    - part: jupyter-pa-bakken.qmd
-      chapters:
-      - pakke-install-bakken.qmd
-      - lese-data-bakken.qmd
-    - part: avansert.qmd
-      chapters:
-      - lese-data.qmd
-      - remote.qmd
-      - schedulering.qmd
-      - databaser.qmd
-      - datadoc.qmd
-    - references.qmd
 
 bibliography: references.bib
 
@@ -72,5 +15,91 @@ toc: true
 toc-title: "Innhold"
 collapse-level: 1
 
-comments:
-  hypothesis: true
+website:
+  title: "Dapla-manual"
+  image: images/dapla-long.png
+  favicon: images/dapla-favicon.png
+  repo-url: https://github.com/statisticsnorway/dapla-manual
+  open-graph: true
+  search:
+    location: sidebar
+  page-footer:
+    center: |
+      Kom i gang med Dapla
+  navbar:
+    logo: images/dapla-long.png
+    # Colour is "Dark 1" from https://design.ssb.no/#/components/color
+    background: "#F0F8F9"
+    # Colour is "Dark 5" from https://design.ssb.no/#/components/color
+    foreground: "#274247"
+    right:
+      - icon: people-fill
+        href: https://start.dapla.ssb.no/
+        text: Opprette Dapla-team
+        aria-label: Opprette Dapla-team
+      - icon: question-lg
+        href: https://web.yammer.com/main/org/ssb.no/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5MDUzMjA2In0/all
+        text: Stille spørsmål
+      - icon: send-fill
+        href: https://ssb.pureservice.com/#/new/7
+        text: Melde sak
+        aria-label: Åpne en sak hos Kundeservice
+      - icon: github
+        href: https://github.com/statisticsnorway/dapla-manual
+        aria-label: Dapla-manual GitHub
+  sidebar:
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+      - href: preface.qmd
+      - section: introduksjon.qmd
+        contents:
+          - hva-er-dapla.qmd
+          - hvorfor-dapla.qmd
+          - arkitektur.qmd
+          - innlogging.qmd
+          - jupyterlab.qmd
+          - bakke-sky.qmd
+      - section: dapla-team.qmd
+        contents:
+        - hva-er-dapla-team.qmd
+        - opprette-dapla-team.qmd
+        - bøtter.qmd
+        - gcc.qmd
+        - overføre-data.qmd
+        - jobbe-med-data.qmd
+        - slette-data.qmd
+        - gjenopprette-data.qmd
+        - bakke-til-sky.qmd
+        - administrasjon.qmd
+      - section: ssbproject.qmd
+        contents:
+        - nytt-ssbproject.qmd
+        - git-github.qmd
+        - virtual-env.qmd
+        - jupyter-kernel.qmd
+        - pakke-install.qmd
+        - pyspark-venv.qmd
+        - samarbeid.qmd
+        - vedlikehold.qmd
+      - section: data.qmd
+        contents:
+        - datatilstander.qmd
+        - section: kildedata.qmd
+          contents:
+            - kildedata-prosessering.qmd
+            - github-app-integrasjon.qmd
+            - kildedata-prosessering-avansert.qmd
+      - section: jupyter-pa-bakken.qmd
+        contents:
+        - pakke-install-bakken.qmd
+        - lese-data-bakken.qmd
+      - section: avansert.qmd
+        contents:
+        - lese-data.qmd
+        - remote.qmd
+        - schedulering.qmd
+        - databaser.qmd
+        - datadoc.qmd
+      - ordforklaringer.qmd
+      - references.qmd
