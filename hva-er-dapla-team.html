@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -400,7 +419,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#hva-er-dapla-team" id="toc-hva-er-dapla-team" class="nav-link active" data-scroll-target="#hva-er-dapla-team">Hva er Dapla-team?</a></li>
+  <li><a href="#hva-er-dapla-team" id="toc-hva-er-dapla-team" class="nav-link active" data-scroll-target="#hva-er-dapla-team">Hva er Dapla-team?</a>
+  <ul class="collapse">
+  <li><a href="#google-tjenester" id="toc-google-tjenester" class="nav-link" data-scroll-target="#google-tjenester">Google-tjenester</a>
+  <ul class="collapse">
+  <li><a href="#lagringsområdet" id="toc-lagringsområdet" class="nav-link" data-scroll-target="#lagringsområdet">Lagringsområdet</a></li>
+  <li><a href="#tilgangsroller" id="toc-tilgangsroller" class="nav-link" data-scroll-target="#tilgangsroller">Tilgangsroller</a></li>
+  <li><a href="#automatiseringstjeneste" id="toc-automatiseringstjeneste" class="nav-link" data-scroll-target="#automatiseringstjeneste">Automatiseringstjeneste</a></li>
+  </ul></li>
+  <li><a href="#prosesser-og-arbeidsrutiner" id="toc-prosesser-og-arbeidsrutiner" class="nav-link" data-scroll-target="#prosesser-og-arbeidsrutiner">Prosesser og arbeidsrutiner</a>
+  <ul class="collapse">
+  <li><a href="#datatilstander" id="toc-datatilstander" class="nav-link" data-scroll-target="#datatilstander">Datatilstander</a></li>
+  <li><a href="#kildedata" id="toc-kildedata" class="nav-link" data-scroll-target="#kildedata">Kildedata</a></li>
+  <li><a href="#inndata-statistikkdata-og-utdata" id="toc-inndata-statistikkdata-og-utdata" class="nav-link" data-scroll-target="#inndata-statistikkdata-og-utdata">Inndata, statistikkdata og utdata</a></li>
+  <li><a href="#deling-av-data" id="toc-deling-av-data" class="nav-link" data-scroll-target="#deling-av-data">Deling av data</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -411,13 +445,231 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="hva-er-dapla-team" class="level1">
 <h1>Hva er Dapla-team?</h1>
-<p>Et Dapla-team fokuserer på statistikkproduksjon innen et eller flere emneområder på Dapla. Teamet er egentlig et arbeidsområde på Dapla, som gir medlemmene av teamet tilgang på teamet sine felles datalagre, roller og bakke-sky synkroniseringsområder.</p>
-<p>Hvert Dapla-team får opprettet et prosjektområde i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester.</p>
+<p>For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et <strong>Dapla-team</strong>. Et dapla-team er en gruppe personer som jobber med ett eller flere emneområder på SSBs dataplattform/Dapla. Når man <a href="./opprette-dapla-team.html">oppretter et Dapla-team</a> i SSB får man følgende:</p>
+<ul>
+<li>Lagringsområde for data i <a href="https://cloud.google.com/storage#section-1">Google Cloud Storage (GCS)</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>Tilgangskontroll til lagringsområdet</li>
+<li>Tjeneste for synkronisering av data mellom bakke og sky (<a href="https://cloud.google.com/storage-transfer-service">Transfer Service</a>)</li>
+</ul>
+<p>Et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team som er bestemt av SSB selv. I det følgende forklarer vi begge deler.</p>
+<section id="google-tjenester" class="level2">
+<h2 class="anchored" data-anchor-id="google-tjenester">Google-tjenester</h2>
+<p>Når man oppretter et Dapla-team så får man tilgang til et sett med ferdig konfigurerte ressurser og tjenester i GCP. For å få en god forståelse for hvordan disse ressursene og tjenestene fungerer sammen med andre Dapla-team, er det viktig å skjønne hvordan den felles stukturen på GCP er bygd opp.</p>
+<p>Anta at noen oppretter et Dapla-team som heter <strong>Arbmark skjema</strong>. De vil da få tildelt et teknisk navn som er <strong>arbmark-skjema</strong>. Sistnevnte navn vil bli brukt i alle ressursene som blir opprettet for teamet.</p>
+<p>SSB har sin egen organisasjon på GCP. Derfor heter toppnivået <strong>ssb</strong>. Under SSB ligger det 3 <em>Folders</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>: <strong>development</strong>, <strong>production</strong> og <strong>staging</strong>, som vist i <a href="#fig-folder-structure">Figur&nbsp;1</a>.</p>
+<p>Under hver <em>Folder</em> ligger det ett eller to Google-prosjekter. Det som brukes til statistikkproduksjon ligger under <strong>production</strong>, mens det som brukes til utvikling og testing ligger under henholdsvis <strong>development</strong> og <strong>staging</strong>. I det følgende vil vi kun fokusere på <strong>production</strong>, som er det som brukes til statistikkproduksjon.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Folders</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Projects</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Buckets</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="fig-folder-structure" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/gcc_tree.png" class="img-fluid figure-img" alt="Bilde av Folders-strukturen i SSB sin GCP-organisasjon"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;1: <em>Folders</em> under SSB sin organisasjon på GCP</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="fig-project-structure" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/gcc_tree1.png" class="img-fluid figure-img" alt="Bilde av prosjektene som opprettes i et Dapla-team."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;2: Prosjektene som opprettes i et Dapla-team.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="fig-bucket-structure" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/gcc_tree2.png" class="img-fluid figure-img" alt="Bilde av bøttene som opprettes i et Dapla-team sine prosjekter."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;3: Bøttene som opprettes i et Dapla-team.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>I <a href="#fig-project-structure">Figur&nbsp;2</a> ser vi hvilke prosjekter som blir opprettet for Dapla-teamet <strong>arbmark-skjema</strong>. Under <strong>production</strong> ligger prosjektene <strong>arbmark-skjema-ts</strong> og <strong>prod-arbmark-skjema</strong>. Det første prosjektet brukes til å synkronisere data mellom bakke og sky. <strong>prod-arbmark-skjema</strong> er det som brukes til i å lagre data i en statistikkproduksjon.</p>
+<p>I <a href="#fig-bucket-structure">Figur&nbsp;3</a> ser vi hvordan lagringsbøttene plasserer seg under prosjektene. I neste kapittel forklarer vi hva de ulike lagringsbøttene skal brukes til.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hva er en bøtte?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vi kommer til å bruke ordet <strong>bøtte</strong> mye i denne delen, og det er derfor ryddig å forklare hva det er.</p>
+<p>En <a href="https://cloud.google.com/storage/docs/buckets"><em>bøtte</em></a> er et lagringsområde for data i GCP. En bøtte inneholder objekter av data og metadata som kan organiseres på en slik måte at det likner på filer organisert i mapper og undermapper. Objektene i bøtter er lagret “distribuert”, det vil si at de ligger lagret på ulike maskiner ute i “skyen”, og kan nås via en tjeneste i GCP som heter Cloud Storage (GCS). Bøtter er noe annet enn mapper, og har derfor fått et eget ord på engelsk (<em>buckets</em>).</p>
+<p>Hvis vi skulle sammenlignet det med våre systemer på bakken vil det ligne mye på en diskstasjon, for eksempel X- og S-disken.</p>
+</div>
+</div>
+<section id="lagringsområdet" class="level3">
+<h3 class="anchored" data-anchor-id="lagringsområdet">Lagringsområdet</h3>
+<p>Lagringsområdene for Dapla-team består av <em>Google Cloud Storage (GCS) buckets</em>. Disse bøttene følger en navnestandard som henger sammen med SSBs datatilstander og tilgangsroller. I det følgende forklarer vi hvordan de ulike bøttene er tenkt strukturert.</p>
+<section id="prod-arbmark-skjema" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="prod-arbmark-skjema">prod-arbmark-skjema</h4>
+<p>Under prosjektet <strong>prod-arbmark-skjema</strong> ligger det 3 bøtter som er tilgjengelig for alle i Dapla-teamet. Disse bøttene er:</p>
+<ul>
+<li><p><strong>ssb-prod-arbmark-skjema-data-delt</strong><br>
+Lagring av data som skal deles med andre i SSB. Kan innholde <em>inndata</em>, <em>klargjorte data</em>, <em>statistikkdata</em> og <em>utdata</em>.</p></li>
+<li><p><strong>ssb-prod-arbmark-skjema-data-kilde</strong><br>
+Langtidslagring av kildedata (se definisjon). Kan kun inneholde <em>kildedata</em>.</p></li>
+<li><p><strong>ssb-prod-arbmark-skjema-data-produkt</strong><br>
+Lagring av data i statistikkproduksjon. Kan innholde <em>inndata</em>, <em>klargjorte data</em>, <em>statistikkdata</em> og <em>utdata</em>.</p></li>
+</ul>
+<p>Disse lagringsområdene er nært knyttet til de ulike datatilstandene som blir beskrevet senere.</p>
+</section>
+<section id="arbmark-skjema-ts" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="arbmark-skjema-ts">arbmark-skjema-ts</h4>
+<p>Under prosjektet <strong>arbmark-skjema-ts</strong> ligger det 2 bøtter som kun er tilgjengelig for kildedata-ansvarlig (data-admins) i Dapla-teamet. Disse bøttene er:</p>
+<ul>
+<li><p><strong>ssb-arbmark-skjema-ts-data-synk-opp</strong><br>
+Her ligger data som er blitt synkronisert opp fra bakke til sky.</p></li>
+<li><p><strong>ssb-arbmark-skjema-ts-data-synk-ned</strong><br>
+Her ligger data som skal synkroniseres ned fra sky til bakke.</p></li>
+<li><p><strong>/ssb/cloud_sync/arbmark-skjema/</strong><br>
+Lagringsområdet på bakken for synkronisering av data mellom bakke og sky.</p></li>
+</ul>
+<p>Kun kildedata-ansvarlig har lese- og skrivetilgang til disse bøttene. Det er også kildedata-ansvarlig som kan sette opp jobber med <strong>Transfer Service</strong> for å synkronisere data mellom bakke og sky.</p>
+</section>
+</section>
+<section id="tilgangsroller" class="level3">
+<h3 class="anchored" data-anchor-id="tilgangsroller">Tilgangsroller</h3>
+<p>Ved opprettelsen av et Dapla-team så blir du bedt om å plassere medlemmene i teamet i en av tre ulike tilgangsroller. Disse er:</p>
+<ul>
+<li><p><strong>data-admins</strong><br>
+Har lese- og skrivetilgang i alle lagringsområdene i Dapla-teamet. Siden dette er en priveligert rolle med potensiell tilgang til sensitiv data, så er det kun noen få personer som skal ha denne rollen i et Dapla-team.</p></li>
+<li><p><strong>developers</strong><br>
+Har lese- og skrivetilgang i alle lagringsområdene i Dapla-teamet, med unntak av <strong>ssb-prod-arbmark-skjema-data-kilde</strong>, og bøttene i prosjektet <strong>arbmark-skjema-ts</strong>. Dvs. at alle som jobber med statistikkproduksjon tilknyttet teamets data, og som ikke er data-admin, skal ha denne rollen.</p></li>
+<li><p><strong>consumers</strong><br>
+Medlemmer fra andre Dapla-team som har behov for tilgang til dette teamets data. De får lesetilgang til <strong>ssb-prod-arbmark-skjema-data-delt</strong>.</p></li>
+</ul>
+<p><strong>data-admin</strong> har i tillegg til lagringsområdene på sky, tilgang til denne mappen på bakken: <code>/ssb/cloud_sync/arbmark-skjema</code>. Her kan de legge filer som de ønsker å flytte til skyen.</p>
+<p><a href="#tbl-tilgangsroller">Tabell&nbsp;1</a> viser hvilke roller som har tilgang til hvilke bøtter/mapper.</p>
+<div id="tbl-tilgangsroller" class="anchored">
+<table class="table">
+<caption>Tabell&nbsp;1: Tilgangsroller og lagringsområder</caption>
+<colgroup>
+<col style="width: 53%">
+<col style="width: 17%">
+<col style="width: 15%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>data-admin</th>
+<th>developer</th>
+<th>consumer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>arbmark-skjema-kilde</td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>arbmark-skjema-produkt</td>
+<td>X</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>arbmark-skjema-delt</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>arbmark-skjema-synk-opp</td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>arbmark-skjema-synk-ned</td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>/ssb/cloud_sync/arbmark_skjema/</td>
+<td>X</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="automatiseringstjeneste" class="level3">
+<h3 class="anchored" data-anchor-id="automatiseringstjeneste">Automatiseringstjeneste</h3>
+<p>Team Statistikktjenester jobber med en tjeneste for å automatisere overgangen fra <strong>kildedata</strong> til <strong>inndata</strong>. Denne tjenesten vil bli tilgjengelig for alle Dapla-team.</p>
+</section>
+</section>
+<section id="prosesser-og-arbeidsrutiner" class="level2">
+<h2 class="anchored" data-anchor-id="prosesser-og-arbeidsrutiner">Prosesser og arbeidsrutiner</h2>
+<p>I tillegg til man får tilgang til spesifikke GCP-tjenester ved opprettelse av et Dapla-team, så er det også lagt opp til noen spesifikke arbeidsprosesser rundt bøtter og tilgangsroller. I denne delen forklarer vi hvordan dette forholder seg GCP-tjenestene vi beskrev i forrige del.</p>
+<section id="datatilstander" class="level3">
+<h3 class="anchored" data-anchor-id="datatilstander">Datatilstander</h3>
+<p>Et viktig konsept på Dapla er datatilstander. Disse er definert i definert i vårt interne dokument <strong>Datatilstander</strong> av <span class="citation" data-cites="datatilstander">Standardutvalget (<a href="#ref-datatilstander" role="doc-biblioref">2021</a>)</span>. I dokumentet presiseres det at tilstandene kildedata, klargjorte data og statistikkdata er obligatoriske for statistikkprodusenter på Dapla.</p>
+<p>I tillegg har <span class="citation" data-cites="tilgangsstyring">Direktørmøtet (<a href="#ref-tilgangsstyring" role="doc-biblioref">2022</a>)</span> konkretisert hvordan klassifisering og tilgangskontroll skal utføres på DAPLA. Under beskriver vi hvordan de to dokumentene påvirker et Dapla-team.</p>
+</section>
+<section id="kildedata" class="level3">
+<h3 class="anchored" data-anchor-id="kildedata">Kildedata</h3>
+<p>Kildedata er data som er produsert av andre enn SSB. Det kan være data fra andre statlige etater, eller fra private aktører. Kildedata er ofte i form av en fil, eller en mappe med filer. Kildedata skal lagres i bøtten <em>kilde</em> i GCS.</p>
+<p>Kildedata skal lagres i den formen den kom til SSB i kildebøtta. Det vil ofte forekomme at disse dataene er sensitive og at de kan inneholde informasjon som ikke skal brukes videre i statistikkproduksjon. Derfor er det kun data-admin som skal ha tilgang til denne bøtten. Og det bør være så få som mulig på teamet som har rollen <em>data-admin</em>, spesielt hvis det er sensitive data.</p>
+<p><strong>data-admin</strong> har ansvaret for å sørge for at kildedata behandles på en måte som gjør at den tilgjengeliggjøres for resten av teamet. Typisk vil dette innebære<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<ul>
+<li>pseudonymisering</li>
+<li>dataminimering</li>
+<li>kvalitetssikring</li>
+<li>konvertering til et felles format</li>
+</ul>
+<p>Det er ikke tenkt at data-admin skal måtte kjøre dette <em>manuelt</em>, men at det skal være en del av en automatisk prosess som kjøres hver gang en ny fil kommer inn i kildebøtta. Det er kun ved mistanke om feil i datafangsten, som gir tjenestlige behov for data-admins til å se data i klartekst, at data-admins bruker tilgangen sin til å se på data i kildebøtta.</p>
+</section>
+<section id="inndata-statistikkdata-og-utdata" class="level3">
+<h3 class="anchored" data-anchor-id="inndata-statistikkdata-og-utdata">Inndata, statistikkdata og utdata</h3>
+<p>Når kildedata har blitt transformert og beveget seg over i en av de andre datatilstandene, vil det ligge i <strong>produkt-bøtta</strong> og være tilgjengelig for alle med <strong>developers</strong>-tilgangen.</p>
+<p>I produktbøtta skal det lagres tre typer data:</p>
+<ol type="1">
+<li>Inndata</li>
+<li>Klargjorte data</li>
+<li>Statistikkdata</li>
+<li>Utdata</li>
+</ol>
+<p>Les mer om det her.</p>
+</section>
+<section id="deling-av-data" class="level3">
+<h3 class="anchored" data-anchor-id="deling-av-data">Deling av data</h3>
+<p>Når andre Dapla-team skal ha tilgang til data fra ditt team, må de søke om å få tilgangsrollen <strong>consumer</strong> i ditt team. Du må dermed tilgjengeliggjøre dataene som skal deles i din delt-bøtte.</p>
+<p>Mer kommer.</p>
+
 
 
 </section>
+</section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referanser</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-tilgangsstyring" class="csl-entry" role="doc-biblioentry">
+Direktørmøtet. 2022. <span>“Klassifisering Og Tilgangsstyring På DAPLA.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/:w:/r/sites/Statistikktjenester/Shared%20Documents/General/2022-37_Vedlegg_Klassifisering%20og%20tilgangsstyring_220912%20(002).docx?d=w7f261943752f4705b640d77071edde4d&amp;csf=1&amp;web=1&amp;e=drd8On">https://ssbno.sharepoint.com/:w:/r/sites/Statistikktjenester/Shared%20Documents/General/2022-37_Vedlegg_Klassifisering%20og%20tilgangsstyring_220912%20(002).docx?d=w7f261943752f4705b640d77071edde4d&amp;csf=1&amp;web=1&amp;e=drd8On</a>.
+</div>
+<div id="ref-datatilstander" class="csl-entry" role="doc-biblioentry">
+Standardutvalget. 2021. <span>“Datatilstander i SSB.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p>Lagringsområdet tilsvarer <em>stammene</em> på bakken.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><em>Folders</em> er et element som en organisasjon kan bruke for å organisere underenheter i GCP. I SSB er Folders brukt til å skille mellom produksjons-, test- og utviklingsmiljøer. Statistikkseksjonene trenger ikke å forholde seg noe særlig til det tekniske rundt <em>Folders</em>, bortsett fra at miljøene for test og produksjon er satt opp noe annerledes. Hvis du ønsker kan du lese mer om Folders kan gå til <a href="https://cloud.google.com/resource-manager/docs/creating-managing-folders">Google sine sider</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Hvilken behandling av dataene som kreves vil avhenge av datakildene og kan variere fra statistikk til statistikk.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
