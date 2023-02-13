@@ -40,7 +40,7 @@ Hvis validerings testene feiler kan det være nyttig å se på loggene for å fi
 
 
 ## Utrulling
-Endringer til `process_source_data.py` blir automatisk rullet ut når en [PR](./ordforklaringer.html#pull-request-pr) er merget til `main` branchen. Utrullingsprosessen tar noe tid, ca. 2-3 minutter fra branchen er merget til tjenesten er oppdatert, for å bekrefte at tjenesten er rullet ut kan du følge stegene i neste av.
+Endringer til `process_source_data.py` blir automatisk rullet ut når en [PR](./ordforklaringer.html#pull-request-pr) er merget til `main` branchen. Utrullingsprosessen tar noe tid, ca. 2-3 minutter fra branchen er merget til tjenesten er oppdatert, for å bekrefte at tjenesten er rullet ut kan du følge stegene i neste avsnitt.
 
 ### Utrullings bekreftelse
 Stegene under viser hvordan man går frem for å finne resultat av utrullingen av kilden "ledstill" for teamet "arbmark-skjema". Og forutsetter at koden er pushet til main branchen.
