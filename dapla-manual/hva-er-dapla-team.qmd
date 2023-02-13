@@ -51,7 +51,7 @@ Hvis vi skulle sammenlignet det med våre systemer på bakken vil det ligne mye 
 
 ### Lagringsområdet
 
-Lagringsområdene for Dapla-team består av *Google Cloud Storage (GCS) buckets*. Disse bøttene følger en streng struktur som henger sammen datatilstander og tilgangsroller. I det følgende forklarer vi hvordan de ulike bøttene er tenkt strukturert.
+Lagringsområdene for Dapla-team består av *Google Cloud Storage (GCS) buckets*. Disse bøttene følger en navnestandard som henger sammen med SSBs datatilstander og tilgangsroller. I det følgende forklarer vi hvordan de ulike bøttene er tenkt strukturert.
 
 #### prod-arbmark-skjema {.unnumbered}
 
