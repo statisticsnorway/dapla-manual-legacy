@@ -77,7 +77,7 @@ Disse instruksjoner forutsetter at [prosjektet ditt er koblet til Github](#koble
 1. Vent til alle tester er ferdige. Det skal stå "All checks have passed" før man går videre, hvis testene failer [følg stegene her](./kildedata-prosessering-avansert.html#validerings-logger). ![Suksessfulle tester på GitHub](images/checks_passed.png){fig-alt="Suksessfulle tester på GitHub"}
 1. Skrive `atlantis apply` i en kommentar på PRen for å opprette det nødvendige infrastruktur for å prosessere kilden.
 1. Merge PRen.
-1. Sjekk resultatet av det [automatiske bygget](./kildedata-prosessering-avansert.html#utrullings-bekreftelse).
+1. Sjekk resultatet av det [automatiske bygget](./kildedata-prosessering-avansert.html#bekrefte-utrulling).
 1. Verifisere at nye filer lagt i kildedatabøtten blir prosessert til inndata som forventet.
 
 ### Eksempel
