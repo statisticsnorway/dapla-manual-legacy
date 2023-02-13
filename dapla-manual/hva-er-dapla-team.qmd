@@ -10,7 +10,7 @@ Et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe an
 
 ## Google-tjenester
 
-Når man oppretter et Dapla-team får man tilgang til en del tjenester som er ferdig satt opp for oss. For å få en god forståelse hvordan disse ressursene plasserer seg sammenlignet med andre Dapla-team, er det viktig å skjønne hvordan strukturen for Dapla-team er generelt i SSB sin organisasjon på GCP. 
+Når man oppretter et Dapla-team så får man tilgang til et sett med ferdig konfigurerte ressurser og tjenester i GCP. For å få en god forståelse for hvordan disse ressursene og tjenestene fungerer sammen med andre Dapla-team, er det viktig å skjønne hvordan den felles stukturen på GCP er bygd opp. 
 
 Anta at noen oppretter et Dapla-team som heter **Arbmark skjema**. De vil da få tildelt et teknisk navn som er **arbmark-skjema**. Sistnevnte navn vil bli brukt i alle ressursene som blir opprettet for teamet.
 
