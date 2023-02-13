@@ -35,7 +35,7 @@ Hvis validerings testene feiler kan det være nyttig å se på loggene for å fi
 
 1. Finn frem til testen som feiler, i bildet feiler valideringstestene for kilde1. Trykk så på lenken "Details" som vist i bilde under. ![GitHub test kilde1 feiler](images/fail-pr-tests-log-step1.png){fig-alt="GitHub test kilde1 feiler"}
 1. På siden du nå har kommet til skal det være en tabell som heter "Build Information", trykk på lenken i Build kolonnen. ![Build Information tabell](images/fail-pr-tests-log-step2.png){fig-alt="Build Information tabell"}
-1. Du har nå komme frem til loggene, se etter indikasjoner på feil. I eksemplet under ser vi at testen test_main_accepts_expected_number_of_args feiler fordi `process_source_data.py` mangler en main funksjon. ![Cloud Run logg](images/fail-pr-tests-log-step3.png){fig-alt="Cloud Run logg"}
+1. Du har nå kommet frem til loggene, se etter indikasjoner på feil. I eksemplet under ser vi at testen test_main_accepts_expected_number_of_args feiler fordi `process_source_data.py` mangler en main funksjon. ![Cloud Run logg](images/fail-pr-tests-log-step3.png){fig-alt="Cloud Run logg"}
 1. Fiks feilen og push endingen til samme branch, testen vil da starte på nytt.
 
 
@@ -48,7 +48,7 @@ Stegene under viser hvordan man går frem for å finne resultat av utrullingen a
 1. Naviger til [GitHub](https://github.com/).
 1. I søkefeltet oppe i venstre hjørne skriv arbmark-skjema og klikk "Jump to" arbmark-skjema-iac. Som i bilde under. ![Søk etter arbmark-skjema på GitHub](images/search-team-iac-repo.png){fig-alt="Søk etter arbmark-skjema på GitHub"}
 1. Når utrullingen er ferdig vil en av disse ikonene vises, grønn hake betyr at tjeneste er rullet ut med koden som ligger i main og at nye filer blir behandlet med koden som ligger der. ![Ikon: "hake, bygg gikk bra"](images/test-github-success.png){fig-alt="Ikon: hake, bygg gikk bra"}. Rødt kryss indikerer at utrullig har feilet. ![Ikon: "kryss, bygg feilet"](images/test-github-failure.png){fig-alt="Ikon: bygg feilet"} 
-<br>Se etter symbolene der hvor den rød pilen i bilde under peker. I eksempel er utrulligen vellykket.
+<br>Se etter symbolene der hvor den røde pilen i bilde under peker. I eksempel er utrulligen vellykket.
 ![Sjekkmerke GitHub](images/github-build-results1.png){fig-alt="Sjekkmerke GitHub"}
  
 ## Monitorering av tjenesten
