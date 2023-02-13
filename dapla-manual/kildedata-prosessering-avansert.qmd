@@ -22,14 +22,44 @@ For å gi raskt tilbakemelding på noen mulige feilsituasjoner, så kjøres det 
 
 Hvis valideringen feiler, så må feilen rettes før PRen merges.
 
+Testene feiler hvis:
+
+1. Kildemappen ikke har et python script kalt process_source_data.py med metodesignaturen, som beskrevet [her](./kildedata-prosessering.qmd#skrive-prosesseringsscriptet).
+1. Kildemappen ikke har en yaml fil og en gyldig folder_prefix definert, som i dette [eksempelet](./kildedata-prosessering.qmd#innhold-i-config.yaml-for-boller).
+1. Python scriptet ikke kan importeres av tjenesten. Tjenesten støtter kun [disse tredjeparts pakkene](#tilgjengelige-pakker).
+1. Hvis [Pyflakes](./ordforklaringer.html#pyflakes) finner feil med kildens Python script.
+
+
+### Validerings logger
+Hvis validerings testene feiler kan det være nyttig å se på loggene for å finne frem til feilen.
+
+1. Finn frem til testen som feiler, i bildet feiler valideringstestene for kilde1. Trykk så på lenken "Details" som vist i bilde under. ![Ikon: "bygg gikk bra"](images/fail-pr-tests-log-step1.png){fig-alt="Ikon: bygg gikk bra"}
+1. På siden du nå har kommet til skal det være en tabell som heter "Build Information", trykk på lenken i Build kolonnen. ![Ikon: "bygg gikk bra"](images/fail-pr-tests-log-step2.png){fig-alt="Ikon: bygg gikk bra"}
+1. Du har nå komme frem til loggene, se etter indikasjoner på feil. I eksemplet under ser vi at testen test_main_accepts_expected_number_of_args feiler fordi `process_source_data.py` mangler en main funksjon. ![Ikon: "bygg gikk bra"](images/fail-pr-tests-log-step3.png){fig-alt="Ikon: bygg gikk bra"}
+1. Fiks feilen og push endingen til samme branch, testen vil da starte på nytt.
+
+
 ## Utrulling
+Endringer til `process_source_data.py` blir automatisk rullet ut når en [PR](./ordforklaringer.html#pull-request-pr) er merget til `main` branchen. Utrullingsprosessen tar noe tid, ca. 2-3 minutter fra branchen er merget til tjenesten er oppdatert, for å bekrefte at tjenesten er rullet ut kan du følge stegene i neste av.
 
-Endringer til `process_source_data.py` blir automatisk rullet ut når en [PR](./ordforklaringer.html#pull-request-pr) er merget til `main` branchen.
+### Utrullings bekreftelse
+Stegene under viser hvordan man går frem for å finne resultat av utrullingen av kilden "ledstill" for teamet "arbmark-skjema". Og forutsetter at koden er pushet til main branchen.
 
-## Monitorering
+1. Naviger til [GitHub](https://github.com/).
+1. I søkefeltet oppe i venstre hjørne skriv arbmark-skjema og klikk "Jump to" arbmark-skjema-iac. Som i bilde under. ![Søk etter arbmark-skjema på GitHub](images/search-team-iac-repo.png){fig-alt="Søk etter arbmark-skjema på GitHub"}
+1. Når utrullingen er ferdig vil en av disse ikonene vises, grønn hake betyr at tjeneste er rullet ut med koden som ligger i main og at nye filer blir behandlet med koden som ligger der. ![Ikon: "hake, bygg gikk bra"](images/test-github-success.png){fig-alt="Ikon: hake, bygg gikk bra"}. Rødt kryss indikerer at utrullig har feilet. ![Ikon: "kryss, bygg feilet"](images/test-github-failure.png){fig-alt="Ikon: bygg feilet"} 
+<br>Se etter symbolene der hvor den rød pilen i bilde under peker. I eksempel er utrulligen vellykket.
+![Sjekkmerke GitHub](images/github-build-results1.png){fig-alt="Sjekkmerke GitHub"}
+ 
+## Monitorering av tjenesten
 
 Man får en oversikt over kildene man har konfigurert prosessering for og statusen på dem ved hjelp av konsollet på [GCP](./ordforklaringer.html#google-cloud-platform-gcp). Der navigerer man til siden for `Cloud Run` (se @fig-cloud-run-dashboard) som er kjøremiljøet som kildedata prosessering benyttes av. Eksempel URl er: `https://console.cloud.google.com/run?project=<teamets-prosjekt-id>`
 
 Her får man en oversikt av ressursbruk og loggene til prosesseringen.
 
 ![Cloud Run dashboard](images/cloud-run-dashboard.png){fig-alt="Cloud Run dashboard" #fig-cloud-run-dashboard width="100%"}
+
+### Feil Monitorering
+Hvis en fil blir mottatt av tjenesten, men ikke lar seg behandle blir det logget. Man kan finne loggene for dette ved å søke etter:  ```Could not process object``` i Cloud Run Logger for den spesifikke kilden.
+
+![Cloud Run logs](images/cloud-run-dashboard-logs.png){fig-alt="Cloud Run logs" #fig-cloud-run-dashboard width="100%"}
