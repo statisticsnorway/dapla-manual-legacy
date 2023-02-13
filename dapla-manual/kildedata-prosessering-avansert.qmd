@@ -63,5 +63,5 @@ Her får man en oversikt av ressursbruk og loggene til prosesseringen.
 Etter du har valgt kilden kan du se logger ved å velge fanen "LOGS". Her ligger alle logger for den spesifikke kilden. For å få bedre oversikt over eventulle feil kan man sette severity til error. Dette vil uten ekstra konfigurasjon gi oversikt over alle uhåndterte exceptions. !["Sett log severity til error"](images/log-severity-error.png){fig-alt="Sett log severity til error"}
 
 ### Ubehandlede filer
-Hvis en fil blir mottatt av tjenesten, men ikke lar seg behandle blir det skrevet til loggen. Man kan få en oversik over hvilke filer som ikke har blitt prosesser ved å søke etter:  ```Could not process object```.
+Hvis en fil blir mottatt av tjenesten, men ikke lar seg behandle blir det skrevet til loggen. Man kan få en oversik over hvilke filer som ikke har blitt prosessert ved å søke etter:  ```Could not process object```.
 ![Cloud Run logs](images/cloud-run-dashboard-logs.png){fig-alt="Cloud Run logs" #fig-cloud-run-dashboard width="100%"}
