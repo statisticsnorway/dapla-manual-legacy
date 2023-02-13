@@ -6,7 +6,7 @@ For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla
 - Tilgangskontroll til lagringsområdet
 - Tjeneste for synkronisering av data mellom bakke og sky ([Transfer Service](https://cloud.google.com/storage-transfer-service))
 
-Men et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team , som er bestemt av SSB selv. I det følgende forklarer vi begge deler.
+Et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team som er bestemt av SSB selv. I det følgende forklarer vi begge deler.
 
 ## Google-tjenester
 
