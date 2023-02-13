@@ -84,3 +84,6 @@ Kommer snart.
 ##### **transfer service**
 
 Kommer snart.
+
+### **Pyflakes**
+Pyflakes er et enkelt kodeanalyseverktøy som finner feil i Python kode. Les mer om Pyflakes på [deres PyPi side](https://pypi.org/project/pyflakes/)
