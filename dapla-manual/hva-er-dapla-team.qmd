@@ -43,7 +43,7 @@ I @fig-bucket-structure ser vi hvordan lagringsbøttene plasserer seg under pros
 
 Vi kommer til å bruke ordet **bøtte** mye i denne delen, og det er derfor ryddig å forklare hva det er. 
 
-En [*bøtte*](https://cloud.google.com/storage/docs/buckets) er en container for data i GCS. En bøtte kan inneholde en eller flere mapper og undermapper. En bøtte er noe annet en en mappe, og har derfor fått et eget ord på engelsk (*buckets*).
+En [*bøtte*](https://cloud.google.com/storage/docs/buckets) er et lagringsområde for data i GCP. En bøtte inneholder objekter av data og metadata som kan organiseres på en slik måte at det likner på filer organisert i mapper og undermapper. Objektene i bøtter er lagret "distribuert", det vil si at de ligger lagret på ulike maskiner ute i "skyen", og kan nås via en tjeneste i GCP som heter Cloud Storage (GCS). Bøtter er noe annet enn mapper, og har derfor fått et eget ord på engelsk (*buckets*).
 
 Hvis vi skulle sammenlignet det med våre systemer på bakken vil det ligne mye på en diskstasjon, for eksempel X- og S-disken. 
 
