@@ -8,10 +8,6 @@ For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla
 
 Men et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team , som er bestemt av SSB selv. I det følgende forklarer vi begge deler.
 
-::: {.callout-note}
-I dette kapitlet vil vi ofte vise bilder fra [Google Cloud Console (GCC)](https://console.cloud.google.com/). Det er et svært nyttig verktøy for å bli kjent med ressursene som er tilgjengelig for et Dapla-team i på Dapla. Hvordan du bruker GCC er nærmere forklart [i et annet kapittel](./gcc.html). 
-:::
-
 ## Google-tjenester
 
 Når man oppretter et Dapla-team får man tilgang til en del tjenester som er ferdig satt opp for oss. For å få en god forståelse hvordan disse ressursene plasserer seg sammenlignet med andre Dapla-team, er det viktig å skjønne hvordan strukturen for Dapla-team er generelt i SSB sin organisasjon på GCP. 
@@ -100,7 +96,7 @@ Har lese- og skrivetilgang i alle lagringsområdene i Dapla-teamet, med unntak a
 - **consumers**  
 Medlemmer fra andre Dapla-team som har behov for tilgang til dette teamets data. De får lesetilgang til **ssb-prod-arbmark-skjema-data-delt**.  
 
-**data-admin** har i tillegg til lagringsområdene på sky, tilgang til mappen den mappen på bakken: `/ssb/cloud_sync/arbmark-skjema`. Her kan de legge filer som de ønsker å flytte til skyen.
+**data-admin** har i tillegg til lagringsområdene på sky, tilgang til denne mappen på bakken: `/ssb/cloud_sync/arbmark-skjema`. Her kan de legge filer som de ønsker å flytte til skyen.
 
 @tbl-tilgangsroller viser hvilke roller som har tilgang til hvilke bøtter/mapper. 
 
@@ -109,8 +105,8 @@ Medlemmer fra andre Dapla-team som har behov for tilgang til dette teamets data.
 | arbmark-skjema-kilde            | X          |           |          |
 | arbmark-skjema-produkt          | X          | X         |          |
 | arbmark-skjema-delt             | X          | X         | X        |
-| arbmark-skjema-synk-opp         | X          | X         |          |
-| arbmark-skjema-synk-ned         | X          | X         |          |
+| arbmark-skjema-synk-opp         | X          |          |          |
+| arbmark-skjema-synk-ned         | X          |          |          |
 | /ssb/cloud\_sync/arbmark\_skjema/ | X          |           |          |
 : Tilgangsroller og lagringsområder {#tbl-tilgangsroller}
 
