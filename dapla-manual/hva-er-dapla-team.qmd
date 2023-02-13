@@ -58,7 +58,7 @@ Lagringsområdene for Dapla-team består av *Google Cloud Storage (GCS) buckets*
 Under prosjektet **prod-arbmark-skjema** ligger det 3 bøtter som er tilgjengelig for alle i Dapla-teamet. Disse bøttene er:
 
 - **ssb-prod-arbmark-skjema-data-delt**  
-Legge ut data som skal deles med andre i SSB. Kan innholde *inndata*, *klargjorte data*, *statistikkdata* og *utdata*.
+Lagring av data som skal deles med andre i SSB. Kan innholde *inndata*, *klargjorte data*, *statistikkdata* og *utdata*.
 
 - **ssb-prod-arbmark-skjema-data-kilde**  
 Langtidslagring av kildedata (se definisjon). Kan kun inneholde *kildedata*.
