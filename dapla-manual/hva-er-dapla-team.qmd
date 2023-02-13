@@ -66,7 +66,7 @@ Langtidslagring av kildedata (se definisjon). Kan kun inneholde *kildedata*.
 - **ssb-prod-arbmark-skjema-data-produkt**  
 Lagring av data i statistikkproduksjon. Kan innholde *inndata*, *klargjorte data*, *statistikkdata* og *utdata*.
 
-Disse lagringsområdene er nært knyttet til ulike datatilstandene som blir beskrevet senere. 
+Disse lagringsområdene er nært knyttet til de ulike datatilstandene som blir beskrevet senere. 
 
 #### arbmark-skjema-ts {.unnumbered}
 
