@@ -406,9 +406,19 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ressurser" id="toc-ressurser" class="nav-link" data-scroll-target="#ressurser">Ressurser</a></li>
   <li><a href="#tilgjengelige-pakker" id="toc-tilgjengelige-pakker" class="nav-link" data-scroll-target="#tilgjengelige-pakker">Tilgjengelige pakker</a></li>
   <li><a href="#skalering" id="toc-skalering" class="nav-link" data-scroll-target="#skalering">Skalering</a></li>
-  <li><a href="#validering" id="toc-validering" class="nav-link" data-scroll-target="#validering">Validering</a></li>
-  <li><a href="#utrulling" id="toc-utrulling" class="nav-link" data-scroll-target="#utrulling">Utrulling</a></li>
-  <li><a href="#monitorering" id="toc-monitorering" class="nav-link" data-scroll-target="#monitorering">Monitorering</a></li>
+  <li><a href="#validering" id="toc-validering" class="nav-link" data-scroll-target="#validering">Validering</a>
+  <ul class="collapse">
+  <li><a href="#validerings-logger" id="toc-validerings-logger" class="nav-link" data-scroll-target="#validerings-logger">Validerings logger</a></li>
+  </ul></li>
+  <li><a href="#utrulling" id="toc-utrulling" class="nav-link" data-scroll-target="#utrulling">Utrulling</a>
+  <ul class="collapse">
+  <li><a href="#bekrefte-utrulling" id="toc-bekrefte-utrulling" class="nav-link" data-scroll-target="#bekrefte-utrulling">Bekrefte utrulling</a></li>
+  </ul></li>
+  <li><a href="#monitorering-av-tjenesten" id="toc-monitorering-av-tjenesten" class="nav-link" data-scroll-target="#monitorering-av-tjenesten">Monitorering av tjenesten</a>
+  <ul class="collapse">
+  <li><a href="#logger" id="toc-logger" class="nav-link" data-scroll-target="#logger">Logger</a></li>
+  <li><a href="#ubehandlede-filer" id="toc-ubehandlede-filer" class="nav-link" data-scroll-target="#ubehandlede-filer">Ubehandlede filer</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -445,13 +455,39 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="validering">Validering</h2>
 <p>For å gi raskt tilbakemelding på noen mulige feilsituasjoner, så kjøres det enkel validering på kilde config og <code>process_source_data.py</code> når en <a href="./ordforklaringer.html#pull-request-pr">PR</a> er opprettet.</p>
 <p>Hvis valideringen feiler, så må feilen rettes før PRen merges.</p>
+<p>Testene feiler hvis:</p>
+<ol type="1">
+<li>Kildemappen ikke har et python script kalt process_source_data.py med metodesignaturen, som beskrevet <a href="./kildedata-prosessering.html#skrive-prosesseringsscriptet">her</a>.</li>
+<li>Kildemappen ikke har en yaml fil og en gyldig folder_prefix definert, som i dette <a href="./kildedata-prosessering.html#innhold-i-config.yaml-for-boller">eksempelet</a>.</li>
+<li>Python scriptet ikke kan importeres av tjenesten. Tjenesten støtter kun <a href="#tilgjengelige-pakker">disse tredjeparts pakkene</a>.</li>
+<li>Hvis <a href="./ordforklaringer.html#pyflakes">Pyflakes</a> finner feil med kildens Python script.</li>
+</ol>
+<section id="validerings-logger" class="level3">
+<h3 class="anchored" data-anchor-id="validerings-logger">Validerings logger</h3>
+<p>Hvis validerings testene feiler kan det være nyttig å se på loggene for å finne frem til feilen.</p>
+<ol type="1">
+<li>Finn frem til testen som feiler, i bildet feiler valideringstestene for kilde1. Trykk så på lenken “Details” som vist i bilde under. <img src="images/fail-pr-tests-log-step1.png" class="img-fluid" alt="GitHub test kilde1 feiler"></li>
+<li>På siden du nå har kommet til skal det være en tabell som heter “Build Information”, trykk på lenken i Build kolonnen. <img src="images/fail-pr-tests-log-step2.png" class="img-fluid" alt="Build Information tabell"></li>
+<li>Du har nå kommet frem til loggene, se etter indikasjoner på feil. I eksemplet under ser vi at testen test_main_accepts_expected_number_of_args feiler fordi <code>process_source_data.py</code> mangler en main funksjon. <img src="images/fail-pr-tests-log-step3.png" class="img-fluid" alt="Cloud Run logg"></li>
+<li>Fiks feilen og push endingen til samme branch, testen vil da starte på nytt.</li>
+</ol>
+</section>
 </section>
 <section id="utrulling" class="level2">
 <h2 class="anchored" data-anchor-id="utrulling">Utrulling</h2>
-<p>Endringer til <code>process_source_data.py</code> blir automatisk rullet ut når en <a href="./ordforklaringer.html#pull-request-pr">PR</a> er merget til <code>main</code> branchen.</p>
+<p>Endringer til <code>process_source_data.py</code> blir automatisk rullet ut når en <a href="./ordforklaringer.html#pull-request-pr">PR</a> er merget til <code>main</code> branchen. Utrullingsprosessen tar noe tid, ca. 2-3 minutter fra branchen er merget til tjenesten er oppdatert, for å bekrefte at tjenesten er rullet ut kan du følge stegene i neste avsnitt.</p>
+<section id="bekrefte-utrulling" class="level3">
+<h3 class="anchored" data-anchor-id="bekrefte-utrulling">Bekrefte utrulling</h3>
+<p>Stegene under viser hvordan man går frem for å finne resultat av utrullingen av kilden “ledstill” for teamet “arbmark-skjema”. Og forutsetter at koden er pushet til main branchen.</p>
+<ol type="1">
+<li>Naviger til <a href="https://github.com/">GitHub</a>.</li>
+<li>I søkefeltet oppe i venstre hjørne skriv arbmark-skjema og klikk “Jump to” arbmark-skjema-iac. Som i bilde under. <img src="images/search-team-iac-repo.png" class="img-fluid" alt="Søk etter arbmark-skjema på GitHub"></li>
+<li>Når utrullingen er ferdig vil en av disse ikonene vises, grønn hake betyr at tjeneste er rullet ut med koden som ligger i main og at nye filer blir behandlet med koden som ligger der. <img src="images/test-github-success.png" class="img-fluid" alt="Ikon: hake, bygg gikk bra">. Rødt kryss indikerer at utrullig har feilet. <img src="images/test-github-failure.png" class="img-fluid" alt="Ikon: bygg feilet"> <br>Se etter symbolene der hvor den røde pilen i bilde under peker. I eksempel er utrulligen vellykket. <img src="images/github-build-results1.png" class="img-fluid" alt="Sjekkmerke GitHub"></li>
+</ol>
 </section>
-<section id="monitorering" class="level2">
-<h2 class="anchored" data-anchor-id="monitorering">Monitorering</h2>
+</section>
+<section id="monitorering-av-tjenesten" class="level2">
+<h2 class="anchored" data-anchor-id="monitorering-av-tjenesten">Monitorering av tjenesten</h2>
 <p>Man får en oversikt over kildene man har konfigurert prosessering for og statusen på dem ved hjelp av konsollet på <a href="./ordforklaringer.html#google-cloud-platform-gcp">GCP</a>. Der navigerer man til siden for <code>Cloud Run</code> (se <a href="#fig-cloud-run-dashboard">Figur&nbsp;2</a>) som er kjøremiljøet som kildedata prosessering benyttes av. Eksempel URl er: <code>https://console.cloud.google.com/run?project=&lt;teamets-prosjekt-id&gt;</code></p>
 <p>Her får man en oversikt av ressursbruk og loggene til prosesseringen.</p>
 <div id="fig-cloud-run-dashboard" class="quarto-figure quarto-figure-center anchored">
@@ -460,8 +496,16 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figcaption class="figure-caption">Figur&nbsp;2: Cloud Run dashboard</figcaption><p></p>
 </figure>
 </div>
+<section id="logger" class="level3">
+<h3 class="anchored" data-anchor-id="logger">Logger</h3>
+<p>Etter du har valgt kilden kan du se logger ved å velge fanen “LOGS”. Her ligger alle logger for den spesifikke kilden. For å få bedre oversikt over eventulle feil kan man sette severity til error. Dette vil uten ekstra konfigurasjon gi oversikt over alle uhåndterte exceptions. <img src="images/log-severity-error.png" class="img-fluid" alt="Sett log severity til error"></p>
+</section>
+<section id="ubehandlede-filer" class="level3">
+<h3 class="anchored" data-anchor-id="ubehandlede-filer">Ubehandlede filer</h3>
+<p>Hvis en fil blir mottatt av tjenesten, men ikke lar seg behandle blir det skrevet til loggen. Man kan få en oversik over hvilke filer som ikke har blitt prosessert ved å søke etter: <code>Could not process object</code>. <img src="images/cloud-run-dashboard-logs.png" id="fig-cloud-run-dashboard" class="img-fluid" style="width:100.0%" alt="Cloud Run logs"></p>
 
 
+</section>
 </section>
 </section>
 

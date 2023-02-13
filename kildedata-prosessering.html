@@ -616,8 +616,10 @@ div.csl-indent {
 <li><a href="#skrive-prosesseringsscriptet">Skrive skriptet</a> <code>process_source_data.py</code> som prosesserer kildedatafilen til inndata. Dette kan testes av kildedataansvarlige manuelt på Jupyter for å verifisere at dataene blir prosessert som ønsket.</li>
 <li>I en gren i teamets IaC repo, legge til <code>config.yaml</code> og <code>process_source_data.py</code> i en mappe under <code>automation/source_data</code>. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring av formatet.</li>
 <li>Lag en PR på grenen og få den godkjent av kildedataansvarlige.</li>
+<li>Vent til alle tester er ferdige. Det skal stå “All checks have passed” før man går videre, hvis testene feiler <a href="./kildedata-prosessering-avansert.html#validerings-logger">følg stegene her</a>. <img src="images/checks_passed.png" class="img-fluid" alt="Suksessfulle tester på GitHub"></li>
 <li>Skrive <code>atlantis apply</code> i en kommentar på PRen for å opprette det nødvendige infrastruktur for å prosessere kilden.</li>
 <li>Merge PRen.</li>
+<li>Sjekk resultatet av det <a href="./kildedata-prosessering-avansert.html#bekrefte-utrulling">automatiske bygget</a>.</li>
 <li>Verifisere at nye filer lagt i kildedatabøtten blir prosessert til inndata som forventet.</li>
 </ol>
 </section>
