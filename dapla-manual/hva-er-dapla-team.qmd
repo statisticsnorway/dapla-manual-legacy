@@ -1,6 +1,6 @@
 # Hva er Dapla-team?
 
-For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla-team**. Et dapla-team er en gruppe personer som jobber med et eller flere emneområder på SSBs nye dataplattform/Dapla. Når man [oppretter et Dapla-team](./opprette-dapla-team.html) i SSB får man følgende: 
+For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla-team**. Et dapla-team er en gruppe personer som jobber med ett eller flere emneområder på SSBs dataplattform/Dapla. Når man [oppretter et Dapla-team](./opprette-dapla-team.html) i SSB får man følgende: 
 
 - Lagringsområde for data i [Google Cloud Storage (GCS)](https://cloud.google.com/storage#section-1)^[Lagringsområdet tilsvarer *stammene* på bakken.]
 - Tilgangskontroll til lagringsområdet
