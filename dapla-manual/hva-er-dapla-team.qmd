@@ -16,7 +16,7 @@ Anta at noen oppretter et Dapla-team som heter **Arbmark skjema**. De vil da få
 
 SSB har sin egen organisasjon på GCP. Derfor heter toppnivået **ssb**. Under SSB ligger det 3 *Folders*^[*Folders* er et element som en organisasjon kan bruke for å organisere underenheter i GCP. I SSB er Folders brukt til å skille mellom produksjons-, test- og utviklingsmiljøer. Statistikkseksjonene trenger ikke å forholde seg noe særlig til det tekniske rundt *Folders*, bortsett fra at miljøene for test og produksjon er satt opp noe annerledes. Hvis du ønsker kan du lese mer om Folders kan gå til [Google sine sider](https://cloud.google.com/resource-manager/docs/creating-managing-folders).]: **development**, **production** og **staging**, som vist i @fig-folder-structure. 
 
-Under hver *Folders* ligger det ett eller to Google-prosjekter. Det som brukes til statistikkproduksjon ligger under **production**, mens det som brukes til utvikling og testing ligger under henholvis **development** og **staging**. I det følgende vi vil kun fokusere på **production**, som er det som brukes til statistikkproduksjon.
+Under hver *Folder* ligger det ett eller to Google-prosjekter. Det som brukes til statistikkproduksjon ligger under **production**, mens det som brukes til utvikling og testing ligger under henholdsvis **development** og **staging**. I det følgende vil vi kun fokusere på **production**, som er det som brukes til statistikkproduksjon.
 
 ::: {.panel-tabset}
 
