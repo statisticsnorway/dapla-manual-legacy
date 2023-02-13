@@ -48,7 +48,7 @@ Stegene under viser hvordan man går frem for å finne resultat av utrullingen a
 1. Naviger til [GitHub](https://github.com/).
 1. I søkefeltet oppe i venstre hjørne skriv arbmark-skjema og klikk "Jump to" arbmark-skjema-iac. Som i bilde under. ![Søk etter arbmark-skjema på GitHub](images/search-team-iac-repo.png){fig-alt="Søk etter arbmark-skjema på GitHub"}
 1. Når utrullingen er ferdig vil en av disse ikonene vises, grønn hake betyr at tjeneste er rullet ut med koden som ligger i main og at nye filer blir behandlet med koden som ligger der. ![Ikon: "hake, bygg gikk bra"](images/test-github-success.png){fig-alt="Ikon: hake, bygg gikk bra"}. Rødt kryss indikerer at utrullig har feilet. ![Ikon: "kryss, bygg feilet"](images/test-github-failure.png){fig-alt="Ikon: bygg feilet"} 
-<br>Se etter symbolene der hvor den rød pilen i bilde under peker. I eksempel er utrulligen vellykket.
+<br>Se etter symbolene der hvor den rød pilen peker. I eksempel er utrulligen vellykket.
 ![Sjekkmerke GitHub](images/github-build-results1.png){fig-alt="Sjekkmerke GitHub"}
  
 ## Monitorering av tjenesten
