@@ -74,7 +74,7 @@ Disse instruksjoner forutsetter at [prosjektet ditt er koblet til Github](#koble
 1. [Skrive skriptet](#skrive-prosesseringsscriptet) `process_source_data.py` som prosesserer kildedatafilen til inndata. Dette kan testes av kildedataansvarlige manuelt på Jupyter for å verifisere at dataene blir prosessert som ønsket.
 1. I en gren i teamets IaC repo, legge til `config.yaml` og `process_source_data.py` i en mappe under `automation/source_data`. Se [eksemplet under](#struktur-i-iac-repo) for en detaljert forklaring av formatet.
 1. Lag en PR på grenen og få den godkjent av kildedataansvarlige.
-1. Vent til alle tester er ferdige. Det skal stå "All checks have passed" før man går videre, hvis testene failer [følg stegene her](./kildedata-prosessering-avansert.html#validerings-logger). ![Suksessfulle tester på GitHub](images/checks_passed.png){fig-alt="Suksessfulle tester på GitHub"}
+1. Vent til alle tester er ferdige. Det skal stå "All checks have passed" før man går videre, hvis testene feiler [følg stegene her](./kildedata-prosessering-avansert.html#validerings-logger). ![Suksessfulle tester på GitHub](images/checks_passed.png){fig-alt="Suksessfulle tester på GitHub"}
 1. Skrive `atlantis apply` i en kommentar på PRen for å opprette det nødvendige infrastruktur for å prosessere kilden.
 1. Merge PRen.
 1. Sjekk resultatet av det [automatiske bygget](./kildedata-prosessering-avansert.html#bekrefte-utrulling).
