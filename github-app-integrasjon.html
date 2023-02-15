@@ -460,7 +460,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <ul>
-<li>Et pop-up vindu tilsvarende <a href="#fig-github-app-connect-popup">Figur&nbsp;5</a> vil komme opp. Trykk på <code>Authorize</code>. Vinduet vil etter hvert lukke seg og man kommer videre til et steg som heter <code>Select repository</code> (<a href="#fig-github-app-connect-repo">Figur&nbsp;6</a>)</li>
+<li>Et pop-up vindu tilsvarende <a href="#fig-github-app-connect-popup">Figur&nbsp;5</a> vil komme opp. Trykk på <code>Authorize</code>. Vinduet vil etter hvert lukke seg og man kommer videre til et steg som heter <code>Select repository</code> (<a href="#fig-github-app-select-repo">Figur&nbsp;6</a>)</li>
 </ul>
 <div id="fig-github-app-connect-popup" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -468,55 +468,37 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figcaption class="figure-caption">Figur&nbsp;5: Pop-up vindu for Github</figcaption><p></p>
 </figure>
 </div>
-<div id="fig-github-app-connect-repo" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-github-app-select-repo" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="images/github-app-6.png" class="img-fluid figure-img" alt="Valg av Github repository"></p>
 <p></p><figcaption class="figure-caption">Figur&nbsp;6: Valg av Github repository</figcaption><p></p>
 </figure>
 </div>
 <ul>
-<li>Trykk på nedtrekkslisten <code>Repository</code>. Her vil det kunne listes ut flere Github-repoer som allerede er konfigurert. For å legge til et nytt repo skal man trykke på <code>EDIT REPOSITORIES ON GITHUB</code> (<a href="#fig-github-app-connect-edit-github">Figur&nbsp;7</a>)</li>
+<li>Trykk på nedtrekkslisten <code>Repository</code> og skriv inn teamets navn. Huk av boksen ved teamets IAC-repo og trykk <code>OK</code>.</li>
 </ul>
-<div id="fig-github-app-connect-edit-github" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-github-app-repo-name" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/github-app-7.png" class="img-fluid figure-img" alt="Valg av Github repository"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;7: Valg av Github repository</figcaption><p></p>
+<p><img src="images/github-app-7.png" class="img-fluid figure-img" alt="Gi Google Build tilgang til Github repository"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;7: Gi Google Build tilgang til Github repository</figcaption><p></p>
 </figure>
 </div>
 <ul>
-<li>Et nytt pop-up vindu vil dukke opp. Først må man autentisere seg på nytt mot Github, se <a href="#fig-github-app-connect-github-2fa">Figur&nbsp;8</a>:</li>
-</ul>
-<div id="fig-github-app-connect-github-2fa" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/github-app-8.png" class="img-fluid figure-img" alt="Tofaktor-autentisering mot Github"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;8: Tofaktor-autentisering mot Github</figcaption><p></p>
-</figure>
-</div>
-<ul>
-<li>Deretter må man velge å gi <code>Google Cloud Build</code> tilgang til å lese fra utvalgte Github prosjekter (<a href="#fig-github-app-authorize-github">Figur&nbsp;9</a>). Trykk på nedtrekkslisten <code>Select repositories</code> og søk deg frem til prosjektets IAC-repo. Trykk til slutt på <code>Update access</code>.</li>
-</ul>
-<div id="fig-github-app-authorize-github" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/github-app-9.png" class="img-fluid figure-img" alt="Gi Google Build tilgang til Github repository"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;9: Gi Google Build tilgang til Github repository</figcaption><p></p>
-</figure>
-</div>
-<ul>
-<li>Nå vil du komme tilbake til skjermbildet <code>Connect repository</code>. Kryss av i sjekkboksen og trykk <code>CONNECT</code> (<a href="#fig-github-app-connect-github-confirm">Figur&nbsp;10</a>)</li>
+<li>Kryss så av i sjekkboksen som i (<a href="#fig-github-app-connect-github-confirm">Figur&nbsp;8</a>) og trykk <code>CONNECT</code>.</li>
 </ul>
 <div id="fig-github-app-connect-github-confirm" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/github-app-10.png" class="img-fluid figure-img" alt="Bekreft nytt Github repository"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;10: Bekreft nytt Github repository</figcaption><p></p>
+<p><img src="images/github-app-8.png" class="img-fluid figure-img" alt="Bekreft nytt Github repository"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;8: Bekreft nytt Github repository</figcaption><p></p>
 </figure>
 </div>
 <ul>
-<li>Til slutt vil skjermbildet se ut som vist i <a href="#fig-github-app-connect-trigger">Figur&nbsp;11</a>. Det siste steget <code>Create a trigger</code> kan du hoppe over. Dette vil bli satt opp av automatiseringsløsningen senere. Trykk på knappen <code>DONE</code></li>
+<li>Til slutt vil skjermbildet se ut som vist i <a href="#fig-github-app-connect-trigger">Figur&nbsp;9</a>. Det siste steget <code>Create a trigger</code> kan du hoppe over. Dette vil bli satt opp av automatiseringsløsningen senere. Trykk på knappen <code>DONE</code></li>
 </ul>
 <div id="fig-github-app-connect-trigger" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="images/github-app-11.png" class="img-fluid figure-img" alt="Skjermbilde som viser siste trinn i konfigurasjonen - create a trigger"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;11: Siste steg - Create a trigger</figcaption><p></p>
+<p><img src="images/github-app-9.png" class="img-fluid figure-img" alt="Skjermbilde som viser siste trinn i konfigurasjonen - create a trigger"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;9: Siste steg - Create a trigger</figcaption><p></p>
 </figure>
 </div>
 
