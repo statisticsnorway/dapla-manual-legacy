@@ -1,4 +1,4 @@
-# Statbanken
+# Statistikkbanken
 
 Pakken "dapla-statbank-client" tar seg av overføring til Statbanken fra Dapla, og Jupyterlab i prodsonen. Den henter også "filbeskrivelsen" som beskriver formen dataene skal ha når de sendes inn til statistikkbanken. Og den kan også hente publisert data fra statbanken.
 Pakken er en python-pakke som baserer seg på at dataene (deltabellene) lastes inn i en, eller flere pandas DataFrames før overføring.
