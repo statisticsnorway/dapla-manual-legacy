@@ -1,0 +1,24 @@
+# Statbanken overfør data
+
+Pakken "dapla-statbank-client" tar seg av overføring til Statbanken fra Dapla, og Jupyterlab i prodsonen. Den henter også "filbeskrivelsen" som beskriver formen dataene skal ha når de sendes inn til statistikkbanken.
+Pakken er en python-pakke som baserer seg på at dataene (deltabellene) lastes inn i en, eller flere pandas DataFrames før overføring.
+Ved å hente ned "filbeskrivelsen" kan man validere dataene sine (dataframene) mot denne, lokalt, uten å sende dataene til statistikkbanken. Dette kan være til hjelp under setting av formen på dataene.
+
+Lenker:
+- [Pakken ligger her på Pypi.](https://pypi.org/project/dapla-statbank-client/) Og kan innstalleres via poetry med: `poetry add dapla-statbank-client`
+- [Kodebasen for pakken ligger her](https://github.com/statisticsnorway/dapla-statbank-client), **readme-en gir en teknisk innføring** som du kan følge og kopiere kode fra, og om du finner noe du vil rapportere om bruken av pakken så gjør det gjerne under "issues" der.
+- [Noe demokode ligger i repoet](https://github.com/statisticsnorway/dapla-statbank-client/blob/main/demo/), og kan være ett godt utgangspunkt å kopiere og endre fra.
+
+
+Videodemonstrasjon kommer...
+
+
+### Problematikk knyttet til avrunding
+Det tas noe ekstra ansvar i pakken rundt avrunding av desimaltall, da filbeskrivelsen inneholder informasjon om hvor mange desimaler som blir lagret, kan vi runde av til rett antall samtidig som vi tar ett bevisst valg rundt "hvilken vei vi skal runde av". 
+På barneskolen lærte vi at ved 2,5 avrundet til 0 desimaler, så runder vi opp til 3. Det samme skjer i utgangspunktet i SAS og Excel. Python og R runder derimot "mot nærmeste partall", for å forhindre *bias i en retning*. Dvs. om alle tall rundes opp, vil en hel kolonne med tall "dras oppover", ved å gjøre annenhver opp og ned, vil ikke helheten bli "dratt en spesifikk vei".
+Siden "round to even" ikke er det folk er vandte til, gjør vi derfor noe annet i denne pakken, enn det som er vanlig oppførsel i Python. Vi runder opp.
+Om du bruker metoden under filbeskrivelsen på dataene, så vil denne runde oppover, samtidig som den konverterer til en streng for å bevare formateringen.
+
+```python
+data = filbeskrivelse.round_data(data)
+```

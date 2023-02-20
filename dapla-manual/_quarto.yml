@@ -90,6 +90,7 @@ website:
             - kildedata-prosessering.qmd
             - github-app-integrasjon.qmd
             - kildedata-prosessering-avansert.qmd
+        - statbanken.qmd
       - section: jupyter-pa-bakken.qmd
         contents:
         - pakke-install-bakken.qmd
