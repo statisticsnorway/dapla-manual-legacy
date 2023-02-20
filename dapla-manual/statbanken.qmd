@@ -33,15 +33,17 @@ from statbank import StatbankClient
 ```
 Så initialiserer du klienten med de innstillingene som oftest er faste på tvers av alle innsendingene fra ett produksjonsløp:
 ```python
-statcli = StatbankClient(user="LAST360", date="2050-01-01")
+statcli = StatbankClient(loaduser="LAST360", date="2050-01-01", overwrite=True, approve=2)
 ```
 Her vil du bli bedt om å skrive inn passordet til lastebrukeren.
 
 
 ### Overfør data
-Om du har dataene klare er det bare å overføre, men du må vite navnet på deltabell-dat-filene.
+Om du har dataene klare er det bare å overføre, men du må vite navnet på deltabell-dat-filene. (Statbanken lagrer disse ned igjen som dat-filer.)
 ```python
-statcli.transfer({'knrmakrohovmnd1.dat': df}, "11721")
+data_07495 = {"kargrs01fylker1.dat" : df_07495_fylker,
+              "kargrs01landet1.dat" : df_07495_landet,}
+statcli.transfer(data_07495, tableid="07495")
 ```
 Etter innsending kommer det en link til statbankens-gui for å følge med på om innsendingen gikk bra hos dem.
 Om det var det du ønsket, så er du nå ferdig... Men det fins mer funksjonalitet her...
@@ -50,7 +52,7 @@ Om det var det du ønsket, så er du nå ferdig... Men det fins mer funksjonalit
 ### Hent Filbeskrivelse
 For å hente filbeskrivelsen til en hovedtabell bruker du denne metoden under klienten:
 ```python
-filbeskrivelse = statcli.get_description("11721")
+filbeskrivelse = statcli.get_description(tableid="07495")
 print(filbeskrivelse)
 ```
 Med filbeskrivelsen kan du lett få en mal på dictionaryet du må plassere dataene i:
@@ -59,18 +61,17 @@ filbeskrivelse.transferdata_template()
 ```
 Du kan også validere dataene dine mot filbeskrivelsen:
 ```python
-filbeskrivelse.validate({'knrmakrohovmnd1.dat': df}, "11721")
+filbeskrivelse.validate(data_07495, tableid="07495")
 ```
 
 ## Problematikk knyttet til avrunding
-Det tas noe ekstra ansvar i pakken rundt avrunding av desimaltall, da filbeskrivelsen inneholder informasjon om hvor mange desimaler som blir lagret, kan vi runde av til rett antall samtidig som vi tar ett bevisst valg rundt "hvilken vei vi skal runde av". 
+Det tas noe ekstra ansvar i pakken rundt avrunding av desimaltall, da filbeskrivelsen inneholder informasjon om hvor mange desimaler som blir lagret per kolonne, kan vi runde av til rett antall samtidig som vi tar ett bevisst valg rundt "hvilken vei vi skal runde av". 
 På barneskolen lærte vi at ved 2,5 avrundet til 0 desimaler, så runder vi opp til 3. Det samme skjer i utgangspunktet i SAS og Excel. Python og R runder derimot "mot nærmeste partall", så fra 2,5 blir det rundet til 2, men fra 1,5 blir det også rundet til 2. Dette er for å forhindre *bias i en retning*. Dvs. om alle tall rundes opp, vil en hel kolonne med tall "dras oppover", ved å gjøre annenhver opp og ned, vil ikke helheten bli "dratt en spesifikk vei".
-Siden "round to even" ikke er det folk er vandte til, gjør vi derfor noe annet i denne pakken, enn det som er vanlig oppførsel i Python. Vi runder opp.
-Om du bruker metoden under filbeskrivelsen på dataene, så vil denne runde oppover, samtidig som den konverterer til en streng for å bevare formateringen.
+Siden "round to even" ikke er det folk er vandte til, gjør vi derfor noe annet i denne pakken, enn det som er vanlig oppførsel i Python. **Vi runder opp.**
+Om du bruker følgende metoden under filbeskrivelsen på dataene, så vil denne runde oppover, samtidig som den konverterer til en streng for å bevare formateringen.
 
 ```python
-data = {'knrmakrohovmnd1.dat': df}
-data = filbeskrivelse.round_data(data)  # For å ta vare på endringene, så må du skrive tilbake over variabelen
+data_07495 = filbeskrivelse.round_data(data_07495)  # For å ta vare på endringene, så må du skrive tilbake over variabelen
 ```
 
 ## Annen funksjonalitet du kan lese om i readme-en er:
