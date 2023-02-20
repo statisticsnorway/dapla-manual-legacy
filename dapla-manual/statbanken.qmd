@@ -6,16 +6,22 @@ Ved å hente ned "filbeskrivelsen" kan man validere dataene sine (dataframene) m
 
 Lenker:
 - [Pakken ligger her på Pypi.](https://pypi.org/project/dapla-statbank-client/) Og kan innstalleres via poetry med: `poetry add dapla-statbank-client`
-- [Kodebasen for pakken ligger her](https://github.com/statisticsnorway/dapla-statbank-client), **readme-en gir en teknisk innføring** som du kan følge og kopiere kode fra, og om du finner noe du vil rapportere om bruken av pakken så gjør det gjerne under "issues" der.
+- [Kodebasen for pakken ligger her](https://github.com/statisticsnorway/dapla-statbank-client), **readme-en gir en teknisk innføring** som du kan følge og kopiere kode fra, og om du finner noe du vil rapportere om bruken av pakken så gjør det gjerne under "issues" på github-sidene.
 - [Noe demokode ligger i repoet](https://github.com/statisticsnorway/dapla-statbank-client/blob/main/demo/), og kan være ett godt utgangspunkt å kopiere og endre fra.
 
 
 Videodemonstrasjon kommer...
 
+### Testoverføring fra STAGING - faktisk oppdatering fra PROD
+Statistikkbanken opererer med ulike databaser for testing og produksjonssetting. Om du vil at tallene faktisk skal oppdateres på nettsidene så må du sende til statistikkbankens "PROD"-database. Om du kun vil teste innsending skal du sende til databasen "TEST".
+Disse databasene har de samme lastebrukerne, men passordene er ulike. Om du vil teste innsending må du derfor skaffe deg "test-passordet" til den lastebrukeren du har tilgjengelig.
+For å gjøre tester via pakken må du være i *staging* på dapla: https://jupyter.dapla-staging.ssb.no/ eller *staging* i prodosonen: https://sl-jupyter-t.ssb.no/
+Om du faktisk vil sende inn data til publisering i statistikkbanken må du være i dapla-prod (den vanlige): https://jupyter.dapla.ssb.no/ eller i prodsonen på: https://sl-jupyter-p.ssb.no/
+
 
 ### Problematikk knyttet til avrunding
 Det tas noe ekstra ansvar i pakken rundt avrunding av desimaltall, da filbeskrivelsen inneholder informasjon om hvor mange desimaler som blir lagret, kan vi runde av til rett antall samtidig som vi tar ett bevisst valg rundt "hvilken vei vi skal runde av". 
-På barneskolen lærte vi at ved 2,5 avrundet til 0 desimaler, så runder vi opp til 3. Det samme skjer i utgangspunktet i SAS og Excel. Python og R runder derimot "mot nærmeste partall", for å forhindre *bias i en retning*. Dvs. om alle tall rundes opp, vil en hel kolonne med tall "dras oppover", ved å gjøre annenhver opp og ned, vil ikke helheten bli "dratt en spesifikk vei".
+På barneskolen lærte vi at ved 2,5 avrundet til 0 desimaler, så runder vi opp til 3. Det samme skjer i utgangspunktet i SAS og Excel. Python og R runder derimot "mot nærmeste partall", så fra 2,5 blir det rundet til 2, men fra 1,5 blir det også rundet til 2. Dette er for å forhindre *bias i en retning*. Dvs. om alle tall rundes opp, vil en hel kolonne med tall "dras oppover", ved å gjøre annenhver opp og ned, vil ikke helheten bli "dratt en spesifikk vei".
 Siden "round to even" ikke er det folk er vandte til, gjør vi derfor noe annet i denne pakken, enn det som er vanlig oppførsel i Python. Vi runder opp.
 Om du bruker metoden under filbeskrivelsen på dataene, så vil denne runde oppover, samtidig som den konverterer til en streng for å bevare formateringen.
 
