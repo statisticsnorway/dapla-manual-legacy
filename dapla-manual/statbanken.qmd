@@ -1,8 +1,9 @@
-# Statbanken overfør data
+# Statbanken
 
-Pakken "dapla-statbank-client" tar seg av overføring til Statbanken fra Dapla, og Jupyterlab i prodsonen. Den henter også "filbeskrivelsen" som beskriver formen dataene skal ha når de sendes inn til statistikkbanken.
+Pakken "dapla-statbank-client" tar seg av overføring til Statbanken fra Dapla, og Jupyterlab i prodsonen. Den henter også "filbeskrivelsen" som beskriver formen dataene skal ha når de sendes inn til statistikkbanken. Og den kan også hente publisert data fra statbanken.
 Pakken er en python-pakke som baserer seg på at dataene (deltabellene) lastes inn i en, eller flere pandas DataFrames før overføring.
 Ved å hente ned "filbeskrivelsen" kan man validere dataene sine (dataframene) mot denne, lokalt, uten å sende dataene til statistikkbanken. Dette kan være til hjelp under setting av formen på dataene.
+Å hente publisert data fra statbanken kan gjøres gjennom løse funksjoner, eller "klienten".
 
 Lenker:
 - [Pakken ligger her på Pypi.](https://pypi.org/project/dapla-statbank-client/) Og kan innstalleres via poetry med: `poetry add dapla-statbank-client`
