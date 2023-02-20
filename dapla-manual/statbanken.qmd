@@ -11,9 +11,6 @@ Lenker:
 - [Noe demokode ligger i repoet](https://github.com/statisticsnorway/dapla-statbank-client/blob/main/demo/), og kan være ett godt utgangspunkt å kopiere og endre fra.
 
 
-Videodemonstrasjon kommer...
-
-
 ## Testoverføring fra STAGING - faktisk oppdatering fra PROD
 Statistikkbanken opererer med ulike databaser for testing og produksjonssetting. Om du vil at tallene faktisk skal oppdateres på nettsidene så må du sende til statistikkbankens "PROD"-database. Om du kun vil teste innsending skal du sende til databasen "TEST".
 Disse databasene har de samme lastebrukerne, men passordene er ulike. Om du vil teste innsending må du derfor skaffe deg "test-passordet" til den lastebrukeren du har tilgjengelig.
