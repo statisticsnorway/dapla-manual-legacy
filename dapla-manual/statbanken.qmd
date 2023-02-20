@@ -12,19 +12,69 @@ Lenker:
 
 Videodemonstrasjon kommer...
 
-### Testoverføring fra STAGING - faktisk oppdatering fra PROD
+
+## Testoverføring fra STAGING - faktisk oppdatering fra PROD
 Statistikkbanken opererer med ulike databaser for testing og produksjonssetting. Om du vil at tallene faktisk skal oppdateres på nettsidene så må du sende til statistikkbankens "PROD"-database. Om du kun vil teste innsending skal du sende til databasen "TEST".
 Disse databasene har de samme lastebrukerne, men passordene er ulike. Om du vil teste innsending må du derfor skaffe deg "test-passordet" til den lastebrukeren du har tilgjengelig.
 For å gjøre tester via pakken må du være i *staging* på dapla: https://jupyter.dapla-staging.ssb.no/ eller *staging* i prodosonen: https://sl-jupyter-t.ssb.no/
 Om du faktisk vil sende inn data til publisering i statistikkbanken må du være i dapla-prod (den vanlige): https://jupyter.dapla.ssb.no/ eller i prodsonen på: https://sl-jupyter-p.ssb.no/
+For å teste er det fint å skaffe seg noe data fra fjorårets publisering på ett produksjonsløp du kjenner fra før. Evt. kan man hente data fra statistikkbanken å sende disse tilbake snudd rett, og med riktig antall prikke-kolonner lagt til.
 
 
-### Problematikk knyttet til avrunding
+## Kode-eksempler 
+[Se mer detaljer i readme-en på prosjektets kodebase.](https://github.com/statisticsnorway/dapla-statbank-client)
+
+
+### Opprette client
+For å kunne bruke pakken må du importere klienten:
+```python
+from statbank import StatbankClient
+```
+Så initialiserer du klienten med de innstillingene som oftest er faste på tvers av alle innsendingene fra ett produksjonsløp:
+```python
+statcli = StatbankClient(user="LAST360", date="2050-01-01")
+```
+Her vil du bli bedt om å skrive inn passordet til lastebrukeren.
+
+
+### Overfør data
+Om du har dataene klare er det bare å overføre, men du må vite navnet på deltabell-dat-filene.
+```python
+statcli.transfer({'knrmakrohovmnd1.dat': df}, "11721")
+```
+Etter innsending kommer det en link til statbankens-gui for å følge med på om innsendingen gikk bra hos dem.
+Om det var det du ønsket, så er du nå ferdig... Men det fins mer funksjonalitet her...
+
+
+### Hent Filbeskrivelse
+For å hente filbeskrivelsen til en hovedtabell bruker du denne metoden under klienten:
+```python
+filbeskrivelse = statcli.get_description("11721")
+print(filbeskrivelse)
+```
+Med filbeskrivelsen kan du lett få en mal på dictionaryet du må plassere dataene i:
+```python
+filbeskrivelse.transferdata_template()
+```
+Du kan også validere dataene dine mot filbeskrivelsen:
+```python
+filbeskrivelse.validate({'knrmakrohovmnd1.dat': df}, "11721")
+```
+
+## Problematikk knyttet til avrunding
 Det tas noe ekstra ansvar i pakken rundt avrunding av desimaltall, da filbeskrivelsen inneholder informasjon om hvor mange desimaler som blir lagret, kan vi runde av til rett antall samtidig som vi tar ett bevisst valg rundt "hvilken vei vi skal runde av". 
 På barneskolen lærte vi at ved 2,5 avrundet til 0 desimaler, så runder vi opp til 3. Det samme skjer i utgangspunktet i SAS og Excel. Python og R runder derimot "mot nærmeste partall", så fra 2,5 blir det rundet til 2, men fra 1,5 blir det også rundet til 2. Dette er for å forhindre *bias i en retning*. Dvs. om alle tall rundes opp, vil en hel kolonne med tall "dras oppover", ved å gjøre annenhver opp og ned, vil ikke helheten bli "dratt en spesifikk vei".
 Siden "round to even" ikke er det folk er vandte til, gjør vi derfor noe annet i denne pakken, enn det som er vanlig oppførsel i Python. Vi runder opp.
 Om du bruker metoden under filbeskrivelsen på dataene, så vil denne runde oppover, samtidig som den konverterer til en streng for å bevare formateringen.
 
 ```python
-data = filbeskrivelse.round_data(data)
+data = {'knrmakrohovmnd1.dat': df}
+data = filbeskrivelse.round_data(data)  # For å ta vare på endringene, så må du skrive tilbake over variabelen
 ```
+
+## Annen funksjonalitet du kan lese om i readme-en er:
+- En date-widget for å visuelt endre til en valid dato.
+- Lagring av overføring og filbeskrivelses-objekter til json-filer
+- Uthenting av logg fra klienten
+- Henting av publisert data fra statbanken
+- Rotering av tabeller fra statbanken
