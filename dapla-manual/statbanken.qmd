@@ -1,22 +1,21 @@
 # Statistikkbanken
 
-Pakken "dapla-statbank-client" tar seg av overføring til Statbanken fra Dapla, og Jupyterlab i prodsonen. Den henter også "filbeskrivelsen" som beskriver formen dataene skal ha når de sendes inn til statistikkbanken. Og den kan også hente publisert data fra statbanken.
-Pakken er en python-pakke som baserer seg på at dataene (deltabellene) lastes inn i en, eller flere pandas DataFrames før overføring.
-Ved å hente ned "filbeskrivelsen" kan man validere dataene sine (dataframene) mot denne, lokalt, uten å sende dataene til statistikkbanken. Dette kan være til hjelp under setting av formen på dataene.
-Å hente publisert data fra statbanken kan gjøres gjennom løse funksjoner, eller "klienten".
+Pakken "dapla-statbank-client" kan brukes til å overføre tabeller til Statistikkbanken fra Jupyterlab i prodsonen og på Dapla. Den henter også "filbeskrivelsen" som beskriver formen dataene skal ha når de sendes inn til Statistikkbanken. Og den kan også hente publiserte data fra Statistikkbanken.
+Pakken er en python-pakke som baserer seg på at dataene (deltabellene) lastes inn i en eller flere pandas DataFrames før overføring.
+Ved å hente ned "filbeskrivelsen" kan man validere dataene sine (dataframene) mot denne lokalt, uten å sende dataene til Statistikkbanken. Dette kan være til hjelp under setting av formen på dataene. Å hente publiserte data fra Statistikkbanken kan gjøres gjennom løse funksjoner, eller via "klienten".
 
 Lenker:
-- [Pakken ligger her på Pypi.](https://pypi.org/project/dapla-statbank-client/) Og kan innstalleres via poetry med: `poetry add dapla-statbank-client`
+- [Pakken ligger her på Pypi.](https://pypi.org/project/dapla-statbank-client/) Og kan installeres via poetry med: `poetry add dapla-statbank-client`
 - [Kodebasen for pakken ligger her](https://github.com/statisticsnorway/dapla-statbank-client), **readme-en gir en teknisk innføring** som du kan følge og kopiere kode fra, og om du finner noe du vil rapportere om bruken av pakken så gjør det gjerne under "issues" på github-sidene.
 - [Noe demokode ligger i repoet](https://github.com/statisticsnorway/dapla-statbank-client/blob/main/demo/), og kan være ett godt utgangspunkt å kopiere og endre fra.
 
 
 ## Testoverføring fra STAGING - faktisk oppdatering fra PROD
-Statistikkbanken opererer med ulike databaser for testing og produksjonssetting. Om du vil at tallene faktisk skal oppdateres på nettsidene så må du sende til statistikkbankens "PROD"-database. Om du kun vil teste innsending skal du sende til databasen "TEST".
-Disse databasene har de samme lastebrukerne, men passordene er ulike. Om du vil teste innsending må du derfor skaffe deg "test-passordet" til den lastebrukeren du har tilgjengelig.
+Statistikkbanken opererer med ulike databaser for testing og produksjonssetting. Om du vil at tallene faktisk skal oppdateres på nettsidene så må du sende til Statistikkbankens "PROD"-database. Om du kun vil teste innsending skal du sende til databasen "TEST".
+Disse databasene har de samme lastebrukerne, men passordene er ulike. Om du vil teste innsending må du derfor skaffe deg "test-passordet" til den lastebrukeren som du har tilgjengelig.
 For å gjøre tester via pakken må du være i *staging* på dapla: https://jupyter.dapla-staging.ssb.no/ eller *staging* i prodosonen: https://sl-jupyter-t.ssb.no/
-Om du faktisk vil sende inn data til publisering i statistikkbanken må du være i dapla-prod (den vanlige): https://jupyter.dapla.ssb.no/ eller i prodsonen på: https://sl-jupyter-p.ssb.no/
-For å teste er det fint å skaffe seg noe data fra fjorårets publisering på ett produksjonsløp du kjenner fra før. Evt. kan man hente data fra statistikkbanken å sende disse tilbake snudd rett, og med riktig antall prikke-kolonner lagt til.
+Om du faktisk vil sende inn data til publisering i Statistikkbanken må du være i dapla-prod (den vanlige): https://jupyter.dapla.ssb.no/ eller i prodsonen på: https://sl-jupyter-p.ssb.no/
+For å teste er det fint å skaffe seg noe data fra fjorårets publisering på et produksjonsløp man kjenner fra før. Evt. kan man hente data fra Statistikkbanken og sende disse tilbake snudd rett, og med riktig antall prikke-kolonner lagt til.
 
 
 ## Kode-eksempler 
@@ -36,14 +35,14 @@ Her vil du bli bedt om å skrive inn passordet til lastebrukeren.
 
 
 ### Overfør data
-Om du har dataene klare er det bare å overføre, men du må vite navnet på deltabell-dat-filene. (Statbanken lagrer disse ned igjen som dat-filer.)
+Om du har dataene klare er det bare å overføre, men du må vite navnet på deltabell-dat-filene. (Statistikkbanken lagrer disse ned igjen som dat-filer.)
 ```python
 data_07495 = {"kargrs01fylker1.dat" : df_07495_fylker,
               "kargrs01landet1.dat" : df_07495_landet,}
 statcli.transfer(data_07495, tableid="07495")
 ```
-Etter innsending kommer det en link til statbankens-gui for å følge med på om innsendingen gikk bra hos dem.
-Om det var det du ønsket, så er du nå ferdig... Men det fins mer funksjonalitet her...
+Etter innsending kommer det en link til Statistikkbankens GUI for å følge med på om innsendingen gikk bra hos dem.
+Om det var det du ønsket, så er du nå ferdig... Men det finnes mer funksjonalitet her...
 
 
 ### Hent Filbeskrivelse
