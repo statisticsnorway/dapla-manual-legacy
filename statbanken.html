@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – hvorfor-dapla</title>
+<title>Dapla-manual – statbanken</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -139,11 +202,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./introduksjon.html" class="sidebar-item-text sidebar-link">Introduksjon</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link">Hva er Dapla?</a>
@@ -151,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hvorfor-dapla.html" class="sidebar-item-text sidebar-link active">Hvorfor Dapla?</a>
+  <a href="./hvorfor-dapla.html" class="sidebar-item-text sidebar-link">Hvorfor Dapla?</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -299,11 +362,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./data.html" class="sidebar-item-text sidebar-link">Data</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">Datatilstander</a>
@@ -336,7 +399,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statbanken.html" class="sidebar-item-text sidebar-link">Statistikkbanken</a>
+  <a href="./statbanken.html" class="sidebar-item-text sidebar-link active">Statistikkbanken</a>
   </div>
 </li>
       </ul>
@@ -415,7 +478,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#hvorfor-dapla" id="toc-hvorfor-dapla" class="nav-link active" data-scroll-target="#hvorfor-dapla">Hvorfor Dapla?</a></li>
+  <li><a href="#statistikkbanken" id="toc-statistikkbanken" class="nav-link active" data-scroll-target="#statistikkbanken">Statistikkbanken</a>
+  <ul class="collapse">
+  <li><a href="#testoverføring-fra-staging---faktisk-oppdatering-fra-prod" id="toc-testoverføring-fra-staging---faktisk-oppdatering-fra-prod" class="nav-link" data-scroll-target="#testoverføring-fra-staging---faktisk-oppdatering-fra-prod">Testoverføring fra STAGING - faktisk oppdatering fra PROD</a></li>
+  <li><a href="#kode-eksempler" id="toc-kode-eksempler" class="nav-link" data-scroll-target="#kode-eksempler">Kode-eksempler</a>
+  <ul class="collapse">
+  <li><a href="#opprette-client" id="toc-opprette-client" class="nav-link" data-scroll-target="#opprette-client">Opprette client</a></li>
+  <li><a href="#overfør-data" id="toc-overfør-data" class="nav-link" data-scroll-target="#overfør-data">Overfør data</a></li>
+  <li><a href="#hent-filbeskrivelse" id="toc-hent-filbeskrivelse" class="nav-link" data-scroll-target="#hent-filbeskrivelse">Hent Filbeskrivelse</a></li>
+  </ul></li>
+  <li><a href="#problematikk-knyttet-til-avrunding" id="toc-problematikk-knyttet-til-avrunding" class="nav-link" data-scroll-target="#problematikk-knyttet-til-avrunding">Problematikk knyttet til avrunding</a></li>
+  <li><a href="#annen-funksjonalitet-du-kan-lese-om-i-readme-en-er" id="toc-annen-funksjonalitet-du-kan-lese-om-i-readme-en-er" class="nav-link" data-scroll-target="#annen-funksjonalitet-du-kan-lese-om-i-readme-en-er">Annen funksjonalitet du kan lese om i readme-en er:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -424,20 +498,61 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="hvorfor-dapla" class="level1">
-<h1>Hvorfor Dapla?</h1>
-<p>Som dataplattform skal Dapla stimulerere til økt kvalitet på statistikk og forskning, samtidig som den gjør organisasjonen mer tilpasningsdyktig i møte med fremtiden.</p>
-<blockquote class="blockquote">
-<dl>
-<dt>Den nye skybaserte dataplattformen (Dapla) skal bli viktig for å effektivisere arbeids-og produksjonsprosesser, den skal sikre effektiv lagring og gjenfinning av data og metadata, og støtte opp under deling av data på tvers av statistikkområder.</dt>
-<dd>
-Kilde: <a href="https://ssbno.sharepoint.com/sites/Virksomhetsstyring/SiteAssets/Forms/AllItems.aspx?id=%2Fsites%2FVirksomhetsstyring%2FSiteAssets%2FSitePages%2FVirksomhetsstyring%2FLangtidsplan%2Dfor%2DSSB%2D2022%2D2024%2Epdf&amp;parent=%2Fsites%2FVirksomhetsstyring%2FSiteAssets%2FSitePages%2FVirksomhetsstyring">Langtidsplan for SSB (2022-2024)</a>
-</dd>
-</dl>
-</blockquote>
-<p>Målet med Dapla er å tilby tjenester og verktøy som lar statistikkprodusenter og forskere produsere resultater på en sikker og effektiv måte.</p>
+<section id="statistikkbanken" class="level1">
+<h1>Statistikkbanken</h1>
+<p>Pakken “dapla-statbank-client” kan brukes til å overføre tabeller til Statistikkbanken fra Jupyterlab i prodsonen og på Dapla. Den henter også “filbeskrivelsen” som beskriver formen dataene skal ha når de sendes inn til Statistikkbanken. Og den kan også hente publiserte data fra Statistikkbanken. Pakken er en python-pakke som baserer seg på at dataene (deltabellene) lastes inn i en eller flere pandas DataFrames før overføring. Ved å hente ned “filbeskrivelsen” kan man validere dataene sine (dataframene) mot denne lokalt, uten å sende dataene til Statistikkbanken. Dette kan være til hjelp under setting av formen på dataene. Å hente publiserte data fra Statistikkbanken kan gjøres gjennom løse funksjoner, eller via “klienten”.</p>
+<p>Lenker: - <a href="https://pypi.org/project/dapla-statbank-client/">Pakken ligger her på Pypi.</a> Og kan installeres via poetry med: <code>poetry add dapla-statbank-client</code> - <a href="https://github.com/statisticsnorway/dapla-statbank-client">Kodebasen for pakken ligger her</a>, <strong>readme-en gir en teknisk innføring</strong> som du kan følge og kopiere kode fra, og om du finner noe du vil rapportere om bruken av pakken så gjør det gjerne under “issues” på github-sidene. - <a href="https://github.com/statisticsnorway/dapla-statbank-client/blob/main/demo/">Noe demokode ligger i repoet</a>, og kan være ett godt utgangspunkt å kopiere og endre fra.</p>
+<section id="testoverføring-fra-staging---faktisk-oppdatering-fra-prod" class="level2">
+<h2 class="anchored" data-anchor-id="testoverføring-fra-staging---faktisk-oppdatering-fra-prod">Testoverføring fra STAGING - faktisk oppdatering fra PROD</h2>
+<p>Statistikkbanken opererer med ulike databaser for testing og produksjonssetting. Om du vil at tallene faktisk skal oppdateres på nettsidene så må du sende til Statistikkbankens “PROD”-database. Om du kun vil teste innsending skal du sende til databasen “TEST”. Disse databasene har de samme lastebrukerne, men passordene er ulike. Om du vil teste innsending må du derfor skaffe deg “test-passordet” til den lastebrukeren som du har tilgjengelig. For å gjøre tester via pakken må du være i <em>staging</em> på dapla: https://jupyter.dapla-staging.ssb.no/ eller <em>staging</em> i prodosonen: https://sl-jupyter-t.ssb.no/ Om du faktisk vil sende inn data til publisering i Statistikkbanken må du være i dapla-prod (den vanlige): https://jupyter.dapla.ssb.no/ eller i prodsonen på: https://sl-jupyter-p.ssb.no/ For å teste er det fint å skaffe seg noe data fra fjorårets publisering på et produksjonsløp man kjenner fra før. Evt. kan man hente data fra Statistikkbanken og sende disse tilbake snudd rett, og med riktig antall prikke-kolonner lagt til.</p>
+</section>
+<section id="kode-eksempler" class="level2">
+<h2 class="anchored" data-anchor-id="kode-eksempler">Kode-eksempler</h2>
+<p><a href="https://github.com/statisticsnorway/dapla-statbank-client">Se mer detaljer i readme-en på prosjektets kodebase.</a></p>
+<section id="opprette-client" class="level3">
+<h3 class="anchored" data-anchor-id="opprette-client">Opprette client</h3>
+<p>For å kunne bruke pakken må du importere klienten:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statbank <span class="im">import</span> StatbankClient</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Så initialiserer du klienten med de innstillingene som oftest er faste på tvers av alle innsendingene fra ett produksjonsløp:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>statcli <span class="op">=</span> StatbankClient(loaduser<span class="op">=</span><span class="st">"LAST360"</span>, date<span class="op">=</span><span class="st">"2050-01-01"</span>, overwrite<span class="op">=</span><span class="va">True</span>, approve<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Her vil du bli bedt om å skrive inn passordet til lastebrukeren.</p>
+</section>
+<section id="overfør-data" class="level3">
+<h3 class="anchored" data-anchor-id="overfør-data">Overfør data</h3>
+<p>Om du har dataene klare er det bare å overføre, men du må vite navnet på deltabell-dat-filene. (Statistikkbanken lagrer disse ned igjen som dat-filer.)</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_07495 <span class="op">=</span> {<span class="st">"kargrs01fylker1.dat"</span> : df_07495_fylker,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">"kargrs01landet1.dat"</span> : df_07495_landet,}</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>statcli.transfer(data_07495, tableid<span class="op">=</span><span class="st">"07495"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Etter innsending kommer det en link til Statistikkbankens GUI for å følge med på om innsendingen gikk bra hos dem. Om det var det du ønsket, så er du nå ferdig… Men det finnes mer funksjonalitet her…</p>
+</section>
+<section id="hent-filbeskrivelse" class="level3">
+<h3 class="anchored" data-anchor-id="hent-filbeskrivelse">Hent Filbeskrivelse</h3>
+<p>For å hente filbeskrivelsen til en hovedtabell bruker du denne metoden under klienten:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>filbeskrivelse <span class="op">=</span> statcli.get_description(tableid<span class="op">=</span><span class="st">"07495"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(filbeskrivelse)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Med filbeskrivelsen kan du lett få en mal på dictionaryet du må plassere dataene i:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>filbeskrivelse.transferdata_template()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Du kan også validere dataene dine mot filbeskrivelsen:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>filbeskrivelse.validate(data_07495, tableid<span class="op">=</span><span class="st">"07495"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="problematikk-knyttet-til-avrunding" class="level2">
+<h2 class="anchored" data-anchor-id="problematikk-knyttet-til-avrunding">Problematikk knyttet til avrunding</h2>
+<p>Det tas noe ekstra ansvar i pakken rundt avrunding av desimaltall, da filbeskrivelsen inneholder informasjon om hvor mange desimaler som blir lagret per kolonne, kan vi runde av til rett antall samtidig som vi tar ett bevisst valg rundt “hvilken vei vi skal runde av”. På barneskolen lærte vi at ved 2,5 avrundet til 0 desimaler, så runder vi opp til 3. Det samme skjer i utgangspunktet i SAS og Excel. Python og R runder derimot “mot nærmeste partall”, så fra 2,5 blir det rundet til 2, men fra 1,5 blir det også rundet til 2. Dette er for å forhindre <em>bias i en retning</em>. Dvs. om alle tall rundes opp, vil en hel kolonne med tall “dras oppover”, ved å gjøre annenhver opp og ned, vil ikke helheten bli “dratt en spesifikk vei”. Siden “round to even” ikke er det folk er vandte til, gjør vi derfor noe annet i denne pakken, enn det som er vanlig oppførsel i Python. <strong>Vi runder opp.</strong> Om du bruker følgende metoden under filbeskrivelsen på dataene, så vil denne runde oppover, samtidig som den konverterer til en streng for å bevare formateringen.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data_07495 <span class="op">=</span> filbeskrivelse.round_data(data_07495)  <span class="co"># For å ta vare på endringene, så må du skrive tilbake over variabelen</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="annen-funksjonalitet-du-kan-lese-om-i-readme-en-er" class="level2">
+<h2 class="anchored" data-anchor-id="annen-funksjonalitet-du-kan-lese-om-i-readme-en-er">Annen funksjonalitet du kan lese om i readme-en er:</h2>
+<ul>
+<li>En date-widget for å visuelt endre til en valid dato.</li>
+<li>Lagring av overføring og filbeskrivelses-objekter til json-filer</li>
+<li>Uthenting av logg fra klienten</li>
+<li>Henting av publisert data fra statbanken</li>
+<li>Rotering av tabeller fra statbanken</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
