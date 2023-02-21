@@ -65,3 +65,30 @@ Etter du har valgt kilden kan du se logger ved å velge fanen "LOGS". Her ligger
 ### Ubehandlede filer
 Hvis en fil blir mottatt av tjenesten, men ikke lar seg behandle blir det skrevet til loggen. Man kan få en oversik over hvilke filer som ikke har blitt prosessert ved å søke etter:  ```Could not process object```.
 ![Cloud Run logs](images/cloud-run-dashboard-logs.png){fig-alt="Cloud Run logs" #fig-cloud-run-dashboard width="100%"}
+
+
+## Trigge tjenesten manuelt
+Noen ganger vil det være nødvendig å trigge kjøring av en kilde uten at de tilhørende filene i kildebøtta er oppdatert f.eks. etter en endring i prosseseringsskriptet. For å gjøre dette kan man benytte seg av dapla toolbelt.
+
+For å trigge en ny kjøring må man være data-admin i teamet og ha denne informasjonen tilgjengelig:
+
+1. project_id(prosjekt id) for kilden, den finner man ved å følge beskrivelsen [her](./gcc-avansert.qmd#velg-prosjekt). 
+1. folder_prefix beskriver stien til filene som skal behandles og fungerer på samme måte som i [config.yaml](./kildedata-prosessering.qmd#innhold-i-config.yaml-for-boller)
+1. source_name finner man ved å se på navnet til mappen hvor kilden konfigureres, i eksempelet [her](./kildedata-prosessering.qmd#struktur-i-iac-repo) ser vi at team `smaabakst` har to kilder `boller` og `rundstykker`.  
+
+###  Eksempel
+Dette eksemplet viser hvordan man går frem for å manuelt trigge kilden `boller` for team `smaabakst`.
+
+Team `smaabakst` ønsker å re-prosessere alle filer i kilden `boller`. Ved å bruke samme folder_prefix som i `config.yaml` vil alle filer som tilhører kilden bli prosessert på nytt.
+
+ ```python 
+from dapla import trigger_source_data_processing
+
+project_id = "prod-smaabakst-b69d"
+source_name = "boller"
+folder_prefix = "boller"
+
+trigger_source_data_processing(project_id, source_name, folder_prefix)
+``` 
+
+

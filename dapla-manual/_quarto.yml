@@ -65,7 +65,9 @@ website:
         - hva-er-dapla-team.qmd
         - opprette-dapla-team.qmd
         - bøtter.qmd
-        - gcc.qmd
+        - section: gcc.qmd
+          contents: 
+            - gcc-avansert.qmd
         - overføre-data.qmd
         - jobbe-med-data.qmd
         - slette-data.qmd
