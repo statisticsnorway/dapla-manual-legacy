@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -199,11 +262,21 @@ ul.task-list li input[type="checkbox"] {
   <a href="./bøtter.html" class="sidebar-item-text sidebar-link">Bøtter</a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./gcc.html" class="sidebar-item-text sidebar-link">Google Cloud Console</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gcc.html" class="sidebar-item-text sidebar-link">Google Cloud Console</a>
+  <a href="./gcc-avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
   </div>
 </li>
+      </ul>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./overføre-data.html" class="sidebar-item-text sidebar-link">Overføre data</a>
@@ -239,11 +312,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./ssbproject.html" class="sidebar-item-text sidebar-link">SSB-project</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link">Nytt ssb-project</a>
@@ -289,11 +362,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./data.html" class="sidebar-item-text sidebar-link">Data</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">Datatilstander</a>
@@ -302,11 +375,11 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./kildedata.html" class="sidebar-item-text sidebar-link">Kildedata</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./kildedata-prosessering.html" class="sidebar-item-text sidebar-link">Kildedata prosessering</a>
@@ -329,11 +402,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./jupyter-pa-bakken.html" class="sidebar-item-text sidebar-link">Jupyterlab på bakken</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
@@ -349,11 +422,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lese-data.html" class="sidebar-item-text sidebar-link">Lese filer fra bøtte</a>
@@ -418,6 +491,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#logger" id="toc-logger" class="nav-link" data-scroll-target="#logger">Logger</a></li>
   <li><a href="#ubehandlede-filer" id="toc-ubehandlede-filer" class="nav-link" data-scroll-target="#ubehandlede-filer">Ubehandlede filer</a></li>
+  </ul></li>
+  <li><a href="#trigge-tjenesten-manuelt" id="toc-trigge-tjenesten-manuelt" class="nav-link" data-scroll-target="#trigge-tjenesten-manuelt">Trigge tjenesten manuelt</a>
+  <ul class="collapse">
+  <li><a href="#eksempel" id="toc-eksempel" class="nav-link" data-scroll-target="#eksempel">Eksempel</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -503,6 +580,28 @@ ul.task-list li input[type="checkbox"] {
 <section id="ubehandlede-filer" class="level3">
 <h3 class="anchored" data-anchor-id="ubehandlede-filer">Ubehandlede filer</h3>
 <p>Hvis en fil blir mottatt av tjenesten, men ikke lar seg behandle blir det skrevet til loggen. Man kan få en oversik over hvilke filer som ikke har blitt prosessert ved å søke etter: <code>Could not process object</code>. <img src="images/cloud-run-dashboard-logs.png" id="fig-cloud-run-dashboard" class="img-fluid" style="width:100.0%" alt="Cloud Run logs"></p>
+</section>
+</section>
+<section id="trigge-tjenesten-manuelt" class="level2">
+<h2 class="anchored" data-anchor-id="trigge-tjenesten-manuelt">Trigge tjenesten manuelt</h2>
+<p>Noen ganger vil det være nødvendig å trigge kjøring av en kilde uten at de tilhørende filene i kildebøtta er oppdatert f.eks. etter en endring i prosseseringsskriptet. For å gjøre dette kan man benytte seg av dapla toolbelt.</p>
+<p>For å trigge en ny kjøring må man være data-admin i teamet og ha denne informasjonen tilgjengelig:</p>
+<ol type="1">
+<li>project_id(prosjekt id) for kilden, den finner man ved å følge beskrivelsen <a href="./gcc-avansert.html#velg-prosjekt">her</a>.</li>
+<li>folder_prefix beskriver stien til filene som skal behandles og fungerer på samme måte som i <a href="./kildedata-prosessering.html#innhold-i-config.yaml-for-boller">config.yaml</a></li>
+<li>source_name finner man ved å se på navnet til mappen hvor kilden konfigureres, i eksempelet <a href="./kildedata-prosessering.html#struktur-i-iac-repo">her</a> ser vi at team <code>smaabakst</code> har to kilder <code>boller</code> og <code>rundstykker</code>.</li>
+</ol>
+<section id="eksempel" class="level3">
+<h3 class="anchored" data-anchor-id="eksempel">Eksempel</h3>
+<p>Dette eksemplet viser hvordan man går frem for å manuelt trigge kilden <code>boller</code> for team <code>smaabakst</code>.</p>
+<p>Team <code>smaabakst</code> ønsker å re-prosessere alle filer i kilden <code>boller</code>. Ved å bruke samme folder_prefix som i <code>config.yaml</code> vil alle filer som tilhører kilden bli prosessert på nytt.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> trigger_source_data_processing</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>project_id <span class="op">=</span> <span class="st">"prod-smaabakst-b69d"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>source_name <span class="op">=</span> <span class="st">"boller"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>folder_prefix <span class="op">=</span> <span class="st">"boller"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>trigger_source_data_processing(project_id, source_name, folder_prefix)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
