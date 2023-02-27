@@ -66,7 +66,7 @@ website:
         - opprette-dapla-team.qmd
         - bøtter.qmd
         - section: gcc.qmd
-          contents: 
+          contents:
             - gcc-avansert.qmd
         - overføre-data.qmd
         - jobbe-med-data.qmd
@@ -104,5 +104,6 @@ website:
         - schedulering.qmd
         - databaser.qmd
         - datadoc.qmd
+        - bidra-til-dapla-manualen.qmd
       - ordforklaringer.qmd
       - references.qmd

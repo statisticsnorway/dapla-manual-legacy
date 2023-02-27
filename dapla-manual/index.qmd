@@ -5,7 +5,7 @@
 Denne boken er ment som enkel-å-bruke manual for å ta i bruk SSBs nye dataplattform **Dapla**. Plattformen forsøker å gjøre statistikkprodusenter og forskere så selvhjulpne som mulig. Målsetningen er at tjenestene som tilbys skal kunne tas i bruk på en enkel og intuitiv måte. Men uansett hvor lett tilgjengelig tjenester er, og hvor mye arbeid som er lagt å gjøre løsninger brukervennlige, så trenger de fleste i SSB en klar og tydelig veiledning for hvordan de skal brukes og i hvilken større sammenheng tjenestene inngår. Dapla-manualen er ment å være en sånn støtte i statistikkernes hverdag. Uansett om man lurer på hvordan man logger seg inn på plattformen, eller om man ønsker informasjon om kjøremiljøet for mer kompliserte maskinlæringsmodeller, så skal man finne veiledning i denne manualen. Målgruppen er både nybegynneren og den mer erfarne.
 
 ::: {.callout-note appearance="simple"}
-Denne boken er skrevet med [Quarto](https://quarto.org/) og er publisert på <https://manual.dapla.ssb.no>. Alle ansatte i SSB kan bidra til boken ved klone [dette repoet](https://github.com/statisticsnorway/dapla-manual), gjøre endringer i en branch, og sende en pull request til administratorene av repoet (Team Statistikktjenester).
+Alle ansatte i SSB kan bidra til manualen ved å følge [instruksjonene her](./bidra-til-dapla-manualen.html).
 :::
 
 ## Bidragsytere {.unnumbered}
