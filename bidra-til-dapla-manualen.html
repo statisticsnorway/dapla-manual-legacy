@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – references</title>
+<title>Dapla-manual – bidra-til-dapla-manualen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,25 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
-}
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
 }
 </style>
 
@@ -383,11 +364,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lese-data.html" class="sidebar-item-text sidebar-link">Lese filer fra bøtte</a>
@@ -415,7 +396,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bidra-til-dapla-manualen.html" class="sidebar-item-text sidebar-link">Bidra til Dapla-manualen</a>
+  <a href="./bidra-til-dapla-manualen.html" class="sidebar-item-text sidebar-link active">Bidra til Dapla-manualen</a>
   </div>
 </li>
       </ul>
@@ -427,7 +408,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">Referanser</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Referanser</a>
   </div>
 </li>
     </ul>
@@ -439,7 +420,11 @@ div.csl-indent {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#referanser" id="toc-referanser" class="nav-link active" data-scroll-target="#referanser">Referanser</a></li>
+  <li><a href="#bidra-til-dapla-manualen" id="toc-bidra-til-dapla-manualen" class="nav-link active" data-scroll-target="#bidra-til-dapla-manualen">Bidra til Dapla-manualen</a>
+  <ul class="collapse">
+  <li><a href="#forutsetninger" id="toc-forutsetninger" class="nav-link" data-scroll-target="#forutsetninger">Forutsetninger</a></li>
+  <li><a href="#fremgangsmåten" id="toc-fremgangsmåten" class="nav-link" data-scroll-target="#fremgangsmåten">Fremgangsmåten</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -448,13 +433,46 @@ div.csl-indent {
 
 
 
-<section id="referanser" class="level1 unnumbered">
-<h1 class="unnumbered">Referanser</h1>
-<div id="refs" role="doc-bibliography">
-
+<section id="bidra-til-dapla-manualen" class="level1">
+<h1>Bidra til Dapla-manualen</h1>
+<p>Alle i SSB kan bidra til denne manualen. Endringer må godkjennes av noen i <a href="https://github.com/orgs/statisticsnorway/teams/team-statistikktjenester">Team Statistikktjenester</a>, si gjerne i fra at det ligger en PR å se på.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-caption-container flex-fill">
+Advarsel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Denne nettsiden er åpen og hvem som helst kan lese det som er skrevet her. Hold det i tankene når du skriver.</p>
+</div>
+</div>
+<section id="forutsetninger" class="level2">
+<h2 class="anchored" data-anchor-id="forutsetninger">Forutsetninger</h2>
+<ul>
+<li>Man trenger basis git kompetanse, det ligger en fin beskrivelse av det på <a href="https://statistics-norway.atlassian.net/l/cp/6H4MD86J">Beste Praksis siden fra KVAKK</a>.</li>
+<li>Man trenger en konto på Github, det kan man opprette ved å <a href="./git-github.html#opprett-github-bruker">følge instruksjonene her</a>.</li>
+<li>Man kan lære seg Markdown (enkel tekst formatering), en fin oversikt <a href="http://mdcheatsheet.com/">finnes her</a>.</li>
+<li>Verktøyet Quarto burde installeres for å kunne se endringene slik som de ser ut på nettsiden. <a href="https://quarto.org/docs/get-started/index.html">Installasjon instruksjoner finnes her</a>.</li>
+</ul>
+</section>
+<section id="fremgangsmåten" class="level2">
+<h2 class="anchored" data-anchor-id="fremgangsmåten">Fremgangsmåten</h2>
+<ol type="1">
+<li>Klone repoet <code>git clone https://github.com/statisticsnorway/dapla-manual.git</code></li>
+<li>Lage en ny gren</li>
+<li>Gjøre endringen</li>
+<li>Kjør <code>quarto preview dapla-manual</code> og følge lenken for å sjekke at alt ser bra ut på nettsiden</li>
+<li>Åpne en PR</li>
+<li>Be noen å gjennomgå endringen og eventuelt godkjenne den</li>
+<li>Merge PRen</li>
+<li>Etter et par minutter skal din endring være synlig! <span class="emoji" data-emoji="tada">🎉</span></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
