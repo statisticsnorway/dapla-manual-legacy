@@ -54,7 +54,7 @@ Hver kilde konfigureres ved hjelp av to filer:
 Disse filene er lagt til en mappe per kilde, under `automation/source_data` i IaC repoet. Se [eksemplet under](#struktur-i-iac-repo) for en detaljert forklaring.
 
 ::: {.callout-note appearance="simple"}
-Mappenavnet for kilder i IaC repoene er brukt som navn for ressurser. Dette i praksis betyr at det enesete tillatte tegnene i mappenavnet er bokstaver, tall og bindestrek. Det er ikke tillatt med mellomrom eller andre spesialtegn. Det også må begrenses i lengde.
+Mappenavnet for kilder i IaC repoene er brukt som navn for ressurser. Dette i praksis betyr at det enesete tillatte tegnene i mappenavnet er bokstaver, tall og bindestrek. Det er ikke tillatt med mellomrom eller andre spesialtegn. Mappenavnet kan bestå av opptil 20 tegn.
 :::
 
 #### Når konfigureres en kilde?
