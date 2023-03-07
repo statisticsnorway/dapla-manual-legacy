@@ -171,7 +171,7 @@ renv::install("statisticsnorway/klassR")
 
 Pakken [klassR](https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html) er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned. For pakker som er på et lukket område på 'statsitcsnorway' må vi bruke Personal Authentication Token for å installere. Vi kan gjøre dette ved hjelp av funksjonen `install_github()` i `devtools` pakken. For eksempel:
 
-```{{R}}
+```R
 renv::install("devtools")
 renv::install("getPass")
 devtools::install_github("statisticsnorway/fellesr", 
