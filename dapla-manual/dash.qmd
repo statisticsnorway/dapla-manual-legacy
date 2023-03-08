@@ -1,10 +1,10 @@
 # Dash
 
-Hvis en ønsker å lage ett dashbord som et brukergrensesnitt, så kan pakken Dash være et godt alternativ. Dash er ett rammeverk hvor man selv kan bygge opp applikasjoner i form av dashbord på en enklere måte, og det bygges oppå javascript pakker som plotly.js og react.js. Det er et produkt ved siden av og helintegrert med plotly, som også er en annen pakke i Python som gir oss interaktive grafer. Dash kan brukes i Python og R, men også Julia og F#.
+Hvis en ønsker å lage ett dashbord som et brukergrensesnitt, så kan pakken Dash være et godt alternativ. Dash er ett rammeverk hvor man selv kan bygge opp applikasjoner i form av dashbord på en enklere måte, og det bygges oppå javascript pakker som plotly.js og react.js. Det er et produkt ved siden av og helintegrert med plotly, som også er en annen pakke i Python som gir oss interaktive grafer. Dash er et godt verktøy hvis en ønsker et dashbord som brukergrensesnitt for interaktiv visualisering av data. Dash kan kodes i Python og R, men også Julia og F#.
 
 ## Anbefalte nødvendige pakker
 
-I SSB kan man lage dashbord i virtuelle miljøer, gjerne satt opp med ssb-project, men man trenger helt spesifikke pakker for å få det oppe å gå. Tabell under viser navn på pakkene, og gjeldende versjoner som er benyttet i skrivende stund av eksempel i neste avsnitt. Vel og merke kan nyere versjoner også fungere fint, noe man må prøve ut selv, men følgende versjoner skal fungere fint.
+I SSB kan man lage dashbord i virtuelle miljøer, gjerne satt opp med [ssb-project](./ssbproject.html), men man trenger helt spesifikke pakker for å få det oppe å gå. Mer info om å sette opp et eget miljø med ssb-project finner du [her](./nytt-ssbproject.html). Tabell under viser navn på pakkene, og gjeldende versjoner som er benyttet i skrivende stund av eksempel i neste avsnitt. Vel og merke kan nyere versjoner også fungere fint, noe man må prøve ut selv, men følgende versjoner fungerer fint.
 
 | Pakke                     | Versjon (i skrivende stund) |
 | ------------------------- | --------------------------- |
@@ -15,7 +15,7 @@ I SSB kan man lage dashbord i virtuelle miljøer, gjerne satt opp med ssb-projec
 | ipykernel                 | 6.21.3                      |
 | dash-bootstrap-components | 1.3.0 (hvis ønskelig)       |
 
-For å legge til pakkene i ditt virtuelle miljø satt opp med ssb-project må vi benytte poetry på følgende måte i terminalen: 
+For mer om håndtering av pakker i ett virtuelt miljø satt opp med ssb-project kan man se nærmere [her](./pakke-install.html). For å legge til disse pakkene kan man gjøre følgende i terminalen:
 
 ```bash 
 poetry add dash
@@ -82,7 +82,7 @@ Denne koden vil starte opp dashbordet i eget vindu i browseren ettersom mode="ex
 
 ## Aktuell dokumentasjon
 
-Diverse som er verdt å se nærmere på når en bygger dashbord. Er godt dokumentert med eksempler for bruk av diverse komponenter.
+Diverse som er verdt å se nærmere på når en bygger dashbord applikasjon med Dash. Det følger med mange gode eksempler for bruk av diverse komponenter i dokumentasjonene under her.
 
 - Startsiden til [Dash](https://dash.plotly.com/?_gl=1*1pt5jva*_ga*MTcxNzc5OTEzNC4xNjQ5NjU4MjA3*_ga_6G7EE0JNSC*MTY3ODI1NjMzOC42NS4xLjE2NzgyNTYzNjYuMC4wLjA.)
 - Lage interaktive grafer i Python med [Plotly](https://plotly.com/python/)
