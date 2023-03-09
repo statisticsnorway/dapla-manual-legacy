@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – kildedata-prosessering</title>
+<title>Dapla-manual – dash</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,25 +83,6 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -381,11 +362,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./data.html" class="sidebar-item-text sidebar-link">Data</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">Datatilstander</a>
@@ -394,14 +375,14 @@ div.csl-indent {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./kildedata.html" class="sidebar-item-text sidebar-link">Kildedata</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kildedata-prosessering.html" class="sidebar-item-text sidebar-link active">Kildedata prosessering</a>
+  <a href="./kildedata-prosessering.html" class="sidebar-item-text sidebar-link">Kildedata prosessering</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -446,11 +427,11 @@ div.csl-indent {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lese-data.html" class="sidebar-item-text sidebar-link">Lese filer fra bøtte</a>
@@ -483,7 +464,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dash.html" class="sidebar-item-text sidebar-link">Dash</a>
+  <a href="./dash.html" class="sidebar-item-text sidebar-link active">Dash</a>
   </div>
 </li>
       </ul>
@@ -507,19 +488,11 @@ div.csl-indent {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#kildedata-prosessering" id="toc-kildedata-prosessering" class="nav-link active" data-scroll-target="#kildedata-prosessering">Kildedata prosessering</a>
+  <li><a href="#dash" id="toc-dash" class="nav-link active" data-scroll-target="#dash">Dash</a>
   <ul class="collapse">
-  <li><a href="#operasjoner-som-inngår-i-kildedata-prosessering" id="toc-operasjoner-som-inngår-i-kildedata-prosessering" class="nav-link" data-scroll-target="#operasjoner-som-inngår-i-kildedata-prosessering">Operasjoner som inngår i kildedata prosessering</a></li>
-  <li><a href="#ta-tjenesten-i-bruk" id="toc-ta-tjenesten-i-bruk" class="nav-link" data-scroll-target="#ta-tjenesten-i-bruk">Ta tjenesten i bruk</a>
-  <ul class="collapse">
-  <li><a href="#koble-ditt-prosjekt-til-github" id="toc-koble-ditt-prosjekt-til-github" class="nav-link" data-scroll-target="#koble-ditt-prosjekt-til-github">Koble ditt prosjekt til Github</a></li>
-  <li><a href="#konfigurere-en-kilde" id="toc-konfigurere-en-kilde" class="nav-link" data-scroll-target="#konfigurere-en-kilde">Konfigurere en kilde</a></li>
-  <li><a href="#eksempel" id="toc-eksempel" class="nav-link" data-scroll-target="#eksempel">Eksempel</a></li>
-  </ul></li>
-  <li><a href="#skrive-prosesseringsscriptet" id="toc-skrive-prosesseringsscriptet" class="nav-link" data-scroll-target="#skrive-prosesseringsscriptet">Skrive prosesseringsscriptet</a>
-  <ul class="collapse">
-  <li><a href="#logging" id="toc-logging" class="nav-link" data-scroll-target="#logging">Logging</a></li>
-  </ul></li>
+  <li><a href="#anbefalte-nødvendige-pakker" id="toc-anbefalte-nødvendige-pakker" class="nav-link" data-scroll-target="#anbefalte-nødvendige-pakker">Anbefalte nødvendige pakker</a></li>
+  <li><a href="#eksempel-kode-i-jupyterlab" id="toc-eksempel-kode-i-jupyterlab" class="nav-link" data-scroll-target="#eksempel-kode-i-jupyterlab">Eksempel kode i JupyterLab</a></li>
+  <li><a href="#aktuell-dokumentasjon" id="toc-aktuell-dokumentasjon" class="nav-link" data-scroll-target="#aktuell-dokumentasjon">Aktuell dokumentasjon</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -529,238 +502,97 @@ div.csl-indent {
 
 
 
-<section id="kildedata-prosessering" class="level1">
-<h1>Kildedata prosessering</h1>
-<div class="callout-warning callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Denne tjenesten er under utvikling og kan ikke anses som klar for produksjon.</p>
-</div>
-</div>
-</div>
-<p>For å minske aksessering av PII<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, oppfordres alle team på Dapla å benytte seg av automatisering av kildedata prosessering. Automatisering av kildedata er en tjeneste som er tilgjengelig for team å ta i bruk 100% selv-betjent. Kildedata <span class="citation" data-cites="datatilstander">(<a href="#ref-datatilstander" role="doc-biblioref">Standardutvalget 2021, 5</a>)</span> prosesseres til inndata gjennom et <a href="#operasjoner-som-inngår-i-kildedata-prosessering">bestemt utvalg av operasjoner</a>. Kildedata prosesseres som individuelle filer for å holde oppsettet enkelt og målrettet mot de definerte operasjoner. Mer kompleks operasjoner som går på tvers av flere filer burde utføres på inndata eller senere datatilstander.</p>
-<div class="callout-warning callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Det er kun teamets kildedataansvarlige som skal aksessere kildedata.</p>
-</div>
-</div>
-</div>
-<div class="callout-warning callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Teamets kildedataansvarlige tar ansvar for å prosessere kildedata til inndata på en forsvarlig måte.</p>
-</div>
-</div>
-</div>
-<section id="operasjoner-som-inngår-i-kildedata-prosessering" class="level2">
-<h2 class="anchored" data-anchor-id="operasjoner-som-inngår-i-kildedata-prosessering">Operasjoner som inngår i kildedata prosessering</h2>
-<div id="fig-kildedata-prosessering-operasjoner" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/kildedata-prosessering-operasjoner.png" class="img-fluid figure-img" style="width:100.0%" alt="Operasjoner som inngår i kildedata prosessering"></p>
-<p></p><figcaption class="figure-caption">Figur&nbsp;1: Operasjoner som inngår i kildedata prosessering</figcaption><p></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p>Inndata er kildedata som er transformert til SSBs standard lagringsformat. Variabelnavn og -innhold er uendret bortsett fra at</p>
+<section id="dash" class="level1">
+<h1>Dash</h1>
+<p>Hvis en ønsker å lage ett dashbord som et brukergrensesnitt, så kan pakken Dash være et godt alternativ. Dash er ett rammeverk hvor man selv kan bygge opp applikasjoner i form av dashbord på en enklere måte, og det bygges oppå javascript pakker som plotly.js og react.js. Det er et produkt ved siden av og helintegrert med plotly, som også er en annen pakke i Python som gir oss interaktive grafer. Dash er et godt verktøy hvis en ønsker et dashbord som brukergrensesnitt for interaktiv visualisering av data. Dash kan kodes i Python og R, men også Julia og F#.</p>
+<section id="anbefalte-nødvendige-pakker" class="level2">
+<h2 class="anchored" data-anchor-id="anbefalte-nødvendige-pakker">Anbefalte nødvendige pakker</h2>
+<p>I SSB kan man lage dashbord i virtuelle miljøer, gjerne satt opp med <a href="./ssbproject.html">ssb-project</a>, men man trenger helt spesifikke pakker for å få det oppe å gå. Mer info om å sette opp et eget miljø med ssb-project finner du <a href="./nytt-ssbproject.html">her</a>. Tabell under viser navn på pakkene, og gjeldende versjoner som er benyttet i skrivende stund av eksempel i neste avsnitt. Vel og merke kan nyere versjoner også fungere fint, noe man må prøve ut selv, men følgende versjoner fungerer fint.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Pakke</th>
+<th>Versjon (i skrivende stund)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dash</td>
+<td>2.8.1</td>
+</tr>
+<tr class="even">
+<td>jupyter-dash</td>
+<td>0.4.2</td>
+</tr>
+<tr class="odd">
+<td>jupyter-server-proxy</td>
+<td>3.2.2</td>
+</tr>
+<tr class="even">
+<td>jupyterlab-dash</td>
+<td>0.1.0a3</td>
+</tr>
+<tr class="odd">
+<td>ipykernel</td>
+<td>6.21.3</td>
+</tr>
+<tr class="even">
+<td>dash-bootstrap-components</td>
+<td>1.3.0 (hvis ønskelig)</td>
+</tr>
+</tbody>
+</table>
+<p>For mer om håndtering av pakker i ett virtuelt miljø satt opp med ssb-project kan man se nærmere <a href="./pakke-install.html">her</a>. For å legge til disse pakkene kan man gjøre følgende i terminalen:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add dash</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add jupyter-dash</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add jupyter-server-proxy</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add jupyterlab-dash</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add ipykernel</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Og hvis en ønsker Dash-Bootstrap-Components:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add dash-bootstrap-components</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Vel og merke så vil ikke denne pakken fungere uten at tilhørende filer er med i selve repoet. Dette fordi i hovedsak leter denne etter filer den trenger på internett. Pakken i seg selv har en fordel i at det er lettere å bygge opp utseende(layout) i dashbordet ditt, samt andre komponenter som ikke ligger i standard dash pakken.</p>
+</section>
+<section id="eksempel-kode-i-jupyterlab" class="level2">
+<h2 class="anchored" data-anchor-id="eksempel-kode-i-jupyterlab">Eksempel kode i JupyterLab</h2>
+<p>Noen ting er viktig å huske på at kommer i korrekt rekkefølge når en koder opp i JupyterLab. Her kommer ett veldig enkelt eksempel.</p>
+<p><em>Første celle</em> importerer vi alle nødvendige pakker</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dash <span class="im">import</span> html</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> jupyter_dash <span class="im">import</span> JupyterDash</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> jupyter_dash.comms <span class="im">import</span> _send_jupyter_config_comm_request</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>_send_jupyter_config_comm_request()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I <em>Andre celle</em> må følgende kjøres, men her er det <strong>VELDIG VIKTIG</strong> at man avventer 2-3 sekunder etter at forrige celle ble kjørt.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>JupyterDash.infer_jupyter_proxy_config()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Deretter så er vi klare for å bygge opp selve dashbordet. så i <em>Tredje celle</em> kan en enkel kode for eksempel se slik ut:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> JupyterDash(<span class="va">__name__</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>porten <span class="op">=</span> <span class="dv">8642</span> <span class="co"># Valgfritt fire sifret nummer</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>app.layout <span class="op">=</span> html.Div([</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    html.H1(<span class="st">"Eget dashbord med Dash i SSB"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    app.run_server(debug<span class="op">=</span><span class="va">True</span>, port<span class="op">=</span>porten, mode<span class="op">=</span><span class="st">"external"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Denne koden vil starte opp dashbordet i eget vindu i browseren ettersom mode=“external”. Dersom man vil ha et eget vindu i JupyterLab kan man sette denne til “jupyterlab”, eller hvis du vil at dashbordet skal dukke opp under cellen i notebooken din, så kan man sette denne til “inline”.</p>
+</section>
+<section id="aktuell-dokumentasjon" class="level2">
+<h2 class="anchored" data-anchor-id="aktuell-dokumentasjon">Aktuell dokumentasjon</h2>
+<p>Diverse som er verdt å se nærmere på når en bygger dashbord applikasjon med Dash. Det følger med mange gode eksempler for bruk av diverse komponenter i dokumentasjonene under her.</p>
 <ul>
-<li>direkte identifiserende variabler (f.eks. fødselsnummer) er pseudonymisert</li>
-<li>tegnsett, datoformat, adresse mm er endret til SSBs standardformat</li>
-<li>det benyttes standard kodeverk (Klass) der det er mulig (f.eks. kjønn)</li>
-<li>dataene er minimert slik at kun variablene som er nødvendige i den videre produksjonsprosessen, inngår.</li>
-</ul>
-</blockquote>
-<p><span class="citation" data-cites="datatilstander">(<a href="#ref-datatilstander" role="doc-biblioref">Standardutvalget 2021, 8</a>)</span></p>
-<p>Det er ikke anbefalt å gjennomføre operasjoner som:</p>
+<li>Startsiden til <a href="https://dash.plotly.com/?_gl=1*1pt5jva*_ga*MTcxNzc5OTEzNC4xNjQ5NjU4MjA3*_ga_6G7EE0JNSC*MTY3ODI1NjMzOC42NS4xLjE2NzgyNTYzNjYuMC4wLjA.">Dash</a></li>
+<li>Lage interaktive grafer i Python med <a href="https://plotly.com/python/">Plotly</a></li>
+<li><a href="https://dash.plotly.com/dash-core-components">Dash Core Components</a></li>
+<li><a href="https://dash.plotly.com/dash-html-components">Dash HTML Components</a></li>
+<li><a href="https://dash-bootstrap-components.opensource.faculty.ai/docs/components/">Dash Bootstrap Components</a>
 <ul>
-<li>Går på tvers av flere filer</li>
-<li>Legge til nye felt</li>
-<li>Endre navn på felt</li>
-<li>Aggregerer data</li>
-<li>osv.</li>
+<li>Vel og merke henter denne diverse materialer fra internett, og vil ikke fungere uten tilgang. Det er heller anbefalt å ha de nødvendige filene lagret lokalt for bruk av denne pakken.</li>
+</ul></li>
 </ul>
-</section>
-<section id="ta-tjenesten-i-bruk" class="level2">
-<h2 class="anchored" data-anchor-id="ta-tjenesten-i-bruk">Ta tjenesten i bruk</h2>
-<section id="koble-ditt-prosjekt-til-github" class="level3">
-<h3 class="anchored" data-anchor-id="koble-ditt-prosjekt-til-github">Koble ditt prosjekt til Github</h3>
-<p><a href="./github-app-integrasjon.html">Følg instruksjonene her for å koble prosjektet ditt til Github.</a></p>
-</section>
-<section id="konfigurere-en-kilde" class="level3">
-<h3 class="anchored" data-anchor-id="konfigurere-en-kilde">Konfigurere en kilde</h3>
-<section id="hvor-skal-det-konfigureres" class="level4">
-<h4 class="anchored" data-anchor-id="hvor-skal-det-konfigureres">Hvor skal det konfigureres?</h4>
-<p>Kilder konfigureres i et teams <a href="./ordforklaringer.html#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a> repo på Github. Det kan finnes basert på følgende formulering: <code>github.com/statisticsnorway/&lt;teamnavn&gt;-iac</code>. Kilder konfigureres under stien <code>automation/source_data</code> på repoet.</p>
-</section>
-<section id="hvilke-filer-konfigurerer-en-kilde" class="level4">
-<h4 class="anchored" data-anchor-id="hvilke-filer-konfigurerer-en-kilde">Hvilke filer konfigurerer en kilde?</h4>
-<p>Hver kilde konfigureres ved hjelp av to filer:</p>
-<ol type="1">
-<li><code>config.yaml</code> som blant annet konfigurer hvilke stier i teamets kildedatabøtte prosesseres.</li>
-<li><code>process_source_data.py</code> som kjøres når en kildedatafil prosesseres. Her må man skrive en python funksjon på en viss format.</li>
-</ol>
-<p>Disse filene er lagt til en mappe per kilde, under <code>automation/source_data</code> i IaC repoet. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring.</p>
-<div class="callout-note callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Mappenavnet for kilder i IaC repoene er brukt som navn for ressurser. Dette i praksis betyr at det enesete tillatte tegnene i mappenavnet er bokstaver, tall og bindestrek. Det er ikke tillatt med mellomrom eller andre spesialtegn. Mappenavnet kan bestå av opptil 20 tegn.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="når-konfigureres-en-kilde" class="level4">
-<h4 class="anchored" data-anchor-id="når-konfigureres-en-kilde">Når konfigureres en kilde?</h4>
-<p>Dette går ut på om prosesseringsscriptet kan enkelt håndtere variasjonen i filene som samles inn.</p>
-<p>Grunn til å opprette en ny kilde kan være: - Kildedatafilen har en annen format (f.eks xml eller json) - Kildedataen har ulike felter - Kildedataen inneholder PII<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> eller ikke</p>
-</section>
-<section id="fremgangsmåten" class="level4">
-<h4 class="anchored" data-anchor-id="fremgangsmåten">Fremgangsmåten</h4>
-<div class="callout-note callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Disse instruksjoner forutsetter at <a href="#koble-ditt-prosjekt-til-github">prosjektet ditt er koblet til Github</a> allerede.</p>
-</div>
-</div>
-</div>
-<ol type="1">
-<li><a href="#skrive-prosesseringsscriptet">Skrive skriptet</a> <code>process_source_data.py</code> som prosesserer kildedatafilen til inndata. Dette kan testes av kildedataansvarlige manuelt på Jupyter for å verifisere at dataene blir prosessert som ønsket.</li>
-<li>I en gren i teamets IaC repo, legge til <code>config.yaml</code> og <code>process_source_data.py</code> i en mappe under <code>automation/source_data</code>. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring av formatet.</li>
-<li>Lag en PR på grenen og få den godkjent av kildedataansvarlige.</li>
-<li>Vent til alle tester er ferdige. Det skal stå “All checks have passed” før man går videre, hvis testene feiler <a href="./kildedata-prosessering-avansert.html#validerings-logger">følg stegene her</a>. <img src="images/checks_passed.png" class="img-fluid" alt="Suksessfulle tester på GitHub"></li>
-<li>Skrive <code>atlantis apply</code> i en kommentar på PRen for å opprette det nødvendige infrastruktur for å prosessere kilden.</li>
-<li>Merge PRen.</li>
-<li>Sjekk resultatet av det <a href="./kildedata-prosessering-avansert.html#bekrefte-utrulling">automatiske bygget</a>.</li>
-<li>Verifisere at nye filer lagt i kildedatabøtten blir prosessert til inndata som forventet.</li>
-</ol>
-</section>
-</section>
-<section id="eksempel" class="level3">
-<h3 class="anchored" data-anchor-id="eksempel">Eksempel</h3>
-<p>La oss si at et team (småbakst) har to datakilder levert av ulik dataeiere på ulik formater. Den ene er om boller og er på csv format og den andre er om rundstykker og er på json format. Kildedataansvarlige i teamet bestemmer seg for at filene i <code>boller/</code> er like nok å prosesseres som en kilde, og at filene i <code>rundstykker/</code> kan prosesseres som en annen kilde.</p>
-<section id="filstruktur-i-kildedatabøtte" class="level4">
-<h4 class="anchored" data-anchor-id="filstruktur-i-kildedatabøtte">Filstruktur i kildedatabøtte</h4>
-<pre><code>ssb-prod-smaabakst-data-kilde
-├── boller
-│&nbsp;&nbsp; ├── hvetebolle
-│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2018-salg.csv
-│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2019-salg.csv
-│&nbsp;&nbsp; │&nbsp;&nbsp; ├── ...
-│&nbsp;&nbsp; ├── kanelbolle
-│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2018-salg.csv
-│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2019-salg.csv
-│&nbsp;&nbsp; │&nbsp;&nbsp; ├── ...
-│&nbsp;&nbsp; └── skolebolle
-│&nbsp;&nbsp;     ├── 2018-salg.csv
-│&nbsp;&nbsp;     ├── 2019-salg.csv
-│&nbsp;&nbsp;     ├── ...
-└── rundstykker
-    ├── haandverker
-    │&nbsp;&nbsp; ├── apr-2022-resultater.json
-    │&nbsp;&nbsp; ├── aug-2022-resultater.json
-    │&nbsp;&nbsp; ├── ...
-    └── havre
-        ├── apr-2022-resultater.json
-        ├── aug-2022-resultater.json
-        ├── ...</code></pre>
-</section>
-<section id="struktur-i-iac-repo" class="level4">
-<h4 class="anchored" data-anchor-id="struktur-i-iac-repo">Struktur i IaC repo</h4>
-<pre><code>smaabakst-iac
-└── automation
-    └── source_data
-        ├── boller
-        │&nbsp;&nbsp; ├── config.yaml
-        │&nbsp;&nbsp; └── process_source_data.py
-        └── rundstykker
-            ├── config.yaml
-            └── process_source_data.py</code></pre>
-</section>
-<section id="innhold-i-config.yaml-for-boller" class="level4">
-<h4 class="anchored" data-anchor-id="innhold-i-config.yaml-for-boller">Innhold i <code>config.yaml</code> for boller</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">folder_prefix</span><span class="kw">:</span><span class="at"> boller</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Verdien for <code>folder_prefix</code> tilsvarer en “fil sti” i kildedatabøtte. I dette tilfellet vil nye filer lagt til under <code>boller/</code> trigge en prosessering.</p>
-</section>
-<section id="innhold-i-config.yaml-for-rundstykker" class="level4">
-<h4 class="anchored" data-anchor-id="innhold-i-config.yaml-for-rundstykker">Innhold i <code>config.yaml</code> for rundstykker</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">folder_prefix</span><span class="kw">:</span><span class="at"> rundstykker</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-</section>
-<section id="skrive-prosesseringsscriptet" class="level2">
-<h2 class="anchored" data-anchor-id="skrive-prosesseringsscriptet">Skrive prosesseringsscriptet</h2>
-<p>Med prosesseringsscriptet mener vi filen <code>process_source_data.py</code> som ligger i en mappe per kilde under <code>automation/source_data</code>. Dette scriptet vil bli kalt <em>hver gang det blir lagt til en ny fil i kildedatabøtten</em>. Metodesignaturen ser slik ut:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="kw">def</span> main(file_path):</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="co">"""Function is called when a file is added to the source-data bucket.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">     Args:</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">         file_path: full file path of the source data file.</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">     """</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dette betyr at hvis f.eks. 10 filer blir lagt til i kildedatabøtten samtidig så vil det startes opp 10 individuelle Python-prosesser som kaller denne <code>main</code>-metoden med forskjellig <code>file_path</code>. Parameteren <code>file_path</code> vil inneholde hele filstien inkl. filnavn. Så en enkel flytteoperasjon fra kildedatabøtten til inndatebøtten (uten noen form for konvertering) vil kunne uttrykkes slik:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dapla <span class="im">as</span> dp</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">def</span> main(file_path):</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>     <span class="co">"""Function is called when a file is added to the source-data bucket.</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">     Args:</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">         file_path: full file path of the source data file.</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">     """</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    source_bucket_name <span class="op">=</span> <span class="st">"ssb-prod-my-project-data-kilde"</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    destination_bucket_name <span class="op">=</span> <span class="st">"ssb-prod-my-project-data-produkt"</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    destination_path <span class="op">=</span> file_path.replace(source_bucket_name, destination_bucket_name)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> dp.read_pandas(file_path)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    dp.write_pandas(df, destination_bucket_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Alternativt…</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">def</span> main(file_path):</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="co">"""Function is called when a file is added to the source-data bucket.</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">     Args:</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">         file_path: full file path of the source data file.</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">     """</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    source_bucket_name <span class="op">=</span> <span class="st">"ssb-prod-my-project-data-kilde"</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    destination_bucket_name <span class="op">=</span> <span class="st">"ssb-prod-my-project-data-produkt"</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    destination_path <span class="op">=</span> file_path.replace(source_bucket_name, destination_bucket_name)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    fs.copy(file_path, destination_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="logging" class="level3">
-<h3 class="anchored" data-anchor-id="logging">Logging</h3>
-<p>Det anbefales å bruke Pythons <a href="https://docs.python.org/3/library/logging.html">logging modul</a> for å logge, og ikke bruke <code>print</code> eller skrive til stdout/stderr. Det er satt opp en standard logger-konfigurasjon som skriver informasjonsmeldinger (log level <code>info</code>) til <code>stdout</code> og feilmeldinger (log level <code>warning</code> eller <code>error</code>) til <code>stderr</code>. Feil som ikke blir håndtert blir automatisk fanget opp og logget av automatiseringsløsningen. Eksemplet nedenfor logger en informasjonsmelding, en advarsel og en feilmelding:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>logging.info(<span class="st">'Til info'</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>logging.warning(<span class="st">'Advarsel!'</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>logging.error(<span class="st">'En feil oppstod!'</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
 
 
 </section>
 </section>
-</section>
 
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referanser</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-datatilstander" class="csl-entry" role="doc-biblioentry">
-Standardutvalget. 2021. <span>“Datatilstander i SSB.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021</a>.
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
-
-<ol>
-<li id="fn1"><p><a href="./ordforklaringer.html#personidentifiserende-informasjon-pii">Personidentifiserende Informasjon</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a href="./ordforklaringer.html#personidentifiserende-informasjon-pii">Personidentifiserende Informasjon</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
