@@ -1,0 +1,92 @@
+# Dash
+
+Hvis en ønsker å lage ett dashbord som et brukergrensesnitt, så kan pakken Dash være et godt alternativ. Dash er ett rammeverk hvor man selv kan bygge opp applikasjoner i form av dashbord på en enklere måte, og det bygges oppå javascript pakker som plotly.js og react.js. Det er et produkt ved siden av og helintegrert med plotly, som også er en annen pakke i Python som gir oss interaktive grafer. Dash er et godt verktøy hvis en ønsker et dashbord som brukergrensesnitt for interaktiv visualisering av data. Dash kan kodes i Python og R, men også Julia og F#.
+
+## Anbefalte nødvendige pakker
+
+I SSB kan man lage dashbord i virtuelle miljøer, gjerne satt opp med [ssb-project](./ssbproject.html), men man trenger helt spesifikke pakker for å få det oppe å gå. Mer info om å sette opp et eget miljø med ssb-project finner du [her](./nytt-ssbproject.html). Tabell under viser navn på pakkene, og gjeldende versjoner som er benyttet i skrivende stund av eksempel i neste avsnitt. Vel og merke kan nyere versjoner også fungere fint, noe man må prøve ut selv, men følgende versjoner fungerer fint.
+
+| Pakke                     | Versjon (i skrivende stund) |
+| ------------------------- | --------------------------- |
+| dash                      | 2.8.1                       |
+| jupyter-dash              | 0.4.2                       |
+| jupyter-server-proxy      | 3.2.2                       |
+| jupyterlab-dash           | 0.1.0a3                     |
+| ipykernel                 | 6.21.3                      |
+| dash-bootstrap-components | 1.3.0 (hvis ønskelig)       |
+
+For mer om håndtering av pakker i ett virtuelt miljø satt opp med ssb-project kan man se nærmere [her](./pakke-install.html). For å legge til disse pakkene kan man gjøre følgende i terminalen:
+
+```bash 
+poetry add dash
+``` 
+
+```bash 
+poetry add jupyter-dash
+``` 
+
+```bash 
+poetry add jupyter-server-proxy
+``` 
+
+```bash 
+poetry add jupyterlab-dash
+``` 
+
+```bash 
+poetry add ipykernel
+``` 
+
+Og hvis en ønsker Dash-Bootstrap-Components:
+
+```bash 
+poetry add dash-bootstrap-components
+``` 
+
+Vel og merke så vil ikke denne pakken fungere uten at tilhørende filer er med i selve repoet. Dette fordi i hovedsak leter denne etter filer den trenger på internett. Pakken i seg selv har en fordel i at det er lettere å bygge opp utseende(layout) i dashbordet ditt, samt andre komponenter som ikke ligger i standard dash pakken.
+
+## Eksempel kode i JupyterLab
+
+Noen ting er viktig å huske på at kommer i korrekt rekkefølge når en koder opp i JupyterLab. Her kommer ett veldig enkelt eksempel.
+
+*Første celle* importerer vi alle nødvendige pakker
+
+```python
+from dash import html
+from jupyter_dash import JupyterDash
+from jupyter_dash.comms import _send_jupyter_config_comm_request
+_send_jupyter_config_comm_request()
+```
+
+I *Andre celle* må følgende kjøres, men her er det **VELDIG VIKTIG** at man avventer 2-3 sekunder etter at forrige celle ble kjørt.
+
+```python
+JupyterDash.infer_jupyter_proxy_config()
+```
+
+Deretter så er vi klare for å bygge opp selve dashbordet. så i *Tredje celle* kan en enkel kode for eksempel se slik ut:
+
+```python
+app = JupyterDash(__name__)
+porten = 8642 # Valgfritt fire sifret nummer
+
+app.layout = html.Div([
+    html.H1("Eget dashbord med Dash i SSB")
+])
+
+if __name__ == "__main__":
+    app.run_server(debug=True, port=porten, mode="external")
+```
+
+Denne koden vil starte opp dashbordet i eget vindu i browseren ettersom mode="external". Dersom man vil ha et eget vindu i JupyterLab kan man sette denne til "jupyterlab", eller hvis du vil at dashbordet skal dukke opp under cellen i notebooken din, så kan man sette denne til "inline".
+
+## Aktuell dokumentasjon
+
+Diverse som er verdt å se nærmere på når en bygger dashbord applikasjon med Dash. Det følger med mange gode eksempler for bruk av diverse komponenter i dokumentasjonene under her.
+
+- Startsiden til [Dash](https://dash.plotly.com/?_gl=1*1pt5jva*_ga*MTcxNzc5OTEzNC4xNjQ5NjU4MjA3*_ga_6G7EE0JNSC*MTY3ODI1NjMzOC42NS4xLjE2NzgyNTYzNjYuMC4wLjA.)
+- Lage interaktive grafer i Python med [Plotly](https://plotly.com/python/)
+- [Dash Core Components](https://dash.plotly.com/dash-core-components)
+- [Dash HTML Components](https://dash.plotly.com/dash-html-components)
+- [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/components/)
+    - Vel og merke henter denne diverse materialer fra internett, og vil ikke fungere uten tilgang. Det er heller anbefalt å ha de nødvendige filene lagret lokalt for bruk av denne pakken.

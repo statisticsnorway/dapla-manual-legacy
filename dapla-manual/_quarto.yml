@@ -105,5 +105,6 @@ website:
         - databaser.qmd
         - datadoc.qmd
         - bidra-til-dapla-manualen.qmd
+        - dash.qmd
       - ordforklaringer.qmd
       - references.qmd
