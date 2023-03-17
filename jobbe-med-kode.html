@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – nytt-ssbproject</title>
+<title>Dapla-manual – jobbe-med-kode</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -232,11 +232,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">Statistikkproduksjon</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Dapla Team</a>
@@ -270,14 +270,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./produksjonsløp.html" class="sidebar-item-text sidebar-link">Produksjonsløp</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jobbe-med-kode.html" class="sidebar-item-text sidebar-link">Jobbe med kode</a>
+  <a href="./jobbe-med-kode.html" class="sidebar-item-text sidebar-link active">Jobbe med kode</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -453,7 +453,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#nytt-ssb-project" id="toc-nytt-ssb-project" class="nav-link active" data-scroll-target="#nytt-ssb-project">Nytt ssb-project</a>
+  <li><a href="#jobbe-med-kode" id="toc-jobbe-med-kode" class="nav-link active" data-scroll-target="#jobbe-med-kode">Jobbe med kode</a></li>
+  <li><a href="#ssb-project" id="toc-ssb-project" class="nav-link" data-scroll-target="#ssb-project">SSB-project</a>
   <ul class="collapse">
   <li><a href="#forberedelser" id="toc-forberedelser" class="nav-link" data-scroll-target="#forberedelser">Forberedelser</a></li>
   <li><a href="#opprett-ssb-project" id="toc-opprett-ssb-project" class="nav-link" data-scroll-target="#opprett-ssb-project">Opprett ssb-project</a>
@@ -479,8 +480,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="nytt-ssb-project" class="level1">
-<h1>Nytt ssb-project</h1>
+<section id="jobbe-med-kode" class="level1">
+<h1>Jobbe med kode</h1>
+</section>
+<section id="ssb-project" class="level1">
+<h1>SSB-project</h1>
+<p>I forrige del forklarte vi hvordan man jobber med skarpe data på Dapla. Det neste steget vil ofte være å begynne å utvikle kode i Python og/eller R. Dette innebærer at man helst skal:</p>
+<ul>
+<li>versjonshåndtere med <strong>Git</strong></li>
+<li>opprette et <strong>GitHub</strong>-repo</li>
+<li>opprette et <strong>virtuelt miljø</strong> som husker hvilke versjoner av pakker og programmeringsspråk du brukte</li>
+</ul>
+<p>I tillegg må alt dette konfigureres for hvordan SSB sine systemer er satt opp. Dette har vist seg å være unødvendig krevende for mange. Team Statistikktjenester har derfor utviklet et program som gjør alt dette for deg på en enkel måte som heter <strong>ssb-project</strong>.</p>
+<p>Vi mener at <strong>ssb-project</strong> er et naturlig sted å starte når man skal bygge opp koden i Python eller R. Det gjelder både på bakken og på sky. I denne delen av boken forklarer vi først hvordan du bruker <strong>ssb-project</strong> i det første kapittelet. Siden programmet skjuler mye av kompleksiteten rundt dette, så bruker vi de andre kapitlene til å forklare hvordan man ville satt opp dette uten hjelp av programmet. Dermed vil det være lett for SSB-ansatte å skjønne hva som gjøres og hvorfor det er nødvendig.</p>
 <p>I dette kapittelet forklarer vi hvordan du oppretter et <a href="https://github.com/statisticsnorway/ssb-project-cli">ssb-project</a> og hva det innebærer. <strong>ssb-project</strong> er et CLI<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssb-project</span> create stat-testprod</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>og du vil få en mappe som heter <strong>stat-testprod</strong> med følgende innhold:</p>
@@ -593,7 +605,7 @@ Merk
 </ol>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="op">&lt;</span>sti til prosjektmappe<span class="op">&gt;</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
-<li>Lag en <em>branch</em>/utviklingsg som f.eks. heter <strong>install-pandas</strong>:</li>
+<li>Lag en <em>branch</em>/utviklingsbranch som f.eks. heter <strong>install-pandas</strong>:</li>
 </ol>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> install-pandas</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="4" type="1">

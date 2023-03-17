@@ -20,6 +20,88 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -151,12 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hvorfor-dapla.html" class="sidebar-item-text sidebar-link">Hvorfor Dapla?</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./arkitektur.html" class="sidebar-item-text sidebar-link">Arkitektur</a>
+  <a href="./systemoversikt.html" class="sidebar-item-text sidebar-link">Systemoversikt</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -169,39 +246,19 @@ ul.task-list li input[type="checkbox"] {
   <a href="./jupyterlab.html" class="sidebar-item-text sidebar-link">Jupyterlab</a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./bakke-sky.html" class="sidebar-item-text sidebar-link">Bakke vs.&nbsp;sky</a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Opprette Dapla-team</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">Statistikkproduksjon</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">Hva er Dapla-team?</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./opprette-dapla-team.html" class="sidebar-item-text sidebar-link">Opprette Dapla-team</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./bøtter.html" class="sidebar-item-text sidebar-link">Bøtter</a>
-  </div>
-</li>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./gcc.html" class="sidebar-item-text sidebar-link">Google Cloud Console</a>
+            <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Dapla Team</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -209,14 +266,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gcc-avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
+  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">Hva er Dapla-team?</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./administrasjon-av-team.html" class="sidebar-item-text sidebar-link">Administrasjon av team</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overføre-data.html" class="sidebar-item-text sidebar-link">Overføre data</a>
+  <a href="./gcc.html" class="sidebar-item-text sidebar-link">Google Cloud Console</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./overføring-av-data.html" class="sidebar-item-text sidebar-link">Overføring av data</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./produksjonsløp.html" class="sidebar-item-text sidebar-link">Produksjonsløp</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jobbe-med-kode.html" class="sidebar-item-text sidebar-link">Jobbe med kode</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -224,126 +304,68 @@ ul.task-list li input[type="checkbox"] {
   <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link">Jobbe med data</a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">Slette data fra bøtter</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">Gjenopprette data fra bøtter</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./bakke-til-sky.html" class="sidebar-item-text sidebar-link">Fra bakke til sky</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./administrasjon.html" class="sidebar-item-text sidebar-link">Administrasjon av team</a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ssbproject.html" class="sidebar-item-text sidebar-link">SSB-project</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./nytt-ssbproject.html" class="sidebar-item-text sidebar-link">Nytt ssb-project</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./git-github.html" class="sidebar-item-text sidebar-link">Git og Github</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./virtual-env.html" class="sidebar-item-text sidebar-link">Virtuelle miljøer</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./jupyter-kernel.html" class="sidebar-item-text sidebar-link">Jupyter-kernels</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./pyspark-venv.html" class="sidebar-item-text sidebar-link">Bruk av pyspark i virtuelle miljøer</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./samarbeid.html" class="sidebar-item-text sidebar-link">Samarbeid</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./vedlikehold.html" class="sidebar-item-text sidebar-link">Vedlikehold</a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="./data.html" class="sidebar-item-text sidebar-link">Data</a>
+            <a href="./standarder.html" class="sidebar-item-text sidebar-link">Standarder</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">Datatilstander</a>
   </div>
 </li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./orkestrering.html" class="sidebar-item-text sidebar-link">Orkestrering</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./koble-data.html" class="sidebar-item-text sidebar-link">Koble data</a>
+  </div>
+</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./kildedata.html" class="sidebar-item-text sidebar-link">Kildedata</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kildedata-prosessering.html" class="sidebar-item-text sidebar-link">Kildedata prosessering</a>
+  <a href="./automatisering.html" class="sidebar-item-text sidebar-link active">Automatisering</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./github-app-integrasjon.html" class="sidebar-item-text sidebar-link">Koble prosjektet til Github</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./kildedata-prosessering-avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
+  <a href="./automatisering-avansert.html" class="sidebar-item-text sidebar-link">Automatisering Avansert</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statbanken.html" class="sidebar-item-text sidebar-link">Statistikkbanken</a>
+  <a href="./statistikkbanken.html" class="sidebar-item-text sidebar-link">Statistikkbanken</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arkivering.html" class="sidebar-item-text sidebar-link">Arkivering</a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./jupyter-pa-bakken.html" class="sidebar-item-text sidebar-link">Jupyterlab på bakken</a>
+            <a href="./visualisering.html" class="sidebar-item-text sidebar-link">Visualisering</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -351,19 +373,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">Dash og dashboard</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data-bakken.html" class="sidebar-item-text sidebar-link">Lese inn filer</a>
+  <a href="./lage-nettsider.html" class="sidebar-item-text sidebar-link">Lage nettsider</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./avansert.html" class="sidebar-item-text sidebar-link">Avansert</a>
+            <a href="./bakkesystemer.html" class="sidebar-item-text sidebar-link">Bakkesystemer</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -371,22 +393,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lese-data.html" class="sidebar-item-text sidebar-link">Lese filer fra bøtte</a>
+  <a href="./sas.html" class="sidebar-item-text sidebar-link">SAS</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./remote.html" class="sidebar-item-text sidebar-link">IDE’er</a>
+  <a href="./oracle.html" class="sidebar-item-text sidebar-link">Oracle</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedulering.html" class="sidebar-item-text sidebar-link">Schedulering</a>
+  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./annet.html" class="sidebar-item-text sidebar-link">Annet</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git-og-github.html" class="sidebar-item-text sidebar-link">Git og Github</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./databaser.html" class="sidebar-item-text sidebar-link">Databaser</a>
+  <a href="./lokale-utviklingsmiljøer.html" class="sidebar-item-text sidebar-link">Lokale utviklingsmiljøer</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -396,12 +433,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bidra-til-dapla-manualen.html" class="sidebar-item-text sidebar-link">Bidra til Dapla-manualen</a>
+  <a href="./github-app-integrasjon.html" class="sidebar-item-text sidebar-link">Koble prosjektet til Github</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dash.html" class="sidebar-item-text sidebar-link">Dash</a>
+  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">Gjenopprette data fra bøtter</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spark.html" class="sidebar-item-text sidebar-link">Spark</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">Slette data fra bøtter</a>
   </div>
 </li>
       </ul>
@@ -409,11 +461,6 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ordforklaringer.html" class="sidebar-item-text sidebar-link">Ordforklaringer</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Referanser</a>
   </div>
 </li>
     </ul>
@@ -425,7 +472,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#automatisering" id="toc-automatisering" class="nav-link active" data-scroll-target="#automatisering">Automatisering</a></li>
+  <li><a href="#automatisering" id="toc-automatisering" class="nav-link active" data-scroll-target="#automatisering">Automatisering</a>
+  <ul class="collapse">
+  <li><a href="#operasjoner-som-inngår-i-kildedataprosessering" id="toc-operasjoner-som-inngår-i-kildedataprosessering" class="nav-link" data-scroll-target="#operasjoner-som-inngår-i-kildedataprosessering">Operasjoner som inngår i kildedataprosessering</a></li>
+  <li><a href="#ta-tjenesten-i-bruk" id="toc-ta-tjenesten-i-bruk" class="nav-link" data-scroll-target="#ta-tjenesten-i-bruk">Ta tjenesten i bruk</a>
+  <ul class="collapse">
+  <li><a href="#koble-teamets-google-prosjekt-til-github" id="toc-koble-teamets-google-prosjekt-til-github" class="nav-link" data-scroll-target="#koble-teamets-google-prosjekt-til-github">Koble teamets Google-prosjekt til Github</a></li>
+  <li><a href="#konfigurere-en-kilde" id="toc-konfigurere-en-kilde" class="nav-link" data-scroll-target="#konfigurere-en-kilde">Konfigurere en kilde</a></li>
+  <li><a href="#eksempel" id="toc-eksempel" class="nav-link" data-scroll-target="#eksempel">Eksempel</a></li>
+  </ul></li>
+  <li><a href="#skrive-prosesseringsscriptet" id="toc-skrive-prosesseringsscriptet" class="nav-link" data-scroll-target="#skrive-prosesseringsscriptet">Skrive prosesseringsscriptet</a>
+  <ul class="collapse">
+  <li><a href="#logging" id="toc-logging" class="nav-link" data-scroll-target="#logging">Logging</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -436,11 +496,243 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="automatisering" class="level1">
 <h1>Automatisering</h1>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Denne tjenesten er under utvikling og kan ikke anses som klar for produksjon.</p>
+</div>
+</div>
+</div>
+<p>For å redusere tilgang til PII<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> oppfordres alle Dapla-team til å ha en automatisert prosessering av kildedata. Dapla tilbyr dette som en 100% selvbetjent løsning. Kildedata <span class="citation" data-cites="datatilstander">(<a href="#ref-datatilstander" role="doc-biblioref">Standardutvalget 2021, 5</a>)</span> prosesseres til inndata gjennom et gitt sett av operasjoner(se <a href="#fig-kildedata-prosessering-operasjoner">Figur&nbsp;1</a>). Kildedataprosesseringsløsningen som tilbys på Dapla er bygget på at hver kildedatafil behandles individuelt. Mer komplekse operasjoner som går på tvers av flere filer bør utføres på inndata eller senere datatilstander.</p>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Det er kun teamets kildedataansvarlige som skal aksessere kildedata.</p>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Teamets kildedataansvarlige tar ansvar for å prosessere kildedata til inndata på en forsvarlig måte.</p>
+</div>
+</div>
+</div>
+<section id="operasjoner-som-inngår-i-kildedataprosessering" class="level2">
+<h2 class="anchored" data-anchor-id="operasjoner-som-inngår-i-kildedataprosessering">Operasjoner som inngår i kildedataprosessering</h2>
+<div id="fig-kildedata-prosessering-operasjoner" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/kildedata-prosessering-operasjoner.png" class="img-fluid figure-img" style="width:100.0%" alt="Operasjoner som inngår i kildedataprosessering"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;1: Operasjoner som inngår i kildedataprosessering</figcaption><p></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>Inndata er kildedata som er transformert til SSBs standard lagringsformat. Variabelnavn og -innhold er uendret bortsett fra at:</p>
+<ul>
+<li>Direkte identifiserende variabler (f.eks. fødselsnummer) er pseudonymisert</li>
+<li>Tegnsett, datoformat, adresse m.m. er endret til SSBs standardformat</li>
+<li>Det benyttes standard kodeverk (Klass) der det er mulig (f.eks. kjønn)</li>
+<li>Dataene er minimert slik at kun variablene som er nødvendige i den videre produksjonsprosessen inngår.</li>
+</ul>
+</blockquote>
+<p><span class="citation" data-cites="datatilstander">(<a href="#ref-datatilstander" role="doc-biblioref">Standardutvalget 2021, 8</a>)</span></p>
+<p>Ved transformasjon fra kildedata til inndata er det ikke anbefalt å gjennomføre operasjoner som:</p>
+<ul>
+<li>Går på tvers av flere filer</li>
+<li>Legger til nye felt</li>
+<li>Endrer navn på felt</li>
+<li>Aggregerer data</li>
+</ul>
+</section>
+<section id="ta-tjenesten-i-bruk" class="level2">
+<h2 class="anchored" data-anchor-id="ta-tjenesten-i-bruk">Ta tjenesten i bruk</h2>
+<section id="koble-teamets-google-prosjekt-til-github" class="level3">
+<h3 class="anchored" data-anchor-id="koble-teamets-google-prosjekt-til-github">Koble teamets Google-prosjekt til Github</h3>
+<p>Automatiseringsløsningen krever at teamets Google-prosjekt kan lese fra teamets <a href="./ordforklaringer.html#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a> repo på Github. <a href="./github-app-integrasjon.html">Følg instruksjonene her for å sette opp dette</a>. Dette er en engangsjobb som må gjøres av en som har administratortilgang til IaC-repoet.</p>
+</section>
+<section id="konfigurere-en-kilde" class="level3">
+<h3 class="anchored" data-anchor-id="konfigurere-en-kilde">Konfigurere en kilde</h3>
+<section id="hvor-skal-det-konfigureres" class="level4">
+<h4 class="anchored" data-anchor-id="hvor-skal-det-konfigureres">Hvor skal det konfigureres?</h4>
+<p>Kilder konfigureres i teamets <a href="./ordforklaringer.html#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a> repo på Github. Det kan finnes basert på følgende formulering: <code>github.com/statisticsnorway/&lt;teamnavn&gt;-iac</code>. Kilder konfigureres under stien <code>automation/source_data</code> på repoet.</p>
+</section>
+<section id="hvilke-filer-konfigurerer-en-kilde" class="level4">
+<h4 class="anchored" data-anchor-id="hvilke-filer-konfigurerer-en-kilde">Hvilke filer konfigurerer en kilde?</h4>
+<p>Hver kilde konfigureres ved hjelp av to filer:</p>
+<ol type="1">
+<li><code>config.yaml</code> som konfigurer hvilken filsti som skal prosesseres i teamets kildedatabøtte. Eksempel:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">folder_prefix</span><span class="kw">:</span><span class="at"> source-folder/2022</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><code>process_source_data.py</code> som kjøres når en kildedatafil blir prosessert. Her må man skrive en python-funksjon med en bestemt metodesignatur som ser slik ut:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="kw">def</span> main(source_file):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="co">"""Function is called when a file is added to the source-data bucket.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">     Args:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">         source_file: fully qualified file name of the source data file.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">         Example: gs://ssb-prod-my-project-data-kilde/source-folder/2022/data.xml</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">     """</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Disse filene må legges til i en mappe per kilde under <code>automation/source_data</code> i IaC repoet. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring.</p>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Mappenavnet for kilder i IaC repoene blir brukt som navn på ressurser. Dette betyr at de enesete tillatte tegnene i mappenavnet er bokstaver, tall, bindestrek og underscore. Det er ikke tillatt med mellomrom eller andre spesialtegn. Mappenavnet kan bestå av opptil 20 tegn.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="bør-man-én-eller-flere-kildekonfigurasjoner" class="level4">
+<h4 class="anchored" data-anchor-id="bør-man-én-eller-flere-kildekonfigurasjoner">Bør man én eller flere kildekonfigurasjoner?</h4>
+<p>Dette avhenger av om prosesseringsscriptet kan behandle alle kildefilene på samme måte, eller om det vil være variasjoner som gjør at prosesseringen bør splittes opp i uavhengige prosesseringsscript.</p>
+<p>Grunner til å differensiere mellom kilder kan være:</p>
+<ul>
+<li>Kildedatafilene har forskjellig filformat (f.eks xml eller json)</li>
+<li>Kildedataene har ulike felter</li>
+<li>Kildedataene inneholder PII<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> eller ikke</li>
+</ul>
+</section>
+<section id="fremgangsmåte" class="level4">
+<h4 class="anchored" data-anchor-id="fremgangsmåte">Fremgangsmåte</h4>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Disse instruksjonene forutsetter at <a href="#koble-ditt-prosjekt-til-github">ditt Google-prosjekt er koblet til Github</a>.</p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><a href="#skrive-prosesseringsscriptet">Opprette skriptet</a> <code>process_source_data.py</code> som prosesserer kildedatafilen til inndata. Dette kan testes av kildedataansvarlige manuelt på Jupyter for å verifisere at dataene blir prosessert som ønsket.</li>
+<li>I en branch i teamets IaC repo, legg til filene <code>config.yaml</code> og <code>process_source_data.py</code> i en ny mappe (valgfritt navn) under <code>automation/source_data</code>. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring av formatet.</li>
+<li>Lag en PR på branchen og få den godkjent av kildedataansvarlige.</li>
+<li>Vent til alle tester er ferdige. Det skal stå “All checks have passed” før man går videre, hvis testene feiler <a href="./automatisering-avansert.html#validerings-logger">følg stegene her</a>. <img src="images/checks_passed.png" class="img-fluid" alt="Suksessfulle tester på GitHub"></li>
+<li>Skrive <code>atlantis apply</code> i en kommentar på PRen for å opprette det nødvendige infrastruktur for å prosessere kilden.</li>
+<li>Merge PRen.</li>
+<li>Sjekk resultatet av det <a href="./automatisering-avansert.html#bekrefte-utrulling">automatiske bygget</a>.</li>
+<li>Verifisere at nye filer lagt i kildedatabøtten blir prosessert til inndata som forventet.</li>
+</ol>
+</section>
+</section>
+<section id="eksempel" class="level3">
+<h3 class="anchored" data-anchor-id="eksempel">Eksempel</h3>
+<p>La oss si at et team (småbakst) har to datakilder levert av ulik dataeiere på ulik formater. Den ene er om boller og er på csv format og den andre er om rundstykker og er på json format. Kildedataansvarlige i teamet bestemmer seg for at filene i <code>boller/</code> er like nok å prosesseres som en kilde, og at filene i <code>rundstykker/</code> kan prosesseres som en annen kilde.</p>
+<section id="filstruktur-i-kildedatabøtte" class="level4">
+<h4 class="anchored" data-anchor-id="filstruktur-i-kildedatabøtte">Filstruktur i kildedatabøtte</h4>
+<pre><code>ssb-prod-smaabakst-data-kilde
+├── boller
+│&nbsp;&nbsp; ├── hvetebolle
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2018-salg.csv
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2019-salg.csv
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── ...
+│&nbsp;&nbsp; ├── kanelbolle
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2018-salg.csv
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── 2019-salg.csv
+│&nbsp;&nbsp; │&nbsp;&nbsp; ├── ...
+│&nbsp;&nbsp; └── skolebolle
+│&nbsp;&nbsp;     ├── 2018-salg.csv
+│&nbsp;&nbsp;     ├── 2019-salg.csv
+│&nbsp;&nbsp;     ├── ...
+└── rundstykker
+    ├── haandverker
+    │&nbsp;&nbsp; ├── apr-2022-resultater.json
+    │&nbsp;&nbsp; ├── aug-2022-resultater.json
+    │&nbsp;&nbsp; ├── ...
+    └── havre
+        ├── apr-2022-resultater.json
+        ├── aug-2022-resultater.json
+        ├── ...</code></pre>
+</section>
+<section id="struktur-i-iac-repo" class="level4">
+<h4 class="anchored" data-anchor-id="struktur-i-iac-repo">Struktur i IaC repo</h4>
+<pre><code>smaabakst-iac
+└── automation
+    └── source_data
+        ├── boller
+        │&nbsp;&nbsp; ├── config.yaml
+        │&nbsp;&nbsp; └── process_source_data.py
+        └── rundstykker
+            ├── config.yaml
+            └── process_source_data.py</code></pre>
+</section>
+<section id="innhold-i-config.yaml-for-boller" class="level4">
+<h4 class="anchored" data-anchor-id="innhold-i-config.yaml-for-boller">Innhold i <code>config.yaml</code> for boller</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">folder_prefix</span><span class="kw">:</span><span class="at"> boller</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Verdien for <code>folder_prefix</code> tilsvarer en “fil sti” i kildedatabøtte. I dette tilfellet vil nye filer lagt til under <code>boller/</code> trigge en prosessering.</p>
+</section>
+<section id="innhold-i-config.yaml-for-rundstykker" class="level4">
+<h4 class="anchored" data-anchor-id="innhold-i-config.yaml-for-rundstykker">Innhold i <code>config.yaml</code> for rundstykker</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">folder_prefix</span><span class="kw">:</span><span class="at"> rundstykker</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+</section>
+<section id="skrive-prosesseringsscriptet" class="level2">
+<h2 class="anchored" data-anchor-id="skrive-prosesseringsscriptet">Skrive prosesseringsscriptet</h2>
+<p>Med prosesseringsscriptet mener vi filen <code>process_source_data.py</code> som ligger i en mappe per kilde under <code>automation/source_data</code>. Dette scriptet vil bli kalt <em>hver gang det blir lagt til en ny fil i kildedatabøtten</em>.</p>
+<p>Dette betyr at hvis f.eks. 10 filer blir lagt til i kildedatabøtten samtidig så vil det startes opp 10 individuelle Python-prosesser som kaller denne <code>main</code>-metoden med forskjellig <code>source_file</code>. Parameteren <code>source_file</code> vil inneholde hele filstien inkl. filnavn. Så en enkel flytteoperasjon fra kildedatabøtten til inndatebøtten (uten noen form for konvertering) vil kunne uttrykkes slik:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dapla <span class="im">as</span> dp</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>destination_bucket_name <span class="op">=</span> <span class="st">"ssb-prod-smaabakst-data-produkt"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">def</span> main(source_file):</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># source_file er f.eks: gs://ssb-prod-smaabakst-data-kilde/boller/hveteboller/2018-salg.csv</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> dp.read_pandas(source_file,  file_format<span class="op">=</span><span class="st">"csv"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Eksempel på konvertering fra xml til parquet-format</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    dp.write_pandas(df, <span class="ss">f"gs://</span><span class="sc">{</span>destination_bucket_name<span class="sc">}</span><span class="ss">/inndata/boller/hveteboller/2018-salg.parquet"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternativt (uten noen form for konvertering)…</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>source_bucket_name <span class="op">=</span> <span class="st">"ssb-prod-smaabakst-data-kilde"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>destination_bucket_name <span class="op">=</span> <span class="st">"ssb-prod-smaabakst-data-produkt"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">def</span> main(source_file):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>     <span class="co">"""Function is called when a file is added to the source-data bucket.</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">     Args:</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">         source_file: fully qualified file name of the source data file.</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">     """</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    destination_path <span class="op">=</span> file_path.replace(source_bucket_name, destination_bucket_name)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    fs.copy(file_path, destination_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="logging" class="level3">
+<h3 class="anchored" data-anchor-id="logging">Logging</h3>
+<p>Det anbefales å bruke Pythons <a href="https://docs.python.org/3/library/logging.html">logging modul</a> for å logge, og ikke bruke <code>print</code> eller skrive til stdout/stderr. Det er satt opp en standard logger-konfigurasjon som skriver informasjonsmeldinger (log level <code>info</code>) til <code>stdout</code> og feilmeldinger (log level <code>warning</code> eller <code>error</code>) til <code>stderr</code>. Feil som ikke blir håndtert blir automatisk fanget opp og logget av automatiseringsløsningen. Eksemplet nedenfor logger en informasjonsmelding, en advarsel og en feilmelding:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>logging.info(<span class="st">'Til info'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>logging.warning(<span class="st">'Advarsel!'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>logging.error(<span class="st">'En feil oppstod!'</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 
 
 </section>
+</section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referanser</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-datatilstander" class="csl-entry" role="doc-biblioentry">
+Standardutvalget. 2021. <span>“Datatilstander i SSB.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p><a href="./ordforklaringer.html#personidentifiserende-informasjon-pii">Personidentifiserende Informasjon</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="./ordforklaringer.html#personidentifiserende-informasjon-pii">Personidentifiserende Informasjon</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

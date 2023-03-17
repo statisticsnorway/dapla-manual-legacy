@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual</title>
+<title>Dapla-manual – administrasjon-av-team</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,9 +61,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="">
-<meta property="og:description" content="Denne boken er ment som enkel-å-bruke manual for å ta i bruk SSBs nye dataplattform Dapla. Plattformen forsøker å gjøre statistikkprodusenter og forskere så selvhjulpne som mulig.">
-<meta property="og:site-name" content="Dapla-manual">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -131,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Velkommen</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Velkommen</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -172,19 +169,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">Statistikkproduksjon</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Dapla Team</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">Hva er Dapla-team?</a>
@@ -192,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./administrasjon-av-team.html" class="sidebar-item-text sidebar-link">Administrasjon av team</a>
+  <a href="./administrasjon-av-team.html" class="sidebar-item-text sidebar-link active">Administrasjon av team</a>
   </div>
 </li>
       </ul>
@@ -393,14 +390,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#velkommen" id="toc-velkommen" class="nav-link active" data-scroll-target="#velkommen">Velkommen</a>
+  <li><a href="#administrasjon-av-team" id="toc-administrasjon-av-team" class="nav-link active" data-scroll-target="#administrasjon-av-team">Administrasjon av team</a>
   <ul class="collapse">
-  <li><a href="#bidragsytere" id="toc-bidragsytere" class="nav-link" data-scroll-target="#bidragsytere">Bidragsytere</a></li>
-  <li><a href="#bidra-til-dapla-manualen" id="toc-bidra-til-dapla-manualen" class="nav-link" data-scroll-target="#bidra-til-dapla-manualen">Bidra til Dapla-manualen</a>
-  <ul class="collapse">
-  <li><a href="#forutsetninger" id="toc-forutsetninger" class="nav-link" data-scroll-target="#forutsetninger">Forutsetninger</a></li>
-  <li><a href="#fremgangsmåten" id="toc-fremgangsmåten" class="nav-link" data-scroll-target="#fremgangsmåten">Fremgangsmåten</a></li>
-  </ul></li>
+  <li><a href="#opprette-dapla-team" id="toc-opprette-dapla-team" class="nav-link" data-scroll-target="#opprette-dapla-team">Opprette Dapla-team</a></li>
+  <li><a href="#legge-til-eller-fjerne-medlemmer-i-et-team" id="toc-legge-til-eller-fjerne-medlemmer-i-et-team" class="nav-link" data-scroll-target="#legge-til-eller-fjerne-medlemmer-i-et-team">Legge til eller fjerne medlemmer i et team</a></li>
+  <li><a href="#se-medlemmer-og-roller-i-et-team" id="toc-se-medlemmer-og-roller-i-et-team" class="nav-link" data-scroll-target="#se-medlemmer-og-roller-i-et-team">Se medlemmer og roller i et team</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -410,64 +404,73 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="velkommen" class="level1 unnumbered">
-<h1 class="unnumbered">Velkommen</h1>
-<p><img src="images/Dapla-Logo1.png" class="img-fluid" style="max-width: 35%; float: right;" alt="Dapla logo"></p>
-<p>Denne boken er ment som enkel-å-bruke manual for å ta i bruk SSBs nye dataplattform <strong>Dapla</strong>. Plattformen forsøker å gjøre statistikkprodusenter og forskere så selvhjulpne som mulig. Målsetningen er at tjenestene som tilbys skal kunne tas i bruk på en enkel og intuitiv måte. Men uansett hvor lett tilgjengelig tjenester er, og hvor mye arbeid som er lagt å gjøre løsninger brukervennlige, så trenger de fleste i SSB en klar og tydelig veiledning for hvordan de skal brukes og i hvilken større sammenheng tjenestene inngår. Dapla-manualen er ment å være en sånn støtte i statistikkernes hverdag. Uansett om man lurer på hvordan man logger seg inn på plattformen, eller om man ønsker informasjon om kjøremiljøet for mer kompliserte maskinlæringsmodeller, så skal man finne veiledning i denne manualen. Målgruppen er både nybegynneren og den mer erfarne.</p>
+<section id="administrasjon-av-team" class="level1">
+<h1>Administrasjon av team</h1>
+<p>I dette kapitlet viser vi hvordan du kan opprette et nytt team eller gjøre endringer i et eksisterende team. Typiske endringer er å:</p>
+<ul>
+<li>Legge til eller fjerne medlemmer i et team</li>
+<li>Liste ut medlemmer og tilgangsgrupper i et team</li>
+</ul>
+<section id="opprette-dapla-team" class="level2">
+<h2 class="anchored" data-anchor-id="opprette-dapla-team">Opprette Dapla-team</h2>
+<p>For å komme i gang med å opprette et Dapla-team trengs det en oversikt over teamets medlemmer og hvilke tilgangsgrupper medlemmene skal være med i. Det trengs også informasjon om hvilke Dapla-tjenester som er aktuelle for teamet å ta i bruk. Derfor har det blitt opprettet en egen veileder for dette kalt <em>Dapla Start</em>.</p>
 <div class="callout-note callout callout-style-simple">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Alle ansatte i SSB kan bidra til manualen ved å følge <a href="./bidra-til-dapla-manualen.html">instruksjonene her</a>.</p>
+<p>Gå til <a href="https://start.dapla.ssb.no">Dapla Start</a> for starte bestilling av et nytt Dapla-team.</p>
 </div>
 </div>
 </div>
-<section id="bidragsytere" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bidragsytere">Bidragsytere</h2>
-<p>Dapla-manualen er initiert og skrevet av <strong>Team Statistikktjenester</strong> i SSB. Bidragsytere er Øyvind Bruer-Skarsbø, Miles Winther, Bjørn Andre Skaar, Anders Lunde og Damir Medakovic. Ved behov for oppdateringer og nytt innhold håper vi at alle i SSB kan bidra.</p>
+<p>Når teamet er opprettet får alle medlemmene tilgang til sitt eget prosjekt i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester. Videre får hvert prosjekt et sett med tjenester og tilganger som knyttes til teamet. Det opprettes også datalagringsområder (kalt <a href="./bøtter.qmd">bøtter</a>) som bare kan aksesseres av brukere som er med i teamets tilgangsgrupper.</p>
+<p>Dapla-teamet vil også få sin egen gruppe i SSBs Active Directory slik at medlemskapet i gruppen kan administreres av Kundeservice.</p>
 </section>
-<section id="bidra-til-dapla-manualen" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bidra-til-dapla-manualen">Bidra til Dapla-manualen</h2>
-<p>Alle i SSB kan bidra til denne manualen. Endringer må godkjennes av noen i <a href="https://github.com/orgs/statisticsnorway/teams/team-statistikktjenester">Team Statistikktjenester</a>, si gjerne i fra at det ligger en PR å se på.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<section id="legge-til-eller-fjerne-medlemmer-i-et-team" class="level2">
+<h2 class="anchored" data-anchor-id="legge-til-eller-fjerne-medlemmer-i-et-team">Legge til eller fjerne medlemmer i et team</h2>
+<p>For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en <a href="https://ssb.pureservice.com/#/new/7">Kundeservice-sak</a>. Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (<em>data-admins</em>, <em>developers</em> eller <em>consumers</em>).</p>
+<p>Endringer i team må godkjennes av seksjonsleder før de blir gjort.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Advarsel
+Midlertidig løsning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Denne nettsiden er åpen og hvem som helst kan lese det som er skrevet her. Hold det i tankene når du skriver.</p>
+<p>At endringer i team må gjøres via Kundeservice er midlertidig. Det jobbes med å lage et eget verktøy for dette.</p>
 </div>
 </div>
-<section id="forutsetninger" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="forutsetninger">Forutsetninger</h3>
-<ul>
-<li>Man trenger basis git kompetanse, det ligger en fin beskrivelse av det på <a href="https://statistics-norway.atlassian.net/l/cp/6H4MD86J">Beste Praksis siden fra KVAKK</a>.</li>
-<li>Man trenger en konto på Github, det kan man opprette ved å <a href="./git-github.html#opprett-github-bruker">følge instruksjonene her</a>.</li>
-<li>Man kan lære seg Markdown (enkel tekst formatering), en fin oversikt <a href="http://mdcheatsheet.com/">finnes her</a>.</li>
-<li>Verktøyet Quarto burde installeres for å kunne se endringene slik som de ser ut på nettsiden. <a href="https://quarto.org/docs/get-started/index.html">Installasjon instruksjoner finnes her</a>.</li>
-</ul>
 </section>
-<section id="fremgangsmåten" class="level3">
-<h3 class="anchored" data-anchor-id="fremgangsmåten">Fremgangsmåten</h3>
+<section id="se-medlemmer-og-roller-i-et-team" class="level2">
+<h2 class="anchored" data-anchor-id="se-medlemmer-og-roller-i-et-team">Se medlemmer og roller i et team</h2>
+<p>For å se hvem som har hvilke tilganger i et <strong>Dapla-team</strong> så kan du gå inn på <a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups">Azure Active directory</a>. Her får du se en oversikt over alle Dapla-team, hvem som er medlemmer, og hvilken tilgangsrolle de har.</p>
+<p>Anta at vi ønsker å se hvilke SSB-ansatte som har tilgang til teamet <strong>skatt-person</strong>. Da kan vi gjøre følgende:</p>
 <ol type="1">
-<li>Klone repoet <code>git clone https://github.com/statisticsnorway/dapla-manual.git</code></li>
-<li>Lage en ny gren</li>
-<li>Gjøre endringen</li>
-<li>Kjør <code>quarto preview dapla-manual</code> og følge lenken for å sjekke at alt ser bra ut på nettsiden</li>
-<li>Åpne en PR</li>
-<li>Be noen å gjennomgå endringen og eventuelt godkjenne den</li>
-<li>Merge PRen</li>
-<li>Etter et par minutter skal din endring være synlig!</li>
+<li><p>Gå inn på nettsiden til <a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups">Azure Active directory</a>.</p></li>
+<li><p>Skriv inn <strong>skatt-person</strong> i søkefeltet slik som vist i <a href="#fig-azure-ad-overview">Figur&nbsp;1</a>.</p></li>
+</ol>
+<div id="fig-azure-ad-overview" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/azure_ad.png" class="img-fluid figure-img" alt="Bilde av nettsiden til Azure AD der brukeren har søkt opp Dapla-teamet skatt-person"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;1: Nettsiden til <em>Azure Active directory</em>.</figcaption><p></p>
+</figure>
+</div>
+<p><a href="#fig-azure-ad-overview">Figur&nbsp;1</a> viser at det finnes 5 tilgangsroller knyttet til et Dapla-team:</p>
+<pre><code>1. managers (benyttes ikke enda)
+2. support (benyttes ikke enda)
+3. developers
+4. consumers
+5. data-admins</code></pre>
+<p>I realiteten er det bare <strong>data-admin</strong> og <strong>developer</strong> som er aktuelle tilgangsroller for å produsere statistikk i Dapla-teamet. <strong>consumers</strong>-rollen innehas av folk fra andre Dapla-team som skal ha tilgang til data i din <em>delt-bøtte</em>.</p>
+<ol start="3" type="1">
+<li>Hvis jeg ønsker å se hvem som er data-admins i teamet <strong>skatt-person</strong>, så kan jeg trykke på <strong>skatt-person-data-admins</strong>, og derettes trykke på <strong>Members</strong> i menyen til venstre. Da får jeg opp en liste over alle som har tilgang til <strong>data-admins</strong> i Dapla-teamet <strong>skatt-person</strong>.</li>
 </ol>
 
 
-</section>
 </section>
 </section>
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual</title>
+<title>Dapla-manual – overføring-av-data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,9 +61,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="">
-<meta property="og:description" content="Denne boken er ment som enkel-å-bruke manual for å ta i bruk SSBs nye dataplattform Dapla. Plattformen forsøker å gjøre statistikkprodusenter og forskere så selvhjulpne som mulig.">
-<meta property="og:site-name" content="Dapla-manual">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -131,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Velkommen</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Velkommen</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -172,11 +169,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">Statistikkproduksjon</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Dapla Team</a>
@@ -204,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overføring-av-data.html" class="sidebar-item-text sidebar-link">Overføring av data</a>
+  <a href="./overføring-av-data.html" class="sidebar-item-text sidebar-link active">Overføring av data</a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
@@ -393,14 +390,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#velkommen" id="toc-velkommen" class="nav-link active" data-scroll-target="#velkommen">Velkommen</a>
+  <li><a href="#overføring-av-data" id="toc-overføring-av-data" class="nav-link active" data-scroll-target="#overføring-av-data">Overføring av data</a>
   <ul class="collapse">
-  <li><a href="#bidragsytere" id="toc-bidragsytere" class="nav-link" data-scroll-target="#bidragsytere">Bidragsytere</a></li>
-  <li><a href="#bidra-til-dapla-manualen" id="toc-bidra-til-dapla-manualen" class="nav-link" data-scroll-target="#bidra-til-dapla-manualen">Bidra til Dapla-manualen</a>
+  <li><a href="#sette-opp-overføringsjobber" id="toc-sette-opp-overføringsjobber" class="nav-link" data-scroll-target="#sette-opp-overføringsjobber">Sette opp overføringsjobber</a>
   <ul class="collapse">
-  <li><a href="#forutsetninger" id="toc-forutsetninger" class="nav-link" data-scroll-target="#forutsetninger">Forutsetninger</a></li>
-  <li><a href="#fremgangsmåten" id="toc-fremgangsmåten" class="nav-link" data-scroll-target="#fremgangsmåten">Fremgangsmåten</a></li>
+  <li><a href="#overføring-fra-linuxstammen-til-dapla" id="toc-overføring-fra-linuxstammen-til-dapla" class="nav-link" data-scroll-target="#overføring-fra-linuxstammen-til-dapla">Overføring fra Linuxstammen til Dapla</a></li>
+  <li><a href="#overføring-fra-dapla-til-linuxstammen" id="toc-overføring-fra-dapla-til-linuxstammen" class="nav-link" data-scroll-target="#overføring-fra-dapla-til-linuxstammen">Overføring fra Dapla til Linuxstammen</a></li>
   </ul></li>
+  <li><a href="#skrive-ut-data" id="toc-skrive-ut-data" class="nav-link" data-scroll-target="#skrive-ut-data">Skrive ut data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -410,64 +407,90 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="velkommen" class="level1 unnumbered">
-<h1 class="unnumbered">Velkommen</h1>
-<p><img src="images/Dapla-Logo1.png" class="img-fluid" style="max-width: 35%; float: right;" alt="Dapla logo"></p>
-<p>Denne boken er ment som enkel-å-bruke manual for å ta i bruk SSBs nye dataplattform <strong>Dapla</strong>. Plattformen forsøker å gjøre statistikkprodusenter og forskere så selvhjulpne som mulig. Målsetningen er at tjenestene som tilbys skal kunne tas i bruk på en enkel og intuitiv måte. Men uansett hvor lett tilgjengelig tjenester er, og hvor mye arbeid som er lagt å gjøre løsninger brukervennlige, så trenger de fleste i SSB en klar og tydelig veiledning for hvordan de skal brukes og i hvilken større sammenheng tjenestene inngår. Dapla-manualen er ment å være en sånn støtte i statistikkernes hverdag. Uansett om man lurer på hvordan man logger seg inn på plattformen, eller om man ønsker informasjon om kjøremiljøet for mer kompliserte maskinlæringsmodeller, så skal man finne veiledning i denne manualen. Målgruppen er både nybegynneren og den mer erfarne.</p>
-<div class="callout-note callout callout-style-simple">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Alle ansatte i SSB kan bidra til manualen ved å følge <a href="./bidra-til-dapla-manualen.html">instruksjonene her</a>.</p>
-</div>
-</div>
-</div>
-<section id="bidragsytere" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bidragsytere">Bidragsytere</h2>
-<p>Dapla-manualen er initiert og skrevet av <strong>Team Statistikktjenester</strong> i SSB. Bidragsytere er Øyvind Bruer-Skarsbø, Miles Winther, Bjørn Andre Skaar, Anders Lunde og Damir Medakovic. Ved behov for oppdateringer og nytt innhold håper vi at alle i SSB kan bidra.</p>
-</section>
-<section id="bidra-til-dapla-manualen" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bidra-til-dapla-manualen">Bidra til Dapla-manualen</h2>
-<p>Alle i SSB kan bidra til denne manualen. Endringer må godkjennes av noen i <a href="https://github.com/orgs/statisticsnorway/teams/team-statistikktjenester">Team Statistikktjenester</a>, si gjerne i fra at det ligger en PR å se på.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Advarsel
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Denne nettsiden er åpen og hvem som helst kan lese det som er skrevet her. Hold det i tankene når du skriver.</p>
-</div>
-</div>
-<section id="forutsetninger" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="forutsetninger">Forutsetninger</h3>
-<ul>
-<li>Man trenger basis git kompetanse, det ligger en fin beskrivelse av det på <a href="https://statistics-norway.atlassian.net/l/cp/6H4MD86J">Beste Praksis siden fra KVAKK</a>.</li>
-<li>Man trenger en konto på Github, det kan man opprette ved å <a href="./git-github.html#opprett-github-bruker">følge instruksjonene her</a>.</li>
-<li>Man kan lære seg Markdown (enkel tekst formatering), en fin oversikt <a href="http://mdcheatsheet.com/">finnes her</a>.</li>
-<li>Verktøyet Quarto burde installeres for å kunne se endringene slik som de ser ut på nettsiden. <a href="https://quarto.org/docs/get-started/index.html">Installasjon instruksjoner finnes her</a>.</li>
-</ul>
-</section>
-<section id="fremgangsmåten" class="level3">
-<h3 class="anchored" data-anchor-id="fremgangsmåten">Fremgangsmåten</h3>
+<section id="overføring-av-data" class="level1">
+<h1>Overføring av data</h1>
+<p>For å overføre data mellom bakke og sky brukes <strong>Data Transfer</strong>, som er en tjeneste i <a href="./gcc.html">Google Cloud Console</a>. Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets <strong>kildedataansvarlige</strong>.</p>
+<p>For å få tilgang til å overføre filer må man be om dette ved opprettelsen av teamet. Ber man om det skjer følgende:</p>
 <ol type="1">
-<li>Klone repoet <code>git clone https://github.com/statisticsnorway/dapla-manual.git</code></li>
-<li>Lage en ny gren</li>
-<li>Gjøre endringen</li>
-<li>Kjør <code>quarto preview dapla-manual</code> og følge lenken for å sjekke at alt ser bra ut på nettsiden</li>
-<li>Åpne en PR</li>
-<li>Be noen å gjennomgå endringen og eventuelt godkjenne den</li>
-<li>Merge PRen</li>
-<li>Etter et par minutter skal din endring være synlig!</li>
+<li>En mappe blir opprettet på Linux i prodsonen under <code>/ssb/cloud_sync/</code></li>
+<li>Et <a href="https://cloud.google.com/storage/docs/projects">Google Project</a> blir opprettet med navn <code>&lt;team navn&gt;-ts</code>.</li>
 </ol>
-
-
+<p>Dette Google-prosjektet er ikke det samme som der du lagrer annen data. Det har navnet <code>&lt;team navn&gt;-ts</code>, og filstiene på bakken og sky vises i <a href="#fig-data-transfer">Figur&nbsp;1</a>.</p>
+<div id="fig-data-transfer" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/tranferservice-diagram.png" class="img-fluid figure-img" alt="Bilde som viser hvilke mapper eller bøtter som Data Transfer flytter mellom."></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;1: Hvordan Transfer Service kan flytte filer mellom bakke og sky.</figcaption><p></p>
+</figure>
+</div>
+<p>Teamets kildedataansvarlige vil være spesifisert som en del av å <a href="./opprette-dapla-team.html">opprette et Dapla-team</a>.</p>
+<section id="sette-opp-overføringsjobber" class="level2">
+<h2 class="anchored" data-anchor-id="sette-opp-overføringsjobber">Sette opp overføringsjobber</h2>
+<p>Enten man skal overføre filer opp til sky eller ned til bakken så bruker man den samme Data Transfer tjenesten. For å få tilgang til denne må man først logge seg inn i <a href="https://console.cloud.google.com">Google Cloud Console</a>. Sjekk at du er logget inn med din SSB-konto (xxx@ssb.no).</p>
+<p>Øverst på siden, til høyre for teksten <code>Google Cloud</code> finnes det en prosjektvelger, og her er det viktig å velge korrekt Google prosjekt. Hvis du trykker på prosjektvelgeren vil det åpnes opp et nytt vindu. Sjekk at det står <code>SSB.NO</code> øverst i dette vinduet. Trykk deretter på fanen <code>ALL</code> for å få opp alle tilgjengelige Google-prosjekter under organisasjonen <code>ssb.no</code> (<a href="#fig-prosjektvelger">Figur&nbsp;2</a>)</p>
+<div id="fig-prosjektvelger" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/prosjektvelger.png" class="img-fluid figure-img" alt="Bilde som viser prosjektvelgeren i Google Cloud Console"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;2: Prosjektvelgeren i Google Cloud Console</figcaption><p></p>
+</figure>
+</div>
+<p>Under <code>ssb.no</code> vil det ligge flere mapper. Åpne mappen som heter <code>production</code> og let frem en undermappe som har navnet på ditt Dapla-team. Strukturen skal se slik ut:</p>
+<pre class="shell"><code>    ssb.no
+    ├── production
+        └── &lt;teamnavn&gt;
+            ├── prod-&lt;teamnavn&gt;
+            └── &lt;teamnavn&gt;-ts</code></pre>
+<p>Det underste nivået (<code>prod-&lt;teamnavn&gt;</code> og <code>&lt;teamnavn&gt;-ts</code>) viser prosjektene, nivået i mellom er mapper, og toppnivået er organisasjonen (ssb.no). Prosjektet <code>&lt;teamnavn&gt;-ts</code> er et separat prosjekt som bare teamets kildedataansvarlige har tilgang til, og det er her tjenesten Data Transfer skal settes opp.</p>
+<ul>
+<li><p>Velg derfor prosjektet <code>&lt;teamnavn&gt;-ts</code>.</p></li>
+<li><p>I søkefeltet til Google Cloud Console, skriv <code>Data transfer</code> og trykk på det valget som kommer opp.</p></li>
+<li><p>Første gang man kommer inn på siden til Transfer Services vil man bli vist en blå knapp med teksten <code>Set Up Connection</code>. Når du trykker på denne vil det dukke opp et nytt felt hvor du får valget <code>Create Pub-Sub Resources</code>. Dette er noe som bare trengs å gjøre én gang. Trykk på den blå <code>CREATE</code> knappen, og deretter trykk på <code>Close</code> lenger nede.</p></li>
+<li><p>I navigasjonsmenyen til venstre trykk <code>Transfer jobs</code>, og deretter trykk på <code>+ Create transfer job</code> øverst på siden for å opprette en ny overføringsjobb.</p></li>
+</ul>
+<section id="overføring-fra-linuxstammen-til-dapla" class="level3">
+<h3 class="anchored" data-anchor-id="overføring-fra-linuxstammen-til-dapla">Overføring fra Linuxstammen til Dapla</h3>
+<p>Følgende oppskrift tar utgangspunkt i siden <code>Create a transfer job</code> (<a href="#fig-transfer-tilsky">Figur&nbsp;3</a>):</p>
+<div id="fig-transfer-tilsky" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/data-transfer-tilsky.png" class="img-fluid figure-img" alt="Bilde som viser Create a transfer job i Google Cloud Console"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;3: Opprett overføringsjobb i Google Cloud Console</figcaption><p></p>
+</figure>
+</div>
+<ol type="1">
+<li>Velg <code>POSIX filesystem</code> under “Source type” og <code>Google cloud storage</code> under “Destination type” (eller motsatt hvis overføringsjobben skal gå fra Dapla til Linuxstammen). Trykk <code>Next step</code></li>
+<li>Nedtrekkslisten “Agent pool” skal normalt bare ha ett valg: <code>transfer_service_default</code>. Velg denne.</li>
+<li>I feltet “Source directory path” skal man kun skrive <code>data/tilsky</code> siden overføringsagenten kun har tilgang til mapper som ligger relativt plassert under <code>/ssb/cloud_sync/&lt;teamnavn&gt;/</code>. Trykk <code>Next step</code></li>
+<li>Velg en destinasjon for overføringsjobben. Trykk på <code>Browse</code> og velg bøtten med navn som passer til <code>ssb-prod-&lt;teamnavn&gt;-data-synk-opp</code>. Vi anbefaler at du også oppretter en mappe inne i denne bøtten. Det gjøres ved å trykke på mappeikonet med et <code>+</code>-tegn foran. Skriv inn et passende mappenavn og trykk <code>Select</code> i bunnen av siden. Trykk deretter <code>Next step</code></li>
+<li>Neste steg “Choose how and when to run this job” er opp til brukeren å bestemme. Hvis man f.eks. velger at Data Transfer skal overføre data en gang i uken, vil den kun starte en overføring hvis det finnes nye data. Trykk <code>Next step</code></li>
+<li>Beskriv overføringsjobben, f.eks: “Flytter data for <team-name> til sky.”. Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.</team-name></li>
+</ol>
+<p>Trykk til slutt på den blå <code>Create</code>-knappen. Du vil kunne se kjørende jobber under menyen <code>Transfer jobs</code>.</p>
+<p>For å sjekke om data har blitt overført, skriv inn <code>cloud storage</code> i søkefeltet øverst på siden og trykk på det første valget som kommer opp. Her vil du finne en oversikt over alle teamets bøtter, deriblant en med navn <code>ssb-prod-&lt;team-name&gt;-data-synk-opp</code>. Når overføringsjobben er ferdig vil du kunne finne igjen dataene i den mappen som ble definert i stegene overnfor.</p>
 </section>
+<section id="overføring-fra-dapla-til-linuxstammen" class="level3">
+<h3 class="anchored" data-anchor-id="overføring-fra-dapla-til-linuxstammen">Overføring fra Dapla til Linuxstammen</h3>
+<p>Overføringsjobben settes opp nesten identisk med <a href="#overføring-fra-linuxstammen-til-dapla">Overføring fra Linuxstammen til Dapla</a> med unntak av følgende:</p>
+<ul>
+<li>Steg 1: Velg <code>Google cloud storage</code> under “Source type” og <code>POSIX filesystem</code> under “Destination type”</li>
+<li>Steg 2: Velg bøtten <code>ssb-prod-&lt;team-name&gt;-data-synk-ned</code></li>
+<li>Step 3: Velg <code>transfer_service_default</code> som “Agent pool” og skriv <code>data/frasky</code> inn i feltet for “Destination directory path”.</li>
+</ul>
+<p>For å se om data har blitt overført til Linuxstammen må du nå gå til mappen <code>/ssb/cloud_sync/&lt;team-name&gt;/data/frasky</code> fra FileZilla.</p>
+<p>Husk: Du kan alltids gå tilbake og se på tidligere fullførte jobber, og starte en overføringsjobb manuelt fra menyen <code>Transfer jobs</code>.</p>
+</section>
+</section>
+<section id="skrive-ut-data" class="level2">
+<h2 class="anchored" data-anchor-id="skrive-ut-data">Skrive ut data</h2>
+<p>Når du har satt opp en, enten for å overføre fra sky eller til sky, kan du skrive ut data til mappen eller bøtten som du har bedt <strong>Transfer Service</strong> om å overføre data fra.</p>
+<p>Hvis du skal overføre data fra bakken/prodsonen til sky, så må teamets kildedataansvarlige skrive ut data til Linux-mappen <code>/ssb/cloud_sync/&lt;team navn&gt;/data/tilsky</code>, og det vil ende opp i Dapla-bøtta <code>gs://ssb-prod-&lt;team navn&gt;-data-synk-opp</code> Dette kan du gjøre med alle programmeringsverktøy som har en kobling til Linux-stammene der dataene ligger. For eksempel:</p>
+<ul>
+<li>SAS EG</li>
+<li>SAS-installasjon på Linux</li>
+<li>Jupyterlab i prodsonen</li>
+<li>Rstudio på sl-stata-03</li>
+</ul>
+<p>Skal du flytte data fra Dapla til bakken/prodsonen, så må teamets kildedataansvarlige skrive ut data til <code>gs://ssb-prod-&lt;team navn&gt;-data-synk-opp</code>-bøtta på Dapla. Det er noe man typisk gjør fra <strong>Jupyterlab</strong> på Dapla.</p>
+
+
 </section>
 </section>
 
