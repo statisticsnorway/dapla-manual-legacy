@@ -1,4 +1,18 @@
-# Nytt ssb-project
+# Jobbe med kode
+
+
+# SSB-project
+
+I forrige del forklarte vi hvordan man jobber med skarpe data på Dapla. Det neste steget vil ofte være å begynne å utvikle kode i Python og/eller R. Dette innebærer at man helst skal: 
+
+- versjonshåndtere med **Git**
+- opprette et **GitHub**-repo
+- opprette et **virtuelt miljø** som husker hvilke versjoner av pakker og programmeringsspråk du brukte
+
+I tillegg må alt dette konfigureres for hvordan SSB sine systemer er satt opp. Dette har vist seg å være unødvendig krevende for mange. Team Statistikktjenester har derfor utviklet et program som gjør alt dette for deg på en enkel måte som heter **ssb-project**. 
+
+Vi mener at **ssb-project** er et naturlig sted å starte når man skal bygge opp koden i Python eller R. Det gjelder både på bakken og på sky. I denne delen av boken forklarer vi først hvordan du bruker **ssb-project** i det første kapittelet. Siden programmet skjuler mye av kompleksiteten rundt dette, så bruker vi de andre kapitlene til å forklare hvordan man ville satt opp dette uten hjelp av programmet. Dermed vil det være lett for SSB-ansatte å skjønne hva som gjøres og hvorfor det er nødvendig. 
+
 
 I dette kapittelet forklarer vi hvordan du oppretter et [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) og hva det innebærer. **ssb-project** er et CLI^[CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.] for å raskt komme i gang med koding på Dapla, hvor en del SSB-spesifikke beste-prakiser er ivaretatt. Kode som naturlig hører sammen, f.eks. koden til et produksjonsløp for en statistikk, er målgruppen for dette programmet. Kort fortalt kan du kjøre denne kommandoen i en terminal
 
@@ -104,7 +118,7 @@ Når du har opprettet et **ssb-project** så kan du installere de python-pakkene
 cd <sti til prosjektmappe>
 ```
 
-3. Lag en *branch*/utviklingsg som f.eks. heter **install-pandas**:
+3. Lag en *branch*/utviklingsbranch som f.eks. heter **install-pandas**:
 
 ```bash
 git checkout -b install-pandas

@@ -55,56 +55,49 @@ website:
       - section: introduksjon.qmd
         contents:
           - hva-er-dapla.qmd
-          - hvorfor-dapla.qmd
-          - arkitektur.qmd
+          - systemoversikt.qmd
           - innlogging.qmd
           - jupyterlab.qmd
-          - bakke-sky.qmd
-      - section: dapla-team.qmd
+      - section: statistikkproduksjon.qmd
         contents:
-        - hva-er-dapla-team.qmd
-        - opprette-dapla-team.qmd
-        - bøtter.qmd
-        - section: gcc.qmd
-          contents:
-            - gcc-avansert.qmd
-        - overføre-data.qmd
-        - jobbe-med-data.qmd
-        - slette-data.qmd
-        - gjenopprette-data.qmd
-        - bakke-til-sky.qmd
-        - administrasjon.qmd
-      - section: ssbproject.qmd
+        - section: dapla-team.qmd
+          contents: 
+          - hva-er-dapla-team.qmd
+          - administrasjon-av-team.qmd
+        - gcc.qmd
+        - overføring-av-data.qmd
+        - section: produksjonsløp.qmd
+          contents: 
+          - jobbe-med-kode.qmd
+          - jobbe-med-data.qmd
+          - section: standarder.qmd
+            contents:
+              - datatilstander.qmd
+          - orkestrering.qmd
+          - koble-data.qmd
+          - section: kildedata.qmd
+            contents: 
+            - automatisering.qmd
+            - automatisering-avansert.qmd
+          - statistikkbanken.qmd
+          - arkivering.qmd
+      - section: visualisering.qmd
         contents:
-        - nytt-ssbproject.qmd
-        - git-github.qmd
-        - virtual-env.qmd
-        - jupyter-kernel.qmd
-        - pakke-install.qmd
-        - pyspark-venv.qmd
-        - samarbeid.qmd
-        - vedlikehold.qmd
-      - section: data.qmd
+        - dashboard.qmd
+        - lage-nettsider.qmd
+      - section: bakkesystemer.qmd
         contents:
-        - datatilstander.qmd
-        - section: kildedata.qmd
-          contents:
-            - kildedata-prosessering.qmd
-            - github-app-integrasjon.qmd
-            - kildedata-prosessering-avansert.qmd
-        - statbanken.qmd
-      - section: jupyter-pa-bakken.qmd
-        contents:
+        - sas.qmd
+        - oracle.qmd
         - pakke-install-bakken.qmd
-        - lese-data-bakken.qmd
-      - section: avansert.qmd
+      - section: annet.qmd
         contents:
-        - lese-data.qmd
-        - remote.qmd
-        - schedulering.qmd
-        - databaser.qmd
+        - git-og-github.qmd
+        - lokale-utviklingsmiljøer.qmd
         - datadoc.qmd
-        - bidra-til-dapla-manualen.qmd
-        - dash.qmd
+        - github-app-integrasjon.qmd
+        - gjenopprette-data.qmd
+        - pakke-install.qmd
+        - spark.qmd
+        - slette-data.qmd
       - ordforklaringer.qmd
-      - references.qmd

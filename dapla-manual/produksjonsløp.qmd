@@ -1,0 +1,7 @@
+# Produksjonsløp {#sec-project-dice}
+
+I forrige del beskrev vi noen grunnleggende ting rundt **Dapla**. I denne delen tar vi for oss hvordan du kan begynne å jobbe med skarpe data på plattformen. 
+
+Kapittelet som beskriver hvordan man [logger seg inn på Dapla](./innlogging.html) vil fungere uten at du må gjøre noen forberedelser. Er man koblet på SSB sitt nettverk så vil alle SSB-ansatte kunne gå inn på plattformen og kode i Python og R. Men du får ikke tilgang til SSBs område for datalagring på plattformen. I praksis vil det si at man kan generere data med kode, men man kan ikke jobbe med skarpe data. 
+
+For å få muligheten til å jobbe med skarpe data MÅ du først opprette et **dapla-team**. Dette er det første naturlige steget å ta når man skal begynne å jobbe med statistikkproduksjon på Dapla. I dette kapittelet vil vi forklare det du trenger å vite om det å opprette og jobbe innenfor et team. 

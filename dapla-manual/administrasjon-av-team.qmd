@@ -1,11 +1,21 @@
 # Administrasjon av team
 
-I dette kapitlet viser vi hvordan du kan gjøre endringer i et eksisterende team. Typiske endringer er å: 
+I dette kapitlet viser vi hvordan du kan opprette et nytt team eller gjøre endringer i et eksisterende team. Typiske endringer er å: 
 
 - Legge til eller fjerne medlemmer i et team
 - Liste ut medlemmer og tilgangsgrupper i et team
 
-Mer kommer snart.
+## Opprette Dapla-team
+
+For å komme i gang med å opprette et Dapla-team trengs det en oversikt over teamets medlemmer og hvilke tilgangsgrupper medlemmene skal være med i. Det trengs også informasjon om hvilke Dapla-tjenester som er aktuelle for teamet å ta i bruk. Derfor har det blitt opprettet en egen veileder for dette kalt *Dapla Start*.
+
+::: {.callout-note appearance="simple"}
+Gå til [Dapla Start](https://start.dapla.ssb.no) for starte bestilling av et nytt Dapla-team.
+:::
+
+Når teamet er opprettet får alle medlemmene tilgang til sitt eget prosjekt i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester. Videre får hvert prosjekt et sett med tjenester og tilganger som knyttes til teamet. Det opprettes også datalagringsområder (kalt [bøtter](./b%C3%B8tter.qmd)) som bare kan aksesseres av brukere som er med i teamets tilgangsgrupper.
+
+Dapla-teamet vil også få sin egen gruppe i SSBs Active Directory slik at medlemskapet i gruppen kan administreres av Kundeservice.
 
 ## Legge til eller fjerne medlemmer i et team
 

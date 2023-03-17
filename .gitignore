@@ -138,3 +138,5 @@ dmypy.json
 /docs/
 
 /.luarc.json
+dapla-manual/.DS_Store
+.DS_Store

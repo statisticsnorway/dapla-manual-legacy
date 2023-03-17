@@ -1,4 +1,4 @@
-# Dash
+# Dash og dashboard
 
 Hvis en ønsker å lage ett dashbord som et brukergrensesnitt, så kan pakken Dash være et godt alternativ. Dash er ett rammeverk hvor man selv kan bygge opp applikasjoner i form av dashbord på en enklere måte, og det bygges oppå javascript pakker som plotly.js og react.js. Det er et produkt ved siden av og helintegrert med plotly, som også er en annen pakke i Python som gir oss interaktive grafer. Dash er et godt verktøy hvis en ønsker et dashbord som brukergrensesnitt for interaktiv visualisering av data. Dash kan kodes i Python og R, men også Julia og F#.
 

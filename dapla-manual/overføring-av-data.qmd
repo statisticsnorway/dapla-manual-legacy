@@ -1,4 +1,4 @@
-# Overføre data
+# Overføring av data
 
 For å overføre data mellom bakke og sky brukes **Data Transfer**, som er en tjeneste i [Google Cloud Console](gcc.qmd). Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets **kildedataansvarlige**.
 
