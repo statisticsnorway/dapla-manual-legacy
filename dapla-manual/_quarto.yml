@@ -100,4 +100,5 @@ website:
         - pakke-install.qmd
         - spark.qmd
         - slette-data.qmd
+        - altinn3.qmd
       - ordforklaringer.qmd

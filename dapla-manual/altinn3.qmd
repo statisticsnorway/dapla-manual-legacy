@@ -1,0 +1,20 @@
+# Altinn 3
+
+De neste årene skal skjema-undersøkelser som gjennomføres på **Altinn 2** flyttes over til **Altinn 3**. Skjemaer som flyttes til Altinn 3 vil motta sine data på **Dapla**, og ikke på *bakken* om tidligere. I dette kapitlet beskriver vi nærmere hvordan man jobber med Altinn3-data på Dapla. 
+
+## Datafangst
+
+[Team SUV](https://statistics-norway.atlassian.net/wiki/spaces/CUL/pages/2805530625/Teamsider) håndterer innhentingen av data fra Altinn 3 til Dapla. Etter at data for et gitt skjema er hentet inn blir de tilgjengeliggjort for statistikk-teamet i en dedikert bøtte på Dapla. Deretter må teamet som produserer statistikken  hente dataene selv til sin kildebøtte. Det kan gjøres automatisk ved å sette opp tjenesten [Transfer Service](./overf%C3%B8ring-av-data.html).
+
+Før du kan hente dataene til kildebøtta, må 2 ting være på plass:
+
+1. Statistikkprodusentene må ha [opprettet et Dapla-team](./opprette-dapla-team.html).
+2. Gi beskjed til Team SUV om at Dapla-teamet som skal jobbe med dataene er opprettet, og at de må gi teamets Transfer Service tilgang til å lese fra bøtta der dataene er lagret. der du oppgir følgende informasjon: 
+    1. Navnet på teamet
+    2. RA-nummer for undersøkelsen (f.eks. *RA-1111*)
+    3. Undersøkelsesnummer (f.eks. *01*)
+
+
+
+
+
