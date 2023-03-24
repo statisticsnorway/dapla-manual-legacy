@@ -1,23 +1,24 @@
 # Altinn 3
 
-De neste årene skal skjema-undersøkelser i SSB som gjennomføres på **Altinn 2** flyttes over til **Altinn 3**. Skjemaer som flyttes til Altinn 3 vil motta sine data på **Dapla**, og ikke på *bakken* om tidligere. I dette kapitlet beskriver vi nærmere hvordan man jobber med Altinn3-data på Dapla. Kort fortalt består det av disse stegene:
+![](images/altinn_logo.png){style="max-width: 50%; float: right;" fig-alt="Dapla logo"}
+
+Frem mot 2026 skal alle skjema-undersøkelser i SSB som gjennomføres på **Altinn 2** flyttes over til [Altinn 3](https://docs.altinn.studio/nb/community/about/). Skjemaer som flyttes til Altinn 3 vil motta sine data på **Dapla**, og ikke på *bakken* om tidligere. Datafangsten håndteres av [Team SUV](https://statistics-norway.atlassian.net/wiki/spaces/CUL/pages/2805530625/Teamsider), mens statistikkseksjonene henter sine data fra Team SUV sitt lagringsområdet på Dapla. I dette kapitlet beskriver vi nærmere hvordan statistikkseksjonene kan jobbe med Altinn3-data på Dapla. Kort oppsummert består det av disse stegene:
 
 1. Statistikkprodusenten avtaler med Team SUV og skjematuviklerne om overføring av skjema fra **Altinn 2** til **Altinn 3**. 
-2. Når statistikkprodusentene får beskjed at Altinn3-skjemaet skal sendes ut til oppgavegiverne, så må de opprette et [Dapla-team](./opprette-dapla-team.html).
-3. Når Dapla-teamet er opprettet, så ber de Team SUV om å gi teamet tilgang til dataene som har kommet inn fra Altinn 3. I tillegg ber om at Team SUV gir tilgang til teamets *Transfer Service* instans. ^[Forslag til e-post: Vi har opprettet et Dapla-tema som heter \<ditt teamnavn\> for å jobbe med skjema \<RA-XXXX\>. Kan dere gi oss tilgang til riktig lagringsområde og også gi vår Transfer Service lesetilgang.] 
-4. Statistikkprodusenten setter opp en automatisk overføring av skjemadata med [Transfer Service](./overf%C3%B8ring-av-data.qmd) fra Team SUV sitt lagringsområde til Dapla-teamet sin kildebøtte.
-5.  Statistikkprodusentene kan begynne å jobbe med dataene i Dapla. Det finnes en [automatiseringstjeneste](./automatisering.html) kan prosessere alle filene som kommer inn fra kildedata til inndata.
+2. Når statistikkprodusentene får beskjed om at Altinn3-skjemaet skal sendes ut til oppgavegiverne, så må de opprette et [Dapla-team](./opprette-dapla-team.html).
+3. Når Dapla-teamet er opprettet, så ber de Team SUV om å gi statistikkteamet tilgang til dataene som har kommet inn fra Altinn 3. I tillegg ber om at Team SUV gir tilgang til teamets *Transfer Service* instans. ^[Forslag til e-post til Team SUV etter at teamet er opprettet:  
+*Vi har opprettet et Dapla-tema som heter \<ditt teamnavn\> for å jobbe med skjema \<RA-XXXX\>. Kan dere gi oss tilgang til riktig lagringsområde og også gi vår Transfer Service lesetilgang.*] 
+4. Statistikkprodusenten setter opp en automatisk overføring av skjemadata med [Transfer Service](./overf%C3%B8ring-av-data.qmd), fra Team SUV sitt lagringsområde over til Dapla-teamet sin kildebøtte.
+5.  Statistikkprodusentene kan begynne å jobbe med dataene i Dapla. Blant annet hvordan man kan prosessere filene som kommer inn automatisk^[En typisk prosessering som de fleste vil ønske å gjøre er å konvertere fra xml-formatet det kom på, og over til parquet-formatet.].
 
 Under forklarer vi mer med mer detaljer hvordan man går frem for gjennomføre steg 4-5 over. 
 
 ## Forberedelse
 
-[Team SUV](https://statistics-norway.atlassian.net/wiki/spaces/CUL/pages/2805530625/Teamsider) håndterer innhentingen av data fra Altinn 3 til Dapla. Etter at data for et gitt skjema er hentet inn blir de tilgjengeliggjort for statistikk-teamet i en dedikert bøtte på Dapla. Deretter må teamet som produserer statistikken  hente dataene selv til sin kildebøtte. Det kan gjøres automatisk ved å sette opp tjenesten [Transfer Service](./overf%C3%B8ring-av-data.html).
-
-Før vi setter opp den automatiske overføringen er det verdt å tenke over et par ting: 
+Når skjema-dataene kommer inn fra Altinn 3 til Team SUV sitt lagringsområde, så er det en del ting som er verdt å tenke på:
 
 - **Hvordan er filene organisert hos Team SUV?**  
-Filstrukturen der Team SUV lagrer dataene som kommer inn fra Altinn 3, har en klar struktur. Du kan selv gå inn å kikke på dataene, enten [fra Jupyter](./jobbe-med-data.html) eller [Google Cloud Console](./gcc.html), og bli bedre kjent med strukturen^[Du kan gå inn i [Google Cloud Console](./gcc.html) og søke opp prosjektet til Team SUV som de bruker for å dele data. Det heter **altinn-data-prod**, og du finner bøttene ved å klikke deg inn på **Cloud Storage**]. @fig-altinn-path viser en typisk filsti ser ut for typisk skjema.
+Filstrukturen der Team SUV lagrer dataene som kommer inn fra Altinn 3, har en klar struktur. Du kan selv gå inn å kikke på dataene, enten [fra Jupyter](./jobbe-med-data.html) eller [Google Cloud Console](./gcc.html), og bli bedre kjent med strukturen^[Du kan gå inn i [Google Cloud Console](./gcc.html) og søke opp prosjektet til Team SUV som de bruker for å dele data. Det heter **altinn-data-prod**, og du finner bøttene ved å klikke deg inn på **Cloud Storage**]. @fig-altinn-path viser en hvordan en typisk filsti ser ut på lagringsområdet til Team SUV. Det starter med navnet til bøtta som Team SUV har opprettet for skjemaet. Deretter viser den innvitteringsdato, deretter et teknisk navn, og til slutt selve skjemanavnet. 
 
 ![Typisk filsti for et Altinn3-skjema.](images/altinn_filsti.png){fig-alt="Bilde av en typisk filsti som forklarer hva de ulike komponentene av stien betyr" #fig-altinn-path}
 
@@ -25,14 +26,49 @@ Filstrukturen der Team SUV lagrer dataene som kommer inn fra Altinn 3, har en kl
 Når vi bruker Transfer Service til å synkronisere innholdet i Team SUV sitt lagringsområde til Dapla-teamet sitt lagringsområde, så er det mest hensiktmessig å fortsette å bruke mapppe-strukturen som Team SUV har. Grunnen er at vi ikke kan legge på noe logikk som lager en ny struktur. Tjenesten bare kopierer over data. Men du kan kan lage et nytt toppnivå-mappe som du ønsker at dataene skal synkroniseres til. F.eks. at alle Altinn-dataene legger seg inn i en mappe som heter `altinn`. Det er spesielt nyttig hvis du har flere datakilder som skal ligge i samme kildebøtte.
 
 - **Unike skjemanavn**  
-Skjemanavnet du ser i @fig-altinn-path er unike. Dvs. at hvis en oppgavegiver sender inn flere skjemaer på samme dag, så er fortsatt skjemanavnet unikt. Det er viktig å være klar over når man bruker [automatiseringstjenesten for kilde](./automatisering.html). Siden tjenesten trigges per fil, og man er avhengig av unike navn for å ikke skrive over filer, så er det nyttig å vite at man kan videreføre skjemanavnet i overgangen fra kildedata til inndata. 
+Skjemanavnet du ser i @fig-altinn-path er unike. Dvs. at hvis en oppgavegiver sender inn flere skjemaer på samme dag, så er fortsatt skjemanavnet unikt. Det er viktig å være klar over når man bruker [automatiseringstjenesten for kildedata](./automatisering.html) senere. Siden tjenesten trigges per fil, og man er avhengig av unike navn for å ikke skrive over filer, så er det nyttig å vite at man kan videreføre skjemanavnet i overgangen fra kildedata til inndata. 
 
 ## Transfer Service
 
 [Transfer Service](./overf%C3%B8ring-av-data.html) er en tjeneste som kan brukes til å synkronisere innholdet mellom bøtter på Dapla, samt mellom bakke og sky. Når du skal ta i bruk tjenesten for å overføre data mellom en bøtte fra Team SUV sitt prosjekt **altinn-data-prod**, til en kildedata-bøtte i Dapla-teamet ditt, så gjør du følgende: 
 
-1. Gå inn i Google Cloud Console og sørg for at du logget inn med din ssb-bruker^[Hvis du f.eks. har en gmail-konto som du bruker i nettleseren, så hender det at du logget på med den. Det kan du sjekke øverst i høyre hjørnet i Google Cloud Console].
-2. Velg **Select a project** i den øverste menyen, og søk opp ditt prosjekt. Det kommer da opp flere alternativer, men velg det som starter med **prod-** etterfulgt av ditt teamnavn.
+1. Følg denne beskrivelsen hvordan man [setter opp overføringsjobber](./overf%C3%B8ring-av-data.html#sette-opp-overf%C3%B8ringsjobber).
+2. Etter at du har trykket på `Create Transfer Job` velger du **Google Cloud Storage** på begge alternativene under **Get Started**. Deretter går du videre ved å klikke på **Next Step**.
+3. Under **Choose a source** så skal du velge hvor du skal kopiere data fra. Trykk på **Browse**. I vinduet som dukker opp trykker du på 🔻-ikonet ved siden av **Project ID**. I søkevinduet som dukker opp søker du opp **altinn-data-prod** og trykker på navnet. Da får du listet opp alle bøttene i altinn-data-prod prosjektet. Til slutt trykker du på bøtta som Team SUV har opprettet for undersøkelsen^[Bøttenavnet starter alltid med RA-nummeret til undersøkelsen.] og klikker **Select** til nederst på siden. Trykk deretter **Next step** for å gå videre. 
+4. Under **Choose a destination** så skal du velge hvor du skal kopiere data til. Dette steget er ganske likt som forrige, men du skal nå velge ditt eget projekt og kildebøtta der. Trykk på **Browse**. I vinduet som dukker opp trykker du på 🔻-ikonet ved siden av **Project ID**. I søkevinduet som dukker opp søker du opp **prod-\<ditt teamnavn\>** og trykker på navnet. Da får du listet opp alle bøttene i ditt team sitt prosjekt. Velg kildebøtta som har navnet **ssb-prod-\<teamnavn\>-data-kilde**. Hvis du ønsker å kopiere data til en undermappe i bøtta, så trykker du på <span style="color:red;">**>**</span>-ikonet ved bøttenavnet og velger ønsket undermappe^[Alternativt oppretter du en mappe direkte vinduet ved å trykke på mappe-ikonet med en **+**-tegn i seg.]. Til slutt trykker du på **Select** til nederst på siden. Trykk deretter **Next step** for å gå videre.
+5. Under **Choose how and when to run job** velger du **Run with custom frequency** og **Starting now** i **Batch**-modus. Hvis du ønsker å overføre så ofte som mulig, så velger du **Custom frequency** og **Repeat every 1 Hours**. Til slutt trykker du **Next Step** nederst på siden.
+6. Under **Choose Settings** så legger du til en kort beskrivelse av jobben du har opprettet. Under de andre valgene kan du gjøre følgende: 
+    - Under **Advanced transfer Options** trenger du ikke gjøre noen endringer. 
+    - Under **When to overwrite** kan du velge **If different**.
+    - Under **When to delete** kan du velge **Never**.
+    - Under **Manifest** trenger du ikke huke av. 
+    - Under **Logging options** velger du samme som vist i @fig-ts-log.
+
+![Valg av opsjoner for logging i Transfer Service](images/transfer-service-logging.png){fig-alt="Bilde av en typisk filsti som forklarer hva de ulike komponentene av stien betyr" #fig-ts-log}
+
+Til slutt trykker du **Create** for å aktivere tjenesten. Den vil da sjekke Team SUV sin bøtte hver time og overføre alle filer som ikke allerede eksisterer statistikkteamets kildebøtte. 
+
+## Automatiseringstjeneste for kildedata
+
+Når du har satt opp Transfer Service for å kopiere over filer fra Team SUV sin bøtte til statistikkteamets kildebøtte, så vil det potensielt komme inn nye skjemaer hver time. Disse kan du lese inn i **Jupyter** og jobbe med hvis du er kildedata-ansvarlig i teamet. Hvis du ikke er det så må du vente til dataene er tilgjengeliggjort i produkt-bøtta til teamet. 
+
+Siden få personer innehar rollen som kildedata-ansvarlig så er det laget en automatiseringstjeneste som kan bearbeide alle filer som kommer inn i kildebøtta. 
+
+## Tips og triks
+
+I denne delen deles noen tips og triks for å jobbe med Altinn3-dataene på Dapla. fokuset vil være på hvordan du kan lese inn og transformere xml-filer fra skjema-dataene.
+
+### Liste ut innhold i en mappe
+
+### Printe XML i Jupyter
+
+### Fra XML til Pandas DataFrame
+
+
+
+
+
+
 
 
 
