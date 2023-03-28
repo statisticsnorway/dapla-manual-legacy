@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dapla-manual – altinn3</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/dapla-favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "treff",
+    "search-copy-link-title": "Kopier link til søk",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dokumentet",
+    "search-more-matches-text": "flere treff i dokumentet",
+    "search-clear-button-title": "Nullstill",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/dapla-long.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dapla-manual</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://start.dapla.ssb.no/"><i class="bi bi-people-fill" role="img" aria-label="Opprette Dapla-team">
+</i> 
+ <span class="menu-text">Opprette Dapla-team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://web.yammer.com/main/org/ssb.no/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5MDUzMjA2In0/all"><i class="bi bi-question-lg" role="img">
+</i> 
+ <span class="menu-text">Stille spørsmål</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ssb.pureservice.com/#/new/7"><i class="bi bi-send-fill" role="img" aria-label="Åpne en sak hos Kundeservice">
+</i> 
+ <span class="menu-text">Melde sak</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/statisticsnorway/dapla-manual"><i class="bi bi-github" role="img" aria-label="Dapla-manual GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Velkommen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">Forord</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./introduksjon.html" class="sidebar-item-text sidebar-link">Introduksjon</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link">Hva er Dapla?</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./systemoversikt.html" class="sidebar-item-text sidebar-link">Systemoversikt</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./innlogging.html" class="sidebar-item-text sidebar-link">Innlogging</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jupyterlab.html" class="sidebar-item-text sidebar-link">Jupyterlab</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">Statistikkproduksjon</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">Dapla Team</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">Hva er Dapla-team?</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./administrasjon-av-team.html" class="sidebar-item-text sidebar-link">Administrasjon av team</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gcc.html" class="sidebar-item-text sidebar-link">Google Cloud Console</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./overføring-av-data.html" class="sidebar-item-text sidebar-link">Overføring av data</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./produksjonsløp.html" class="sidebar-item-text sidebar-link">Produksjonsløp</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jobbe-med-kode.html" class="sidebar-item-text sidebar-link">Jobbe med kode</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link">Jobbe med data</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./standarder.html" class="sidebar-item-text sidebar-link">Standarder</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">Datatilstander</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./orkestrering.html" class="sidebar-item-text sidebar-link">Orkestrering</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./koble-data.html" class="sidebar-item-text sidebar-link">Koble data</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./kildedata.html" class="sidebar-item-text sidebar-link">Kildedata</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./automatisering.html" class="sidebar-item-text sidebar-link">Automatisering</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./automatisering-avansert.html" class="sidebar-item-text sidebar-link">Automatisering Avansert</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistikkbanken.html" class="sidebar-item-text sidebar-link">Statistikkbanken</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./arkivering.html" class="sidebar-item-text sidebar-link">Arkivering</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualisering.html" class="sidebar-item-text sidebar-link">Visualisering</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">Dash og dashboard</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lage-nettsider.html" class="sidebar-item-text sidebar-link">Lage nettsider</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./bakkesystemer.html" class="sidebar-item-text sidebar-link">Bakkesystemer</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sas.html" class="sidebar-item-text sidebar-link">SAS</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./oracle.html" class="sidebar-item-text sidebar-link">Oracle</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pakke-install-bakken.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./annet.html" class="sidebar-item-text sidebar-link">Annet</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git-og-github.html" class="sidebar-item-text sidebar-link">Git og Github</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lokale-utviklingsmiljøer.html" class="sidebar-item-text sidebar-link">Lokale utviklingsmiljøer</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datadoc.html" class="sidebar-item-text sidebar-link">DataDoc</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github-app-integrasjon.html" class="sidebar-item-text sidebar-link">Koble prosjektet til Github</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">Gjenopprette data fra bøtter</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link">Installere pakker</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spark.html" class="sidebar-item-text sidebar-link">Spark</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">Slette data fra bøtter</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./altinn3.html" class="sidebar-item-text sidebar-link active">Altinn 3</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ordforklaringer.html" class="sidebar-item-text sidebar-link">Ordforklaringer</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#altinn-3" id="toc-altinn-3" class="nav-link active" data-scroll-target="#altinn-3">Altinn 3</a>
+  <ul class="collapse">
+  <li><a href="#forberedelse" id="toc-forberedelse" class="nav-link" data-scroll-target="#forberedelse">Forberedelse</a></li>
+  <li><a href="#transfer-service" id="toc-transfer-service" class="nav-link" data-scroll-target="#transfer-service">Transfer Service</a></li>
+  <li><a href="#automatiseringstjeneste-for-kildedata" id="toc-automatiseringstjeneste-for-kildedata" class="nav-link" data-scroll-target="#automatiseringstjeneste-for-kildedata">Automatiseringstjeneste for kildedata</a></li>
+  <li><a href="#tips-og-triks" id="toc-tips-og-triks" class="nav-link" data-scroll-target="#tips-og-triks">Tips og triks</a>
+  <ul class="collapse">
+  <li><a href="#liste-ut-innhold-i-en-mappe" id="toc-liste-ut-innhold-i-en-mappe" class="nav-link" data-scroll-target="#liste-ut-innhold-i-en-mappe">Liste ut innhold i en mappe</a></li>
+  <li><a href="#printe-xml-i-jupyter" id="toc-printe-xml-i-jupyter" class="nav-link" data-scroll-target="#printe-xml-i-jupyter">Printe XML i Jupyter</a></li>
+  <li><a href="#fra-xml-til-pandas-dataframe" id="toc-fra-xml-til-pandas-dataframe" class="nav-link" data-scroll-target="#fra-xml-til-pandas-dataframe">Fra XML til Pandas DataFrame</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="altinn-3" class="level1">
+<h1>Altinn 3</h1>
+<p><img src="images/altinn_logo.png" class="img-fluid" style="max-width: 50%; float: right;" alt="Dapla logo"></p>
+<p>Frem mot 2026 skal alle skjema-undersøkelser i SSB som gjennomføres på <strong>Altinn 2</strong> flyttes over til <a href="https://docs.altinn.studio/nb/community/about/">Altinn 3</a>. Skjemaer som flyttes til Altinn 3 vil motta sine data på <strong>Dapla</strong>, og ikke på <em>bakken</em> som tidligere. Datafangsten håndteres av <a href="https://statistics-norway.atlassian.net/wiki/spaces/CUL/pages/2805530625/Teamsider">Team SUV</a>, mens statistikkseksjonene henter sine data fra Team SUV sitt lagringsområde på Dapla. I dette kapitlet beskriver vi nærmere hvordan statistikkseksjonene kan jobbe med Altinn3-data på Dapla. Kort oppsummert består det av disse stegene:</p>
+<ol type="1">
+<li>Statistikkprodusenten avtaler med Team SUV og skjematuviklerne om overføring av skjema fra <strong>Altinn 2</strong> til <strong>Altinn 3</strong>.</li>
+<li>Når statistikkprodusentene får beskjed om at Altinn3-skjemaet skal sendes ut til oppgavegiverne, så må de opprette et <a href="./opprette-dapla-team.html">Dapla-team</a>.</li>
+<li>Når Dapla-teamet er opprettet, så ber de Team SUV om å gi statistikkteamet tilgang til dataene som har kommet inn fra Altinn 3. I tillegg ber de om at Team SUV gir tilgang til teamets <em>Transfer Service</em> instans. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>Statistikkprodusenten setter opp en automatisk overføring av skjemadata med <a href="./overføring-av-data.html">Transfer Service</a>, fra Team SUV sitt lagringsområde over til Dapla-teamet sin kildebøtte.</li>
+<li>Statistikkprodusentene kan begynne å jobbe med dataene i Dapla. Blant annet tilbyr Dapla en <strong>automatiseringstjeneste</strong> man kan bruke for å prosessere dataene fra kildedata til inndata<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
+</ol>
+<p>Under forklarer vi mer med mer detaljer hvordan man går frem for gjennomføre steg 4-5 over.</p>
+<section id="forberedelse" class="level2">
+<h2 class="anchored" data-anchor-id="forberedelse">Forberedelse</h2>
+<p>Når skjema-dataene kommer inn fra Altinn 3 til Team SUV sitt lagringsområde, så er det en del ting som er verdt å tenke på:</p>
+<ul>
+<li><strong>Hvordan er filene organisert hos Team SUV?</strong><br>
+Filstrukturen der Team SUV lagrer dataene som kommer inn fra Altinn 3, har en klar struktur. Du kan selv gå inn å kikke på dataene, enten <a href="./jobbe-med-data.html">fra Jupyter</a> eller <a href="./gcc.html">Google Cloud Console</a>, og bli bedre kjent med strukturen<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. <a href="#fig-altinn-path">Figur&nbsp;1</a> viser en hvordan en typisk filsti ser ut på lagringsområdet til Team SUV. Det starter med navnet til bøtta som Team SUV har opprettet for skjemaet. Deretter viser den innvitteringsdato, deretter et teknisk navn, og til slutt selve skjemanavnet.</li>
+</ul>
+<div id="fig-altinn-path" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/altinn_filsti.png" class="img-fluid figure-img" alt="Bilde av en typisk filsti som forklarer hva de ulike komponentene av stien betyr"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;1: Typisk filsti for et Altinn3-skjema.</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p><strong>Hvordan organisere dataene i din kildebøtte?</strong><br>
+Når vi bruker Transfer Service til å synkronisere innholdet i Team SUV sitt lagringsområde til Dapla-teamet sitt lagringsområde, så er det mest hensiktmessig å fortsette å bruke mapppe-strukturen som Team SUV har. Grunnen er at vi ikke kan legge på noe logikk som lager en ny struktur. Tjenesten bare kopierer over data. Men du kan kan lage et nytt toppnivå-mappe som du ønsker at dataene skal synkroniseres til. F.eks. at alle Altinn-dataene legger seg inn i en mappe som heter <code>altinn</code>. Det er spesielt nyttig hvis du har flere datakilder som skal ligge i samme kildebøtte.</p></li>
+<li><p><strong>Unike skjemanavn</strong><br>
+Skjemanavnet du ser i <a href="#fig-altinn-path">Figur&nbsp;1</a> er unike. Dvs. at hvis en oppgavegiver sender inn flere skjemaer på samme dag, så er fortsatt skjemanavnet unikt. Det er viktig å være klar over når man bruker <a href="./automatisering.html">automatiseringstjenesten for kildedata</a> senere. Siden tjenesten trigges per fil, og man er avhengig av unike navn for å ikke skrive over filer, så er det nyttig å vite at man kan videreføre skjemanavnet i overgangen fra kildedata til inndata.</p></li>
+</ul>
+</section>
+<section id="transfer-service" class="level2">
+<h2 class="anchored" data-anchor-id="transfer-service">Transfer Service</h2>
+<p><a href="./overføring-av-data.html">Transfer Service</a> er en tjeneste som kan brukes til å synkronisere innholdet mellom bøtter på Dapla, samt mellom bakke og sky. Når du skal ta i bruk tjenesten for å overføre data mellom en bøtte fra Team SUV sitt prosjekt <strong>altinn-data-prod</strong>, til en kildedata-bøtte i Dapla-teamet ditt, så gjør du følgende:</p>
+<ol type="1">
+<li>Følg denne beskrivelsen hvordan man <a href="./overføring-av-data.html#sette-opp-overføringsjobber">setter opp overføringsjobber</a>.</li>
+<li>Etter at du har trykket på <code>Create Transfer Job</code> velger du <strong>Google Cloud Storage</strong> på begge alternativene under <strong>Get Started</strong>. Deretter går du videre ved å klikke på <strong>Next Step</strong>.</li>
+<li>Under <strong>Choose a source</strong> så skal du velge hvor du skal kopiere data fra. Trykk på <strong>Browse</strong>. I vinduet som dukker opp trykker du på 🔻-ikonet ved siden av <strong>Project ID</strong>. I søkevinduet som dukker opp søker du opp <strong>altinn-data-prod</strong> og trykker på navnet. Da får du listet opp alle bøttene i altinn-data-prod prosjektet. Til slutt trykker du på bøtta som Team SUV har opprettet for undersøkelsen<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> og klikker <strong>Select</strong> til nederst på siden. Trykk deretter <strong>Next step</strong> for å gå videre.</li>
+<li>Under <strong>Choose a destination</strong> så skal du velge hvor du skal kopiere data til. Dette steget er ganske likt som forrige, men du skal nå velge ditt eget projekt og kildebøtta der. Trykk på <strong>Browse</strong>. I vinduet som dukker opp trykker du på 🔻-ikonet ved siden av <strong>Project ID</strong>. I søkevinduet som dukker opp søker du opp <strong>prod-&lt;ditt teamnavn&gt;</strong> og trykker på navnet. Da får du listet opp alle bøttene i ditt team sitt prosjekt. Velg kildebøtta som har navnet <strong>ssb-prod-&lt;teamnavn&gt;-data-kilde</strong>. Hvis du ønsker å kopiere data til en undermappe i bøtta, så trykker du på <span style="color:red;"><strong>&gt;</strong></span>-ikonet ved bøttenavnet og velger ønsket undermappe<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Til slutt trykker du på <strong>Select</strong> til nederst på siden. Trykk deretter <strong>Next step</strong> for å gå videre.</li>
+<li>Under <strong>Choose how and when to run job</strong> velger du <strong>Run with custom frequency</strong> og <strong>Starting now</strong> i <strong>Batch</strong>-modus. Hvis du ønsker å overføre så ofte som mulig, så velger du <strong>Custom frequency</strong> og <strong>Repeat every 1 Hours</strong>. Til slutt trykker du <strong>Next Step</strong> nederst på siden.</li>
+<li>Under <strong>Choose Settings</strong> så legger du til en kort beskrivelse av jobben du har opprettet. Under de andre valgene kan du gjøre følgende:
+<ul>
+<li>Under <strong>Advanced transfer Options</strong> trenger du ikke gjøre noen endringer.</li>
+<li>Under <strong>When to overwrite</strong> kan du velge <strong>If different</strong>.</li>
+<li>Under <strong>When to delete</strong> kan du velge <strong>Never</strong>.</li>
+<li>Under <strong>Manifest</strong> trenger du ikke huke av.</li>
+<li>Under <strong>Logging options</strong> velger du samme som vist i <a href="#fig-ts-log">Figur&nbsp;2</a>.</li>
+</ul></li>
+</ol>
+<div id="fig-ts-log" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/transfer-service-logging.png" class="img-fluid figure-img" alt="Bilde av en typisk filsti som forklarer hva de ulike komponentene av stien betyr"></p>
+<p></p><figcaption class="figure-caption">Figur&nbsp;2: Valg av opsjoner for logging i Transfer Service</figcaption><p></p>
+</figure>
+</div>
+<p>Til slutt trykker du <strong>Create</strong> for å aktivere tjenesten. Den vil da sjekke Team SUV sin bøtte hver time og kopiere over alle filer som ikke allerede eksisterer statistikkteamets kildebøtte.</p>
+</section>
+<section id="automatiseringstjeneste-for-kildedata" class="level2">
+<h2 class="anchored" data-anchor-id="automatiseringstjeneste-for-kildedata">Automatiseringstjeneste for kildedata</h2>
+<p>Når du har satt opp Transfer Service til å kopiere over filer fra Team SUV sin bøtte til statistikkteamets kildebøtte, så vil det potensielt komme inn nye skjemaer hver time. Disse kan du lese inn i <strong>Jupyter</strong> og jobbe med hvis du er kildedata-ansvarlig i teamet. Hvis du ikke er det så må du vente til dataene er tilgjengeliggjort i produkt-bøtta til teamet.</p>
+<p>Siden få personer innehar rollen som kildedata-ansvarlig så er det laget en automatiseringstjeneste som kan bearbeide alle filer som kommer inn i kildebøtta. Den lar deg kjøre et python-script på alle filer som kommer inn i kildebøtta.</p>
+<p><a href="./automatisering.html">Les mer om hvordan du kan bruker tjenesten her.</a></p>
+</section>
+<section id="tips-og-triks" class="level2">
+<h2 class="anchored" data-anchor-id="tips-og-triks">Tips og triks</h2>
+<p>I denne delen deles noen tips og triks for å jobbe med Altinn3-dataene på Dapla. Fokuset vil være på hvordan du kan lese inn og transformere xml-filer fra skjema-dataene.</p>
+<section id="liste-ut-innhold-i-en-mappe" class="level3">
+<h3 class="anchored" data-anchor-id="liste-ut-innhold-i-en-mappe">Liste ut innhold i en mappe</h3>
+<p>For å se innholdet i en mappe gir det mest mening å bruke <a href="./gcc.html">Google Cloud Console</a>. Her kan du se både filer og mapper i et pek-og-klikk grensesnitt. Men du kan ikke se på innholdet i filene der. Til det må du bruke Jupyter.</p>
+<p>Anta at vi ønsker å liste alle som leverte skjema den <strong>10. mars 2023</strong>. Da kan vi bruke <a href="https://gcsfs.readthedocs.io/en/latest/api.html">gcsfs</a> til å gjøre det<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>xml_files <span class="op">=</span> []</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> fs.walk(file_path):</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">file</span>.endswith(<span class="st">".xml"</span>):</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            xml_files.append(<span class="ss">f"</span><span class="sc">{</span>root<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">file</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the list of parquet files</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>xml_files</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Her bruker vi <code>fs.walk()</code>-funksjonen fra <strong>gcsfs</strong> til å loope gjennom alle undermapper av <code>file_path</code>, og legge alle filer som slutter med <code>.xml</code> til listen <code>xml_files</code>. Dermed har vi et Python-objekt som kun brukes til å hente inn de filene vi ønsker. Vi bruker da det vi vet om mappestrukturen i Team SUV sin bøtte som vi så tidligere i <a href="#fig-altinn-path">Figur&nbsp;1</a>.</p>
+</section>
+<section id="printe-xml-i-jupyter" class="level3">
+<h3 class="anchored" data-anchor-id="printe-xml-i-jupyter">Printe XML i Jupyter</h3>
+<p>Noen ganger kan det være nyttig å se en xml-fil direkte. Da kan vi lese den inn i Jupyter og printe den ut. Her er et eksempel på hvordan vi kan gjøre det, samtidig som vi formatterer den med <code>xml.dom.minidom</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xml.dom.minidom</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown, display</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/24/28c34dce4232_e7bed8a4-def5-42dc-b1e2-b9fc66beb769/form_28c34dce4232.xml"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_file():</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> fs.<span class="bu">open</span>(file_path, mode<span class="op">=</span><span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        single_xml <span class="op">=</span> f.read()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    dom_tree <span class="op">=</span> xml.dom.minidom.parseString(single_xml)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    pretty_xml_data <span class="op">=</span> dom_tree.toprettyxml()</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    display(Markdown(<span class="st">"```xml</span><span class="ch">\n</span><span class="sc">{}</span><span class="ch">\n</span><span class="st">```"</span>.<span class="bu">format</span>(pretty_xml_data)))</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fra-xml-til-pandas-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="fra-xml-til-pandas-dataframe">Fra XML til Pandas DataFrame</h3>
+<p>De færreste ønsker å jobbe direkte med XML-filer. Derfor er det nyttig å kunne transformere XML-filene til et mer brukervennlig format, f.eks. en <strong>Pandas Dataframe</strong>. Her er et eksempel på hvordan vi kan gjøre det med Pandas:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xml.etree.ElementTree <span class="im">as</span> ET</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> single_xml_to_dataframe(file_path: <span class="bu">str</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> fs.<span class="bu">open</span>(file_path, mode<span class="op">=</span><span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        single_xml <span class="op">=</span> f.read()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    root <span class="op">=</span> ET.fromstring(single_xml)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    intern_info <span class="op">=</span> root.find(<span class="st">"InternInfo"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    kontakt <span class="op">=</span> root.find(<span class="st">"Kontakt"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    skjemadata <span class="op">=</span> root.find(<span class="st">"Skjemadata"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    all_tags <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> intern_info:</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> kontakt:</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> skjemadata:</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> tag <span class="kw">in</span> all_tags:</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        element <span class="op">=</span> intern_info.find(tag)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            element <span class="op">=</span> kontakt.find(tag)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            element <span class="op">=</span> skjemadata.find(tag)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            value <span class="op">=</span> element.text</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            data.append(value)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>            data.append(<span class="va">None</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include the full path to the XML file in the data list</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    data.append(file_path)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the DataFrame inside the function</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame([data], columns<span class="op">=</span><span class="bu">list</span>(all_tags) <span class="op">+</span> [<span class="st">"pathToXmlFile"</span>])</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    path_to_xml_file_split <span class="op">=</span> df[<span class="st">"pathToXmlFile"</span>].<span class="bu">str</span>.split(<span class="st">"/"</span>)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the function</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/24/28c34dce4232_e7bed8a4-def5-42dc-b1e2-b9fc66beb769/form_28c34dce4232.xml"</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> single_xml_to_dataframe(file_path<span class="op">=</span>file_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I funksjonen så søker vi etter alle elementer under taggene <code>intern_info</code>, <code>kontakt</code> og <code>skjemadata</code>. Dvs. at vi lager en dataframe med en rad, der vi tar med all data fra xml-filen. Til slutt legger vi til en kolonne med filstien til filen. Det kan være nyttig senere hvis man gå tilbake til xml-filen for å sjekke om konverteringen til en dataframe er riktig.</p>
+<p>Funksjonen <code>single_xml_to_dataframe()</code> kan brukes til å loope over en liste med filstier (vi viste hvordan man lager en slik liste tidligere i kapitlet). Men et typisk problem som vil oppstå da er at xml-filene har forskjellig antall elementer i seg, som gir dataframes med ulikt antall kolonner, og derfor vil ikke Pandas vite hvordan man konkatinerer disse. For å fikse dette må du modifisere funksjonen til å ta høyde for dette.</p>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p>Forslag til e-post til Team SUV etter at teamet er opprettet:<br>
+<em>Vi har opprettet et Dapla-tema som heter &lt;ditt teamnavn&gt; for å jobbe med skjema &lt;RA-XXXX&gt;. Kan dere gi oss tilgang til riktig lagringsområde og også gi vår Transfer Service lesetilgang.</em><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>En typisk prosessering som de fleste vil ønske å gjøre er å konvertere fra xml-formatet det kom på, og over til parquet-formatet.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Du kan gå inn i <a href="./gcc.html">Google Cloud Console</a> og søke opp prosjektet til Team SUV som de bruker for å dele data. Det heter <strong>altinn-data-prod</strong>, og du finner bøttene ved å klikke deg inn på <strong>Cloud Storage</strong><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Bøttenavnet starter alltid med RA-nummeret til undersøkelsen.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Alternativt oppretter du en mappe direkte vinduet ved å trykke på mappe-ikonet med en <strong>+</strong>-tegn i seg.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>For å autentisere seg mot GCS kan vi bruke <strong>AuthClient</strong> fra <strong>dapla-toolbelt</strong>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Kom i gang med Dapla</div>
+  </div>
+</footer>
+
+
+
+</body></html>
