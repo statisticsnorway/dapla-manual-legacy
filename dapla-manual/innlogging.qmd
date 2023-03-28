@@ -58,9 +58,9 @@ Fom. 5. desember 2022 har vi byttet ut Jupyter-miljøet på bakken. Beskrivelsen
 Du logger deg inn på prod i bakkemiljøet på følgende måte: 
 
 1. Logg deg inn på Citrix-Windows i bakkemiljøet. Det kan gjøres ved å bruke lenken **Citrix** på Byrånettet, som også vises i @fig-intranett.
-2. Trykk på Jupyterlab-ikonet, som vist på @jupyter-icon, og logg deg inn med vanlig brukernavn og passord.
+2. Trykk på Jupyterlab-ikonet, som vist på @fig-jupyter-icon, og logg deg inn med vanlig brukernavn og passord.
 
-![Jupyterlab-ikon på Skrivebordet i Citrix-Windows.](./images/citrix_jupyter_icon.png){ fig-alt="Bildet som viser hvordan man åpner Jupyterlab-miljet på bakken." width=75% #jupyter-icon }
+![Jupyterlab-ikon på Skrivebordet i Citrix-Windows.](./images/citrix_jupyter_icon.png){ fig-alt="Bildet som viser hvordan man åpner Jupyterlab-miljet på bakken." width=75% #fig-jupyter-icon }
 
 
 
