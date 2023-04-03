@@ -562,131 +562,165 @@ Skjemanavnet du ser i <a href="#fig-altinn-path">Figur&nbsp;1</a> er unike. Dvs.
 <section id="liste-ut-innhold-i-en-mappe" class="level3">
 <h3 class="anchored" data-anchor-id="liste-ut-innhold-i-en-mappe">Liste ut innhold i en mappe</h3>
 <p>For å se innholdet i en mappe gir det mest mening å bruke <a href="./gcc.html">Google Cloud Console</a>. Her kan du se både filer og mapper i et pek-og-klikk grensesnitt. Men du kan ikke se på innholdet i filene der. Til det må du bruke Jupyter.</p>
-<p>Anta at vi ønsker å liste alle som leverte skjema den <strong>10. mars 2023</strong>. Da kan vi bruke <a href="https://gcsfs.readthedocs.io/en/latest/api.html">gcsfs</a> til å gjøre det<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
+<p>Anta at vi ønsker å liste ut alle som leverte skjema den <strong>10. mars 2023</strong>. Da kan vi bruke <a href="https://gcsfs.readthedocs.io/en/latest/api.html">gcsfs</a> til å gjøre det<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>xml_files <span class="op">=</span> []</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> fs.walk(file_path):</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">file</span>.endswith(<span class="st">".xml"</span>):</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            xml_files.append(<span class="ss">f"</span><span class="sc">{</span>root<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">file</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the list of parquet files</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>xml_files</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Her bruker vi <code>fs.walk()</code>-funksjonen fra <strong>gcsfs</strong> til å loope gjennom alle undermapper av <code>file_path</code>, og legge alle filer som slutter med <code>.xml</code> til listen <code>xml_files</code>. Dermed har vi et Python-objekt som kun brukes til å hente inn de filene vi ønsker. Vi bruker da det vi vet om mappestrukturen i Team SUV sin bøtte som vi så tidligere i <a href="#fig-altinn-path">Figur&nbsp;1</a>.</p>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Henter ut alle xml-filer under en filsti</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>xml_files <span class="op">=</span> fs.glob(<span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10/**.xml"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the list of parquet files</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>xml_files</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Her bruker vi <code>fs.glob()</code>-funksjonen fra <strong>gcsfs</strong> til å loope gjennom alle undermapper av <code>gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10/</code>, og legge alle filer som slutter med <code>.xml</code> til listen <code>xml_files</code>. Dermed har vi et Python-objekt som kun brukes til å hente inn de filene vi ønsker. Vi bruker da det vi vet om mappestrukturen i Team SUV sin bøtte som vi så tidligere i <a href="#fig-altinn-path">Figur&nbsp;1</a>.</p>
 </section>
 <section id="printe-xml-i-jupyter" class="level3">
 <h3 class="anchored" data-anchor-id="printe-xml-i-jupyter">Printe XML i Jupyter</h3>
 <p>Noen ganger kan det være nyttig å se en xml-fil direkte. Da kan vi lese den inn i Jupyter og printe den ut. Her er et eksempel på hvordan vi kan gjøre det, samtidig som vi formatterer den med <code>xml.dom.minidom</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xml.dom.minidom</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown, display</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/24/28c34dce4232_e7bed8a4-def5-42dc-b1e2-b9fc66beb769/form_28c34dce4232.xml"</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_file():</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> fs.<span class="bu">open</span>(file_path, mode<span class="op">=</span><span class="st">"r"</span>) <span class="im">as</span> f:</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        single_xml <span class="op">=</span> f.read()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    dom_tree <span class="op">=</span> xml.dom.minidom.parseString(single_xml)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    pretty_xml_data <span class="op">=</span> dom_tree.toprettyxml()</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    display(Markdown(<span class="st">"```xml</span><span class="ch">\n</span><span class="sc">{}</span><span class="ch">\n</span><span class="st">```"</span>.<span class="bu">format</span>(pretty_xml_data)))</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xml.dom.minidom <span class="im">import</span> parseString</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Kobler oss på bøttene</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sett inn filstien din her</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/form_dc551844cd74.xml"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>dom <span class="op">=</span> parseString(fs.cat_file(<span class="bu">file</span>))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>pretty_xml <span class="op">=</span> dom.toprettyxml(indent<span class="op">=</span><span class="st">"  "</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pretty_xml)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Vi brukte da <code>fs.cat_file()</code> til å hente inn innholdet i mappen, gjorde det om til xml-object, og formatterer outputen med <code>xml.dom.minidom</code>. Resultatet vil da se ut noe sånt som dette:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span> <span class="fu">?&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">melding</span><span class="ot"> xmlns:xsi=</span><span class="st">"http://www.w3.org/2001/XMLSchema-instance"</span><span class="ot"> xmlns:xsd=</span><span class="st">"http://www.w3.org/2001/XMLSchema"</span><span class="ot"> dataFormatProvider=</span><span class="st">"SERES"</span><span class="ot"> dataFormatId=</span><span class="st">"7079"</span><span class="ot"> dataFormatVersion=</span><span class="st">"47315"</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">InternInfo</span>&gt;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">raNummer</span>&gt;RA-XXXX&lt;/<span class="kw">raNummer</span>&gt;</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">skjemaVersjon</span>&gt;1.0&lt;/<span class="kw">skjemaVersjon</span>&gt;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">undersoekelsesNr</span>&gt;XXXXX&lt;/<span class="kw">undersoekelsesNr</span>&gt;</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">visOppgaveByrde</span>&gt;0&lt;/<span class="kw">visOppgaveByrde</span>&gt;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">visBrukeropplevelse</span>&gt;0&lt;/<span class="kw">visBrukeropplevelse</span>&gt;</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">delregNr</span>&gt;2XXXXX&lt;/<span class="kw">delregNr</span>&gt;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">periodeFritekst</span>&gt;3. kvartal 2022&lt;/<span class="kw">periodeFritekst</span>&gt;</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">periodeFomDato</span>&gt;2022-07-01&lt;/<span class="kw">periodeFomDato</span>&gt;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">periodeTomDato</span>&gt;2022-09-30&lt;/<span class="kw">periodeTomDato</span>&gt;</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">periodeType</span>&gt;KVRT&lt;/<span class="kw">periodeType</span>&gt;</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">periodeNummer</span>&gt;3&lt;/<span class="kw">periodeNummer</span>&gt;</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">periodeAAr</span>&gt;2022&lt;/<span class="kw">periodeAAr</span>&gt;</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">periodeDato</span>&gt; &lt;/<span class="kw">periodeDato</span>&gt;</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsIdent</span>&gt;XXXXXX&lt;/<span class="kw">enhetsIdent</span>&gt;</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsType</span>&gt;BEDR&lt;/<span class="kw">enhetsType</span>&gt;</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsOrgNr</span>&gt;XXXXXXXXX&lt;/<span class="kw">enhetsOrgNr</span>&gt;</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsNavn</span>&gt;STATISTISK SENTRALBYRÅ &lt;/<span class="kw">enhetsNavn</span>&gt;</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsGateadresse</span>&gt;Akersveien 26&lt;/<span class="kw">enhetsGateadresse</span>&gt;</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsPostnr</span>&gt;0177&lt;/<span class="kw">enhetsPostnr</span>&gt;</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsPoststed</span>&gt;OSLO&lt;/<span class="kw">enhetsPoststed</span>&gt;</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">enhetsAvdeling</span>&gt;AVD XXXX&lt;/<span class="kw">enhetsAvdeling</span>&gt;</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">reporteeOrgNr</span>&gt;XXXXXXXXX&lt;/<span class="kw">reporteeOrgNr</span>&gt;</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">InternInfo</span>&gt;</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Kontakt</span>&gt;</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">kontaktPersonNavn</span>&gt;OLA NORDMANN&lt;/<span class="kw">kontaktPersonNavn</span>&gt;</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">kontaktPersonEpost</span>&gt;ola@tull.no&lt;/<span class="kw">kontaktPersonEpost</span>&gt;</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">kontaktPersonTelefon</span>&gt; &lt;/<span class="kw">kontaktPersonTelefon</span>&gt;</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">kontaktInfoBekreftet</span>&gt;1&lt;/<span class="kw">kontaktInfoBekreftet</span>&gt;</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">kontaktInfoKommentar</span>&gt;Dette er en et eksempel for Dapla-manualen&lt;/<span class="kw">kontaktInfoKommentar</span>&gt;</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Kontakt</span>&gt;</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Skjemadata</span>&gt;</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">ledigeStillinger</span>&gt;75&lt;/<span class="kw">ledigeStillinger</span>&gt;</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">datoPrefill</span>&gt; &lt;/<span class="kw">datoPrefill</span>&gt;</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  &lt;/<span class="kw">Skjemadata</span>&gt;</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">melding</span>&gt;</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="fra-xml-til-pandas-dataframe" class="level3">
 <h3 class="anchored" data-anchor-id="fra-xml-til-pandas-dataframe">Fra XML til Pandas DataFrame</h3>
 <p>De færreste ønsker å jobbe direkte med XML-filer. Derfor er det nyttig å kunne transformere XML-filene til et mer brukervennlig format, f.eks. en <strong>Pandas Dataframe</strong>. Her er et eksempel på hvordan vi kan gjøre det med Pandas:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xml.etree.ElementTree <span class="im">as</span> ET</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> single_xml_to_dataframe(file_path: <span class="bu">str</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> fs.<span class="bu">open</span>(file_path, mode<span class="op">=</span><span class="st">"r"</span>) <span class="im">as</span> f:</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        single_xml <span class="op">=</span> f.read()</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    root <span class="op">=</span> ET.fromstring(single_xml)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    intern_info <span class="op">=</span> root.find(<span class="st">"InternInfo"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    kontakt <span class="op">=</span> root.find(<span class="st">"Kontakt"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    skjemadata <span class="op">=</span> root.find(<span class="st">"Skjemadata"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    all_tags <span class="op">=</span> <span class="bu">set</span>()</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> intern_info:</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> kontakt:</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> skjemadata:</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> tag <span class="kw">in</span> all_tags:</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        element <span class="op">=</span> intern_info.find(tag)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>            element <span class="op">=</span> kontakt.find(tag)</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            element <span class="op">=</span> skjemadata.find(tag)</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            value <span class="op">=</span> element.text</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            data.append(value)</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>            data.append(<span class="va">None</span>)</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include the full path to the XML file in the data list</span></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    data.append(file_path)</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the DataFrame inside the function</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame([data], columns<span class="op">=</span><span class="bu">list</span>(all_tags) <span class="op">+</span> [<span class="st">"pathToXmlFile"</span>])</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    path_to_xml_file_split <span class="op">=</span> df[<span class="st">"pathToXmlFile"</span>].<span class="bu">str</span>.split(<span class="st">"/"</span>)</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the function</span></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/24/28c34dce4232_e7bed8a4-def5-42dc-b1e2-b9fc66beb769/form_28c34dce4232.xml"</span></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> single_xml_to_dataframe(file_path<span class="op">=</span>file_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xml.etree.ElementTree <span class="im">as</span> ET</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> single_xml_to_dataframe(file_path: <span class="bu">str</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> fs.<span class="bu">open</span>(file_path, mode<span class="op">=</span><span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        single_xml <span class="op">=</span> f.read()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    root <span class="op">=</span> ET.fromstring(single_xml)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    intern_info <span class="op">=</span> root.find(<span class="st">"InternInfo"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    kontakt <span class="op">=</span> root.find(<span class="st">"Kontakt"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    skjemadata <span class="op">=</span> root.find(<span class="st">"Skjemadata"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> []</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    all_tags <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> intern_info:</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> kontakt:</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> element <span class="kw">in</span> skjemadata:</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        all_tags.add(element.tag)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> tag <span class="kw">in</span> all_tags:</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        element <span class="op">=</span> intern_info.find(tag)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>            element <span class="op">=</span> kontakt.find(tag)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>            element <span class="op">=</span> skjemadata.find(tag)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> element <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>            value <span class="op">=</span> element.text</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>            data.append(value)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>            data.append(<span class="va">None</span>)</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Include the full path to the XML file in the data list</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    data.append(file_path)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create the DataFrame inside the function</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame([data], columns<span class="op">=</span><span class="bu">list</span>(all_tags) <span class="op">+</span> [<span class="st">"pathToXmlFile"</span>])</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    path_to_xml_file_split <span class="op">=</span> df[<span class="st">"pathToXmlFile"</span>].<span class="bu">str</span>.split(<span class="st">"/"</span>)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the function</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/24/28c34dce4232_e7bed8a4-def5-42dc-b1e2-b9fc66beb769/form_28c34dce4232.xml"</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> single_xml_to_dataframe(file_path<span class="op">=</span>file_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>I funksjonen så søker vi etter alle elementer under taggene <code>intern_info</code>, <code>kontakt</code> og <code>skjemadata</code>. Dvs. at vi lager en dataframe med en rad, der vi tar med all data fra xml-filen. Til slutt legger vi til en kolonne med filstien til filen. Det kan være nyttig senere hvis man gå tilbake til xml-filen for å sjekke om konverteringen til en dataframe er riktig.</p>
 <p>Funksjonen <code>single_xml_to_dataframe()</code> kan brukes til å loope over en liste med filstier (vi viste hvordan man lager en slik liste tidligere i kapitlet). Men et typisk problem som vil oppstå da er at xml-filene har forskjellig antall elementer i seg, som gir dataframes med ulikt antall kolonner, og derfor vil ikke Pandas vite hvordan man konkatinerer disse. For å fikse dette må du modifisere funksjonen til å ta høyde for dette.</p>
 </section>
 <section id="kopiere-filer-manuelt" class="level3">
 <h3 class="anchored" data-anchor-id="kopiere-filer-manuelt">Kopiere filer manuelt</h3>
-<p>Hvis vi ønsker å kopiere filer manuelt (dvs. ikke med Transfer Service) fra Team SUV sine bøtter til egen kildebøtte, kan vi gjøre det fra Jupyter. Vi har tidligere sett hvordan vi kan <a href="./jobbe-med-data.html#kopiere-filer">kopiere enkeltfiler</a> mellom to bøtter. Under viser vi hvordan man kan kopiere alle filer under en viss filsti med kommandoen <code>fs.cp()</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Kobler oss på bøttene</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filsti vi skal søke etter xml-er i</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Lager en liste med filer som skal kopieres</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>xml_files <span class="op">=</span> []</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> fs.walk(file_path):</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">file</span>.endswith(<span class="st">".xml"</span>):</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            xml_files.append(<span class="ss">f"</span><span class="sc">{</span>root<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">file</span><span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Stien du ønsker å kopiere til.</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Koden under foutsetter at du har med gs:// først</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>to_folder <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/"</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Kopierer over filene</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> xml_files:</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    from_bucket <span class="op">=</span> <span class="bu">file</span>.split(<span class="st">"/"</span>)[<span class="dv">0</span>]</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    to_bucket <span class="op">=</span> to_folder.split(<span class="st">"/"</span>)[<span class="dv">2</span>]</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    to_path <span class="op">=</span> <span class="bu">file</span>.replace(</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        from_bucket, to_bucket</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    fs.cp(<span class="bu">file</span>, to_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>I koden over så bruker vi <code>fs.walk()</code> til å finne alle filer som har <code>.xml</code> som filtype under filstien <code>gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10</code>. Deretter kopierer vi over filene til egen kildebøtte med <code>fs.cp()</code>. Når vi skal kopiere over til en ny bøtte må vi bestemme oss for hvor filene skal ligge og hvor mye av den gamle filstien vi skal beholde. Anta at vi skal beholde hele mappestrukturen i Team SUV sin bøtte. Da kan vi egentlig bare erstatte <code>ra0678-01-altinn-data-prod-e17d-ssb-altinn/</code> med den nye bøtte-navnet, og vi vil få den samme strukturen som i Team SUV sin bøtte.</p>
+<p>Hvis vi ønsker å kopiere filer manuelt (dvs. ikke med Transfer Service) fra Team SUV sine bøtter til egen kildebøtte, kan vi gjøre det fra Jupyter. Vi har tidligere sett hvordan vi kan <a href="./jobbe-med-data.html#kopiere-filer">kopiere enkeltfiler</a> mellom to bøtter. Under viser vi hvordan man kan kopiere alle filer under en viss filsti med kommandoen <code>fs.copy()</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Setter opp en filsystem-instans mot GCS</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>from_path <span class="op">=</span> <span class="st">"gs://ssb-prod-arbmark-skjema-data-kilde/ledstill/altinn/2022/11/21/"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>to_path <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>fs.copy(from_path, to_path, recursive<span class="op">=</span><span class="va">True</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I koden over så kopierer vi alle filer under <code>from_path</code> til <code>to_path</code>. Vi bruker <code>recursive=True</code> for å sørge for at vi kopierer alle filer under <code>from_path</code>.</p>
+<p>I eksempelet over så kopierer vi over alt som er <code>from_path</code> og dets undermapper. I tilfellet med Altinn-data så ligger det også pdf-filer av skjemaet som kanskje ikke ønsker å kopiere. I de tilfellene kan vi først søke etter de filene vi ønsker å kopiere og legge de i en liste. Deretter kan vi kopiere over en og en fil fra listen. Denne tilnærmingen er veldig nyttig hvis vi ønsker å filtrere ut filer som ikke er XML-filer, eller vi ønsker en annen mappestruktur en den som ligger i <code>from_path</code>. Her er en måte vi kan gjøre det på:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lager en filsystem-instans av GCS</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Henter ut alle xml-filer under en filsti</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>xml_files <span class="op">=</span> fs.glob(<span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10/**.xml"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Stien du ønsker å kopiere til.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Koden under foutsetter at du har med gs:// først</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>to_folder <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/"</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Kopierer over filene</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> xml_files:</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    from_bucket <span class="op">=</span> <span class="bu">file</span>.split(<span class="st">"/"</span>)[<span class="dv">0</span>]</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    to_bucket <span class="op">=</span> to_folder.split(<span class="st">"/"</span>)[<span class="dv">2</span>]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    to_path <span class="op">=</span> <span class="bu">file</span>.replace(</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        from_bucket, to_bucket</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    fs.cp(<span class="bu">file</span>, to_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I koden over så bruker vi <code>fs.glob()</code> og <code>**</code> til å søke rekursivt etter alle xml-filer under filstien <code>gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10</code>. Deretter kopierer vi over filene til egen kildebøtte med <code>fs.cp()</code>. Når vi skal kopiere over til en ny bøtte må vi bestemme oss for hvor filene skal ligge og hvor mye av den gamle filstien vi skal beholde. Anta at vi skal beholde hele mappestrukturen i Team SUV sin bøtte. Da kan vi egentlig bare erstatte <code>ra0678-01-altinn-data-prod-e17d-ssb-altinn/</code> med den nye bøtte-navnet, og vi vil få den samme strukturen som i Team SUV sin bøtte.</p>
 
 
 </section>
@@ -703,7 +737,7 @@ Skjemanavnet du ser i <a href="#fig-altinn-path">Figur&nbsp;1</a> er unike. Dvs.
 <li id="fn3"><p>Du kan gå inn i <a href="./gcc.html">Google Cloud Console</a> og søke opp prosjektet til Team SUV som de bruker for å dele data. Det heter <strong>altinn-data-prod</strong>, og du finner bøttene ved å klikke deg inn på <strong>Cloud Storage</strong><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Bøttenavnet starter alltid med RA-nummeret til undersøkelsen.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>Alternativt oppretter du en mappe direkte vinduet ved å trykke på mappe-ikonet med en <strong>+</strong>-tegn i seg.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>For å autentisere seg mot GCS kan vi bruke <strong>AuthClient</strong> fra <strong>dapla-toolbelt</strong>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>For å jobbe mot datat i GCS som i et “vanlig” filsysten kan vi bruke <strong>FileClient.get_gcs_file_system()</strong> fra <strong>dapla-toolbelt</strong>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
