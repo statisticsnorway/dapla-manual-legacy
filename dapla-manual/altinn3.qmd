@@ -70,51 +70,86 @@ I denne delen deles noen tips og triks for å jobbe med Altinn3-dataene på Dapl
 
 For å se innholdet i en mappe gir det mest mening å bruke [Google Cloud Console](./gcc.html). Her kan du se både filer og mapper i et pek-og-klikk grensesnitt. Men du kan ikke se på innholdet i filene der. Til det må du bruke Jupyter.
 
-Anta at vi ønsker å liste alle som leverte skjema den **10. mars 2023**. Da kan vi bruke [gcsfs](https://gcsfs.readthedocs.io/en/latest/api.html) til å gjøre det^[For å autentisere seg mot GCS kan vi bruke **AuthClient** fra **dapla-toolbelt**.]: 
+Anta at vi ønsker å liste ut alle som leverte skjema den **10. mars 2023**. Da kan vi bruke [gcsfs](https://gcsfs.readthedocs.io/en/latest/api.html) til å gjøre det^[For å jobbe mot datat i GCS som i et "vanlig" filsysten kan vi bruke **FileClient.get_gcs_file_system()** fra **dapla-toolbelt**.]: 
 
 ```python
 from dapla import FileClient
 
 fs = FileClient.get_gcs_file_system()
 
-file_path = "gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10"
-
-xml_files = []
-for root, dirs, files in fs.walk(file_path):
-    for file in files:
-        if file.endswith(".xml"):
-            xml_files.append(f"{root}/{file}")
+# Henter ut alle xml-filer under en filsti
+xml_files = fs.glob("gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10/**.xml")
 
 # Print the list of parquet files
 xml_files
 
 ```
 
-Her bruker vi `fs.walk()`-funksjonen fra **gcsfs** til å loope gjennom alle undermapper av `file_path`, og legge alle filer som slutter med `.xml` til listen `xml_files`. Dermed har vi et Python-objekt som kun brukes til å hente inn de filene vi ønsker. Vi bruker da det vi vet om mappestrukturen i Team SUV sin bøtte som vi så tidligere i @fig-altinn-path. 
+Her bruker vi `fs.glob()`-funksjonen fra **gcsfs** til å loope gjennom alle undermapper av `gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10/`, og legge alle filer som slutter med `.xml` til listen `xml_files`. Dermed har vi et Python-objekt som kun brukes til å hente inn de filene vi ønsker. Vi bruker da det vi vet om mappestrukturen i Team SUV sin bøtte som vi så tidligere i @fig-altinn-path. 
 
 ### Printe XML i Jupyter
 
 Noen ganger kan det være nyttig å se en xml-fil direkte. Da kan vi lese den inn i Jupyter og printe den ut. Her er et eksempel på hvordan vi kan gjøre det, samtidig som vi formatterer den med `xml.dom.minidom`:
 
 ```python
-
-import xml.dom.minidom
+from xml.dom.minidom import parseString
 
 from dapla import FileClient
-from IPython.display import Markdown, display
 
-file_path = "gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/24/28c34dce4232_e7bed8a4-def5-42dc-b1e2-b9fc66beb769/form_28c34dce4232.xml"
+# Kobler oss på bøttene
+fs = FileClient.get_gcs_file_system()
 
+# Sett inn filstien din her
+file = "gs://ssb-prod-dapla-felles-data-delt/altinn3/form_dc551844cd74.xml"
 
-def print_file():
-    fs = FileClient.get_gcs_file_system()
-    with fs.open(file_path, mode="r") as f:
-        single_xml = f.read()
-    dom_tree = xml.dom.minidom.parseString(single_xml)
-    pretty_xml_data = dom_tree.toprettyxml()
-    display(Markdown("```xml\n{}\n```".format(pretty_xml_data)))
+dom = parseString(fs.cat_file(file))
+pretty_xml = dom.toprettyxml(indent="  ")
+print(pretty_xml)
 
 ```	
+Vi brukte da `fs.cat_file()` til å hente inn innholdet i mappen, gjorde det om til xml-object, og formatterer outputen med `xml.dom.minidom`. Resultatet vil da se ut noe sånt som dette:
+
+```xml
+<?xml version="1.0" ?>
+<melding xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" dataFormatProvider="SERES" dataFormatId="7079" dataFormatVersion="47315">
+  <InternInfo>
+    <raNummer>RA-XXXX</raNummer>
+    <skjemaVersjon>1.0</skjemaVersjon>
+    <undersoekelsesNr>XXXXX</undersoekelsesNr>
+    <visOppgaveByrde>0</visOppgaveByrde>
+    <visBrukeropplevelse>0</visBrukeropplevelse>
+    <delregNr>2XXXXX</delregNr>
+    <periodeFritekst>3. kvartal 2022</periodeFritekst>
+    <periodeFomDato>2022-07-01</periodeFomDato>
+    <periodeTomDato>2022-09-30</periodeTomDato>
+    <periodeType>KVRT</periodeType>
+    <periodeNummer>3</periodeNummer>
+    <periodeAAr>2022</periodeAAr>
+    <periodeDato> </periodeDato>
+    <enhetsIdent>XXXXXX</enhetsIdent>
+    <enhetsType>BEDR</enhetsType>
+    <enhetsOrgNr>XXXXXXXXX</enhetsOrgNr>
+    <enhetsNavn>STATISTISK SENTRALBYRÅ </enhetsNavn>
+    <enhetsGateadresse>Akersveien 26</enhetsGateadresse>
+    <enhetsPostnr>0177</enhetsPostnr>
+    <enhetsPoststed>OSLO</enhetsPoststed>
+    <enhetsAvdeling>AVD XXXX</enhetsAvdeling>
+    <reporteeOrgNr>XXXXXXXXX</reporteeOrgNr>
+  </InternInfo>
+  <Kontakt>
+    <kontaktPersonNavn>OLA NORDMANN</kontaktPersonNavn>
+    <kontaktPersonEpost>ola@tull.no</kontaktPersonEpost>
+    <kontaktPersonTelefon> </kontaktPersonTelefon>
+    <kontaktInfoBekreftet>1</kontaktInfoBekreftet>
+    <kontaktInfoKommentar>Dette er en et eksempel for Dapla-manualen</kontaktInfoKommentar>
+  </Kontakt>
+  <Skjemadata>
+    <ledigeStillinger>75</ledigeStillinger>
+    <datoPrefill> </datoPrefill>
+  </Skjemadata>
+</melding>
+```	
+
 
 ### Fra XML til Pandas DataFrame
 
@@ -181,23 +216,34 @@ Funksjonen `single_xml_to_dataframe()` kan brukes til å loope over en liste med
 
 ### Kopiere filer manuelt
 
-Hvis vi ønsker å kopiere filer manuelt (dvs. ikke med Transfer Service) fra Team SUV sine bøtter til egen kildebøtte, kan vi gjøre det fra Jupyter. Vi har tidligere sett hvordan vi kan [kopiere enkeltfiler](./jobbe-med-data.html#kopiere-filer) mellom to bøtter. Under viser vi hvordan man kan kopiere alle filer under en viss filsti med kommandoen `fs.cp()`:
+
+
+Hvis vi ønsker å kopiere filer manuelt (dvs. ikke med Transfer Service) fra Team SUV sine bøtter til egen kildebøtte, kan vi gjøre det fra Jupyter. Vi har tidligere sett hvordan vi kan [kopiere enkeltfiler](./jobbe-med-data.html#kopiere-filer) mellom to bøtter. Under viser vi hvordan man kan kopiere alle filer under en viss filsti med kommandoen `fs.copy()`:
+
+```python	
+from dapla import FileClient
+
+# Setter opp en filsystem-instans mot GCS
+fs = FileClient.get_gcs_file_system()
+
+from_path = "gs://ssb-prod-arbmark-skjema-data-kilde/ledstill/altinn/2022/11/21/"
+to_path = "gs://ssb-prod-dapla-felles-data-delt/altinn3/"
+fs.copy(from_path, to_path, recursive=True)
+
+```
+
+I koden over så kopierer vi alle filer under `from_path` til `to_path`. Vi bruker `recursive=True` for å sørge for at vi kopierer alle filer under `from_path`.
+
+I eksempelet over så kopierer vi over alt som er `from_path` og dets undermapper. I tilfellet med Altinn-data så ligger det også pdf-filer av skjemaet som kanskje ikke ønsker å kopiere. I de tilfellene kan vi først søke etter de filene vi ønsker å kopiere og legge de i en liste. Deretter kan vi kopiere over en og en fil fra listen. Denne tilnærmingen er veldig nyttig hvis vi ønsker å filtrere ut filer som ikke er XML-filer, eller vi ønsker en annen mappestruktur en den som ligger i `from_path`. Her er en måte vi kan gjøre det på:
 
 ```python
 from dapla import FileClient
 
-# Kobler oss på bøttene
+# Lager en filsystem-instans av GCS
 fs = FileClient.get_gcs_file_system()
 
-# Filsti vi skal søke etter xml-er i
-file_path = "gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10"
-
-# Lager en liste med filer som skal kopieres
-xml_files = []
-for root, dirs, files in fs.walk(file_path):
-    for file in files:
-        if file.endswith(".xml"):
-            xml_files.append(f"{root}/{file}")
+# Henter ut alle xml-filer under en filsti
+xml_files = fs.glob("gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10/**.xml")
 
 # Stien du ønsker å kopiere til.
 # Koden under foutsetter at du har med gs:// først
@@ -214,7 +260,7 @@ for file in xml_files:
 
 ```
 
-I koden over så bruker vi `fs.walk()` til å finne alle filer som har `.xml` som filtype under filstien `gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10`. Deretter kopierer vi over filene til egen kildebøtte med `fs.cp()`. Når vi skal kopiere over til en ny bøtte må vi bestemme oss for hvor filene skal ligge og hvor mye av den gamle filstien vi skal beholde. Anta at vi skal beholde hele mappestrukturen i Team SUV sin bøtte. Da kan vi egentlig bare erstatte `ra0678-01-altinn-data-prod-e17d-ssb-altinn/` med den nye bøtte-navnet, og vi vil få den samme strukturen som i Team SUV sin bøtte.
+I koden over så bruker vi `fs.glob()` og `**` til å søke rekursivt etter alle xml-filer under filstien `gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10`. Deretter kopierer vi over filene til egen kildebøtte med `fs.cp()`. Når vi skal kopiere over til en ny bøtte må vi bestemme oss for hvor filene skal ligge og hvor mye av den gamle filstien vi skal beholde. Anta at vi skal beholde hele mappestrukturen i Team SUV sin bøtte. Da kan vi egentlig bare erstatte `ra0678-01-altinn-data-prod-e17d-ssb-altinn/` med den nye bøtte-navnet, og vi vil få den samme strukturen som i Team SUV sin bøtte.
 
 
 
