@@ -499,37 +499,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Git</strong> er terminalprogram som installert på maskinen du jobber. Hvis man ikke liker å bruke terminalen finnes det mange pek-og-klikk versjoner av <strong>Git</strong>, blant annet i <strong>Jupyterlab</strong>, <strong>SAS EG</strong> og <strong>RStudio</strong>. Men typisk vil det en eller annen gang oppstå situasjoner der det ikke finnes løsninger i pek-og-klikk versjonen, og man må ordne opp i terminalen. Av den grunn velger vi her å fokusere på hvordan <strong>Git</strong> fungerer fra terminalen. Vi vil også fokusere på hvordan <strong>Git</strong> fungerer fra <strong>terminalen</strong> i <strong>Jupyterlab</strong> på <strong>Dapla</strong>.</p>
 <section id="hva-er-git" class="level3">
 <h3 class="anchored" data-anchor-id="hva-er-git">Hva er Git?</h3>
-<p>Kommer snart. Kort forklaring med lenke til mer utfyllende svar.</p>
+<p>Git er en programvare for distribuert versjonshåndtering av filer. Det vil si at den tar vare på historien til koden din. At Git er distribuert betyr at alle som jobber med koden har en kopi av koden hos seg selv. Når man ønsker å dele koden med andre, så laster man opp koden til et felles kodelager som GitHub. Typisk vil Git brukes til å passe på historien til rene tekstfiler, f.eks. kode-script, hvor det gir mening å se på forskjeller mellom filen på ulike tidspunkter. Men når det er sagt, så kan Git også brukes til å følge med på endringer i andre filtyper, f.eks. binære filer som bilder, PDF-filer, etc.. Men binære filer er ikke så vanlig inkludere i Git-prosjekter siden forskjellene i historikken til filene er vanskelig å forstå for mennesker.</p>
+<p>Man aktiverer Git på en mappe i filsystemet sitt med kommandoen <code>git init</code> når man står i mappen som skal versjonshånderes. Da vil Git versjonshåndtere alle filer som er i den mappen og i eventuelle undermapper. Når du så gjør endringer på en fil i mappen, så vil Git registrere endringer. Ønsker du at endringen skal bli et punkt i historikken til prosjektet, så må du først legge til filen i Git med kommandoen <code>git add filnavn</code>. Når du har gjort dette, så kan du lagre endringen med kommandoen <code>git commit -m "Din melding her"</code>. Når du har gjort dette, så vil endringen være lagret i Git. Når du har gjort mange endringer, så kan du sende endringene til GitHub med kommandoen <code>git push</code>. Når du har gjort dette, så vil endringene være synlige for alle som har tilgang til GitHub-prosjektet.</p>
+<p>I SSB anbefaler vi at du starter et nytt Git-prosjekt ved å benytte <a href="./ssbproject.html">ssb-project</a>. Da vil du ikke bare aktivere Git, men du kan også få implementert en del andre gode praksiser for å holde koden din ryddig, oversiktlig og sikker.</p>
+<p>Men før vi kan begynne å bruke Git må vi konfigurere vår egen bruker for Git, som er forklart i neste seksjon.</p>
+<p>Les mer om Git på <a href="https://git-scm.com/" class="uri">https://git-scm.com/</a>.</p>
 </section>
 <section id="oppsett-av-git" class="level3">
 <h3 class="anchored" data-anchor-id="oppsett-av-git">Oppsett av Git</h3>
-<p>Mer kommer.</p>
-<section id="minimal-git-konfigurasjon" class="level4">
-<h4 class="anchored" data-anchor-id="minimal-git-konfigurasjon">Minimal Git-konfigurasjon</h4>
-<p>For å brukt Git er det strengt tatt to ting som må konfigurere:</p>
-<ol type="1">
-<li>Brukernavn</li>
-<li>E-post</li>
-</ol>
-<p>Denne informasjonen brukes av Git hver gang du sjekker inn en endring i koden slik at man kan vite hvem som gjorde endringen senere. Dette må settes én gang per miljø hvor du skal jobbe med Git. Hvis du f.eks. jobber i <strong>Jupyterlab</strong> på <strong>Dapla</strong> så kan du åpne en terminal og skrive følgende for å lagre ditt brukernavn:</p>
-<p><code>git config --global user.name "Ola Nordmann"</code></p>
-<p>For å sette e-post gjør du veldig lignende:</p>
-<p><code>git config --global user.email olanordamnn@ssb.no</code></p>
-<p>Når du har kjørt disse to kommandoene så kan du bruke Git. Informasjonen du la til over brukes ikke til noe annet enn å fortelle de du samarbeider med om at du har gjort endringer på koden. Den er verken knyttet opp mot din SSB-bruker eller din GitHub-bruker.</p>
-</section>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bruk SSB sin konfigurasjon!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Alle som bruker GitHub i SSB bør bruke SSB sin Git-konfigurasjon. Hvis ikke kan man bl.a. risikere at output fra Notebooks blir pushet til GitHub. Du kan bruke SSBs konfigurasjon ved å kjøre <code>ssb-gitconfig.py</code> i terminalen og svare på spørsmålene som dukker opp.</p>
+</div>
+</div>
+<p>For å jobbe med Git så må man konfigurere brukeren sin slik at Git vet hvem som gjør endringer i koden. I praksis betyr det at du må ha filen <code>.gitconfig</code> på hjemmeområdet ditt (f.eks. <code>/home/jovyan/.gitconfig</code> på Dapla) med noe grunnleggende informasjon:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># /home/jovyan/.gitconfig på Dapla</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[user]</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">name</span> = Ola Nordmann</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="ex">email</span> = <span class="op">&lt;</span>ini<span class="op">&gt;</span>@ssb.no</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Med denne konfigurasjonen så kan man bruke Git lokalt. Men skal man også bruke <strong>GitHub</strong> i SSB, dvs. dele kode med andre, så må man også legge til mer informasjon i <code>.gitconfig</code>. Heldigvis er det skrevet et script som gjør dette for deg. For å få anbefalt konfigurasjon for Git så kan du kjøre følgende kommando i terminalen:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssb-gitconfig.py</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dette scriptet vil spørre deg om ditt brukernavn i SSB, og så vil det opprette en fil som heter <code>.gitconfig</code> i hjemmeområdet ditt. Denne filen vil inneholde informasjon om brukernavn, e-post og tilgang til GitHub. I tillegg vil den sørge for at ditt <strong>ssb-project</strong> ikke sender output fra notebooks til GitHub.</p>
 </section>
 <section id="git-og-notebooks" class="level3">
 <h3 class="anchored" data-anchor-id="git-og-notebooks">Git og Notebooks</h3>
-<p>Kommer snart. Jupytext og nbsripout. json.</p>
+<p>På Dapla er det <strong>Jupyterlab</strong> som er utviklingsmiljøet for kode. I Jupyterlab vil man ofte jobbe i notebooks, og det har noen konsekvenser for versjonshåndtering. En notebook er en <strong>ipynb</strong>-fil som inneholder både tekst og kode. Åpner vi disse filene i Jupyterlab så ser vi det kjente notebook-grensesnittet med kode- og markdown-celler. Men egentlig er det bare et grensesnitt bygd over en json-fil<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Denne json-filen inneholder metadata og masse annet som gjør det vanskelig å se forskjellen på en fil over tid. Dette er derfor noe som å fikses før Git blir et nyttig verktøy for disse filene.</p>
+<p>I <a href="./git-og-github.html#oppsett-av-git">SSB sin anbefalte konfigurasjon</a> setter opp <a href="https://jupytext.readthedocs.io/en/latest/index.html">nbdime</a> for å få leselige differ mellom notebooks. Har du satt opp Git med <code>ssb-gitconfig.py</code> så vil dette være automatisk satt opp for deg.</p>
+<p>Det finnes også alternativer til å bruke <strong>nbdime</strong>. På Dapla er <a href="https://jupytext.readthedocs.io/en/latest/index.html">Jupytext</a> installert for de som ikke ønsker å versjonshåndtere ipynb-filer, men heller vil bruke rene script-filer som <strong>.py</strong>- eller <strong>.R</strong>-filer. Måten Jupytext gjør dette på er konvertere f.eks. en ipynb-fil py-fil for deg, Den kan gjøre det automatisk når du lagrer, eller du kan gjøre det manuelt. Med denne tilnærmingen så kan du be Git ignorere alle ipynb-filer og bare versjonshåndtere de rene script.filene. Oppsett er Jupytext er ikke en del av SSB sin standard-konfigurasjon og er noe du må sett opp selv.</p>
 </section>
 <section id="vanlige-git-operasjoner" class="level3">
 <h3 class="anchored" data-anchor-id="vanlige-git-operasjoner">Vanlige Git-operasjoner</h3>
-<p>Kommer snart. clone, add, commit, push, pull, merge, revert, etc.</p>
+<p>Git er veldig sterkt verktøy med mange muligheter. Det er ikke tenkt at alt skal adresseres i dette kapitlet. Men det er noen vanlig operasjoner som er så vanlige at alle som jobber med kode i SSB bør kjenne dem.</p>
+<p>Vi har tidligere nevnt at kommandoen for å aktivere versjonshåndtering med Git på en mappe, er <code>git init</code>. Dette gjøres også automatisk når man oppretter et nytt <strong>ssb-project</strong>.</p>
+<p>Hva skjer hvis man gjør en endring i en fil i mappa? For det første kan du kjøre kommandoen <code>git status</code> for å se hvilke endringer Git har oppdaget. Men det betyr ikke at endringene er under versjonskontroll enda. For å fortelle Git om at disse endringene skal registreres så må du kjøre <code>git add &lt;filnavn&gt;</code>. Men fortsatt er ikke endringene et punkt i historien til koden din. For å gjøre det må du kjøre <code>git commit -m "Din melding her"</code>. Ved å gjøre det så har du laget et unikt punkt i historien til koden din, med en egen ID, som du kan gå tilbake til senere hvis du ønsker.</p>
+<p>Når man utvikler kode så gjør man det fra såkalte <em>branches</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Hvis vi tenker oss at din eksisterende kodebase er stammen på et tre (ofte kalt <strong>master</strong> eller <strong>main</strong>), så legger Git opp til at man gjør endringer på denne koden via <em>branches</em> eller grener av treet. Med andre ord holder vi stammen/master urørt helt til vi vet at endringen fungerer som den skal. Til slutt <em>merger</em> vi den inn i master. Vi kan opprette en ny branch og gå inn i den ved å skrive <code>git checkout -b &lt;branch navn&gt;</code>. Da står du i en branch og kan bruke kommandoer som <code>git add</code> og <code>git commit</code> som vist tidligere.</p>
+<p>Vi kan <em>merge</em> endringene fra vår <em>branch</em> inn i <em>main</em> ved å først gå inn i <em>main</em>, <code>git switch main</code>, og deretter skrive <code>git merge &lt;branch navn&gt;</code>. Men typisk vil ikke dette være fremgangsmåten i SSB. Når man er fornøyd med endringene i en <em>branch</em>, så vil man <em>pushe</em> den opp til GitHub, slik at en kollega kan vurdere om den skal merges inn i <em>main</em>. Dermed gjøres selve <em>mergen</em> i GitHub-grensenittet. Vi skal se nærmere på GitHub i neste kapittel.</p>
 </section>
 </section>
 <section id="github-fa-brands-github" class="level2">
 <h2 class="anchored" data-anchor-id="github-fa-brands-github">GitHub <i class="fa-brands fa-github" aria-label="github"></i></h2>
-<p>GitHub er et nettsted som fungerer som vårt felles mappesystem for deling av kode. SSB har sin egen organisasjonskonto med navn <a href="https://github.com/statisticsnorway">statisticsnorway</a></p>
+<p>GitHub er et nettsted som bl.a. fungerer som vårt felles mappesystem for deling av kode. SSB har sin egen organisasjonskonto med navn <a href="https://github.com/statisticsnorway">statisticsnorway</a>. Men selv om SSB har en organisasjonskonto på GitHub må alle ansatte opprette sin egen brukerprofil, og knytte den mot SSB sin organisasjonskonto. Under forklarer vi hvordan du gjør dette.</p>
 <section id="opprett-github-bruker" class="level3">
 <h3 class="anchored" data-anchor-id="opprett-github-bruker">Opprett GitHub-bruker</h3>
 <p>Dette kapittelet er bare relevant hvis man ikke har en GitHub-brukerkonto fra før. For å bruke <code>ssb-project</code>-programmet til å generere et <strong>remote repo</strong> på GitHub må du ha en konto. Derfor starter vi med å gjøre dette. Det er en engangsjobb og du trenger aldri gjøre det igjen.</p>
@@ -693,14 +710,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="lagre-pat" class="level4">
 <h4 class="anchored" data-anchor-id="lagre-pat">Lagre PAT</h4>
 <p>Det er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en <strong>.netrc</strong>-fil. Vi oppretter da en fil som heter <strong>.netrc</strong> på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">machine</span> github.com login <span class="op">&lt;</span>github-bruker<span class="op">&gt;</span> password <span class="op">&lt;</span>Personal Access Token<span class="op">&gt;</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">machine</span> github.com login <span class="op">&lt;</span>github-bruker<span class="op">&gt;</span> password <span class="op">&lt;</span>Personal Access Token<span class="op">&gt;</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>GitHub-bruker</strong> er da din personlige bruker og IKKE brukernavnet ditt i SSB. <strong>Personal Access Token</strong> er det vi lagde i forrige kapittelet.</p>
 <p>En veldig enkel måte å lagre dette er som følger. Anta at min personlige GitHub-bruker er <strong>SSB-Chad</strong> og at min Personal Access Token er <strong>blablabla</strong>. Da kan jeg gjøre følgende for å lagre det i <strong>.netrc</strong>:</p>
 <ol type="1">
 <li><p>Gå inn i Jupyterlab og åpne en Python-notebook.</p></li>
 <li><p>I den første kodecellen skriver du:</p></li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>echo <span class="st">"machine github.com login SSB-Chad password blablabla"</span> <span class="op">&gt;&gt;</span> <span class="op">~/</span>.netrc</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>echo <span class="st">"machine github.com login SSB-Chad password blablabla"</span> <span class="op">&gt;&gt;</span> <span class="op">~/</span>.netrc</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Alternativt kan du droppe det utropstegnet og kjøre det direkte i en terminal. Det vil gi samme resultat. Koden over legger til en linje med teksten</p>
 <p><strong>machine github.com login SSB-Chad password blablabla</strong></p>
 <p>i en .netrc-fil på din hjemmeområdet, uanvhengig av om du har en fra før eller ikke. Hvis du har en fil fra før som allerede har et token fra GitHub, ville jeg nok slettet det før jeg legger en et nytt token.</p>
@@ -721,7 +738,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p>Prøv selv å åpne en ipynb som json ved høreklikke på fila i Jupyterlab, velge <em>Open with</em>, og velg <em>json</em>. Da vil du se den underliggende json-filen<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><em>Branches</em> kan oversettes til grener på norsk. Men i denne boken velger vi å bruke det engelske ordet <strong>branches</strong>. Grunnen er at det erfaringsmessig er lettere forholde seg til det engelske ordet når man skal søke etter informasjon i annen dokumentasjon<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
