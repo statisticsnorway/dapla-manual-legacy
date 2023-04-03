@@ -15,41 +15,66 @@ I dette kapittelet ser vi nærmere på Git og Github og hvordan de er implemente
 
 ### Hva er Git?
 
-Kommer snart. Kort forklaring med lenke til mer utfyllende svar.
+Git er en programvare for distribuert versjonshåndtering av filer. Det vil si at den tar vare på historien til koden din. At Git er distribuert betyr at alle som jobber med koden har en kopi av koden hos seg selv. Når man ønsker å dele koden med andre, så laster man opp koden til et felles kodelager som GitHub. Typisk vil Git brukes til å passe på historien til rene tekstfiler, f.eks. kode-script, hvor det gir mening å se på forskjeller mellom filen på ulike tidspunkter. Men når det er sagt, så kan Git også brukes til å følge med på endringer i andre filtyper, f.eks. binære filer som bilder, PDF-filer, etc.. Men binære filer er ikke så vanlig inkludere i Git-prosjekter siden forskjellene i historikken til filene er vanskelig å forstå for mennesker.
+
+Man aktiverer Git på en mappe i filsystemet sitt med kommandoen `git init` når man står i mappen som skal versjonshånderes. Da vil Git versjonshåndtere alle filer som er i den mappen og i eventuelle undermapper. Når du så gjør endringer på en fil i mappen, så vil Git registrere endringer. Ønsker du at endringen skal bli et punkt i historikken til prosjektet, så må du først legge til filen i Git med kommandoen `git add filnavn`. Når du har gjort dette, så kan du lagre endringen med kommandoen `git commit -m "Din melding her"`. Når du har gjort dette, så vil endringen være lagret i Git. Når du har gjort mange endringer, så kan du sende endringene til GitHub med kommandoen `git push`. Når du har gjort dette, så vil endringene være synlige for alle som har tilgang til GitHub-prosjektet.
+
+I SSB anbefaler vi at du starter et nytt Git-prosjekt ved å benytte [ssb-project](./ssbproject.qmd). Da vil du ikke bare aktivere Git, men du kan også få implementert en del andre gode praksiser for å holde koden din ryddig, oversiktlig og sikker. 
+
+Men før vi kan begynne å bruke Git må vi konfigurere vår egen bruker for Git, som er forklart i neste seksjon.
+
+Les mer om Git på <https://git-scm.com/>.
 
 ### Oppsett av Git
 
-Mer kommer.
+::: {.callout-warning}
+## Bruk SSB sin konfigurasjon!
 
-#### Minimal Git-konfigurasjon
+Alle som bruker GitHub i SSB bør bruke SSB sin Git-konfigurasjon. Hvis ikke kan man bl.a. risikere at output fra Notebooks blir pushet til GitHub. Du kan bruke SSBs konfigurasjon ved å kjøre `ssb-gitconfig.py` i terminalen og svare på spørsmålene som dukker opp.
 
-For å brukt Git er det strengt tatt to ting som må konfigurere:
+:::
 
-1. Brukernavn
-2. E-post
+For å jobbe med Git så må man konfigurere brukeren sin slik at Git vet hvem som gjør endringer i koden. I praksis betyr det at du må ha filen `.gitconfig` på hjemmeområdet ditt (f.eks. `/home/jovyan/.gitconfig` på Dapla) med noe grunnleggende informasjon: 
 
-Denne informasjonen brukes av Git hver gang du sjekker inn en endring i koden slik at man kan vite hvem som gjorde endringen senere. Dette må settes én gang per miljø hvor du skal jobbe med Git. Hvis du f.eks. jobber i **Jupyterlab** på **Dapla** så kan du åpne en terminal og skrive følgende for å lagre ditt brukernavn:
+```bash
+# /home/jovyan/.gitconfig på Dapla
+[user]
+        name = Ola Nordmann
+        email = <ini>@ssb.no
 
-`git config --global user.name "Ola Nordmann"`
+```
 
-For å sette e-post gjør du veldig lignende: 
+Med denne konfigurasjonen så kan man bruke Git lokalt. Men skal man også bruke **GitHub** i SSB, dvs. dele kode med andre, så må man også legge til mer informasjon i `.gitconfig`. Heldigvis er det skrevet et script som gjør dette for deg. For å få anbefalt konfigurasjon for Git så kan du kjøre følgende kommando i terminalen:
 
-`git config --global user.email olanordamnn@ssb.no`
+```bash
+ssb-gitconfig.py
+```
 
-Når du har kjørt disse to kommandoene så kan du bruke Git. Informasjonen du la til over brukes ikke til noe annet enn å fortelle de du samarbeider med om at du har gjort endringer på koden. Den er verken knyttet opp mot din SSB-bruker eller din GitHub-bruker.
+Dette scriptet vil spørre deg om ditt brukernavn i SSB, og så vil det opprette en fil som heter `.gitconfig` i hjemmeområdet ditt. Denne filen vil inneholde informasjon om brukernavn, e-post og tilgang til GitHub. I tillegg vil den sørge for at ditt **ssb-project** ikke sender output fra notebooks til GitHub. 
 
 ### Git og Notebooks
 
-Kommer snart. Jupytext og nbsripout. json.
+På Dapla er det **Jupyterlab** som er utviklingsmiljøet for kode. I Jupyterlab vil man ofte jobbe i notebooks, og det har noen konsekvenser for versjonshåndtering. En notebook er en **ipynb**-fil som inneholder både tekst og kode. Åpner vi disse filene i Jupyterlab så ser vi det kjente notebook-grensesnittet med kode- og markdown-celler. Men egentlig er det bare et grensesnitt bygd over en json-fil^[Prøv selv å åpne en ipynb som json ved høreklikke på fila i Jupyterlab, velge *Open with*, og velg *json*. Da vil du se den underliggende json-filen]. Denne json-filen inneholder metadata og masse annet som gjør det vanskelig å se forskjellen på en fil over tid. Dette er derfor noe som å fikses før Git blir et nyttig verktøy for disse filene. 
+
+I [SSB sin anbefalte konfigurasjon](./git-og-github.qmd#oppsett-av-git) setter opp [nbdime](https://jupytext.readthedocs.io/en/latest/index.html) for å få leselige differ mellom notebooks. Har du satt opp Git med `ssb-gitconfig.py` så vil dette være automatisk satt opp for deg. 
+
+Det finnes også alternativer til å bruke **nbdime**. På Dapla er [Jupytext](https://jupytext.readthedocs.io/en/latest/index.html) installert for de som ikke ønsker å versjonshåndtere ipynb-filer, men heller vil bruke rene script-filer som **.py**- eller **.R**-filer. Måten Jupytext gjør dette på er konvertere f.eks. en ipynb-fil py-fil for deg, Den kan gjøre det automatisk når du lagrer, eller du kan gjøre det manuelt. Med denne tilnærmingen så kan du be Git ignorere alle ipynb-filer og bare versjonshåndtere de rene script.filene. Oppsett er Jupytext er ikke en del av SSB sin standard-konfigurasjon og er noe du må sett opp selv. 
 
 ### Vanlige Git-operasjoner
 
-Kommer snart. clone, add, commit, push, pull, merge, revert, etc.
+Git er veldig sterkt verktøy med mange muligheter. Det er ikke tenkt at alt skal adresseres i dette kapitlet. Men det er noen vanlig operasjoner som er så vanlige at alle som jobber med kode i SSB bør kjenne dem.
 
+Vi har tidligere nevnt at kommandoen for å aktivere versjonshåndtering med Git på en mappe, er `git init`. Dette gjøres også automatisk når man oppretter et nytt **ssb-project**. 
+
+Hva skjer hvis man gjør en endring i en fil i mappa? For det første kan du kjøre kommandoen `git status` for å se hvilke endringer Git har oppdaget. Men det betyr ikke at endringene er under versjonskontroll enda. For å fortelle Git om at disse endringene skal registreres så må du kjøre `git add <filnavn>`. Men fortsatt er ikke endringene et punkt i historien til koden din. For å gjøre det må du kjøre `git commit -m "Din melding her"`. Ved å gjøre det så har du laget et unikt punkt i historien til koden din, med en egen ID, som du kan gå tilbake til senere hvis du ønsker.
+
+Når man utvikler kode så gjør man det fra såkalte *branches*^[*Branches* kan oversettes til grener på norsk. Men i denne boken velger vi å bruke det engelske ordet **branches**. Grunnen er at det erfaringsmessig er lettere forholde seg til det engelske ordet når man skal søke etter informasjon i annen dokumentasjon]. Hvis vi tenker oss at din eksisterende kodebase er stammen på et tre (ofte kalt **master** eller **main**), så legger Git opp til at man gjør endringer på denne koden via *branches* eller grener av treet. Med andre ord holder vi stammen/master urørt helt til vi vet at endringen fungerer som den skal. Til slutt *merger* vi den inn i master. Vi kan opprette en ny branch og gå inn i den ved å skrive `git checkout -b <branch navn>`. Da står du i en branch og kan bruke kommandoer som `git add` og `git commit` som vist tidligere. 
+
+Vi kan *merge* endringene fra vår *branch* inn i *main* ved å først gå inn i *main*, `git switch main`, og deretter skrive `git merge <branch navn>`. Men typisk vil ikke dette være fremgangsmåten i SSB. Når man er fornøyd med endringene i en *branch*, så vil man *pushe* den opp til GitHub, slik at en kollega kan vurdere om den skal merges inn i *main*. Dermed gjøres selve *mergen* i GitHub-grensenittet. Vi skal se nærmere på GitHub i neste kapittel. 
 
 ## GitHub {{< fa brands github >}}
 
-GitHub er et nettsted som fungerer som vårt felles mappesystem for deling av kode. SSB har sin egen organisasjonskonto med navn [statisticsnorway](https://github.com/statisticsnorway) 
+GitHub er et nettsted som bl.a. fungerer som vårt felles mappesystem for deling av kode. SSB har sin egen organisasjonskonto med navn [statisticsnorway](https://github.com/statisticsnorway). Men selv om SSB har en organisasjonskonto på GitHub må alle ansatte opprette sin egen brukerprofil, og knytte den mot SSB sin organisasjonskonto. Under forklarer vi hvordan du gjør dette.
 
 ### Opprett GitHub-bruker
 

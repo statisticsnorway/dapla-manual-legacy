@@ -40,7 +40,7 @@ Det oppdateres hver gang en ny versjon av `ssb-project` slippes.
 
 Før du kan ta i bruk **ssb-project** så er det et par ting som må være på plass:
 
-1. Du må ha opprettet en **git-bruker** og **git-epost** lokalt der du skal kalle på programmet ([les mer om hvordan her](git-github.html#minimal-git-konfigurasjon)).
+1. Du må ha konfigurert Git etter SSB sin standard ([les mer om hvordan her](git-github.html#oppsett-av-git)).
 2. Hvis du ønsker at **ssb-project** også skal opprette et GitHub-repo for deg må du også følgende være på plass:
     a. Du må ha en **GitHub-bruker** ([les hvordan her](git-github.html#opprett-github-bruker))
     b. Skru på **2-faktor autentifisering** for GitHub-brukeren din ([les hvordan her](git-github.html#sec-tofaktor))
@@ -221,9 +221,7 @@ Hvis du ikke trenger et GitHub-repo lenger kan man **arkivere repoet**. Det gjø
 
 ![Arkivering av et repo.](./images/github_repo_settings_archive.png){fig-alt="Bilde som viser hvordan man arkiverer et repo." #fig-github-repo-settings-archive}
 
-3. I dialogboksen som dukker opp fyller du inn reponavnet som beskrevet og trykker på **I understand the consequences, archive this repository**, som vist i @fig-github-repo-settings-archive-warning.
-
-![Bekreftelse av arkiveringen.](./images/github_repo_settings_archive_warning.png){fig-alt="Bilde som viser at man må bekrefte at virkelig vil arkivere repoet." #fig-github-repo-settings-archive-warning}
+3. I dialogboksen som dukker opp fyller du inn reponavnet som beskrevet og trykker på **I understand the consequences, archive this repository**.
 
 Når det er gjort så er repoet lesbart, men man kan ikke jobbe med det. Men som vi ser av @#fig-github-repo-settings-archive-warning kan man omgjøre arkiveringen senere hvis det skulle være ønskelig.
 
