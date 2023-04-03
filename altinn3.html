@@ -468,6 +468,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#liste-ut-innhold-i-en-mappe" id="toc-liste-ut-innhold-i-en-mappe" class="nav-link" data-scroll-target="#liste-ut-innhold-i-en-mappe">Liste ut innhold i en mappe</a></li>
   <li><a href="#printe-xml-i-jupyter" id="toc-printe-xml-i-jupyter" class="nav-link" data-scroll-target="#printe-xml-i-jupyter">Printe XML i Jupyter</a></li>
   <li><a href="#fra-xml-til-pandas-dataframe" id="toc-fra-xml-til-pandas-dataframe" class="nav-link" data-scroll-target="#fra-xml-til-pandas-dataframe">Fra XML til Pandas DataFrame</a></li>
+  <li><a href="#kopiere-filer-manuelt" id="toc-kopiere-filer-manuelt" class="nav-link" data-scroll-target="#kopiere-filer-manuelt">Kopiere filer manuelt</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -481,15 +482,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="altinn-3" class="level1">
 <h1>Altinn 3</h1>
 <p><img src="images/altinn_logo.png" class="img-fluid" style="max-width: 50%; float: right;" alt="Dapla logo"></p>
-<p>Frem mot 2026 skal alle skjema-undersøkelser i SSB som gjennomføres på <strong>Altinn 2</strong> flyttes over til <a href="https://docs.altinn.studio/nb/community/about/">Altinn 3</a>. Skjemaer som flyttes til Altinn 3 vil motta sine data på <strong>Dapla</strong>, og ikke på <em>bakken</em> som tidligere. Datafangsten håndteres av <a href="https://statistics-norway.atlassian.net/wiki/spaces/CUL/pages/2805530625/Teamsider">Team SUV</a>, mens statistikkseksjonene henter sine data fra Team SUV sitt lagringsområde på Dapla. I dette kapitlet beskriver vi nærmere hvordan statistikkseksjonene kan jobbe med Altinn3-data på Dapla. Kort oppsummert består det av disse stegene:</p>
+<p>Frem mot sommeren 2025 skal alle skjema-undersøkelser i SSB som gjennomføres på <strong>Altinn 2</strong> flyttes over til <a href="https://docs.altinn.studio/nb/community/about/">Altinn 3</a>. Skjemaer som flyttes til Altinn 3 vil motta sine data på <strong>Dapla</strong>, og ikke på <em>bakken</em> som tidligere. Datafangsten håndteres av <a href="https://statistics-norway.atlassian.net/wiki/spaces/CUL/pages/2805530625/Teamsider">Team SUV</a>, mens statistikkseksjonene henter sine data fra Team SUV sitt lagringsområde på Dapla. I dette kapitlet beskriver vi nærmere hvordan statistikkseksjonene kan jobbe med Altinn3-data på Dapla. Kort oppsummert består det av disse stegene:</p>
 <ol type="1">
-<li>Statistikkprodusenten avtaler med Team SUV og skjematuviklerne om overføring av skjema fra <strong>Altinn 2</strong> til <strong>Altinn 3</strong>.</li>
+<li>Statistikkprodusenten avtaler overføring av skjema fra <strong>Altinn 2</strong> til <strong>Altinn 3</strong> med planleggere på S821, som koordinerer denne jobben.</li>
 <li>Når statistikkprodusentene får beskjed om at Altinn3-skjemaet skal sendes ut til oppgavegiverne, så må de opprette et <a href="./opprette-dapla-team.html">Dapla-team</a>.</li>
-<li>Når Dapla-teamet er opprettet, så ber de Team SUV om å gi statistikkteamet tilgang til dataene som har kommet inn fra Altinn 3. I tillegg ber de om at Team SUV gir tilgang til teamets <em>Transfer Service</em> instans. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>Når Dapla-teamet er opprettet, og første skjema er sendt inn, så ber de Team SUV om å gi statistikkteamet tilgang til dataene som har kommet inn fra Altinn 3. I tillegg ber de om at Team SUV gir tilgang til teamets <em>Transfer Service</em> instans. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Merk at det må gis separate tilganger for data i staging- og produksjonsmiljø.</li>
 <li>Statistikkprodusenten setter opp en automatisk overføring av skjemadata med <a href="./overføring-av-data.html">Transfer Service</a>, fra Team SUV sitt lagringsområde over til Dapla-teamet sin kildebøtte.</li>
 <li>Statistikkprodusentene kan begynne å jobbe med dataene i Dapla. Blant annet tilbyr Dapla en <strong>automatiseringstjeneste</strong> man kan bruke for å prosessere dataene fra kildedata til inndata<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
 </ol>
 <p>Under forklarer vi mer med mer detaljer hvordan man går frem for gjennomføre steg 4-5 over.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Ansvar for kildedata
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Selv om Team SUV tar ansvaret for datafangst fra Altinn3, så er det statistikkteamet som har ansvaret for langtidslagring av dataene i sin kildebøtte. Det vil si at at statistikkteamet må sørge for at data overføres til sin kildebøtte, og at de kan ikke regne med at Team SUV tar vare på en backup av dataene.</p>
+</div>
+</div>
 <section id="forberedelse" class="level2">
 <h2 class="anchored" data-anchor-id="forberedelse">Forberedelse</h2>
 <p>Når skjema-dataene kommer inn fra Altinn 3 til Team SUV sitt lagringsområde, så er det en del ting som er verdt å tenke på:</p>
@@ -512,7 +526,7 @@ Skjemanavnet du ser i <a href="#fig-altinn-path">Figur&nbsp;1</a> er unike. Dvs.
 </section>
 <section id="transfer-service" class="level2">
 <h2 class="anchored" data-anchor-id="transfer-service">Transfer Service</h2>
-<p><a href="./overføring-av-data.html">Transfer Service</a> er en tjeneste som kan brukes til å synkronisere innholdet mellom bøtter på Dapla, samt mellom bakke og sky. Når du skal ta i bruk tjenesten for å overføre data mellom en bøtte fra Team SUV sitt prosjekt <strong>altinn-data-prod</strong>, til en kildedata-bøtte i Dapla-teamet ditt, så gjør du følgende:</p>
+<p>Når vi skal overføre filer fra Team SUV sin bøtte til vår kildebøtte, så kan vi gjøre det manuelt fra Jupyter <a href="./altinn3.html#kopiere-filer-manuelt">som forklart her.</a>. Men det er en bedre løsning å bruke en tjeneste som gjør dette for deg. <a href="./overføring-av-data.html">Transfer Service</a> er en tjeneste som kan brukes til å synkronisere innholdet mellom bøtter på Dapla, samt mellom bakke og sky. Når du skal ta i bruk tjenesten for å overføre data mellom en bøtte fra Team SUV sitt prosjekt <strong>altinn-data-prod</strong>, til en kildedata-bøtte i Dapla-teamet ditt, så gjør du følgende:</p>
 <ol type="1">
 <li>Følg denne beskrivelsen hvordan man <a href="./overføring-av-data.html#sette-opp-overføringsjobber">setter opp overføringsjobber</a>.</li>
 <li>Etter at du har trykket på <code>Create Transfer Job</code> velger du <strong>Google Cloud Storage</strong> på begge alternativene under <strong>Get Started</strong>. Deretter går du videre ved å klikke på <strong>Next Step</strong>.</li>
@@ -641,6 +655,38 @@ Skjemanavnet du ser i <a href="#fig-altinn-path">Figur&nbsp;1</a> er unike. Dvs.
 <span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> single_xml_to_dataframe(file_path<span class="op">=</span>file_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>I funksjonen så søker vi etter alle elementer under taggene <code>intern_info</code>, <code>kontakt</code> og <code>skjemadata</code>. Dvs. at vi lager en dataframe med en rad, der vi tar med all data fra xml-filen. Til slutt legger vi til en kolonne med filstien til filen. Det kan være nyttig senere hvis man gå tilbake til xml-filen for å sjekke om konverteringen til en dataframe er riktig.</p>
 <p>Funksjonen <code>single_xml_to_dataframe()</code> kan brukes til å loope over en liste med filstier (vi viste hvordan man lager en slik liste tidligere i kapitlet). Men et typisk problem som vil oppstå da er at xml-filene har forskjellig antall elementer i seg, som gir dataframes med ulikt antall kolonner, og derfor vil ikke Pandas vite hvordan man konkatinerer disse. For å fikse dette må du modifisere funksjonen til å ta høyde for dette.</p>
+</section>
+<section id="kopiere-filer-manuelt" class="level3">
+<h3 class="anchored" data-anchor-id="kopiere-filer-manuelt">Kopiere filer manuelt</h3>
+<p>Hvis vi ønsker å kopiere filer manuelt (dvs. ikke med Transfer Service) fra Team SUV sine bøtter til egen kildebøtte, kan vi gjøre det fra Jupyter. Vi har tidligere sett hvordan vi kan <a href="./jobbe-med-data.html#kopiere-filer">kopiere enkeltfiler</a> mellom to bøtter. Under viser vi hvordan man kan kopiere alle filer under en viss filsti med kommandoen <code>fs.cp()</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Kobler oss på bøttene</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filsti vi skal søke etter xml-er i</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Lager en liste med filer som skal kopieres</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>xml_files <span class="op">=</span> []</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> root, dirs, files <span class="kw">in</span> fs.walk(file_path):</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">file</span>.endswith(<span class="st">".xml"</span>):</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            xml_files.append(<span class="ss">f"</span><span class="sc">{</span>root<span class="sc">}</span><span class="ss">/</span><span class="sc">{</span><span class="bu">file</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Stien du ønsker å kopiere til.</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Koden under foutsetter at du har med gs:// først</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>to_folder <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/"</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Kopierer over filene</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> xml_files:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    from_bucket <span class="op">=</span> <span class="bu">file</span>.split(<span class="st">"/"</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    to_bucket <span class="op">=</span> to_folder.split(<span class="st">"/"</span>)[<span class="dv">2</span>]</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    to_path <span class="op">=</span> <span class="bu">file</span>.replace(</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        from_bucket, to_bucket</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    fs.cp(<span class="bu">file</span>, to_path)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I koden over så bruker vi <code>fs.walk()</code> til å finne alle filer som har <code>.xml</code> som filtype under filstien <code>gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/2023/3/10</code>. Deretter kopierer vi over filene til egen kildebøtte med <code>fs.cp()</code>. Når vi skal kopiere over til en ny bøtte må vi bestemme oss for hvor filene skal ligge og hvor mye av den gamle filstien vi skal beholde. Anta at vi skal beholde hele mappestrukturen i Team SUV sin bøtte. Da kan vi egentlig bare erstatte <code>ra0678-01-altinn-data-prod-e17d-ssb-altinn/</code> med den nye bøtte-navnet, og vi vil få den samme strukturen som i Team SUV sin bøtte.</p>
 
 
 </section>
