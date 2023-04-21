@@ -1,31 +1,36 @@
 # Installere pakker
 
 ## Python
+
 Installering av pakker er kun er mulig I et [virtuelt miljø](virtual-env.qmd). Det er [anbefalt å benytte poetry](virtual-env.qmd#Anbefaling) til dette. Eksemplene videre tar derfor utgangspunkt i et poetry prosjekt.
 
 Det er mulig å [installere pakker med pip](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/). Pakker kan installeres som normalt, hvis man har satt opp og aktivert et [virtuelt miljø](virtual-env.qmd).
 
 ### Poetry prosjekt eksempel
+
 Dette eksemplet viser hvordan man setter oppe et enkelt poetry prosjekt kalt test, hvis man ønsker å benytte et annet prosjektnavn må man endre dette i hver av kommandoene.
 
 Sett opp prosjektet:
-```bash
+
+``` bash
 poetry new test
 ```
+
 Naviger inn i prosjektmappen:
 
-```bash
+``` bash
 cd test
 ```
 
 Bruk poetry install for å bygge prosjektet:
-```bash
+
+``` bash
 poetry install
 ```
 
 Hvis man får en tilbakemelding som denne er prosjektet satt opp korrekt:
 
-```shell
+``` shell
 Creating virtualenv test-EojoH6Zm-py3.10 in /home/jovyan/.cache/pypoetry/virtualenvs 
 Updating dependencies 
 Resolving dependencies... (0.1s) 
@@ -38,7 +43,8 @@ Writing lock file
 For å legge til pakker i et prosjekt benyttes kommandoen poetry add.
 
 Skal man legge til pakken "pendulum" vil det se slik ut:
-```bash
+
+``` bash
 poetry add pendulum
 ```
 
@@ -49,6 +55,7 @@ Poetry tilbyr måter å sette versjonsbegrensninger for pakker som legges til i 
 For å fjerne pakker fra et prosjekt benytter man poetry remove.
 
 Hvis man ønsker å fjerne "pendulum" fra et prosjekt vil kommandoen se slik ut:
+
 ``` bash
 poetry remove pendulum
 ```
@@ -58,6 +65,7 @@ poetry remove pendulum
 For å oppdatere pakker i et prosjekt benytter man kommandoen poetry update.
 
 Skal man oppdatere pakken "pendulum" bruker man:
+
 ``` bash
 poetry update pendulum
 ```
@@ -152,20 +160,20 @@ For å installere dine egne R-pakker må du opprette et virtuelt miljø med **re
 ``` r
 renv::init()
 ```
+
 Kommandoen aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:
 
-* **renv.lock**\
+-   **renv.lock**\
     En fil som inneholder versjoner av alle pakker du benytter i koden din.
 
-* **.Rprofile** En fil som inneholder informasjon om oppsetting av miljø og alternative.
+-   **.Rprofile** En fil som inneholder informasjon om oppsetting av miljø og alternative.
 
-* **renv**\
-Mappe som inneholder alle pakkene du installerer.
+-   **renv**\
+    Mappe som inneholder alle pakkene du installerer.
 
-* **renv/activate.R** En fil som aktivere renv miljø for et prosjekt.
+-   **renv/activate.R** En fil som aktivere renv miljø for et prosjekt.
 
 **Hvis prosjektet ligger på GitHub, skal filene `renv.lock`, `.Rprofile` og `renv/activate.R` være på GitHub**
-
 
 ### Installering av pakker
 
@@ -175,7 +183,7 @@ Nå som vi har et virtuelle miljøet på plass kan vi installere R-pakker. Vi in
 renv::install("PxWebApiData")
 ```
 
-Over installerte vi pakken [PxWebApiData](https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html) fra den R sentral repository CRAN. Dette er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank. 
+Over installerte vi pakken [PxWebApiData](https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html) fra den R sentral repository CRAN. Dette er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank.
 
 Det er også mulig å installere pakker som ligger på SSBs GitHub. Da må vi spesifisere at pakke ligger på 'statisticsnorway' område. For eksempel:
 
@@ -183,10 +191,10 @@ Det er også mulig å installere pakker som ligger på SSBs GitHub. Da må vi sp
 renv::install("statisticsnorway/klassR")
 ```
 
-Pakken [klassR](https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html) er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned. 
-
+Pakken [klassR](https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html) er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned.
 
 ### Lagre pakkeversjonen til renv
+
 For å lagre pakkeversjon til .lockfil må koden din benytte pakken ved funksjonen `library()` et sted i prosjektet (på en .R fil). For eksempel kan vi benytte pakken `PxWebApiData` i koden vår ved:
 
 ``` r
@@ -205,7 +213,6 @@ Det betyr at både du og andre kan gjennskape de pakkene og versjoner som du har
 
 ![](images/renv_install.png)
 
-
 For å installere alle pakker som ligger i **renv.lock**-filen med riktig versjon kan du skriver
 
 ``` r
@@ -214,11 +221,9 @@ renv:restore()
 
 Dette er nyttig om det er andre som kjøre en produksjonsløp utviklet av andre.
 
-
-
 ### Avinstallering
 
-Individe pakker kan fjernes fra miljø ved `renv::`remove()` funksjonen. For eksempel:
+Individe pakker kan fjernes fra miljø ved `renv::`remove()\` funksjonen. For eksempel:
 
 ``` r
 renv::remove("PxWebApiData")
@@ -265,6 +270,7 @@ Koden over kan kjøres fra R i terminal og skal kun kjøres en gang. Men for å 
 ``` r
 renv::autoload()
 ```
+
 Deretter kan du benytte pakker og funksjoner ved `library()` osv. Funkjsonen `renv::autoload()` vil si ifra at du ønsker å benytte et renv miljø og vil letter etter filene i prosjektetfor å aktivere miljø (både i prosjekt-mappen og i foreldre-mapper).
 
 For å dele koden med andre, må de også kjøre `renv::restore()` etterpå (første gang) for å installere alle pakkene som ligger i .lock filen.
