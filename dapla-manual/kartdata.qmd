@@ -1,61 +1,173 @@
 ### Kartdata
-Det er tilrettelagt flere kartdata både til analyse, statistikkproduksjon og visualisering. Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på «ssb-prod-kart-data-delt». De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. Det er også SSBs standard rutenett i ulike størrelser samt Eurostats rutenett over Norge. 
+Det er tilrettelagt flere kartdata i Dapla til både analyse, statistikkproduksjon og visualisering. 
+Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på «ssb-prod-kart-data-delt».
+De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. 
+Det er også SSBs standard-rutenett i ulike størrelser samt Eurostats rutenett over Norge.
 
-#### Programpakker for geoprosessering
-Det er flere pakker for håndtering av kartdata for statistikkproduksjon, men de viktigste er geopandas (python) og sf (R). 
+Man søker om tilgang til dataene gjennom LDA........
 
-##### Python 
+I tillegg ligger det noe testdata i fellesbøtta her: gs://ssb-prod-dapla-felles-data-delt/GIS/testdata
+
+#### GIS i Dapla
+Det er flere pakker for håndtering av kartdata for statistikkproduksjon, men de viktigste er geopandas (Python) og sf (R). 
+
+##### Python - geopandas
 Geopandas er et Python-bibliotek som integrerer Pandas med GIS-analysering og kartlegging.
-Geopandas er bygd opp rundt GeoDataFrames. som er en pandas DataFrame med geografisk informasjon. Disse kan lastes inn direkte hvis man har geografiske filer, eller hvis man har en tabell med koordinat-kolonner kan de konverteres til geodataframes.
-Hvis du har en tabell med koordinat-kolonner kan du bruke GeoPandas til å kartlegge dataene og lage nye variabler ved å gjøre geografiske koblinger til vegdata, bygningsdata, arealtyper, tettsteder og så videre.
-Geopandas har en rekke generelle GIS-funksjoner, mens sgis er en SSB-pakke for å kunne lese, skrive på dapla samt noen ekstra funksjoner for blant annet avstandsberegning langs veg. Sgis er en ekstern pakke og kan installeres sånn:
+Geopandas er bygd opp rundt GeoDataFrames. som er en pandas DataFrame med geografisk informasjon. 
+Disse kan lastes inn direkte hvis man har geografiske filer, eller man kan konvertere fra DataFrames med koordinat-kolonner.
+
+Geopandas kan brukes til å kartlegge dataene, beregne avstander, koble datasett sammen basert på geografisk overlapp og så videre.
+Man kan da lage nye variabler for nærmiljø og tilgjengelighet i form av avstander og reisetider.
+
+For lesing og skriving av geodata i Dapla, kan man bruke SSB-pakken sgis. Med denne kan man også blant annet beregne reisetider langs veg
+og lage publiseringsverdige kart. 
+
+Pakkene kan installeres i Dapla sånn her:
 
 ```shell
+poetry add geopandas
 poetry add ssb-sgis
 ```
 
-For å jobbe med kartdata bør man installere begge disse pakkene. For spesielle GIS-formål kan også andre pakker være nødvendig. 
-
-**Eksempel på lesing fra kart til analyse/ statistikkproduksjon: **
+Og så importeres det i Python på vanlig vis.
 
 ```python
 import geopandas as gpd
 import sgis as sg
+```
+
+**Eksempel på lesing/skriving av kartdata**
+
+Man kan lese geodata i Dapla med funksjonen sgis.read_geopandas. Støttede formater er blant annet (geo)parquet, geojson og gml.
+
+```python
 testdatasti = "gs://ssb-prod-dapla-felles-data-delt/GIS/testdata"
 veger = sg.read_geopandas(f"{testdatasti}/veger_oslo.parquet")
 ```
 
-Tilsvarende for skriving til parquetfil:
+Tilsvarende for skriving til parquet eller annet geodataformat:
 
 ```python
 sg.write_geopandas(veger, filsti_ny) 
 ```
 
-Med de samme funksjonene kan man også lese og skrive formatene gml og geojson.
+En rekke kartdata for hele landet til analyse- og visualiseringsformål ligger i bøtta "kart". 
+For eksempel kommuneflater:
 
-**Eksempel på lesing av fil til visualisering:**
-‘filsti = «ssb-prod-kart-data-delt/kartdata_visualisering/klargjorte-data/2023/N5000_kommune_flate_p2023_v1.parquet»’
-‘df_kommune = sg.read_geopandas(filsti)’
+```python
+filsti = "ssb-prod-kart-data-delt/kartdata_analyse/klargjorte-data/2023/ABAS_kommune_flate_p2023_v1.parquet"
+kommuner = sg.read_geopandas(filsti)
+```
 
-**Testdata for å bli kjent med noen funksjoner**
-Det er lagt ut noen mindre testdata du kan bruke til å gjøre deg kjent med GIS-funksjoner på ssb-prod-dapla-delt-felles-data/GIS/testdata/.
-Det er blant annet en fil med bygningspunkter og en fil med kommuneflater. Hvis man vil koble informasjon om kommune til bygninger basert ut fra de som sammenfaller geografisk, så kan man koble med sjoin:
-‘bygg_med_kommuneinfo = bygg.sjoin(kommuner, how="left")’
-Inner er default, men med «left», så tar man med alle bygninger, også de som ikke er sammenfallende med kommuner.
+**Eksempel på avstandsberegning**
 
-Det er også en fil med veglinjer i testdataene. Hvis man vil koble avstand for hvert bygg til nærmeste veg og i tillegg få med informasjon om vegen kan man gjøre en sjoin_nearest:
-‘bygg_med_info_om_naermeste_veg = bygg.sjoin_nearest(
-    veger,
-    distance_col="meter_til_veg",
-)’
+Avstand i luftlinje finner man enkelt med sjoin_nearest. Sånn her finner man avstand fra bygg (1000 tilfeldige) til nærmeste butikk (alle i kommunen).
 
-Du kan se på resultatet på vanlig vis (som en pandas dataframe), men også via geopandas explore-funksjon (fungerer bare på dapla – ikke i linux):
-‘bygg_med_info_om_naermeste_veg.explore()’ 
-Dermed får man et interaktivt kart.
+```python
+boliger = sg.read_geopandas(f"{testdatasti}/noen_boliger_oslo.parquet")
+butikker = sg.read_geopandas(f"{testdatasti}/butikker_oslo.parquet")
 
-Med pakke sgis kan man også beregne avstander eller reisetid langs veg:
+boliger = boliger.sjoin_nearest(butikker, distance_col="meter_til_butikk_luftlinje")
+```
 
-Se intro til geopandas og sgis:
-Geopandas: https://geopandas.org/en/stable/docs/user_guide.html 
+For å finne avstand eller reisetid langs veier, kan man bruke sgis-metoden od_cost_matrix. 
+Man må først klargjøre vegnettet og bestemme regler for beregningen(e). 
 
-##### R
+```python
+veger_klargjort = (
+    sg.get_connected_components(veger)
+    .query("connected == 1")
+    .pipe(sg.make_directed_network_norway)
+)
+
+regler = sg.NetworkAnalysisRules(directed=True, weight="minutes")
+
+nwa = sg.NetworkAnalysis(network=veger_klargjort, rules=regler)
+```
+
+Så kan man beregne reisetider fra boliger til butikker.
+
+```python
+avstander = nwa.od_cost_matrix(boliger, butikker)
+```
+
+Korteste reisetid per bolig kan kobles som kolonne i boligdataene sånn her:
+
+```python
+boliger["minutter_til_butikk_langs_veg"] = avstander.groupby("origin")["minutes"].min()
+```
+
+Se flere eksempler i dokumentasjonen: https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix
+Og her: https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/brukerforum_20_04_2022/nettverksanalyse.ipynb
+
+**Eksempel på geografisk kobling**
+
+Datasett kan kobles basert på geografisk overlapp med geopandas.sjoin. Denne fungerer akkurat som pandas.merge, bare at det kobles basert på geometri.
+
+Kodesnutten under returnerer én kommuneflate for hvert bygg som overlapper, med kolonner fra begge datasettene. 
+Inner-join er default, men med left-join beholder man også geometriene som ikke overlapper.
+
+```python
+kommuner_med_boliginfo = kommuner.sjoin(boliger, how="left")
+```
+
+Med motsatt rekkefølge, får man én bolig per kommune den overlapper med. Siden boligene er punkter, vil hver bolig havne i maksimalt én kommune. 
+
+```python
+boliger_med_kommuneinfo = boliger.sjoin(kommuner, how="left")
+```
+
+**Eksempel på å lage kart**
+
+Man kan lage tematiske kart med sgis-klassen ThematicMap. Her er et enkelt eksempel på et kart over arealet i kommuner. 
+
+```python
+kommuner = sg.read_geopandas(f"{testdatasti}/enkle_kommuner.parquet")
+kommuner["Kvadratmeter"] = kommuner.area
+
+m = sg.ThematicMap(kommuner, column="Kvadratmeter", size=15)
+m.title = "Areal i kommunene"
+m.plot()
+```
+
+Se her for flere kart-eksempler: https://statisticsnorway.github.io/ssb-sgis/examples/maps.html
+
+**Konvertere DataFrame til GeoDataFrame**
+
+En pandas.DataFrame med koordinat-kolonner, kan konverteres til GeoDataFrame sånn her:
+
+```python
+import pandas as pd
+df = pd.DataFrame({"x": [10.8, 10.7, 10.9], "y": [59.9, 60, 59.85]})
+gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.x, df.y), crs=4326)
+```
+
+For å måle avtand i meter og kunne koble med annen geodata i Dapla, må man ha UTM-koordinater:
+
+```python
+gdf = gdf.to_crs(25833)
+```
+
+##### R - sf
+Den viktigste GIS-pakken i R er sf.
+
+Sindre Michael Haugen har lagd funksjoner for å lese blant annet geodata i Dapla:
+https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html
+
+Og en pakke for å gjøre nettverksanalyse, som også lar deg geokode adresser, altså å finne adressenes koordinater.
+https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html
+
+R-pakken sf er bygd opp rundt sf-objekter, som er data.frames med geografisk informasjon. 
+Man kan gjøre standard tidyverse-opersjoner på sf-objektene, pluss GIS-operasjoner. 
+
+```R
+library(sf)
+library(fellesr)
+library(GISSB)
+
+veger = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/veger_oslo.parquet")
+```
+
+```R
+kommuner_med_boliginfo = st_join(kommuner, punkter)
+```
