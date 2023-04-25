@@ -1,10 +1,10 @@
 ### Kartdata
 Det er tilrettelagt flere kartdata i Dapla til både analyse, statistikkproduksjon og visualisering. 
-Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på «ssb-prod-kart-data-delt».
+Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på **ssb-prod-kart-data-delt**.
 De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. 
 Det er også SSBs standard-rutenett i ulike størrelser samt Eurostats rutenett over Norge.
 
-Man søker om tilgang til dataene gjennom LDA........
+Man søker om tilgang til dataene til kundeservice, men bruk gjerne standard LDA-prosedyre som for øvrige data.
 
 I tillegg ligger det noe testdata i fellesbøtta her: gs://ssb-prod-dapla-felles-data-delt/GIS/testdata
 
@@ -52,10 +52,17 @@ sg.write_geopandas(veger, filsti_ny)
 ```
 
 En rekke kartdata for hele landet til analyse- og visualiseringsformål ligger i bøtta "kart". 
-For eksempel kommuneflater:
+For eksempel kommuneflater til analyse eller statistikk:
 
 ```python
 filsti = "ssb-prod-kart-data-delt/kartdata_analyse/klargjorte-data/2023/ABAS_kommune_flate_p2023_v1.parquet"
+kommuner = sg.read_geopandas(filsti)
+```
+
+Eksempel på lesing av kommuneflater til visualisering. Disse dataene er generalisert slik at de egner seg for
+visualisering, men blir unøyaktige til statistikk:
+```python
+filsti = "ssb-prod-kart-data-delt/kartdata_visualisering/klargjorte-data/2023/N5000_kommune_flate_p2023_v1.parquet"
 kommuner = sg.read_geopandas(filsti)
 ```
 
@@ -97,8 +104,8 @@ Korteste reisetid per bolig kan kobles som kolonne i boligdataene sånn her:
 boliger["minutter_til_butikk_langs_veg"] = avstander.groupby("origin")["minutes"].min()
 ```
 
-Se flere eksempler i dokumentasjonen: https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix
-Og her: https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/brukerforum_20_04_2022/nettverksanalyse.ipynb
+Se mer informasjon og eksempler i [dokumentasjonen](https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix)
+[Også her er eksempler] (https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/brukerforum_20_04_2022/nettverksanalyse.ipynb)
 
 **Eksempel på geografisk kobling**
 
@@ -130,7 +137,7 @@ m.title = "Areal i kommunene"
 m.plot()
 ```
 
-Se her for flere kart-eksempler: https://statisticsnorway.github.io/ssb-sgis/examples/maps.html
+[Se her for flere kart-eksempler](https://statisticsnorway.github.io/ssb-sgis/examples/maps.html)
 
 **Konvertere DataFrame til GeoDataFrame**
 
@@ -142,20 +149,21 @@ df = pd.DataFrame({"x": [10.8, 10.7, 10.9], "y": [59.9, 60, 59.85]})
 gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.x, df.y), crs=4326)
 ```
 
-For å måle avtand i meter og kunne koble med annen geodata i Dapla, må man ha UTM-koordinater:
+For å beregne avtand i meter og kunne koble med annen geodata i Dapla, må man ha UTM-koordinater:
 
 ```python
 gdf = gdf.to_crs(25833)
 ```
+[Se også geopandas dokumentasjon for mer utfyllende informasjon](https://geopandas.org/en/stable/docs/user_guide.html)
 
 ##### R - sf
 Den viktigste GIS-pakken i R er sf.
 
-Sindre Michael Haugen har lagd funksjoner for å lese blant annet geodata i Dapla:
-https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html
+Sindre Michael Haugen har lagd [funksjoner](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html
+) for å lese blant annet geodata i Dapla.
 
-Og en pakke for å gjøre nettverksanalyse, som også lar deg geokode adresser, altså å finne adressenes koordinater.
-https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html
+Og en [pakke](https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html) for å gjøre nettverksanalyse, som også lar deg geokode adresser, altså å finne adressenes koordinater.
+
 
 R-pakken sf er bygd opp rundt sf-objekter, som er data.frames med geografisk informasjon. 
 Man kan gjøre standard tidyverse-opersjoner på sf-objektene, pluss GIS-operasjoner. 
@@ -167,7 +175,10 @@ library(GISSB)
 
 veger = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/veger_oslo.parquet")
 ```
-
+Eksempel på kobling basert geografisk sammenfall (enkle kommuner er egentlig tilvisualisering):
 ```R
-kommuner_med_boliginfo = st_join(kommuner, punkter)
+boliger = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/noen_boliger_oslo.parquet")
+enkle_kommuner = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/enkle_kommuner.parquet")
+
+boliger_med_kommuneinfo = st_join(boliger, enkle_kommuner)
 ```
