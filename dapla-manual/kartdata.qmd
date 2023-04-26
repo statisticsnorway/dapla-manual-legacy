@@ -4,7 +4,7 @@ Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er 
 De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. 
 Det er også SSBs standard-rutenett i ulike størrelser samt Eurostats rutenett over Norge.
 
-Man søker om tilgang til dataene til kundeservice, men bruk gjerne standard LDA-prosedyre som for øvrige data.
+Man søker om tilgang til dataene til kundeservice (tilgangsrollen kart-consumers), men bruk gjerne standard LDA-prosedyre som for øvrige data.
 
 I tillegg ligger det noe **testdata** i fellesbøtta her: **ssb-prod-dapla-felles-data-delt/GIS/testdata**
 
@@ -183,10 +183,20 @@ library(GISSB)
 
 veger = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/veger_oslo.parquet")
 ```
-Eksempel på kobling basert geografisk sammenfall (enkle kommuner er egentlig tilvisualisering):
+
+Se eksempler på nettverksanalyse i [GISSB-pakken](https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html).
+
+Eksempel på kobling basert geografisk sammenfall (enkle kommuner er egentlig til visualisering):
+
 ```R
 boliger = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/noen_boliger_oslo.parquet")
 enkle_kommuner = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/enkle_kommuner.parquet")
 
 boliger_med_kommuneinfo = st_join(boliger, enkle_kommuner)
-``` 
+```
+
+Med motsatt rekkefølge, får man én kommuneflate per bolig som overlapper:
+
+```R
+kommuner_med_boliginfo = st_join(enkle_kommuner, boliger)
+```
