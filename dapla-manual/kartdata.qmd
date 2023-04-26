@@ -9,7 +9,7 @@ Man søker om tilgang til dataene til kundeservice, men bruk gjerne standard LDA
 I tillegg ligger det noe **testdata** i fellesbøtta her: **ssb-prod-dapla-felles-data-delt/GIS/testdata**
 
 ## Python
-### GIS-pakker
+### GIS-pakker og lesing/skriving av geodata
 **Geopandas** er et Python-bibliotek som integrerer Pandas med GIS-analysering og kartlegging.
 Geopandas er bygd opp rundt GeoDataFrames. som er en pandas DataFrame med geografisk informasjon. 
 Disse kan lastes inn direkte hvis man har geografiske filer, eller man kan konvertere fra DataFrames med koordinat-kolonner.
