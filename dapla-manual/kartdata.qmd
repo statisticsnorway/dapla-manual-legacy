@@ -74,13 +74,13 @@ Under følger noen eksempler på GIS-prosessering med testdataene.
 **Eksempel på avstandsberegning**
 
 Avstand i **luftlinje** finner man enkelt med sjoin_nearest. 
-Sånn her finner man avstand fra bygg (1000 tilfeldige) i Oslo til nærmeste butikk (alle i Oslo).
+Sånn her finner man avstand fra boligbygg (1000 tilfeldige) i Oslo til nærmeste butikkbygg.
 
 ```python
-boliger = sg.read_geopandas(f"{testdatasti}/noen_boliger_oslo.parquet")
-butikker = sg.read_geopandas(f"{testdatasti}/butikker_oslo.parquet")
+boligbygg = sg.read_geopandas(f"{testdatasti}/noen_boligbygg_oslo.parquet")
+butikkbygg = sg.read_geopandas(f"{testdatasti}/butikkbygg_oslo.parquet")
 
-boliger_med_butikkinfo = boliger.sjoin_nearest(butikker, distance_col="meter_til_butikk")
+boligbygg_med_butikkavstand = boligbygg.sjoin_nearest(butikkbygg, distance_col="meter_til_butikk")
 ```
 
 For å finne avstand eller reisetid langs veier, kan man gjøre **nettverksanalyse** med sgis.
@@ -98,16 +98,16 @@ regler = sg.NetworkAnalysisRules(directed=True, weight="minutes")
 nwa = sg.NetworkAnalysis(network=veger_klargjort, rules=regler)
 ```
 
-Så kan man beregne reisetider fra boliger til butikker:
+Så kan man beregne reisetider fra boligbygg til butikkbygg:
 
 ```python
-avstander = nwa.od_cost_matrix(boliger, butikker)
+avstander = nwa.od_cost_matrix(boligbygg, butikkbygg)
 ```
 
 Korteste reisetid per bolig kan kobles på som kolonne i boligdataene sånn her:
 
 ```python
-boliger["minutter_til_butikk"] = avstander.groupby("origin")["minutes"].min()
+boligbygg["minutter_til_butikk"] = avstander.groupby("origin")["minutes"].min()
 ```
 
 Se mer informasjon og eksempler i [dokumentasjonen](https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix)
@@ -123,13 +123,13 @@ Inner-join er default, men med left-join beholder man også geometriene som ikke
 
 ```python
 kommuner = sg.read_geopandas(f"{testdatasti}/enkle_kommuner.parquet")
-kommuner_med_boliginfo = kommuner.sjoin(boliger, how="left")
+kommuner_med_boliginfo = kommuner.sjoin(boligbygg, how="left")
 ```
 
-Med motsatt rekkefølge, får man én bolig per kommune den overlapper med. Siden boligene er punkter, vil hver bolig havne i maksimalt én kommune. 
+Med motsatt rekkefølge, får man ett boligbygg per kommune den overlapper med. Siden byggene er punkter, vil hvert bygg havne i maksimalt én kommune. 
 
 ```python
-boliger_med_kommuneinfo = boliger.sjoin(kommuner, how="left")
+boligbygg_med_kommuneinfo = boligbygg.sjoin(kommuner, how="left")
 ```
 
 **Eksempel på å lage kart**
@@ -189,14 +189,14 @@ Se eksempler på nettverksanalyse i [GISSB-pakken](https://statisticsnorway.gith
 Eksempel på kobling basert geografisk sammenfall (enkle kommuner er egentlig til visualisering):
 
 ```R
-boliger = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/noen_boliger_oslo.parquet")
+boligbygg = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/noen_boligbygg_oslo.parquet")
 enkle_kommuner = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/enkle_kommuner.parquet")
 
-boliger_med_kommuneinfo = st_join(boliger, enkle_kommuner)
+boligbygg_med_kommuneinfo = st_join(boligbygg, enkle_kommuner)
 ```
 
 Med motsatt rekkefølge, får man én kommuneflate per bolig som overlapper:
 
 ```R
-kommuner_med_boliginfo = st_join(enkle_kommuner, boliger)
+kommuner_med_boliginfo = st_join(enkle_kommuner, boligbygg)
 ```
