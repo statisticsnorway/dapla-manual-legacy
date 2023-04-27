@@ -101,4 +101,5 @@ website:
         - spark.qmd
         - slette-data.qmd
         - altinn3.qmd
+        - kartdata.qmd
       - ordforklaringer.qmd
