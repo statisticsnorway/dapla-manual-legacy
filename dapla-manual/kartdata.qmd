@@ -110,8 +110,9 @@ Korteste reisetid per bolig kan kobles på som kolonne i boligdataene sånn her:
 boligbygg["minutter_til_butikk"] = avstander.groupby("origin")["minutes"].min()
 ```
 
-Se mer informasjon og eksempler i [dokumentasjonen](https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix)
-[Også her er eksempler] (https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/brukerforum_20_04_2022/nettverksanalyse.ipynb)
+Se mer informasjon og eksempler i [dokumentasjonen.](https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix)
+
+Og noen [eksempler her.](https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/brukerforum_20_04_2022/nettverksanalyse.ipynb)
 
 **Eksempel på geografisk kobling**
 
@@ -144,7 +145,7 @@ m.title = "Areal i kommunene"
 m.plot()
 ```
 
-[Se her for flere kart-eksempler](https://statisticsnorway.github.io/ssb-sgis/examples/maps.html)
+[Se flere kart-eksempler her.](https://statisticsnorway.github.io/ssb-sgis/examples/maps.html)
 
 **Konvertere DataFrame til GeoDataFrame**
 
@@ -163,14 +164,14 @@ For å beregne avtand i meter og kunne koble med annen geodata i Dapla, må man 
 gdf = gdf.to_crs(25833)
 ```
 
-[Se også geopandas dokumentasjon for mer utfyllende informasjon](https://geopandas.org/en/stable/docs/user_guide.html)
+[Se også geopandas dokumentasjon for mer utfyllende informasjon.](https://geopandas.org/en/stable/docs/user_guide.html)
 
 ## R
 Den viktigste GIS-pakken i R er **sf**. Pakken er bygd opp rundt sf-objekter, 
 som er data.frames med geografisk informasjon. 
 Man kan gjøre standard tidyverse-opersjoner på sf-objektene, pluss GIS-operasjoner. 
 
-Sindre Mikael Haugen har lagd [funksjoner for å **lese og skrive**](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html
+Sindre Mikael Haugen har lagd [funksjoner for å lese og skrive](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html
 ) blant annet geodata i Dapla. For å få geodata, setter man parametret 'sf' til TRUE:
 
 ```R
@@ -179,7 +180,7 @@ library(fellesr)
 veger = read_SSB("ssb-prod-dapla-felles-data-delt/GIS/testdata/veger_oslo.parquet", sf = TRUE)
 ```
 
-Haugen har også lagd en [pakke for å gjøre **nettverksanalyse**](https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html), 
+Haugen har også lagd en [pakke for å gjøre nettverksanalyse](https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html), 
 som også lar deg geokode adresser, altså å finne adressenes koordinater.
 
 ```R
