@@ -118,7 +118,7 @@ sg.explore(boligbygg, butikkbygg, "minutter_til_butikk")
 
 Se mer informasjon og eksempler i [dokumentasjonen.](https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix)
 
-Og noen [eksempler her.](https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/brukerforum_20_04_2022/nettverksanalyse.ipynb)
+Og [flere nettverksanalyse-eksempler her.](https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/nettverksanalyse_lang.ipynb)
 
 **Eksempel på geografisk kobling**
 
