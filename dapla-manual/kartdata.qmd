@@ -170,27 +170,30 @@ Den viktigste GIS-pakken i R er **sf**. Pakken er bygd opp rundt sf-objekter,
 som er data.frames med geografisk informasjon. 
 Man kan gjøre standard tidyverse-opersjoner på sf-objektene, pluss GIS-operasjoner. 
 
-Sindre Mikael Haugen har lagd [funksjoner](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html
-) for å **lese og skrive** blant annet geodata i Dapla.
+Sindre Mikael Haugen har lagd [funksjoner for å **lese og skrive**](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html
+) blant annet geodata i Dapla. For å få geodata, setter man parametret 'sf' til TRUE:
 
-Og en [pakke](https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html) for å gjøre **nettverksanalyse**, 
+```R
+library(fellesr)
+
+veger = read_SSB("ssb-prod-dapla-felles-data-delt/GIS/testdata/veger_oslo.parquet", sf = TRUE)
+```
+
+Haugen har også lagd en [pakke for å gjøre **nettverksanalyse**](https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html), 
 som også lar deg geokode adresser, altså å finne adressenes koordinater.
 
 ```R
-library(sf)
-library(fellesr)
 library(GISSB)
-
-veger = read_SSB("ssb-prod-dapla-felles-data-delt/GIS/testdata/veger_oslo.parquet")
 ```
 
-Se eksempler på nettverksanalyse i [GISSB-pakken](https://statisticsnorway.github.io/GISSB/articles/GISSB_vignette.html).
-
-Eksempel på kobling basert geografisk sammenfall (enkle kommuner er egentlig til visualisering):
+Lite eksempel på kobling basert geografisk sammenfall (enkle kommuner er egentlig til visualisering).
+Her får man ett bygg per kommune som overlapper (som maksimalt er én kommune siden dette er bygningspunkter):
 
 ```R
-boligbygg = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/noen_boligbygg_oslo.parquet")
-enkle_kommuner = read_SSB("gs://ssb-prod-dapla-felles-data-delt/GIS/testdata/enkle_kommuner.parquet")
+library(sf)
+
+boligbygg = read_SSB("ssb-prod-dapla-felles-data-delt/GIS/testdata/noen_boligbygg_oslo.parquet", sf = TRUE)
+enkle_kommuner = read_SSB("ssb-prod-dapla-felles-data-delt/GIS/testdata/enkle_kommuner.parquet", sf = TRUE)
 
 boligbygg_med_kommuneinfo = st_join(boligbygg, enkle_kommuner)
 ```
