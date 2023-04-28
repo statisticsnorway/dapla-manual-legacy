@@ -10,7 +10,7 @@ Alle ansatte i SSB kan bidra til manualen ved å følge [instruksjonene her](./b
 
 ## Bidragsytere {.unnumbered}
 
-Dapla-manualen er initiert og skrevet av **Team Statistikktjenester** i SSB. Bidragsytere er Øyvind Bruer-Skarsbø, Miles Winther, Bjørn Andre Skaar, Anders Lunde og Damir Medakovic. Ved behov for oppdateringer og nytt innhold håper vi at alle i SSB kan bidra.
+Dapla-manualen er initiert og skrevet av **Team Statistikktjenester** i SSB. Bidragsytere er Øyvind Bruer-Skarsbø, Miles Winther, Bjørn Andre Skaar, Anders Lunde, Damir Medakovic og Bjørn Roar Joneid. Ved behov for oppdateringer og nytt innhold håper vi at alle i SSB kan bidra.
 
 ## Bidra til Dapla-manualen {.unnumbered}
 

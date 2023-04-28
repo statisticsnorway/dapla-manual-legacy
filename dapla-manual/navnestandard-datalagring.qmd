@@ -1,4 +1,3 @@
-
 # Navnestandard datalagring
 
 ::: {.callout-note}
