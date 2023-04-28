@@ -73,6 +73,8 @@ website:
           - section: standarder.qmd
             contents:
               - datatilstander.qmd
+              - navnestandard-datalagring.qmd
+              - versjonering-av-datasett.qmd
           - orkestrering.qmd
           - koble-data.qmd
           - section: kildedata.qmd
