@@ -398,12 +398,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>Når teamet er opprettet får alle medlemmene tilgang til sitt eget prosjekt i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester. Videre får hvert prosjekt et sett med tjenester og tilganger som knyttes til teamet. Det opprettes også datalagringsområder (kalt <a href="./bøtter.qmd">bøtter</a>) som bare kan aksesseres av brukere som er med i teamets tilgangsgrupper.</p>
+<p>Når teamet er opprettet får alle medlemmene tilgang til sitt eget prosjekt i Google Cloud Platform (GCP), som er SSBs leverandør av skytjenester. Videre får hvert prosjekt et sett med tjenester og tilganger som knyttes til teamet. Det opprettes også datalagringsområder (ofte kalt <em>bøtter</em>) som bare kan aksesseres av brukere som er med i teamets tilgangsgrupper.</p>
 <p>Dapla-teamet vil også få sin egen gruppe i SSBs Active Directory slik at medlemskapet i gruppen kan administreres av Kundeservice.</p>
 </section>
 <section id="legge-til-eller-fjerne-medlemmer-i-et-team" class="level2">
 <h2 class="anchored" data-anchor-id="legge-til-eller-fjerne-medlemmer-i-et-team">Legge til eller fjerne medlemmer i et team</h2>
-<p>For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en <a href="https://ssb.pureservice.com/#/new/7">Kundeservice-sak</a>. Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (<em>data-admins</em>, <em>developers</em> eller <em>consumers</em>).</p>
+<p>For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en <a href="https://ssb.pureservice.com/#/new/7">Kundeservice-sak</a>. Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (<em>data-admins</em>, <em>developers</em> eller <em>consumers</em>). <a href="./hva-er-dapla-team.html#tbl-tilgangsroller">Se hvilke bøtter du får tilgang</a> til med de ulike tilgangsrollene.</p>
+<p>https://manual.dapla.ssb.no/hva-er-dapla-team.html#tbl-tilgangsroller</p>
 <p>Endringer i team må godkjennes av seksjonsleder før de blir gjort.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -421,28 +422,15 @@ Midlertidig løsning
 </section>
 <section id="se-medlemmer-og-roller-i-et-team" class="level2">
 <h2 class="anchored" data-anchor-id="se-medlemmer-og-roller-i-et-team">Se medlemmer og roller i et team</h2>
-<p>For å se hvem som har hvilke tilganger i et <strong>Dapla-team</strong> så kan du gå inn på <a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups">Azure Active directory</a>. Her får du se en oversikt over alle Dapla-team, hvem som er medlemmer, og hvilken tilgangsrolle de har.</p>
-<p>Anta at vi ønsker å se hvilke SSB-ansatte som har tilgang til teamet <strong>skatt-person</strong>. Da kan vi gjøre følgende:</p>
+<p>For å se hvem som har de ulike tilgangsrollene i et team, så kan man bruke pakken <a href="https://pypi.org/project/dapla-team-cli/">dapla-team-cli</a> fra Jupyter. Pakken er installert for alle og du kan bruke den ved å gjøre følgende:</p>
 <ol type="1">
-<li><p>Gå inn på nettsiden til <a href="https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups">Azure Active directory</a>.</p></li>
-<li><p>Skriv inn <strong>skatt-person</strong> i søkefeltet slik som vist i <a href="#fig-azure-ad-overview">Figur&nbsp;1</a>.</p></li>
+<li><a href="./innlogging.html">Logg deg inn på Dapla</a>.</li>
+<li>Åpne en ny terminal</li>
+<li>Skriv inn <code>dpteam groups list-members</code> og trykk <em>Enter</em></li>
+<li>I prompten som dukker opp skriver du inn team-navn og trykker <em>Enter</em>.</li>
 </ol>
-<div id="fig-azure-ad-overview" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="images/azure_ad.png" class="img-fluid figure-img" alt="Bilde av nettsiden til Azure AD der brukeren har søkt opp Dapla-teamet skatt-person"></p>
-<figcaption class="figure-caption">Figur&nbsp;1: Nettsiden til <em>Azure Active directory</em>.</figcaption>
-</figure>
-</div>
-<p><a href="#fig-azure-ad-overview">Figur&nbsp;1</a> viser at det finnes 5 tilgangsroller knyttet til et Dapla-team:</p>
-<pre><code>1. managers (benyttes ikke enda)
-2. support (benyttes ikke enda)
-3. developers
-4. consumers
-5. data-admins</code></pre>
-<p>I realiteten er det bare <strong>data-admin</strong> og <strong>developer</strong> som er aktuelle tilgangsroller for å produsere statistikk i Dapla-teamet. <strong>consumers</strong>-rollen innehas av folk fra andre Dapla-team som skal ha tilgang til data i din <em>delt-bøtte</em>.</p>
-<ol start="3" type="1">
-<li>Hvis jeg ønsker å se hvem som er data-admins i teamet <strong>skatt-person</strong>, så kan jeg trykke på <strong>skatt-person-data-admins</strong>, og derettes trykke på <strong>Members</strong> i menyen til venstre. Da får jeg opp en liste over alle som har tilgang til <strong>data-admins</strong> i Dapla-teamet <strong>skatt-person</strong>.</li>
-</ol>
+<p>Da får du listet ut alle medlemmer av teamet og hvilke tilgangsroller de har.</p>
+<p>For de som ikke har mulighet til å bruke Jupyter så kan man også sende inn en forespørsel til <em>Kundeservice</em> om å få en oversikt.</p>
 
 
 </section>
