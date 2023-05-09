@@ -1,6 +1,11 @@
 project:
   type: website
 
+# Retain our custom domain on Publish
+# Ref: https://github.com/quarto-dev/quarto-cli/discussions/3249#discussioncomment-4090518
+resources:
+  - CNAME
+
 execute:
   freeze: auto
 
@@ -55,47 +60,49 @@ website:
       - section: introduksjon.qmd
         contents:
           - hva-er-dapla.qmd
-          - systemoversikt.qmd
+         # - systemoversikt.qmd
           - innlogging.qmd
-          - jupyterlab.qmd
+         # - jupyterlab.qmd
       - section: statistikkproduksjon.qmd
         contents:
         - section: dapla-team.qmd
-          contents: 
+          contents:
           - hva-er-dapla-team.qmd
           - administrasjon-av-team.qmd
         - gcc.qmd
         - overføring-av-data.qmd
         - section: produksjonsløp.qmd
-          contents: 
+          contents:
           - jobbe-med-kode.qmd
           - jobbe-med-data.qmd
+          
           - section: standarder.qmd
             contents:
               - datatilstander.qmd
               - navnestandard-datalagring.qmd
               - versjonering-av-datasett.qmd
-          - orkestrering.qmd
-          - koble-data.qmd
+          #- orkestrering.qmd
+          #- koble-data.qmd
+
           - section: kildedata.qmd
-            contents: 
+            contents:
             - automatisering.qmd
             - automatisering-avansert.qmd
           - statistikkbanken.qmd
-          - arkivering.qmd
+          #- arkivering.qmd
       - section: visualisering.qmd
         contents:
         - dashboard.qmd
-        - lage-nettsider.qmd
-      - section: bakkesystemer.qmd
-        contents:
-        - sas.qmd
-        - oracle.qmd
-        - pakke-install-bakken.qmd
+        #- lage-nettsider.qmd
+      #- section: bakkesystemer.qmd
+        #contents:
+        #- sas.qmd
+        #- oracle.qmd
+        #- pakke-install-bakken.qmd
       - section: annet.qmd
         contents:
         - git-og-github.qmd
-        - lokale-utviklingsmiljøer.qmd
+        #- lokale-utviklingsmiljøer.qmd
         - datadoc.qmd
         - github-app-integrasjon.qmd
         - gjenopprette-data.qmd

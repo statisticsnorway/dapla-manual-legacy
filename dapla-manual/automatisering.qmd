@@ -42,7 +42,7 @@ Automatiseringsløsningen krever at teamets Google-prosjekt kan lese fra teamets
 ### Konfigurere en kilde
 
 #### Hvor skal det konfigureres?
-Kilder konfigureres i teamets [Infrastructure as Code (IaC)](./ordforklaringer.html#infrastructure-as-code-iac) repo på Github. Det kan finnes basert på følgende formulering: `github.com/statisticsnorway/<teamnavn>-iac`. Kilder konfigureres under stien `automation/source_data` på repoet.
+Kilder konfigureres i teamets [Infrastructure as Code (IaC)](./ordforklaringer.html#infrastructure-as-code-iac) repo på Github. Det kan finnes basert på følgende formulering: `github.com/statisticsnorway/<teamnavn>-iac`. Kilder konfigureres under stien `automation/source_data/prod` på repoet.
 
 #### Hvilke filer konfigurerer en kilde?
 Hver kilde konfigureres ved hjelp av to filer:
@@ -64,7 +64,7 @@ folder_prefix: source-folder/2022
      """
 ```
 
-Disse filene må legges til i en mappe per kilde under `automation/source_data` i IaC repoet. Se [eksemplet under](#struktur-i-iac-repo) for en detaljert forklaring.
+Disse filene må legges til i en mappe per kilde under `automation/source_data/prod` i IaC repoet. Se [eksemplet under](#struktur-i-iac-repo) for en detaljert forklaring.
 
 ::: {.callout-note appearance="simple"}
 Mappenavnet for kilder i IaC repoene blir brukt som navn på ressurser. Dette betyr at de enesete tillatte tegnene i mappenavnet er bokstaver, tall, bindestrek og underscore. Det er ikke tillatt med mellomrom eller andre spesialtegn. Mappenavnet kan bestå av opptil 20 tegn.
@@ -86,7 +86,7 @@ Disse instruksjonene forutsetter at [ditt Google-prosjekt er koblet til Github](
 :::
 
 1. [Opprette skriptet](#skrive-prosesseringsscriptet) `process_source_data.py` som prosesserer kildedatafilen til inndata. Dette kan testes av kildedataansvarlige manuelt på Jupyter for å verifisere at dataene blir prosessert som ønsket.
-1. I en branch i teamets IaC repo, legg til filene `config.yaml` og `process_source_data.py` i en ny mappe (valgfritt navn) under `automation/source_data`. Se [eksemplet under](#struktur-i-iac-repo) for en detaljert forklaring av formatet.
+1. I en branch i teamets IaC repo, legg til filene `config.yaml` og `process_source_data.py` i en ny mappe (valgfritt navn) under `automation/source_data/prod`. Se [eksemplet under](#struktur-i-iac-repo) for en detaljert forklaring av formatet.
 1. Lag en PR på branchen og få den godkjent av kildedataansvarlige.
 1. Vent til alle tester er ferdige. Det skal stå "All checks have passed" før man går videre, hvis testene feiler [følg stegene her](./automatisering-avansert.html#validerings-logger). ![Suksessfulle tester på GitHub](images/checks_passed.png){fig-alt="Suksessfulle tester på GitHub"}
 1. Skrive `atlantis apply` i en kommentar på PRen for å opprette det nødvendige infrastruktur for å prosessere kilden.
@@ -130,12 +130,13 @@ ssb-prod-smaabakst-data-kilde
 smaabakst-iac
 └── automation
     └── source_data
-        ├── boller
-        │   ├── config.yaml
-        │   └── process_source_data.py
-        └── rundstykker
-            ├── config.yaml
-            └── process_source_data.py
+        └── prod
+            ├── boller
+            │   ├── config.yaml
+            │   └── process_source_data.py
+            └── rundstykker
+                ├── config.yaml
+                └── process_source_data.py
 ```
 
 #### Innhold i `config.yaml` for boller
@@ -152,7 +153,7 @@ folder_prefix: rundstykker
 
 ## Skrive prosesseringsscriptet
 
-Med prosesseringsscriptet mener vi filen `process_source_data.py` som ligger i en mappe per kilde under `automation/source_data`. Dette scriptet vil bli kalt *hver gang det blir lagt til en ny fil i kildedatabøtten*. 
+Med prosesseringsscriptet mener vi filen `process_source_data.py` som ligger i en mappe per kilde under `automation/source_data/prod`. Dette scriptet vil bli kalt *hver gang det blir lagt til en ny fil i kildedatabøtten*. 
 
 Dette betyr at hvis f.eks. 10 filer blir lagt til i kildedatabøtten samtidig så vil det startes opp 10 individuelle Python-prosesser som kaller denne `main`-metoden med forskjellig `source_file`. Parameteren `source_file` vil inneholde hele filstien inkl. filnavn. Så en enkel flytteoperasjon fra kildedatabøtten til inndatebøtten (uten noen form for konvertering) vil kunne uttrykkes slik:
 

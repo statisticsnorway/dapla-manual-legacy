@@ -16,6 +16,31 @@ En liste over Python pakker man kan benytte seg av i `process_source_data.py` fi
 
 Hver kilde kan skalere opp med parallele prosesseringsinstanser. Det gjør det kjappere å prosessere mange filer. I utgangspunktet er dette begrenset til 5 parallele instanser, men det kan økes ved behov.
 
+## Testing i staging-miljø
+Å benytte både prod og staging miljøer er en god praksis for å sikre at nye funksjoner og endringer fungerer som forventet før de rulles ut i produksjon. Staging-miljøet gir mulighet til å validere endringer i en mer kontrollert og isolert setting før de blir lansert i produksjonsmiljøet med skarpe data.
+
+Automatiseringsløsningen støtter oppsett av kilder i både `staging` og `prod` miljø. For oppsett av kilder i `staging`-miljøet, må man legge til kilden i en egen undermappe kalt staging. Dette kan gjøres på samme måte som beskrevet [her](./automatisering.qmd#skrive-prosesseringsscriptet), bortsett fra at kilden legges i en undermappe som heter `staging`.
+
+Her er et eksempel på konfigurasjon av både staging og produksjonsmiljø:
+```
+...
+├── automation
+│   └── source_data
+│       ├── prod
+│       │   └── kilde1
+│       │       ├── config.yaml
+│       │       └── process_source_data.py
+│       └── staging
+│           └── kilde1
+│               ├── config.yaml
+│               └── process_source_data.py
+...
+```
+
+::: {.callout-note appearance="simple"}
+Innholdet i config.yaml for både staging og produksjonsmiljø er som hovedregel identisk, men bøttene som benyttes vil være forskjellige. Stagingmiljøet har en egen kildedatabøtte kalt `gs://ssb-staging-my-project-data-kilde`.
+:::
+
 ## Validering
 
 For å gi raskt tilbakemelding på noen mulige feilsituasjoner, så kjøres det enkel validering på kilde config og `process_source_data.py` når en [PR](./ordforklaringer.html#pull-request-pr) er opprettet.
