@@ -404,6 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#ressurser" id="toc-ressurser" class="nav-link" data-scroll-target="#ressurser">Ressurser</a></li>
   <li><a href="#tilgjengelige-pakker" id="toc-tilgjengelige-pakker" class="nav-link" data-scroll-target="#tilgjengelige-pakker">Tilgjengelige pakker</a></li>
   <li><a href="#skalering" id="toc-skalering" class="nav-link" data-scroll-target="#skalering">Skalering</a></li>
+  <li><a href="#testing-i-staging-miljø" id="toc-testing-i-staging-miljø" class="nav-link" data-scroll-target="#testing-i-staging-miljø">Testing i staging-miljø</a></li>
   <li><a href="#validering" id="toc-validering" class="nav-link" data-scroll-target="#validering">Validering</a>
   <ul class="collapse">
   <li><a href="#validerings-logger" id="toc-validerings-logger" class="nav-link" data-scroll-target="#validerings-logger">Validerings logger</a></li>
@@ -452,6 +453,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="skalering" class="level2">
 <h2 class="anchored" data-anchor-id="skalering">Skalering</h2>
 <p>Hver kilde kan skalere opp med parallele prosesseringsinstanser. Det gjør det kjappere å prosessere mange filer. I utgangspunktet er dette begrenset til 5 parallele instanser, men det kan økes ved behov.</p>
+</section>
+<section id="testing-i-staging-miljø" class="level2">
+<h2 class="anchored" data-anchor-id="testing-i-staging-miljø">Testing i staging-miljø</h2>
+<p>Å benytte både prod og staging miljøer er en god praksis for å sikre at nye funksjoner og endringer fungerer som forventet før de rulles ut i produksjon. Staging-miljøet gir mulighet til å validere endringer i en mer kontrollert og isolert setting før de blir lansert i produksjonsmiljøet med skarpe data.</p>
+<p>Automatiseringsløsningen støtter oppsett av kilder i både <code>staging</code> og <code>prod</code> miljø. For oppsett av kilder i <code>staging</code>-miljøet, må man legge til kilden i en egen undermappe kalt staging. Dette kan gjøres på samme måte som beskrevet <a href="./automatisering.html#skrive-prosesseringsscriptet">her</a>, bortsett fra at kilden legges i en undermappe som heter <code>staging</code>.</p>
+<p>Her er et eksempel på konfigurasjon av både staging og produksjonsmiljø:</p>
+<pre><code>...
+├── automation
+│&nbsp;&nbsp; └── source_data
+│&nbsp;&nbsp;     ├── prod
+│&nbsp;&nbsp;     │&nbsp;&nbsp; └── kilde1
+│&nbsp;&nbsp;     │&nbsp;&nbsp;  &nbsp;&nbsp; ├── config.yaml
+│&nbsp;&nbsp;     │&nbsp;&nbsp;  &nbsp;&nbsp; └── process_source_data.py
+│&nbsp;&nbsp;     └── staging
+│&nbsp;&nbsp;         └── kilde1
+│&nbsp;&nbsp;             ├── config.yaml
+│&nbsp;&nbsp;             └── process_source_data.py
+...</code></pre>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Innholdet i config.yaml for både staging og produksjonsmiljø er som hovedregel identisk, men bøttene som benyttes vil være forskjellige. Stagingmiljøet har en egen kildedatabøtte kalt <code>gs://ssb-staging-my-project-data-kilde</code>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="validering" class="level2">
 <h2 class="anchored" data-anchor-id="validering">Validering</h2>
@@ -520,13 +549,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="eksempel">Eksempel</h3>
 <p>Dette eksemplet viser hvordan man går frem for å manuelt trigge kilden <code>boller</code> for team <code>smaabakst</code>.</p>
 <p>Team <code>smaabakst</code> ønsker å re-prosessere alle filer i kilden <code>boller</code>. Ved å bruke samme folder_prefix som i <code>config.yaml</code> vil alle filer som tilhører kilden bli prosessert på nytt.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> trigger_source_data_processing</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>project_id <span class="op">=</span> <span class="st">"prod-smaabakst-b69d"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>source_name <span class="op">=</span> <span class="st">"boller"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>folder_prefix <span class="op">=</span> <span class="st">"boller"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>trigger_source_data_processing(project_id, source_name, folder_prefix)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> trigger_source_data_processing</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>project_id <span class="op">=</span> <span class="st">"prod-smaabakst-b69d"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>source_name <span class="op">=</span> <span class="st">"boller"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>folder_prefix <span class="op">=</span> <span class="st">"boller"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>trigger_source_data_processing(project_id, source_name, folder_prefix)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

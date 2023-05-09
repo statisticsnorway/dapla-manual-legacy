@@ -508,7 +508,7 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="konfigurere-en-kilde">Konfigurere en kilde</h3>
 <section id="hvor-skal-det-konfigureres" class="level4">
 <h4 class="anchored" data-anchor-id="hvor-skal-det-konfigureres">Hvor skal det konfigureres?</h4>
-<p>Kilder konfigureres i teamets <a href="./ordforklaringer.html#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a> repo på Github. Det kan finnes basert på følgende formulering: <code>github.com/statisticsnorway/&lt;teamnavn&gt;-iac</code>. Kilder konfigureres under stien <code>automation/source_data</code> på repoet.</p>
+<p>Kilder konfigureres i teamets <a href="./ordforklaringer.html#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a> repo på Github. Det kan finnes basert på følgende formulering: <code>github.com/statisticsnorway/&lt;teamnavn&gt;-iac</code>. Kilder konfigureres under stien <code>automation/source_data/prod</code> på repoet.</p>
 </section>
 <section id="hvilke-filer-konfigurerer-en-kilde" class="level4">
 <h4 class="anchored" data-anchor-id="hvilke-filer-konfigurerer-en-kilde">Hvilke filer konfigurerer en kilde?</h4>
@@ -526,7 +526,7 @@ div.csl-indent {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">         source_file: fully qualified file name of the source data file.</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">         Example: gs://ssb-prod-my-project-data-kilde/source-folder/2022/data.xml</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">     """</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Disse filene må legges til i en mappe per kilde under <code>automation/source_data</code> i IaC repoet. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring.</p>
+<p>Disse filene må legges til i en mappe per kilde under <code>automation/source_data/prod</code> i IaC repoet. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -562,7 +562,7 @@ div.csl-indent {
 </div>
 <ol type="1">
 <li><a href="#skrive-prosesseringsscriptet">Opprette skriptet</a> <code>process_source_data.py</code> som prosesserer kildedatafilen til inndata. Dette kan testes av kildedataansvarlige manuelt på Jupyter for å verifisere at dataene blir prosessert som ønsket.</li>
-<li>I en branch i teamets IaC repo, legg til filene <code>config.yaml</code> og <code>process_source_data.py</code> i en ny mappe (valgfritt navn) under <code>automation/source_data</code>. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring av formatet.</li>
+<li>I en branch i teamets IaC repo, legg til filene <code>config.yaml</code> og <code>process_source_data.py</code> i en ny mappe (valgfritt navn) under <code>automation/source_data/prod</code>. Se <a href="#struktur-i-iac-repo">eksemplet under</a> for en detaljert forklaring av formatet.</li>
 <li>Lag en PR på branchen og få den godkjent av kildedataansvarlige.</li>
 <li>Vent til alle tester er ferdige. Det skal stå “All checks have passed” før man går videre, hvis testene feiler <a href="./automatisering-avansert.html#validerings-logger">følg stegene her</a>. <img src="images/checks_passed.png" class="img-fluid" alt="Suksessfulle tester på GitHub"></li>
 <li>Skrive <code>atlantis apply</code> i en kommentar på PRen for å opprette det nødvendige infrastruktur for å prosessere kilden.</li>
@@ -606,12 +606,13 @@ div.csl-indent {
 <pre><code>smaabakst-iac
 └── automation
     └── source_data
-        ├── boller
-        │&nbsp;&nbsp; ├── config.yaml
-        │&nbsp;&nbsp; └── process_source_data.py
-        └── rundstykker
-            ├── config.yaml
-            └── process_source_data.py</code></pre>
+        └── prod
+            ├── boller
+            │&nbsp;&nbsp; ├── config.yaml
+            │&nbsp;&nbsp; └── process_source_data.py
+            └── rundstykker
+                ├── config.yaml
+                └── process_source_data.py</code></pre>
 </section>
 <section id="innhold-i-config.yaml-for-boller" class="level4">
 <h4 class="anchored" data-anchor-id="innhold-i-config.yaml-for-boller">Innhold i <code>config.yaml</code> for boller</h4>
@@ -626,7 +627,7 @@ div.csl-indent {
 </section>
 <section id="skrive-prosesseringsscriptet" class="level2">
 <h2 class="anchored" data-anchor-id="skrive-prosesseringsscriptet">Skrive prosesseringsscriptet</h2>
-<p>Med prosesseringsscriptet mener vi filen <code>process_source_data.py</code> som ligger i en mappe per kilde under <code>automation/source_data</code>. Dette scriptet vil bli kalt <em>hver gang det blir lagt til en ny fil i kildedatabøtten</em>.</p>
+<p>Med prosesseringsscriptet mener vi filen <code>process_source_data.py</code> som ligger i en mappe per kilde under <code>automation/source_data/prod</code>. Dette scriptet vil bli kalt <em>hver gang det blir lagt til en ny fil i kildedatabøtten</em>.</p>
 <p>Dette betyr at hvis f.eks. 10 filer blir lagt til i kildedatabøtten samtidig så vil det startes opp 10 individuelle Python-prosesser som kaller denne <code>main</code>-metoden med forskjellig <code>source_file</code>. Parameteren <code>source_file</code> vil inneholde hele filstien inkl. filnavn. Så en enkel flytteoperasjon fra kildedatabøtten til inndatebøtten (uten noen form for konvertering) vil kunne uttrykkes slik:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dapla <span class="im">as</span> dp</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
