@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dapla-manual – navnestandard-datalagring</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/dapla-favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "treff",
+    "search-copy-link-title": "Kopier link til søk",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dokumentet",
+    "search-more-matches-text": "flere treff i dokumentet",
+    "search-clear-button-title": "Nullstill",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/dapla-long.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dapla-manual</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://start.dapla.ssb.no/" rel="" target=""><i class="bi bi-people-fill" role="img" aria-label="Opprette Dapla-team">
+</i> 
+ <span class="menu-text">Opprette Dapla-team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://web.yammer.com/main/org/ssb.no/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5MDUzMjA2In0/all" rel="" target=""><i class="bi bi-question-lg" role="img">
+</i> 
+ <span class="menu-text">Stille spørsmål</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ssb.pureservice.com/#/new/7" rel="" target=""><i class="bi bi-send-fill" role="img" aria-label="Åpne en sak hos Kundeservice">
+</i> 
+ <span class="menu-text">Melde sak</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/statisticsnorway/dapla-manual" rel="" target=""><i class="bi bi-github" role="img" aria-label="Dapla-manual GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./statistikkproduksjon.html">Statistikkproduksjon</a></li><li class="breadcrumb-item"><a href="./produksjonsløp.html">Produksjonsløp</a></li><li class="breadcrumb-item"><a href="./standarder.html">Standarder</a></li><li class="breadcrumb-item"><a href="./navnestandard-datalagring.html">Navnestandard datalagring</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Velkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forord</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./introduksjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduksjon</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hva er Dapla?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./innlogging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Innlogging</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistikkproduksjon</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dapla Team</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hva er Dapla-team?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./administrasjon-av-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Administrasjon av team</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gcc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Google Cloud Console</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./overføring-av-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overføring av data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./produksjonsløp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Produksjonsløp</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jobbe-med-kode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jobbe med kode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jobbe med data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./standarder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Standarder</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datatilstander</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./navnestandard-datalagring.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Navnestandard datalagring</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versjonering-av-datasett.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versjonering av datasett</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./kildedata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kildedata</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./automatisering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatisering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./automatisering-avansert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatisering Avansert</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistikkbanken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistikkbanken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualisering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualisering</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dash og dashboard</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./annet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annet</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git-og-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git og Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datadoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataDoc</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github-app-integrasjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Koble prosjektet til Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gjenopprette data fra bøtter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installere pakker</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spark.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spark</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slette data fra bøtter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./altinn3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Altinn 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kartdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kartdata</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ordforklaringer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ordforklaringer</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#navnestandard-datalagring" id="toc-navnestandard-datalagring" class="nav-link active" data-scroll-target="#navnestandard-datalagring">Navnestandard datalagring</a></li>
+  <li><a href="#navngiving-av-mapper-og-datasett-filer" id="toc-navngiving-av-mapper-og-datasett-filer" class="nav-link" data-scroll-target="#navngiving-av-mapper-og-datasett-filer">Navngiving av mapper og datasett (filer)</a>
+  <ul class="collapse">
+  <li><a href="#mapper-kataloger" id="toc-mapper-kataloger" class="nav-link" data-scroll-target="#mapper-kataloger">Mapper (kataloger)</a>
+  <ul class="collapse">
+  <li><a href="#standard-lagringsområder-bøtter-som-opprettes-for-alle-statistikkprodukt-team-i-ssb" id="toc-standard-lagringsområder-bøtter-som-opprettes-for-alle-statistikkprodukt-team-i-ssb" class="nav-link" data-scroll-target="#standard-lagringsområder-bøtter-som-opprettes-for-alle-statistikkprodukt-team-i-ssb">Standard lagringsområder (bøtter) som opprettes for alle statistikkprodukt-team i SSB</a></li>
+  <li><a href="#datatilstander-prosesser-permanente-data-og-temporære-data" id="toc-datatilstander-prosesser-permanente-data-og-temporære-data" class="nav-link" data-scroll-target="#datatilstander-prosesser-permanente-data-og-temporære-data">Datatilstander, prosesser, permanente data og temporære data</a></li>
+  <li><a href="#statistikkprodukter-og-dataprodukter" id="toc-statistikkprodukter-og-dataprodukter" class="nav-link" data-scroll-target="#statistikkprodukter-og-dataprodukter">Statistikkprodukter og dataprodukter</a></li>
+  <li><a href="#mappestruktur-for-organisering-av-datasett-i-dapla-teamenes-lagringsområder-bøtter" id="toc-mappestruktur-for-organisering-av-datasett-i-dapla-teamenes-lagringsområder-bøtter" class="nav-link" data-scroll-target="#mappestruktur-for-organisering-av-datasett-i-dapla-teamenes-lagringsområder-bøtter">Mappestruktur for organisering av datasett i Dapla-teamenes lagringsområder (bøtter)</a></li>
+  <li><a href="#eksempel-på-mappestruktur-i-data-produkt-bøtte" id="toc-eksempel-på-mappestruktur-i-data-produkt-bøtte" class="nav-link" data-scroll-target="#eksempel-på-mappestruktur-i-data-produkt-bøtte">Eksempel på mappestruktur i data-produkt-bøtte</a></li>
+  </ul></li>
+  <li><a href="#filnavn-for-datasett" id="toc-filnavn-for-datasett" class="nav-link" data-scroll-target="#filnavn-for-datasett">Filnavn for datasett</a>
+  <ul class="collapse">
+  <li><a href="#format-for-filnavn-datasettnavn" id="toc-format-for-filnavn-datasettnavn" class="nav-link" data-scroll-target="#format-for-filnavn-datasettnavn">Format for filnavn (datasettnavn)</a></li>
+  <li><a href="#tillatte-tegn-for-bruk-i-filnavn-og-mappe-navn" id="toc-tillatte-tegn-for-bruk-i-filnavn-og-mappe-navn" class="nav-link" data-scroll-target="#tillatte-tegn-for-bruk-i-filnavn-og-mappe-navn">Tillatte tegn for bruk i filnavn og mappe-navn</a></li>
+  <li><a href="#datapartisjonering---alternativ-organisering-av-datasett-med-flere-mapper-og-filer" id="toc-datapartisjonering---alternativ-organisering-av-datasett-med-flere-mapper-og-filer" class="nav-link" data-scroll-target="#datapartisjonering---alternativ-organisering-av-datasett-med-flere-mapper-og-filer">“Datapartisjonering” - alternativ organisering av datasett med flere mapper og filer</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="navnestandard-datalagring" class="level1">
+<h1>Navnestandard datalagring</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Krav til dokumentasjon av datasett
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I SSB er det et krav at datasett i datatilstandene<strong><sup>1</sup></strong> (inndata), klargjorte data, statistikk og utdata dokumenteres. Det er spesielt viktig at klargjorte data, som er grunnlag både for statistikk, arkiv og datadeling, dokumenteres godt. Dokumentasjon er nødvendig for at vi skal finne, forstå og (gjen)bruke SSBs data. De fysiske datasettene og variablene som inngår i disse skal dokumenteres med bruk av metadataløsningene <a href="https://manual.dapla.ssb.no/datadoc.html">DataDoc</a> (datasettdokumentasjon), <a href="./wiki/spaces/MPD/pages/3009839199/VarDef+-+Krav+til+dokumentasjon+av+variabler">VarDef</a> <strong><sup>2</sup></strong> (variabeldefinisjoner) og <a href="https://www.ssb.no/klass/">KLASS</a> (kodelister og klassifikasjoner).</p>
+<p><em>Se også detaljerte krav til datasett-metadata i dokumentene <a href="https://statistics-%20norway.atlassian.net/l/c/JFFaM2ix">DataDoc - Krav til dokumentasjon av datasett</a> og for variablene som inngår i datasettet <a href="https://statistics-%20norway.atlassian.net/l/c/VtfAPDaV">DataDoc - Variabelforekomst</a></em></p>
+<p>En viktig del av datadokumentasjonsarbeidet er hvordan datasett versjoneres og organiseres i en standardisert mappestruktur (katalogstruktur). Dette dokumentet beskriver en <strong>navnestandard for mappestruktur og datasett</strong> (datafilene), i tillegg til <strong>regler for versjonering av datasett</strong> (datafilene).</p>
+<p><strong><sup>1</sup></strong> <em>Datatilstanden “kildedata” omfattes ikke av denne navnestandarden i og med at kildedata mottas av SSB i mange former/strukturer, og at kildedata i liten grad skal deles internt og eksternt (begrenset tilgang). Det må eventuelt vurderes om det skal utarbeides egne retningslinjer for lagring av kildedata. Datatilstanden “inndata” er nevnt i parentes i og med at denne datatilstanden ikke er obligatorisk.</em></p>
+<p><strong><sup>2</sup></strong> <em>Utvikling av nye VarDef er i skrivende stund ikke påbegynt. SSBs eksisterende variabeldefinisjonsløsning</em> <a href="https://www.ssb.no/a/metadata/definisjoner/variabler/main.html"><em>Vardok</em></a> <em>skal derfor benyttes fram til ny løsning er klar.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Krav til lagringsformater for datasett
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dokumentet “<a href="https://statistics-%20norway.atlassian.net/l/c/6JLd40Go#Anbefalte-dokumenttyper-(filformater)-for-%20datautveksling-og-lagring">Standardformater for datalagring i SSB</a>” beskriver krav til filformater og dataformater ved lagring av klargjorte data som skal benyttes til utarbeiding av statistikk, datadeling og arkivering.</p>
+</div>
+</div>
+</section>
+<section id="navngiving-av-mapper-og-datasett-filer" class="level1">
+<h1>Navngiving av mapper og datasett (filer)</h1>
+<p>Navnestandarden<strong><sup>3</sup></strong> baseres på kapitelet <a href="https://manual.dapla.ssb.no/b%C3%B8tter.html">“Bøtter” i Dapla- manualen</a>, interndokumentet <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">Datatilstander i SSB</a> og <em>“statistikk kortnavn”</em> i <a href="https://wiki.ssb.no/display/SSBNO/4.3.1+Statistikkregisteret">Statistikkregisteret</a>.</p>
+<p><strong><sup>3</sup></strong> <em>Navnestandarden er foreløpig begrenset til lagring av datafiler i <em><a href="https://cloud.google.com/storage/docs/introduction"><em>Google Cloud Storage Buckets</em></a> </em>- ofte kalt “bøtte(r)” i SSB. Navnestandard for bruk av andre typer datalagringsteknologier i Google Cloud, f.eks. BigQuery og CloudSQL, dekkes ikke av denne navnestandarden!</em></p>
+<section id="mapper-kataloger" class="level2">
+<h2 class="anchored" data-anchor-id="mapper-kataloger">Mapper (kataloger)</h2>
+<section id="standard-lagringsområder-bøtter-som-opprettes-for-alle-statistikkprodukt-team-i-ssb" class="level3">
+<h3 class="anchored" data-anchor-id="standard-lagringsområder-bøtter-som-opprettes-for-alle-statistikkprodukt-team-i-ssb">Standard lagringsområder (bøtter) som opprettes for alle statistikkprodukt-team i SSB</h3>
+<p>Følgende lagringsområder (bøtter) operettes for alle team:</p>
+<ul>
+<li><strong>ssb-prod-</strong>&lt;<strong>teamnavn</strong>&gt;<strong>-data-kilde</strong> : Inneholder ubehandlede rådata fra datakildene.</li>
+<li><strong>ssb-prod-</strong>&lt;<strong>teamnavn</strong>&gt;<strong>-data-produkt</strong> : Inneholder data knyttet til statistikkproduktet.</li>
+<li><strong>ssb-prod-</strong>&lt;<strong>teamnavn</strong>&gt;<strong>-data-delt</strong> : Inneholder data knyttet til statistikkproduktet som kan deles med andre statistikkteam.</li>
+</ul>
+<p>Denne navnestandarden gjelder primært for lagringsområdene <em>data-produkt</em> <em>og </em>data-delt<em>, men er også anbefalt brukt for </em>data-kilde*.</p>
+</section>
+<section id="datatilstander-prosesser-permanente-data-og-temporære-data" class="level3">
+<h3 class="anchored" data-anchor-id="datatilstander-prosesser-permanente-data-og-temporære-data">Datatilstander, prosesser, permanente data og temporære data</h3>
+<p>I en statistikkproduksjon skal det for hver datatilstand lagres permanente datasett (datafiler). Disse datasettene skal følge denne navnestandarden inkludert kravet til versjonering og dokumentasjon (metadata). Det er imidlertid <strong>viktig å skille mellom behovet for permanente data og temporære data</strong>. I prosessene som kjøres mellom hver datatilstand, f.eks. klargjøringsprosessene mellom inndata og klargjorte data, vil det være behov for temporær datalagring. <strong>Temporære data skal aldri deles</strong>, og det stilles derfor ingen krav til verken navnestandard, versjonering eller dokumentasjon (metadata) av disse. Det er helt opp til hvert produkt-team hvordan de vil organisere temporære data. <strong>Ved å skille mellom permanent datalagring og temporære datalagring oppnår vi en optimal løsning både for dataprodusenter (statistikkseksjonene) og data-konsumentene (interne og eksterne brukere)</strong>. Produsentene får nødvendig fleksibilitet til å prosessere data i temporære områder, mens konsumentene får godt dokumenterte og versjonerte data i en standardisert mappe-struktur og tilgjengelig for gjenfinning i en søkbar datakatalog.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./images/navnestandard_datatilstander.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figur 1: Datatilstander, permanente og temporære data</figcaption>
+</figure>
+</div>
+</section>
+<section id="statistikkprodukter-og-dataprodukter" class="level3">
+<h3 class="anchored" data-anchor-id="statistikkprodukter-og-dataprodukter">Statistikkprodukter og dataprodukter</h3>
+<section id="statistikkprodukter" class="level4">
+<h4 class="anchored" data-anchor-id="statistikkprodukter">Statistikkprodukter</h4>
+<p>Alle SSBs tidligere og nåværende statistikkprodukter inngår <a href="https://wiki.ssb.no/display/SSBNO/4.3.1+Statistikkregisteret">Statistikkregisteret</a>. Før publisering på <a href="http://ssb.no">ssb.no</a> må alle statistikkprodukter være registrert i Statistikkregisteret med informasjon om bl.a. statistikkens navn, emne-område, eierseksjon og publiseringstidspunkt. I tillegg får statistikkene tildelt et kortnavn. Eksempler på statistikk-kortnavn er:</p>
+<ul>
+<li><code>"kpi"</code> for konsumprisindeksen</li>
+<li><code>"reise"</code> for reiseundersøkelsen</li>
+<li><code>"ftot"</code> for næringslivstjenester, omsetning etter tjenestetype</li>
+</ul>
+<p>Kortnavnene er unike og stabilt over tid (uforanderlige). De er derfor valgt som grunnlag for kategorisering/inndeling av datasett i Dapla, dvs. benyttes som grunnlag for navn på mappene i lagringsområdene (bøttene).</p>
+<p><em>Statistikkregisteret har også et <a href="https://i.ssb.no/statistikkregisteret/statistics">API for å hente informasjon om alle SSBs statistikker</a> i json- format.</em></p>
+</section>
+<section id="dataprodukter" class="level4">
+<h4 class="anchored" data-anchor-id="dataprodukter">Dataprodukter</h4>
+<p>Det er imidlertid ikke slik at alle data i SSB kan knyttes direkte til en statistikk i Statistikkregisteret. Flere statistikkseksjoner i SSB bearbeider også data til andre bruksområder og formål, eksempelvis klargjøring av data til forskning og utlån, bearbeiding av data som skal inngå som en del av andre statistikker, og data som inngår i populasjonsregistre. Denne typen data omtales i dette dokumentet som “dataprodukter”, og i navnestandarden skiller vi mellom “dataprodukter” og “statistikkprodukter”. Det eksisterer ikke et register med “kortnavn” for data-produktene i SSB, men hvert team må lage kortnavn også for dataproduktene. Eksempler på dataprodukt-kortnavn er “nudb” (utdanningsdatabasen) og “fd_trygd” (forløpsdatabasen for trygdedata).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+“_data” - navnekonvensjon for dataprodukter
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For å skille mellom dataprodukter og statistikkprodukter skal navnet på alle mapper som representerer dataprodukter ha endelsen “<strong>_data</strong>”, f.eks. “nudb<strong>_data</strong>” og “fd_trygd<strong>_data</strong>”.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="mappestruktur-for-organisering-av-datasett-i-dapla-teamenes-lagringsområder-bøtter" class="level3">
+<h3 class="anchored" data-anchor-id="mappestruktur-for-organisering-av-datasett-i-dapla-teamenes-lagringsområder-bøtter">Mappestruktur for organisering av datasett i Dapla-teamenes lagringsområder (bøtter)</h3>
+<p>Med utgangspunkt i standard bøtter som opprettes for alle statistikk-team i DAPLA, Statistikkregisteret og datatilstander, er det utarbeidet følgende regler for mappestrukturen og navngiving av mappene i bøttene <em>(gjelder for data-produkt-bøtte og data-delt-bøtte, men anbefalt også for data-kilde- bøtte)</em> :</p>
+<pre><code>ssb-prod-&lt;team-name&gt;-data-produkt/  
+└─ &lt;statistikk-kortnavn&gt; | &lt;dataprodukt&gt;_data/  
+   └── &lt;datatilstand&gt;/  
+       ├── [datasett-1]  
+       ├── [datasett-2]  
+       └── [datasett-NN]</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Forklaring av mappe-nivåer i navenstandarden
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Første nivå er lagringsområdet (bøtte)</li>
+<li>Andre nivå er:<br>
+-&gt; enten <strong>kortnavn</strong> fra Statistikkregisteret<br>
+-&gt; eller et <strong>dataprodukt-navn</strong> (“<em>kortnavn</em>”)</li>
+<li>Tredje nivå er <strong>datatilstand</strong></li>
+<li>Fjerde nivå er <strong>datasett</strong> (datafiler)</li>
+</ul>
+</div>
+</div>
+<section id="støtte-for-egendefinerte-under-mapper-ved-behov-for-organisering-av-datasett-i-flere-nivåer" class="level4">
+<h4 class="anchored" data-anchor-id="støtte-for-egendefinerte-under-mapper-ved-behov-for-organisering-av-datasett-i-flere-nivåer">Støtte for “egendefinerte under-mapper” ved behov for organisering av datasett i flere nivåer</h4>
+<p>Ved behov er det tillatt å utvide mappestrukturen med med flere egendefinerte nivåer (nivå 4, 5, 6, .., N). Dette kan være nyttig for team som har veldig mange datasett og har behov for å gruppere disse i flere undermapper:</p>
+<pre><code>ssb-prod-&lt;team-name&gt;-data-produkt/  
+└─ &lt;statistikk-kortnavn&gt; | &lt;dataprodukt&gt;_data/  
+   └── &lt;datatilstand&gt;/  
+       └── &lt;egen under-mappe&gt;/  
+           └── &lt;egen under-under-mappe&gt;/  
+               └── &lt;.. osv.&gt;/  
+                   ├── [datasett-1]  
+                   ├── [datasett-2]  
+                   └── [datasett-NN]</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Eventuell bruk av egendefinerte nivåer i mappestrukturen
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Første nivå er lagringsområdet (bøtte)</li>
+<li>Andre nivå er:<br>
+-&gt; enten <strong>kortnavn</strong> fra Statistikkregisteret<br>
+-&gt; eller et <strong>dataprodukt-navn</strong> (“<em>kortnavn</em>”)</li>
+<li>Tredje nivå er <strong>datatilstand</strong></li>
+<li>Fjerde nivå er <strong>datasett</strong> (datafiler)</li>
+<li>Nivå 4, 5, osv. er <strong>egendefinerte under-mapper</strong></li>
+<li>Nederste nivå er <strong>datasett</strong> (datafiler)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="støtte-for-temporære-data-temp-mappe-og-oppdragsdata-oppdrag-mappe" class="level4">
+<h4 class="anchored" data-anchor-id="støtte-for-temporære-data-temp-mappe-og-oppdragsdata-oppdrag-mappe">Støtte for temporære data (<strong>temp</strong>-mappe) og oppdragsdata (<strong>oppdrag</strong>-mappe)</h4>
+<p>Ved behov for lagring av temporære data (tilsvarende wk-katalogene på Linux på bakken) er det støtte for å opprette en <strong>temp</strong> -mappe. Temporære data er kun tillatt i data-produkt-bøtten, bør fjernes etter en viss tid, og skal ikke deles med andre (kun tilgjengelige innenfor eget team).</p>
+<p>Det er også anbefalt å opprette en <strong>oppdrag</strong> -mappe for team som jobber med oppdragsvirksomhet. Egne regler gjelder for behandling og oppbevaring av oppdragsdata. Det er derfor ønskelig at disse organiseres i en egen mappe. Utover dette er det anbefalt å ha med WebSak-saksnummer til oppdraget enten som en undermappe eller som en del av datasett-navnet.</p>
+<pre><code>ssb-prod-&lt;team-name&gt;-data-produkt/  
+└─ &lt;statistikk-kortnavn&gt; | &lt;dataprodukt&gt;_data/  
+   └── &lt;datatilstand&gt;/  
+   └── &lt;datatilstand&gt;/  
+       ├── [datasett-1]  
+       ├── [datasett-2]  
+       └── [datasett-NN]
+└─ temp/  
+   ├── [temp-datasett-A]  
+   └── [temp-datasett-X]  
+└─ oppdrag/  
+   └── &lt;WebSak-saksnummer&gt;/  
+       ├── [oppdrag-datasett-Y]  
+       └── [oppdrag-datasett-Z]</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Bruk av temp-mappe og oppdrag-mappe
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Første nivå er lagringsområdet (bøtte)</li>
+<li>Andre nivå er:<br>
+-&gt; enten <strong>kortnavn</strong> fra Statistikkregisteret<br>
+-&gt; eller et <strong>dataprodukt-navn</strong> (“<em>kortnavn</em>”)</li>
+<li>Tredje nivå er <strong>datatilstand</strong></li>
+<li>Fjerde nivå er <strong>datasett</strong> (datafiler)</li>
+</ul>
+<p><em>Her vises også:</em></p>
+<ul>
+<li><strong>temp-mappe for temporære data</strong></li>
+<li><strong>oppdrag-mappe for oppdragsdata</strong></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="eksempel-på-mappestruktur-i-data-produkt-bøtte" class="level3">
+<h3 class="anchored" data-anchor-id="eksempel-på-mappestruktur-i-data-produkt-bøtte">Eksempel på mappestruktur i data-produkt-bøtte</h3>
+<p><strong>Eksempel “Team overnaturlig”</strong></p>
+<p>Nedenfor vises et eksempel på hvordan et tenkt team “ <em>Team overnaturlig</em> ” kan organisere sine tenkte statistikkprodukter “<em>ufo</em>” og “<em>superhelt</em>” i en mappestruktur:</p>
+<pre><code>ssb-prod-team-overnaturlig-data-produkt/  
+└── ufo/  
+    ├── inndata/  
+    ├── klargjorte-data/  
+    ├── statistikk/  
+    └── utdata/  
+└── superhelt/  
+    ├── inndata/  
+    ├── klargjorte-data/  
+    ├── statistikk/  
+    └── utdata/  
+└── temp/  
+└── oppdrag/  </code></pre>
+<p><strong>Eksempel “Team reiseliv” - Seksjon for næringslivets konjunkturer (S422)</strong></p>
+<p>Teamet har ansvar for 3 statistikk-produkter (kortnavn “overnatting”, “reise” og “grensehandel”)</p>
+<ul>
+<li>Ett ALTINN-skjema og 2 utvalgsinnsamlinger med intervjuer på telefon/CATI</li>
+<li>Produksjonsløpet har fokus på statistikkprodukter fra kildedata til utdata</li>
+</ul>
+<pre><code>ssb-prod-reiseliv-data-produkt/  
+└── overnatting/  
+     ├── inndata/  
+     ├── klargjorte-data/  
+     ├── statistikk/  
+     └── utdata/  
+└── reise/  
+     ├── inndata/  
+     ├── klargjorte-data/  
+     ├── statistikk/  
+     └── utdata/  
+└── grensehandel/  
+     ├── inndata/  
+     ├── klargjorte-data/  
+     ├── statistikk/  
+     └── utdata/  
+└── temp/</code></pre>
+<p><strong>Eksempel “Team trygd” - Seksjon for inntekts- og levekårsstatistikk (S350)</strong></p>
+<p>Teamet har datainnsamling fra flere av NAV sine register</p>
+<ul>
+<li>Data klargjøres og brukes til flere formål, bl.a. utlån av data til forskere (FD-Trygd) og levering til <a href="http://Microdata.no">microdata.no</a> (S380)</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Eksempel på <em>dataprodukt</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Team trygd klargjør dataprodukter, ikke statistikkprodukter. Alle dataprodukt-kortnavn har derfor endelsen <strong>“_data”</strong> i eksempel-mappestrukturen nedenfor.</em></p>
+</div>
+</div>
+<pre><code>ssb-prod-trygd-data-produkt/  
+└── barnetrygd_data/  
+    ├── inndata/  
+    ├── klargjorte-data/  
+    ├── statistikk/  
+    └── utdata/  
+└── foedsykp_data/  
+    ├── inndata/  
+    ├── klargjorte-data/  
+    ├── statistikk/  
+    └── utdata/  
+└── pensj_data/  
+    ├── inndata/  
+    ├── klargjorte-data/  
+    ├── statistikk/  
+    └── utdata/  
+└──` … osv.  
+└── temp/  
+└── oppdrag/</code></pre>
+</section>
+</section>
+<section id="filnavn-for-datasett" class="level2">
+<h2 class="anchored" data-anchor-id="filnavn-for-datasett">Filnavn for datasett</h2>
+<p><strong>Filnavnet til datasettet skal bygges opp av følgende elementer:</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th><em>Element</em></th>
+<th><em>Forklaring</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>Kort beskrivelse</strong></td>
+<td>Kort tekst som forklarer datasettets innhold, f.eks. “varehandel, “personinntekt”, “grensehandel_imputert“ eller “framskrevne-befolkningsendringer“</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><strong>Periode - inneholder data f.o.m. dato</strong></td>
+<td>Datasettet inneholder data fra og med dato/tidspunkt. I filnavnet må perioden prefikses med “_p”, eksempel “_p2022” eller “_p2022-01-01”. <em>“_p”</em> er en forkortelse for “periode”. <em>Se også gyldige <a href="https://statistics-norway.atlassian.net/wiki/spaces/MPD/pages/2953084957/Standardformater#Dato--og-tidsformater-(ISO-8601)">formater for periode (dato/tidspunkt)</a> </em></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>Periode - inneholder data t.o.m. dato</strong></td>
+<td>Datasettet inneholder data til og med dato/tidspunkt. <em>Denne brukes ved behov, eksempelvis for datasett som inneholder forløpsdata eller datasett med flere perioder/årganger.</em></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Versjon</strong></td>
+<td>Versjon av datasettet. I filnavnet må versjonsnummeret prefikses med “_v, eksempel “v1”, “v2” eller “v3”. <em>Se også eget kapittel om regler for versjonering av datasett.</em></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>Filtype</strong></td>
+<td>Filendelse som sier noen om filtypen, f.eks. “.json”, “.csv”, “.xml” eller “.parquet”.</td>
+</tr>
+</tbody>
+</table>
+<section id="format-for-filnavn-datasettnavn" class="level3">
+<h3 class="anchored" data-anchor-id="format-for-filnavn-datasettnavn">Format for filnavn (datasettnavn)</h3>
+<p>Filnavnet skal bygges opp på følgende måte:</p>
+<p><code>&lt;kort-beskrivelse&gt;_p&lt;periode-fra-og-med&gt;_p&lt;perode-til-og- med&gt;_v&lt;versjon&gt;.&lt;filtype&gt;</code></p>
+<section id="noen-eksempler-på-gyldige-filnavn" class="level4">
+<h4 class="anchored" data-anchor-id="noen-eksempler-på-gyldige-filnavn"><em>Noen eksempler på gyldige filnavn</em> :</h4>
+<p><code>flygende_objekter_p2019_v1.parquet</code> (inneholder en årgang med data)</p>
+<p><code>ufo_observasjoner_p2019_p2020_v1.parquet</code> (inneholder 2 årganger med data)</p>
+<p><code>framskrevne-befolkningsendringer_p2019_p2050_v1.parquet</code> (inneholder data fra 2019 til 2050)</p>
+<p><code>sykepenger_p2022-01-01_p2022-12-31_v1.parquet</code> (inneholder data fra 01.01.2022 til 31.12.2022)</p>
+<p><code>utanningsnivaa_p2022-10-01_v1.parquet</code> (inneholder tverrsnittsdata (status) per 01.10.2022)</p>
+<p><code>grensehandel_imputert_p2022-10_p2022-12_v1.parquet</code> (inneholder data for okt., nov. og des. 2022)</p>
+<p><code>omsetning_p2020W15_v1.parquet</code> (inneholder data for uke-nummer 15 (week))</p>
+<p><code>skipsanloep_p2022B1_v1.parquet</code> (inneholder data for første 2 måneders-periode i 2022 (bimester))</p>
+<p><code>pensjon_p2018Q1_v1.parquet</code> (inneholder data for første kvartal (3-måneders-periode) i 2018 (quarter))</p>
+<p><code>nybilreg_p2022T1_v1.parquet</code> (inneholder data for første tertial (4 måneders-periode) i 2022)</p>
+<p><code>personinntekt_p2022H1_v1.parquet</code> (inneholder data for første halvår (6-måneders-periode) i 2022)</p>
+<p><code>varehandel_p2018Q1_p2018Q4_v1.parquet</code> (inneholder data for kvartalene 1, 2,3 og 4 i 2018)</p>
+</section>
+<section id="eksempel-på-datasett-filer-i-en-mappestruktur" class="level4">
+<h4 class="anchored" data-anchor-id="eksempel-på-datasett-filer-i-en-mappestruktur">Eksempel på datasett-filer i en mappestruktur</h4>
+<p>Nedenfor vises et eksempel på hvordan “ <em>Team overnaturlig</em> ” har organisert sine datasett-filer i en mappe-struktur for sin “ <em>ufo-statistikk</em> ”:</p>
+<pre><code>ssb-prod-team-overnaturlig-data-produkt/  
+└── ufo/  
+    └── inndata/  
+         ├── lysfenomen_p2019_v1.parquet  
+         ├── lysfenomen_p2020_v1.parquet  
+         ├── flygende_objekter_p2019_v1.parquet  
+         └── flygende_objekter_p2020_v1.parquet  
+    └── klargjorte-data/  
+         ├── ufo_observasjoner_samlet_p2019_v1.parquet  
+         └── ufo_observasjoner_samlet_p2020_v1.parquet  
+    └── statistikk/  
+         └── ufo_statistikk_p2019_p2020_v1.parquet  
+    └── utdata/  
+         ├── ufo_statistikk_fylke_p2019_p2020_v1.csv  
+         └── ufo_statistikk_landet_p2019_p2020_v1.csv  
+└── … osv.</code></pre>
+</section>
+</section>
+<section id="tillatte-tegn-for-bruk-i-filnavn-og-mappe-navn" class="level3">
+<h3 class="anchored" data-anchor-id="tillatte-tegn-for-bruk-i-filnavn-og-mappe-navn">Tillatte tegn for bruk i filnavn og mappe-navn</h3>
+<p>Det er kun tillatt å bruke alfanumerisk tegn begrenset til:</p>
+<ul>
+<li><strong>a-z</strong> og <strong>A-Z</strong></li>
+<li><strong>0-9</strong></li>
+<li><strong>-</strong> <em>(bindestrek)</em></li>
+<li><strong>_</strong> <em>(understrek)</em></li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Andre krav til filnavn og mappe-navn
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Ikke bruk bokstavene “æ”, “ø” og “å” i filnavn eller i mappe-navn</strong>.</p>
+<p>Anbefalingen er at disse erstattes med “ae”, “oe” og “aa”.</p>
+<ul>
+<li><em>Eksempel: “naering”, “oekonomi” og “levekaar”</em></li>
+</ul>
+<p><strong>Mellomrom/ordskiller (space) erstattes med bindestrek (“-”) eller understrek (“_”).</strong></p>
+<ul>
+<li><em>Eksempel: “skatt_for_personer” og “vann-og-avloep”</em></li>
+</ul>
+<p><strong>Punktum (“.”) er kun tillatt brukt for å skille filnavnet fra filendelsen (filtypen).</strong></p>
+<ul>
+<li><em>Eksempel: “persondata.parquet” og “persondata.csv”</em></li>
+</ul>
+<p><strong>Ingen andre spesialtegn er tillatt brukt i filnavn eller mappe-navn.</strong></p>
+</div>
+</div>
+</section>
+<section id="datapartisjonering---alternativ-organisering-av-datasett-med-flere-mapper-og-filer" class="level3">
+<h3 class="anchored" data-anchor-id="datapartisjonering---alternativ-organisering-av-datasett-med-flere-mapper-og-filer">“Datapartisjonering” - alternativ organisering av datasett med flere mapper og filer</h3>
+<p>Datatjenester/program-bibliotek som PySpark, PyArrow, Pandas og Dask har funksjonalitet for <a href="https://arrow.apache.org/docs/python/generated/pyarrow.dataset.partitioning.html">datapartisjonering</a>. Dette er en teknikk som benyttes for å splitte opp veldig store datasett til flere små datasett og deretter plassere disse filene i en mappe-struktur. En av fordelene med dette er at konsumenter (brukere) kan jobbe med mindre deler av store datasett. En vanlig praksis er å dele opp (partisjonere) et stort datasett med mange årganger/perioder i flere små årgangsfiler. Da vil navnet på root-mappen tilsvare navnet på filen <em>(hvis vi kun hadde én stor fil)</em> , og underkatalogene vil være periodeinndeling, f.eks. “/aargang2019” og “/aargang2020”. Det er også mulig å “partisjonere” data på andre måter for å støtte parallell-prosessering av store datasett i f.eks. Spark.</p>
+<section id="eksempel-på-partisjonering-av-stort-datasett" class="level4">
+<h4 class="anchored" data-anchor-id="eksempel-på-partisjonering-av-stort-datasett">Eksempel på partisjonering av stort datasett</h4>
+<p><em>“Team overnaturlig”</em> har et stort datasett med mange årganger med observasjoner av “flygende objekter”.</p>
+<pre><code>ssb-prod-team-overnaturlig-data-produkt/  
+└── ufo/  
+    └── inndata/  
+        └── flygende_objekter_p1980_p2020_v1.parquet</code></pre>
+<p>Teamet ønsker nå å “partisjonere” denne store datafilen i flere små årgangsfiler (<em>med filtype parquet</em>).</p>
+<p><em>Det finnes flere bibliotek og verktøy som støtter partisjonering av store datafiler, eksempelvis Pandas hvor det er mulig å partisjonere en dataframe på følgende måte når den skrives til en parquet-fil(er):</em></p>
+<p><code>df.to_parquet('./flygende_objekter_p1980_p2020_v1', partition_cols=['aar'])</code></p>
+<p><em>Se mer informasjon om datapartisjonering med Pandas:</em> <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_parquet.html?highlight=example" class="uri">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_parquet.html?highlight=example</a></p>
+<p>Nedenfor vises et eksempel på hvordan en mappestruktur med datasett-filer kan se ut etter utført data-partisjonering.</p>
+<pre><code>ssb-prod-team-overnaturlig-data-produkt/  
+└── ufo/  
+    └── inndata/  
+        └── flygende_objekter_p1980_p2020_v1/  
+            └── aar=1980/  
+                └── data.parquet  
+            └── aar=1981/  
+                └── data.parquet  
+            └── aar=1982/  
+                └── data.parquet  
+            … osv.  
+            └── aar=2020/  
+                └── data.parquet</code></pre>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Kom i gang med Dapla</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
