@@ -1,0 +1,289 @@
+# Versjonering av datasett
+
+Versjonering av data(sett) er viktig for å dekke kravet om uforanderlighet og
+etterprøvbarhet. Hovedpoenget med versjonering er at data-konsumenter
+(menneske eller maskin) skal ha kontroll på endringer, dvs. tilgang både til
+en stabil versjon (uforanderlighet), men også tilgang til eventuelle nye data-
+versjoner som oppstår. Se mer om dette i SSBs produksjonsarkitektur og
+prinsippet om “[uforandelighet av data](https://statistics-
+norway.atlassian.net/wiki/spaces/ARK/pages/2839707937/Prinsipp+1+Uforanderlighet+av+data)”
+
+::: {.callout-note}
+Det finnes i dag ingen internasjonale standarder eller spesifikasjoner for
+hvordan endringer av data skal versjoneres. Dette påpekes også av
+[w3.org](http://w3.org) (<https://www.w3.org/TR/dwbp/#dataVersioning>) :
+
+*Datasets published on the Web may change over time. Some datasets are
+updated on a scheduled basis, and other datasets are changed as improvements
+in collecting the data make updates worthwhile. In order to deal with these
+changes, new versions of a dataset may be created. Unfortunately, there is no
+consensus about when changes to a dataset should cause it to be considered a
+different dataset altogether rather than a new version. In the following, we
+present some scenarios where most publishers would agree that the revision
+should be considered a new version of the existing dataset.*
+
+  * *Scenario 1: a new bus stop is created and it should be added to the dataset;*
+
+  * *Scenario 2: an existing bus stop is removed and it should be deleted from the dataset;*
+
+  * *Scenario 3: an error was identified in one of the existing bus stops stored in the dataset and this error must be corrected.*
+
+Australian National Data Service (ANDS) beskriver også i sitt dokument
+<https://www.ands.org.au/working-with-data/data-management/data-versioning>
+behovet for versjonering, men også utfordringene med å implementere data-
+versjonering i praksis.
+
+Erfaringer fra [versjonering i microdata.no](https://www.microdata.no/wp-
+content/uploads/2022/02/FAIR_Data_Versioning_in_Microdata.pdf) viser at data-
+versjoneringen i SSB bør baseres på prinsippet om “breaking changes” ( _major
+changes_ ) fra [Semantic Versioning
+(SemVer)](https://en.wikipedia.org/wiki/Software_versioning#Semantic_versioning),
+dvs. at alle endringer som gjør at vi ikke kan gjenskape samme resultat vil
+medføre at det opprettes en ny versjon av datasettet (en ny versjon i tillegg
+til gammel/forrige versjon av datasettet).
+:::
+
+## Regler for hva som skaper en ny versjon av et datasett (“breaking changes”)
+
+ **Følgende hendelser skaper en ny versjon av et datasett:**
+
+  * Reberegninger av data med nye metoder.
+
+  * Korrigeringer av verdier for eksisterende observasjoner/enheter i datasettet. 
+
+    * *Selv manuell endring av bare én data-verdi (celle) i et stort datasett skaper en ny versjon!*
+
+  * Lagt til nye og/eller fjernet observasjoner/enheter i datasettet.
+
+  * Omkodinger, dvs. oppdatert/erstattet kodeverk.
+
+  * Lagt til nye variabler. Dette skaper en ny versjon i og med at dette kan påvirke prosesser (programkode).
+
+    * Hvis det gjøres vesentlige endringer (mange nye variabler) så bør det vurderes om dette er et annet (et helt nytt) datasett, ikke en ny versjon av et eksisterende datasett.
+
+  * Fjernet variabler.
+
+    * Ved fjerning av variabler fra et datasett bør det vurderes om dette egentlig er et annet (et helt nytt) datasett, ikke en ny versjon av et eksisterende datasett!
+
+  * Andre strukturendringer, f.eks. bytte av datatyper eller formater.
+
+###  **Hvordan vil versjoneringen fungere i praksis?**
+
+####  **Kladd - temporære datasett under arbeid**
+
+Data som er under utarbeiding skal ikke deles/publiseres, og det er derfor
+ikke behov for å versjonere slike data/datasett. Disse må betraktes som
+temporære og “versjonsløse”. Bearbeiding av data bør derfor foregå i egne
+temporære dataområder**^1^**. Det er først på det tidspunktet et datasett er
+ferdig bearbeidet og klart for deling/publisering at det skal versjoneres og
+dokumenteres.
+
+**^1^** *Med temporære dataområder menes f.eks. egne mapper med temporære
+datafiler i bøtter (noe tilsvarende “wk-katalogene” i SSBs eksisterende
+stammekataloger på Linux). For en del statistikkområder vil databearbeidingen
+også foregå i temporære datasett i datatjenester som Google BigQuery og
+CloudSQL.*
+
+#### **Versjon 1 - første gangs deling/publisering av et datasett**
+
+Ved første gangs deling/publisering av et ferdig bearbeidet datasett oppstår
+“versjon 1”. Dette er datasett som må bevares uforandret for ettertiden for å
+dekke kravet til etterprøvbarhet av SSBs statistikk. I tillegg til selve
+versjonsnummeret er det viktig å dokumentere versjonstidspunktet (metadata om
+tidspunktet versjonen ble frigitt for bruk) samt en beskrivelse av hvorfor det
+er utarbeidet en ny versjon. Dette er informasjon data-konsumentene trenger
+for å kunne reprodusere statistikk med gamle versjoner av data.
+
+Versjonsnummer skal legges på som et eget element i filnavnet. For versjon 1 vil dette være “_v1”, eksempelvis *“framskrevne-befolkningsendringer_p2019_p2050**\_v1**.parquet”*
+
+ _Eksempel på versjon 1 av et datasett i en mappe-struktur:_
+
+```
+ssb-prod-team-personstatistikk-data-produkt/  
+└── befolkningsframskrivinger/  
+    └── klargjorte_data/  
+        └── framskrevne-befolkningsendringer_p2019_p2050_v1.parquet
+```
+
+#### Flere versjoner av et datasett
+
+For hver versjon som oppstår av datasettet opprettes det en ny fysisk fil hvor
+versjonsnummeret økes med 1. Alle gamle versjoner av et datasett skal også
+eksistere i mappen.
+
+::: {.callout-important}
+## Permanente data skal ikke endres eller slettes 
+
+**Tidligere delte/publiserte data skal ikke slettes eller overskrives!**  
+*Det må derfor lagres fysiske filer for hver versjon av datasettet. Dette er viktig for at SSB skal oppfylle krav om etterprøvbarhet av statistikkene.*
+:::
+
+**Eksempel på versjon 1, 2 og 3 av et datasett i en mappe-struktur:**
+
+```
+ssb-prod-team-personstatistikk-data-produkt/  
+└── befolkningsframskrivinger/  
+    └── klargjorte_data/  
+        ├── framskrevne-befolkningsendringer_p2019_p2050_v1.parquet  
+        ├── framskrevne-befolkningsendringer_p2019_p2050_v2.parquet  
+        └── framskrevne-befolkningsendringer_p2019_p2050_v3.parquet
+```
+
+::: {.callout-tip}
+## Eksempel på versjonsinformasjon og bearbeidingshistorikk for et datasett:
+
+***Versjonsinformasjon:***
+
+Datasett: framskrevne-befolkningsendringer_p2019_p2050
+
+***Versjon: 1***  
+Versjonstidspunkt: 2019-01-01T10:00:00  
+Versjonsbeskrivelse: Første deling/publisering  
+Filnavn: framskrevne-befolkningsendringer_p2019_p2050_v1.parquet
+
+***Versjon: 2***  
+Versjonstidspunkt: 2020-02-15T08:00:00  
+Versjonsbeskrivelse: Reberegning med nytt datagrunnlag  
+Filnavn: framskrevne-befolkningsendringer_p2019_p2050_v2.parquet
+
+***Versjon: 3***  
+Versjonstidspunkt: 2021-05-31T10:00:00  
+Versjonsbeskrivelse: Revisjon og reberegning med nye framskrivingsmetoder  
+Filnavn: framskrevne-befolkningsendringer_p2019_p2050_v3.parquet
+:::
+
+#### Deling av data som ikke har oppnådd stabil tilstand - versjon 0
+
+Hvis det er behov for å dele data som er som er i “fart”, dvs. data som
+fortsatt er under innsamling eller pågående klargjøring, gjøres dette ved å
+bruke versjonsnummer 0 i filnavnet. Versjonsnummer 0 skal kun brukes
+midlertidig fram til datasettet oppnår stabil tilstand _(ved stabil tilstand
+byttes versjonsnummer for datasettet til 1 eller høyere)._
+
+*Eksempel på deling av “versjon 0” av et datasett:*
+
+```
+ssb-prod-team-personstatistikk-data-produkt/  
+└── befolkningsframskrivinger/  
+    └── klargjorte_data/  
+        └── framskrevne-befolkningsendringer_p2019_p2050_v0.parquet
+```
+
+## Funksjonalitet for å hente siste (gjeldende) versjon av et datasett
+
+::: {.callout-note}
+[w3.org](http://w3.org) anbefaler at gjeldende versjon av et datasett alltid
+skal være tilgjengelig også uten versjonsnummer. Dette vil også være svært
+nyttig for statistikkproduksjonen i SSB, i og med at det i de aller fleste
+tilfeller er siste versjon (den mest oppdaterte) av de klargjorte datasettene
+som skal benyttes. Den samme programkoden (Python/R) kan da kjøres ved hver
+statistikkproduksjon uten at filnavnet må endres i programkoden. Det er kun i
+de få tilfellene hvor gamle versjoner skal benyttes at programkoden må endres,
+f.eks. ved “reprodusering” av gamle tall.
+
+*Eksempel fra w3.org:*
+
+  * `/data_example/transport/dataset/bus/stops` is the “generic URI” at which the current version of a dataset is always available
+
+  * `/data_example/transport/dataset/bus/stops_v2` is the versioned URI for the current dataset
+
+  * `/data_example/transport/dataset/bus/stops_v1` is the versioned URI of the prior version of the dataset
+:::
+
+### Eksempel på "versjon 1" av et datasett
+
+Eksempel på "versjon 1" (hvor versjonen også er tilgjengelig uten versjonsnummer i datasettnavnet):  
+
+```
+ssb-prod-personstatistikk-data-produkt/  
+└── befolkningsframskrivinger/  
+    └── klargjorte-data/  
+        ├── framskrevne-befolkningsendringer_p2019_p2050_v1.parquet  
+        └── framskrevne-befolkningsendringer_p2019_p2050.parquet
+```
+
+::: {.callout-note}
+[w3.org](http://w3.org) *anbefaling er at siste versjon også er
+tilgjengelig uten versjonselement i navnet. I eksempelet over er derfor
+filen `framskrevne-befolkningsendringer_p2019_p2050.parquet` helt identisk
+med `framskrevne-befolkningsendringer_p2019_p2050_v1.parquet` (versjon 1).*
+:::
+
+*Eksempel med versjon 1, 2, 3 og 4 (hvor versjon 4 også er tilgjengelig uten versjonsnummer i datasettnavnet)*
+
+```
+ssb-prod-personstatistikk-data-produkt/  
+└── befolkningsframskrivinger/  
+    └── klargjorte-data/  
+        ├── framskrevne-befolkningsendringer_p2019_p2050_v1.parquet  
+        ├── framskrevne-befolkningsendringer_p2019_p2050_v2.parquet  
+        ├── framskrevne-befolkningsendringer_p2019_p2050_v3.parquet  
+        ├── framskrevne-befolkningsendringer_p2019_p2050_v4.parquet  
+        └── framskrevne-befolkningsendringer_p2019_p2050.parquet
+```
+
+::: {.callout-note}
+[w3.org](http://w3.org) *anbefaling er at siste versjon også er
+tilgjengelig uten versjonselement i navnet. I eksempelet over er derfor filen
+`framskrevne-befolkningsendringer_p2019_p2050.parquet` helt identisk med
+`framskrevne-befolkningsendringer_p2019_p2050_v4.parquet` (versjon 4).*
+:::
+
+### Behov for felles SSB kodebibliotek i Python og R for å finne siste versjon av et datasett
+
+For å unngå dobbeltlagring av data i form av at siste versjon av et datasett
+skal lagres som en fysisk datafil både med og uten versjonsnummer (som vist i
+kapittelet over), anbefales det at det utvikles felles SSB-programbibliotek i
+Python og R for utlede denne informasjonen. Da vil da kun være nødvendig å
+lagre filer med fullt versjonsnummer, men statistikkprodusentene kan bruke en
+funksjon for å finne siste versjon - eksempelvis *gi meg siste versjon av datasettet “framskrevne-befolkningsendringer_p2019_p2050“*.
+
+Nedenfor vises en enkel Python-funksjon for hvordan dette kan fungere i
+praksis. *Denne funksjonaliteten er imidlertid ikke tilgjengelig i Dapla i skrivende stund, så dette er bare et forslag til løsning.*
+
+
+```python
+# Eksempel på en felles SSB-funksjon for å hente riktig fysisk filnavn til siste versjon
+# av et datasettt i en mappe (katalog) i en bøtte hvor det eksisterer flere versjoner
+# (flere filversjoner) av datasettet.
+# NB! Dette er kun ment som et eksempel (konsept), og er ikke en produksjonsklar løsning!
+
+import operator
+from dapla import FileClient
+
+fs = FileClient.get_gcs_file_system()
+
+def get_current_dataset_version(path:str,
+                                dataset_name_without_version:str,
+                                file_type:str = "parquet"
+                               ) -> str:    
+    gcs_dataset_files = fs.glob(path=path + dataset_name_without_version + "*." + file_type)
+
+    file_list = []
+    for file in gcs_dataset_files:
+        file_version = file.split("_v")[-1].split(".")[0]
+        if file_version.isnumeric():
+            file_list.append({"file_path": str(file), "file_version": int(file_version) })
+
+    file_list.sort(key=operator.itemgetter('file_version'))
+    if len(file_list) > 0:
+        return file_list[-1]["file_path"]
+    else:
+        return None
+
+
+### Eksempel på bruk ###
+# Hent sti og filnavn til siste versjon av datasettet "framskrevne-befolkningsendringer_p2019_p2050"
+# i mappen gs://ssb-prod-befolkning-data-produkt/befolkningsendringer/klargjorte-data/
+# som inneholder 4 versjoner ("framskrevne-befolkningsendringer_p2019_p2050_v1" 
+# til "framskrevne-befolkningsendringer_p2019_p2050_v4")
+
+get_current_dataset_version(
+    path="gs://ssb-prod-befolkning-data-produkt/befolkningsendringer/klargjorte-data/",
+    dataset_name_without_version="framskrevne-befolkningsendringer_p2019_p2050",
+    file_type="parquet")
+
+
+### Eksempel på resultat (sti og filnavn til versjon 4 av datasettet) ###
+gs://ssb-prod-befolkning-data-produkt/befolkningsendringer/klargjorte-data/framskrevne-befolkningsendringer_p2019_p2050_v4
+```
