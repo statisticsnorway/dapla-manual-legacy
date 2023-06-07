@@ -620,7 +620,7 @@
     "href": "jobbe-med-kode.html#push-til-github",
     "title": "Jobbe med kode",
     "section": "Push til GitHub",
-    "text": "Push til GitHub\nNår du nå har installert en pakke så har filen poetry.lock endret seg. La oss for eksempelets skyld anta at du ønsker å bruke Git til å dokumentere denne hendelsen, og dele det med en kollega via GitHub. Hvis vi har opprettet et ssb-project med et GitHub-repo så kan vi gjøre akkurat dette:\n\nVi kan stage alle endringer med følgende kommando i terminalen når vi står i prosjektmappen:\n\ngit add -A\n\nVidere kan commit en endring, dvs. ta et stillbilde av koden i dette øyeblikket, ved å skrive følgende:\n\ngit commit -m \"Installert pandas\"\n\nPush det opp til GitHub3. Anta at vi gjorde dette i branchen install-pandas som ble opprettet tidligere. Da kan vi skrive følgende:\n\ngit push --set-upstream origin install-pandas\nMer kommer her."
+    "text": "Push til GitHub\nNår du nå har installert en pakke så har filen poetry.lock endret seg. La oss for eksempelets skyld anta at du ønsker å bruke Git til å dokumentere denne hendelsen, og dele det med en kollega via GitHub. Hvis vi har opprettet et ssb-project med et GitHub-repo så kan vi gjøre akkurat dette:\n\nVi kan stage alle endringer med følgende kommando i terminalen når vi står i prosjektmappen:\n\ngit add -A\n\nVidere kan commit en endring, dvs. ta et stillbilde av koden i dette øyeblikket, ved å skrive følgende:\n\ngit commit -m \"Installert pandas\"\n\nPush det opp til GitHub3. Anta at vi gjorde dette i branchen install-pandas som ble opprettet tidligere. Da kan vi skrive følgende :\n\ngit push --set-upstream origin install-pandas\nMer kommer her."
   },
   {
     "objectID": "jobbe-med-kode.html#bygg-eksisterende-ssb-project",

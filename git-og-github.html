@@ -677,8 +677,8 @@ Bruk SSB sin konfigurasjon!
 </div>
 <p>Vi har nå opprettet en PAT som er godkjent for bruk mot SSB sin kode på GitHub. Det betyr at hvis vi vil jobbe med <strong>Git</strong> på SSB sine maskiner i sky eller på bakken, så må vi sendte med dette tokenet for å få lov til å jobbe med koden som ligger på <strong>statisticsnorway</strong> på GitHub.</p>
 </section>
-<section id="sec-lagre-pat" class="level4">
-<h4 class="anchored" data-anchor-id="sec-lagre-pat">Lagre PAT</h4>
+<section id="lagre-pat" class="level4">
+<h4 class="anchored" data-anchor-id="lagre-pat">Lagre PAT</h4>
 <p>Det er ganske upraktisk å måtte sende med tokenet hver gang vi skal jobbe med GitHub. Vi bør derfor lagre det lokalt der vi jobber, slik at Git automatisk finner det. Det finnes mange måter å gjøre dette på og det er ikke bestemt hva som skal være beste-praksis i SSB. Men en måte å gjøre det er via en <strong>.netrc</strong>-fil. Vi oppretter da en fil som heter <strong>.netrc</strong> på vårt hjemmeområde, og legger følgende informasjon på en (hvilken som helst) linje i filen:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">machine</span> github.com login <span class="op">&lt;</span>github-bruker<span class="op">&gt;</span> password <span class="op">&lt;</span>Personal Access Token<span class="op">&gt;</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>GitHub-bruker</strong> er da din personlige bruker og IKKE brukernavnet ditt i SSB. <strong>Personal Access Token</strong> er det vi lagde i forrige kapittelet.</p>

@@ -494,16 +494,16 @@ Note
 <h2 class="anchored" data-anchor-id="forberedelser">Forberedelser</h2>
 <p>Før du kan ta i bruk <strong>ssb-project</strong> så er det et par ting som må være på plass:</p>
 <ol type="1">
-<li>Du må ha konfigurert Git etter SSB sin standard (<a href="git-github.html#oppsett-av-git">les mer om hvordan her</a>).</li>
+<li>Du må ha konfigurert Git etter SSB sin standard (<a href="./git-og-github.html#oppsett-av-git">les mer om hvordan her</a>).</li>
 <li>Hvis du ønsker at <strong>ssb-project</strong> også skal opprette et GitHub-repo for deg må du også følgende være på plass:
 <ol type="a">
-<li>Du må ha en <strong>GitHub-bruker</strong> (<a href="git-github.html#opprett-github-bruker">les hvordan her</a>)</li>
-<li>Skru på <strong>2-faktor autentifisering</strong> for GitHub-brukeren din (<a href="git-github.html#sec-tofaktor">les hvordan her</a>)</li>
-<li>Være koblet mot SSBs organisasjon <a href="https://github.com/statisticsnorway">statisticsnorway</a> på GitHub (<a href="git-github.html#koble-deg-til-ssb">les hvordan her</a>)</li>
-<li>Opprette <strong>Personal Access Token (PAT)</strong> og godkjenne det for bruk mot <strong>statisticsnorway</strong> (<a href="git-github.html#personal-access-token-pat">les hvordan her</a>)</li>
+<li>Du må ha en <strong>GitHub-bruker</strong> (<a href="./git-og-github.html#opprett-github-bruker">les hvordan her</a>)</li>
+<li>Skru på <strong>2-faktor autentifisering</strong> for GitHub-brukeren din (<a href="./git-og-github.html#sec-tofaktor">les hvordan her</a>)</li>
+<li>Være koblet mot SSBs organisasjon <a href="https://github.com/statisticsnorway">statisticsnorway</a> på GitHub (<a href="./git-og-github.html#koble-deg-til-ssb">les hvordan her</a>)</li>
+<li>Opprette <strong>Personal Access Token (PAT)</strong> og godkjenne det for bruk mot <strong>statisticsnorway</strong> (<a href="./git-og-github.html#personal-access-token-pat">les hvordan her</a>)</li>
 </ol></li>
 </ol>
-<p>Det er også å anbefale at du <a href="git-github.html#lagre-pat">lagrer PAT lokalt</a> slik at du ikke trenger å forholde deg til det når jobber med Git og GitHub. Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.</p>
+<p>Det er også å anbefale at du <a href="./git-og-github.html#lagre-pat">lagrer PAT lokalt</a> slik at du ikke trenger å forholde deg til det når jobber med Git og GitHub. Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.</p>
 </section>
 <section id="opprett-ssb-project" class="level2">
 <h2 class="anchored" data-anchor-id="opprett-ssb-project">Opprett ssb-project</h2>
@@ -607,7 +607,7 @@ Note
 </ol>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Installert pandas"</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="3" type="1">
-<li>Push det opp til GitHub<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Anta at vi gjorde dette i <em>branchen</em> <em>install-pandas</em> som ble opprettet tidligere. Da kan vi skrive følgende:</li>
+<li>Push det opp til GitHub<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Anta at vi gjorde dette i <em>branchen</em> <em>install-pandas</em> som ble opprettet tidligere. Da kan vi skrive følgende :</li>
 </ol>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--set-upstream</span> origin install-pandas</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Mer kommer her.</p>
@@ -615,7 +615,7 @@ Note
 <section id="bygg-eksisterende-ssb-project" class="level2">
 <h2 class="anchored" data-anchor-id="bygg-eksisterende-ssb-project">Bygg eksisterende ssb-project</h2>
 <p>Når vi skal samarbeide med andre om kode så gjør vi dette via <strong>GitHub</strong>. Når du <em>pusher</em> koden din til GitHub, så kan samarbeidspartnere <em>pulle</em> ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. <strong>ssb-project</strong> gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs.</p>
-<p>For at samarbeidspartneren din skal kunne bygge miljøet på nytt, må de ha gjort en minimal konfigurering av Git. <a href="git-github.html#minimal-git-konfigurasjon">Les mer om hvordan</a> du frem for å gjøre dette her.</p>
+<p>For at samarbeidspartneren din skal kunne bygge miljøet på nytt, må de ha gjort en minimal konfigurering av Git. <a href="./git-og-github.html#oppsett-av-git">Les mer om hvordan</a> du frem for å gjøre dette her.</p>
 <p>For å bygge opp et eksisterende miljø gjør du følgende:</p>
 <ol type="1">
 <li>Først må du kopiere prosjektet ned lokalt, eller <em>klone</em> repoet med git-terminologi</li>
@@ -685,7 +685,7 @@ Note
 <ol>
 <li id="fn1"><p>CLI = Command-Line-Interface. Dvs. et program som er skrevet for å brukes terminalen ved hjelp av enkle kommandoer.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Filer og mapper som starter med punktum er skjulte med mindre man ber om å se dem. I Jupyterlab kan disse vises i filutforskeren ved å velge <strong>View</strong> fra menylinjen, og deretter velge <strong>Show hidden files</strong>. I en terminal skriver man <code>ls -a</code> for å se de.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Å pushe til GitHub uten å sende ved <em>Personal Access Token</em> fordrer at du har lagret det lokalt så Git kan finne det. <a href="git-github.html#lagre-pat">Her et eksempel på hvordan det kan gjøres</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Å pushe til GitHub uten å sende ved <em>Personal Access Token</em> fordrer at du har lagret det lokalt så Git kan finne det. <a href="./git-og-github.html#lagre-pat">Her et eksempel på hvordan det kan gjøres</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Dette kan også gjøres ved å høyreklikke på mappen i Jupyterlab sin filutforsker og velge <strong>Delete</strong>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
