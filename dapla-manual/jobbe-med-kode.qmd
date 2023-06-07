@@ -40,14 +40,14 @@ Det oppdateres hver gang en ny versjon av `ssb-project` slippes.
 
 Før du kan ta i bruk **ssb-project** så er det et par ting som må være på plass:
 
-1. Du må ha konfigurert Git etter SSB sin standard ([les mer om hvordan her](git-github.html#oppsett-av-git)).
+1. Du må ha konfigurert Git etter SSB sin standard ([les mer om hvordan her](git-og-github.qmd#oppsett-av-git)).
 2. Hvis du ønsker at **ssb-project** også skal opprette et GitHub-repo for deg må du også følgende være på plass:
-    a. Du må ha en **GitHub-bruker** ([les hvordan her](git-github.html#opprett-github-bruker))
-    b. Skru på **2-faktor autentifisering** for GitHub-brukeren din ([les hvordan her](git-github.html#sec-tofaktor))
-    c. Være koblet mot SSBs organisasjon [statisticsnorway](https://github.com/statisticsnorway) på GitHub ([les hvordan her](git-github.html#koble-deg-til-ssb))
-    d. Opprette **Personal Access Token (PAT)** og godkjenne det for bruk mot **statisticsnorway** ([les hvordan her](git-github.html#personal-access-token-pat))
+    a. Du må ha en **GitHub-bruker** ([les hvordan her](git-og-github.qmd#opprett-github-bruker))
+    b. Skru på **2-faktor autentifisering** for GitHub-brukeren din ([les hvordan her](git-og-github.qmd#sec-tofaktor))
+    c. Være koblet mot SSBs organisasjon [statisticsnorway](https://github.com/statisticsnorway) på GitHub ([les hvordan her](git-og-github.qmd#koble-deg-til-ssb))
+    d. Opprette **Personal Access Token (PAT)** og godkjenne det for bruk mot **statisticsnorway** ([les hvordan her](git-og-github.qmd#personal-access-token-pat))
 
-Det er også å anbefale at du [lagrer PAT lokalt](git-github.html#lagre-pat) slik at du ikke trenger å forholde deg til det når jobber med Git og GitHub. Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.
+Det er også å anbefale at du [lagrer PAT lokalt](git-og-github.qmd#lagre-pat) slik at du ikke trenger å forholde deg til det når jobber med Git og GitHub. Hvis du har alt dette på plass så kan du bare fortsette å følge de neste kapitlene.
 
 ## Opprett ssb-project
 
@@ -151,7 +151,7 @@ git add -A
 git commit -m "Installert pandas"
 ```
 
-3. Push det opp til GitHub^[Å pushe til GitHub uten å sende ved *Personal Access Token* fordrer at du har lagret det lokalt så Git kan finne det. [Her et eksempel på hvordan det kan gjøres](git-github.html#lagre-pat).]. Anta at vi gjorde dette i *branchen* *install-pandas* som ble opprettet tidligere. Da kan vi skrive følgende:
+3. Push det opp til GitHub^[Å pushe til GitHub uten å sende ved *Personal Access Token* fordrer at du har lagret det lokalt så Git kan finne det. [Her et eksempel på hvordan det kan gjøres](git-og-github.qmd#lagre-pat).]. Anta at vi gjorde dette i *branchen* *install-pandas* som ble opprettet tidligere. Da kan vi skrive følgende    :
 
 ```bash
 git push --set-upstream origin install-pandas
@@ -164,7 +164,7 @@ Mer kommer her.
 
 Når vi skal samarbeide med andre om kode så gjør vi dette via **GitHub**. Når du *pusher* koden din til GitHub, så kan samarbeidspartnere *pulle* ned koden og jobbe videre med den. Men når de henter ned koden så vil de bare hente ned selve koden, ikke pakker og Python-versjonen som ble brukt. De må installere alt som du hadde installert. I tillegg trenger de en kernel hvis de skal jobbe i Jupyterlab. **ssb-project** gjør det svært enkelt å bygge opp det du trenger, siden det virtuelle miljøet har all informasjon om hva som trengs.
 
-For at samarbeidspartneren din skal kunne bygge miljøet på nytt, må de ha gjort en minimal konfigurering av Git. [Les mer om hvordan](git-github.html#minimal-git-konfigurasjon) du frem for å gjøre dette her.
+For at samarbeidspartneren din skal kunne bygge miljøet på nytt, må de ha gjort en minimal konfigurering av Git. [Les mer om hvordan](git-og-github.qmd#oppsett-av-git) du frem for å gjøre dette her.
 
 
 For å bygge opp et eksisterende miljø gjør du følgende:
