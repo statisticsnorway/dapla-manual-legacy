@@ -228,7 +228,7 @@ Det betyr at både du og andre kan gjennskape de pakkene og versjoner som du har
 
 ### Avinstallering
 
-Individe pakker kan fjernes fra miljø ved `renv::`remove()\` funksjonen. For eksempel:
+Individuelle pakker kan fjernes fra miljø ved `renv::`remove()\` funksjonen. For eksempel:
 
 ``` r
 renv::remove("PxWebApiData")
