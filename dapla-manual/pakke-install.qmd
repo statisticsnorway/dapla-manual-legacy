@@ -143,17 +143,17 @@ b)  Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repo
 
 ## R
 
-Installering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) enda. Men vi kan bruke [renv](https://rstudio.github.io/renv/articles/renv.html) til dette. Generelt, anbefaler vi at du **skriver koden din i .R filer og åpne disse som en notebook**. Dvs. ikke bruke .ipynb notebooks til R. Ved bruk av .R filer kan renv se hvilke pakker er i bruk i prosjektet.
+Installering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av [ssb-project](https://github.com/statisticsnorway/ssb-project-cli) enda. Men vi kan bruke [renv](https://rstudio.github.io/renv/articles/renv.html) til dette. Generelt, anbefaler vi at du **skriver koden din i .R filer og åpne disse som en notebook**. Dvs. ikke bruke .ipynb notebooks til R. Ved bruk av .R filer kan renv se hvilke pakker er i bruk i prosjektet og håndtering av disse er lettere.
 
-Oppretting av renv-miljø og installering av pakker anbefales å gjøres fra terminal. Dette er fordi det trengs å gjøres kun en gang for et prosjekt. For å starte R i terminalen:
+Oppretting av renv-miljø og installering av pakker anbefales å gjøres fra terminal. Dette er fordi det trengs å gjøres kun en gang for et prosjekt. For å starte R i terminalen i Jupyter/DAPLA:
 
 1.  Åpne en terminal fra Launcher
-2.  Stå i mappen der du vil aktivere det virtuelle miljøet/installere pakker
+2.  Stå i mappen der du vil aktivere det virtuelle miljøet/installere pakker, dvs prosjekt mappen.
 3.  Starte R ved å skrive in `R`
 
-Det vi nå har gjort er å åpne **R** fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en *R Console*.
+Det vi nå har gjort er å åpne **R** fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en *R Console*. I RStudio finne du terminalen i fanen ved siden av "Console".
 
-### Starte renv
+### Starte en ny renv
 
 For å installere dine egne R-pakker må du opprette et virtuelt miljø med **renv**. Dette kan gjøres ved å skriver:
 
@@ -183,7 +183,7 @@ Nå som vi har et virtuelle miljøet på plass kan vi installere R-pakker. Vi in
 renv::install("PxWebApiData")
 ```
 
-Over installerte vi pakken [PxWebApiData](https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html) fra den R sentral repository CRAN. Dette er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank.
+Dette installerer pakken [PxWebApiData](https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html) fra den R sentral repository CRAN. Dette er en pakke skrevet for å hente ut data fra SSBs statistikkbank.
 
 Det er også mulig å installere pakker som ligger på SSBs GitHub. Da må vi spesifisere at pakke ligger på 'statisticsnorway' område. For eksempel:
 
@@ -192,6 +192,18 @@ renv::install("statisticsnorway/klassR")
 ```
 
 Pakken [klassR](https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html) er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned.
+
+:::{.callout-note}
+Merknad: Det er anbefalt å kjøre R fra .R filer. Hvis du kjøre R fra en jupyter notebook (.ipynb) må du også installere pakken [IRkernel](https://cran.rstudio.com/web/packages/IRkernel/index.html) for at renv skal fungere. I tillegg vil ikke renv  se hvilken pakker er benyttet i prosjektet. Jupyter notebooks (.ipynb filer) kan speiles til .Rmd filer ved å skrive
+:::
+
+Hvis prosjekt er opprettet av en annen person og har blitt delt med deg, kan alle pakkene som trengs i prosjektet installeres ved:
+
+``` r
+renv:restore()
+```
+Hvis du selv har ikke benyttet renv i prosjektet tidligere må du kjøre `renv::init()` på forhånd.
+
 
 ### Lagre pakkeversjonen til renv
 
@@ -213,13 +225,6 @@ Det betyr at både du og andre kan gjennskape de pakkene og versjoner som du har
 
 ![](images/renv_install.png)
 
-For å installere alle pakker som ligger i **renv.lock**-filen med riktig versjon kan du skriver
-
-``` r
-renv:restore()
-```
-
-Dette er nyttig om det er andre som kjøre en produksjonsløp utviklet av andre.
 
 ### Avinstallering
 
@@ -242,6 +247,7 @@ renv::clean()
 ```
 
 Igjen må du ta en `snapshot()` for at endringer skal lagres på **renv.lock**-filen
+
 
 ### Oppgradere pakker
 
@@ -273,4 +279,4 @@ renv::autoload()
 
 Deretter kan du benytte pakker og funksjoner ved `library()` osv. Funkjsonen `renv::autoload()` vil si ifra at du ønsker å benytte et renv miljø og vil letter etter filene i prosjektetfor å aktivere miljø (både i prosjekt-mappen og i foreldre-mapper).
 
-For å dele koden med andre, må de også kjøre `renv::restore()` etterpå (første gang) for å installere alle pakkene som ligger i .lock filen.
+For å dele koden med andre, må de også kjøre `renv::restore()` (første gang) for å installere alle pakkene som ligger i .lock filen.
