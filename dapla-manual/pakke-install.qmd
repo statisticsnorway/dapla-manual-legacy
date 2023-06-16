@@ -173,7 +173,9 @@ Kommandoen aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil d
 
 -   **renv/activate.R** En fil som aktivere renv miljø for et prosjekt.
 
-**Hvis prosjektet ligger på GitHub, skal filene `renv.lock`, `.Rprofile` og `renv/activate.R` være på GitHub**
+::: callout-note
+Hvis prosjektet ligger på GitHub, skal filene `renv.lock`, `.Rprofile` og `renv/activate.R` være på GitHub
+:::
 
 ### Installering av pakker
 
@@ -193,8 +195,8 @@ renv::install("statisticsnorway/klassR")
 
 Pakken [klassR](https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html) er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned.
 
-:::{.callout-note}
-Merknad: Det er anbefalt å kjøre R fra .R filer. Hvis du kjøre R fra en jupyter notebook (.ipynb) må du også installere pakken [IRkernel](https://cran.rstudio.com/web/packages/IRkernel/index.html) for at renv skal fungere. I tillegg vil ikke renv  se hvilken pakker er benyttet i prosjektet. Jupyter notebooks (.ipynb filer) kan speiles til .Rmd filer ved å skrive
+::: callout-note
+Det er anbefalt å kjøre R fra .R filer. Hvis du kjøre R fra en jupyter notebook (.ipynb) må du også installere pakken [IRkernel](https://cran.rstudio.com/web/packages/IRkernel/index.html) for at renv skal fungere. I tillegg vil ikke renv se hvilken pakker er benyttet i prosjektet. Jupyter notebooks (.ipynb filer) kan speiles til .Rmd filer ved å skrive
 :::
 
 Hvis prosjekt er opprettet av en annen person og har blitt delt med deg, kan alle pakkene som trengs i prosjektet installeres ved:
@@ -202,8 +204,8 @@ Hvis prosjekt er opprettet av en annen person og har blitt delt med deg, kan all
 ``` r
 renv:restore()
 ```
-Hvis du selv har ikke benyttet renv i prosjektet tidligere må du kjøre `renv::init()` på forhånd.
 
+Hvis du selv har ikke benyttet renv i prosjektet tidligere må du kjøre `renv::init()` på forhånd.
 
 ### Lagre pakkeversjonen til renv
 
@@ -224,7 +226,6 @@ renv::snapshot()
 Det betyr at både du og andre kan gjennskape de pakkene og versjoner som du har installerte. Kikker du nå inne i **renv.lock**-filen så ser du nå at verjsonen av **PxWebApiData** er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.
 
 ![](images/renv_install.png)
-
 
 ### Avinstallering
 
@@ -247,7 +248,6 @@ renv::clean()
 ```
 
 Igjen må du ta en `snapshot()` for at endringer skal lagres på **renv.lock**-filen
-
 
 ### Oppgradere pakker
 
