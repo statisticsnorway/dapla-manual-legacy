@@ -443,9 +443,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a>
   <ul class="collapse">
-  <li><a href="#installering-1" id="toc-installering-1" class="nav-link" data-scroll-target="#installering-1">Installering</a></li>
+  <li><a href="#starte-en-ny-renv" id="toc-starte-en-ny-renv" class="nav-link" data-scroll-target="#starte-en-ny-renv">Starte en ny renv</a></li>
+  <li><a href="#installering-av-pakker" id="toc-installering-av-pakker" class="nav-link" data-scroll-target="#installering-av-pakker">Installering av pakker</a></li>
+  <li><a href="#lagre-pakkeversjonen-til-renv" id="toc-lagre-pakkeversjonen-til-renv" class="nav-link" data-scroll-target="#lagre-pakkeversjonen-til-renv">Lagre pakkeversjonen til renv</a></li>
   <li><a href="#avinstallering-1" id="toc-avinstallering-1" class="nav-link" data-scroll-target="#avinstallering-1">Avinstallering</a></li>
   <li><a href="#oppgradere-pakker-1" id="toc-oppgradere-pakker-1" class="nav-link" data-scroll-target="#oppgradere-pakker-1">Oppgradere pakker</a></li>
+  <li><a href="#hva-skal-står-i-kjørekoden" id="toc-hva-skal-står-i-kjørekoden" class="nav-link" data-scroll-target="#hva-skal-står-i-kjørekoden">Hva skal står i kjørekoden?</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -549,77 +552,109 @@ Remove 1 kernel specs [y/N]: y</code></pre>
 <h3 class="anchored" data-anchor-id="sikkerhet">Sikkerhet</h3>
 <p>Hvem som helst kan legge til pakker på PyPi, det betyr at de i verstefall, kan inneholde skadelig kode. Her er en list med viktige tiltak som minimere risikoen:</p>
 <ol type="a">
-<li><p>Før man installerer pakker bør man alltid søke de opp på <a href="https://pypi.org">https://pypi.org</a>. Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.</p></li>
+<li><p>Før man installerer pakker bør man alltid søke de opp på <a href="https://pypi.org" class="uri">https://pypi.org</a>. Det er anbefalt å klippe og lime inn pakkenavnet når man skal legge det til i et prosjekt.</p></li>
 <li><p>Er det et populært/velkjent prosjekt? Hvor mange stjerner og forks har repoet?</p></li>
 </ol>
 </section>
 </section>
 <section id="r" class="level2">
 <h2 class="anchored" data-anchor-id="r">R</h2>
-<p>Installering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av <a href="https://github.com/statisticsnorway/ssb-project-cli">ssb-project</a>. Men vi kan bruke <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>. Mer kommer.</p>
-<section id="installering-1" class="level3">
-<h3 class="anchored" data-anchor-id="installering-1">Installering</h3>
-<p>For å installere dine egne R-pakker må du opprette et virtuelt miljø med <strong>renv</strong>. Gå inn i <strong>Jupyterlab</strong> og åpne R-notebook. Deretter skriver du inn følgende i kodecelle:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Denne kommandoer aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:</p>
-<p><strong>renv.lock</strong><br>
-En fil som inneholder versjoner av alle pakker du benytter i koden din.</p>
-<p><strong>.Rprofile</strong> En fil som inneholder informasjon om oppsetting av miljø og alternative.</p>
-<p><strong>renv</strong><br>
-Mappe som inneholder alle pakkene du installerer.</p>
-<p><strong>renv/activate.R</strong> En fil som aktivere renv miljø for et prosjekt.</p>
-<p><strong>Hvis prosjektet ligger på GitHub, skal filene <code>renv.lock</code>, <code>.Rprofile</code> og <code>renv/activate.R</code> være på GitHub</strong></p>
-<p>Nå som vi har et virtuelle miljøet på plass kan vi installere en R-pakke. Du kan gjøre dette fra både terminalen og fra en Notebook. Vi anbefaler på gjøre det fra terminalen fordi du da får tilbakemelding på om installeringen gikk bra heller ikke. For å installere i terminalen gjør du følgende:</p>
+<p>Installering av pakker for R-miljøet i Jupyterlab er foreløpig ikke en del av <a href="https://github.com/statisticsnorway/ssb-project-cli">ssb-project</a> enda. Men vi kan bruke <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a> til dette. Generelt, anbefaler vi at du <strong>skriver koden din i .R filer og åpne disse som en notebook</strong>. Dvs. ikke bruke .ipynb notebooks til R. Ved bruk av .R filer kan renv se hvilke pakker er i bruk i prosjektet og håndtering av disse er lettere.</p>
+<p>Oppretting av renv-miljø og installering av pakker anbefales å gjøres fra terminal. Dette er fordi det trengs å gjøres kun en gang for et prosjekt. For å starte R i terminalen i Jupyter/DAPLA:</p>
 <ol type="1">
-<li>Åpne en terminal i Jupyterlab</li>
-<li>Stå i mappen der du aktiverte det virtuelle miljøet</li>
-<li>Skriv in <code>R</code> og trykk enter.</li>
+<li>Åpne en terminal fra Launcher</li>
+<li>Stå i mappen der du vil aktivere det virtuelle miljøet/installere pakker, dvs prosjekt mappen.</li>
+<li>Starte R ved å skrive in <code>R</code></li>
 </ol>
-<p>Det vi nå har gjort er å åpne <strong>R</strong> fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en <em>R Console</em>. Nå kan du skrive inn en vanlig kommando for å installere R-pakker:</p>
+<p>Det vi nå har gjort er å åpne <strong>R</strong> fra terminalen slik at vi kan skrive R-kode direkte i terminalen. Det omtales ofte som en <em>R Console</em>. I RStudio finne du terminalen i fanen ved siden av “Console”.</p>
+<section id="starte-en-ny-renv" class="level3">
+<h3 class="anchored" data-anchor-id="starte-en-ny-renv">Starte en ny renv</h3>
+<p>For å installere dine egne R-pakker må du opprette et virtuelt miljø med <strong>renv</strong>. Dette kan gjøres ved å skriver:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">init</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Kommandoen aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil det si at du fikk følgende filer/mapper i mappen din:</p>
+<ul>
+<li><p><strong>renv.lock</strong><br>
+En fil som inneholder versjoner av alle pakker du benytter i koden din.</p></li>
+<li><p><strong>.Rprofile</strong> En fil som inneholder informasjon om oppsetting av miljø og alternative.</p></li>
+<li><p><strong>renv</strong><br>
+Mappe som inneholder alle pakkene du installerer.</p></li>
+<li><p><strong>renv/activate.R</strong> En fil som aktivere renv miljø for et prosjekt.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hvis prosjektet ligger på GitHub, skal filene <code>renv.lock</code>, <code>.Rprofile</code> og <code>renv/activate.R</code> være på GitHub</p>
+</div>
+</div>
+</section>
+<section id="installering-av-pakker" class="level3">
+<h3 class="anchored" data-anchor-id="installering-av-pakker">Installering av pakker</h3>
+<p>Nå som vi har et virtuelle miljøet på plass kan vi installere R-pakker. Vi installere pakker ved funksjonen <code>renv::install()</code>. For eksempel:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"PxWebApiData"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Over installerte vi pakken <a href="https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html">PxWebApiData</a> fra den R sentral repository CRAN. Dette er en pakke skrevet i SSB for å hente ut data fra vår statistikkbank. Det er også mulig å installere pakker som ligger på SSBs GitHub. Da må vi spesifisere at pakke ligger på ‘statisticsnorway’ område. For eksempel:</p>
+<p>Dette installerer pakken <a href="https://cran.r-project.org/web/packages/PxWebApiData/vignettes/Introduction.html">PxWebApiData</a> fra den R sentral repository CRAN. Dette er en pakke skrevet for å hente ut data fra SSBs statistikkbank.</p>
+<p>Det er også mulig å installere pakker som ligger på SSBs GitHub. Da må vi spesifisere at pakke ligger på ‘statisticsnorway’ område. For eksempel:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"statisticsnorway/klassR"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Pakken <a href="https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html">klassR</a> er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned. For pakker som er på et lukket område på ‘statsitcsnorway’ må vi bruke Personal Authentication Token for å installere. Vi kan gjøre dette ved hjelp av funksjonen <code>install_github()</code> i <code>devtools</code> pakken. For eksempel:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"getPass"</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"statisticsnorway/fellesr"</span>, </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">auth_token =</span> getPass<span class="sc">::</span><span class="fu">getPass</span>())</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>La oss bruke pakken PxWebApiData i koden vår med ved å skrive følgende i kodecelle i Notebooken vår:</p>
+<p>Pakken <a href="https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html">klassR</a> er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Det er anbefalt å kjøre R fra .R filer. Hvis du kjøre R fra en jupyter notebook (.ipynb) må du også installere pakken <a href="https://cran.rstudio.com/web/packages/IRkernel/index.html">IRkernel</a> for at renv skal fungere. I tillegg vil ikke renv se hvilken pakker er benyttet i prosjektet. Jupyter notebooks (.ipynb filer) kan speiles til .Rmd filer ved å skrive</p>
+</div>
+</div>
+<p>Hvis prosjekt er opprettet av en annen person og har blitt delt med deg, kan alle pakkene som trengs i prosjektet installeres ved:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">:</span><span class="fu">restore</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hvis du selv har ikke benyttet renv i prosjektet tidligere må du kjøre <code>renv::init()</code> på forhånd.</p>
+</section>
+<section id="lagre-pakkeversjonen-til-renv" class="level3">
+<h3 class="anchored" data-anchor-id="lagre-pakkeversjonen-til-renv">Lagre pakkeversjonen til renv</h3>
+<p>For å lagre pakkeversjon til .lockfil må koden din benytte pakken ved funksjonen <code>library()</code> et sted i prosjektet (på en .R fil). For eksempel kan vi benytte pakken <code>PxWebApiData</code> i koden vår ved:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PxWebApiData)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ApiData</span>(<span class="st">"https://data.ssb.no/api/v0/en/table/04861"</span>, </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">Region =</span> <span class="fu">c</span>(<span class="st">"1103"</span>, <span class="st">"0301"</span>), <span class="at">ContentsCode =</span> <span class="st">"Bosatte"</span>, <span class="at">Tid =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>))</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Når vi nå har brukt <strong>PxWebApiData</strong> i koden vår så kan vi kjøre en kommando som legger til den pakken i <strong>renv.lock</strong>. Men før vi kan gjøre det må vi være obs på at <strong>renv</strong> ikke klarer å gjenkjenne pakker som er i bruk Notebooks (ipynb-filer). Det er veldig upraktisk, men noe vi må forholde oss til når vi jobber med <strong>renv</strong> i Jupyterlab. En mulig løsning for dette er å bruke <a href="https://jupytext.readthedocs.io/en/latest/install.html">Jupytext</a> til å synkronisere en ipynb-fil med en Rmd-fil. <strong>renv</strong> kjenner igjen både R- og Rmd-filer. For å synkronisere filene gjør du følgende:</p>
-<ol type="1">
-<li>Trykk <code>Ctrl+Shift C</code></li>
-<li>Skriv inn <strong>Pair</strong> i søkefeltet som dukker opp</li>
-<li>Velg <strong>Pair Notebook with R Markdown</strong></li>
-</ol>
-<p>Hvis du nå endrer en av filene så vil den andre oppdatere seg, og <strong>renv</strong> vil kunne oppdage om du bruker en pakke i koden din. Men for å trigge <strong>renv</strong> til å lete etter pakker som er i bruk så må du skrive følgende kode i Notebooken eller <em>R Console</em>:</p>
+<p>For å legge pakken inn i .lockfilen skriver vi i R på terminal:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Kikker du nå inne i <strong>renv.lock</strong>-filen så ser du nå at verjsonen av <strong>PxWebApiData</strong> er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.</p>
+<p>Det betyr at både du og andre kan gjennskape de pakkene og versjoner som du har installerte. Kikker du nå inne i <strong>renv.lock</strong>-filen så ser du nå at verjsonen av <strong>PxWebApiData</strong> er lagt til. I bildet under ser du hvordan et arbeidsmiljø typisk kan se ut når man installerer sine egne pakker.</p>
 <p><img src="images/renv_install.png" class="img-fluid"></p>
-<p>For å installere alle pakker som ligger i <strong>renv.lock</strong>-filen med riktig versjon kan du skriver</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">:</span><span class="fu">restore</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Dette er nyttig om det er nye medlemmer i gruppen som skal kjøre en produksjonsløp utviklet av andre.</p>
 </section>
 <section id="avinstallering-1" class="level3">
 <h3 class="anchored" data-anchor-id="avinstallering-1">Avinstallering</h3>
-<p>Individe pakker kan fjernes fra library ved <code>remove()</code> funksjonen. For eksempel:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">remove</span>(<span class="st">"PxWebApiData"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Individuelle pakker kan fjernes fra miljø ved <code>renv::</code>remove()` funksjonen. For eksempel:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">remove</span>(<span class="st">"PxWebApiData"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For å fjerne fra <strong>renv.lock</strong>-filen også må du ta en <code>snapshot()</code> etterpå.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>En annen nyttig funksjon er <code>renv::clean()</code>. Dette fjerner alle pakker fra library som ikke er i bruk</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">clean</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">clean</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Igjen må du ta en <code>snapshot()</code> for at endringer skal lagres på <strong>renv.lock</strong>-filen</p>
 </section>
 <section id="oppgradere-pakker-1" class="level3">
 <h3 class="anchored" data-anchor-id="oppgradere-pakker-1">Oppgradere pakker</h3>
 <p>For å oppgradere en pakke kan du bruke <code>renv::update()</code>. For eksempel å oppgradere <code>PxWebApiData</code> skriv:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">update</span>(<span class="st">"PxWebApiData"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">update</span>(<span class="st">"PxWebApiData"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For å installere et spesifikk versjon av en pakke kan du spesifisere dette med installering med <code>@</code> og versjonsnummer. For eksempel å installere <code>PxWEbApiData</code> versjon 0.4.0:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"PxWebApiData@0.4.0"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"PxWebApiData@0.4.0"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Husk å ta en <code>snapshot()</code> etterpå for å lagre endringer til <strong>renv.lock</strong>-filen. Det betyr at du og andre kan gjenskape miljø på nytt.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="hva-skal-står-i-kjørekoden" class="level3">
+<h3 class="anchored" data-anchor-id="hva-skal-står-i-kjørekoden">Hva skal står i kjørekoden?</h3>
+<p>Koden over kan kjøres fra R i terminal og skal kun kjøres en gang. Men for å aktivere miljø og pakker som skal brukes må det aktiveres ved starten av koden din. I RStudio går dette automatisk ved hjelp av .Rprofile filen. I JupyterLab når du åpne en .R-fil som en notebook må det aktiveres ved for eksempel:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">autoload</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Deretter kan du benytte pakker og funksjoner ved <code>library()</code> osv. Funkjsonen <code>renv::autoload()</code> vil si ifra at du ønsker å benytte et renv miljø og vil letter etter filene i prosjektetfor å aktivere miljø (både i prosjekt-mappen og i foreldre-mapper).</p>
+<p>For å dele koden med andre, må de også kjøre <code>renv::restore()</code> (første gang) for å installere alle pakkene som ligger i .lock filen.</p>
 
 
 </section>
