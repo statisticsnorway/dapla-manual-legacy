@@ -424,6 +424,8 @@ Kommer snart
 
 ## Opprette mapper
 
+Selv om bøtter ikke har mapper med en hierarkisk struktur slik man er kjent med fra klassike filsystemer, så kan man opprette det som ser ut som mapper i objektnavnet. I realiteten blir bare `/` oppfattet som en del av navnet på objektet. Skulle du likevel ønske å opprette dette så kan du gjøre det følgende måte:
+
 ::: {.panel-tabset}
 
 ## Python {{< fa brands python >}}
@@ -437,7 +439,7 @@ bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler"
 
 # Create folder
-fs.mkdir(f"{bucket}/{folder}/testmappe/")
+fs.touch(f"{bucket}/{folder}/testmappe/")
 ```
 
 ## {{< fa brands r-project >}}
