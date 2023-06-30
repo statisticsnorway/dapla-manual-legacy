@@ -310,6 +310,32 @@ Kommer snart
 
 :::
 
+### SAS
+
+Her er et eksempel på hvordan man leser inn en sas7bdat-fil på Dapla som har blitt generert i prodsonen. 
+
+::: {.panel-tabset}
+
+## Python {{< fa brands python >}}
+
+```python
+import pandas as pd
+from dapla import FileClient
+
+fs = FileClient.get_gcs_file_system()
+
+sti = "gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/sas/statbank_ledstill.sas7bdat"
+
+with fs.open(sti) as sas:
+    df = pd.read_sas(sas, format="sas7bdat", encoding="latin1")
+```
+
+## {{< fa brands r-project >}}
+
+Kommer snart
+
+:::
+
 ## Slette filer
 
 Å slette filer fra lagringsområdet kan gjøres på flere måter. I kapitlet om [sletting av data](./slette-data.html) viste vi hvordan man gjør det med pek-og-klikk i [Google Cloud Console](https://console.cloud.google.com/). Under ser du hvordan du kan slette filer med **dapla-toolbelt** og **gcsfs**. 
