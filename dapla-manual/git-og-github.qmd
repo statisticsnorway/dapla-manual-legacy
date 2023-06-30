@@ -180,6 +180,8 @@ For å lage en PAT som er godkjent mot *statisticsnorway* så gjør man følgend
 
 3. I menyen til venstre velger du **Personal Access Token**, og deretter **Tokens (classic)**.
 
+4. Velg **Generate new token** og deretter **Generate new token (classic)**.
+
 5. Under **Note** kan du gi PAT'en et navn. Velg et navn som er intuitivt for deg. Hvis du skal bruke PAT til å jobbe mot Dapla, så ville jeg ganske enkelt kalt den *dapla*. Hvis du skal bruke den mot bakkemiljøet ville jeg kalt den *prodsone* eller noe annet som gjør det lett for det skjønne innholdet i ettertid.
 
 6. Under **Expiration** velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger **365 dager**. Når PAT utløper må du gjenta stegene i dette kapittelet.
