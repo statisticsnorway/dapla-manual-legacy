@@ -1,4 +1,18 @@
-# Installere pakker
+---
+title: Installere pakker
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.5
+  kernelspec:
+    display_name: kurs-python-basic
+    language: python
+    name: kurs-python-basic
+---
+
 
 ## Python
 
@@ -28,11 +42,17 @@ Hvis man forsøker å installere prosjektet i et annet miljø (f.eks Dapla), så
 poetry source remove nexus
 ```
 :::
-
 ## R
 
-Prosessen med å installere pakker for R på bakken er det samme som [på Dapla](./pakke-install.html#r). Noen pakker (for eksempel `arrow` og `devtools`) kan foreløpig ikke installeres på bakken på egenhånd pga 3. parti avhengigheter. Vi jobber med å finne en løsning til dette.
+Prosessen med å installere pakker for R på bakken er det samme som [på Dapla](./pakke-install.html#r). Noen pakker (for eksempel `devtools`) kan foreløpig ikke installeres på bakken på egenhånd pga 3. parti avhengigheter. Vi jobber med å finne en løsning til dette.
+
+For å installere `arrow`, kopier og kjør følgende kommando i R:
+
+```r
+install.packages("/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz", repos = NULL, type = "source")
+
 
 ### Avinstallering
 
 ### Oppgradere pakker
+
