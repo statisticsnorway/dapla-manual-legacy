@@ -280,3 +280,15 @@ renv::autoload()
 Deretter kan du benytte pakker og funksjoner ved `library()` osv. Funkjsonen `renv::autoload()` vil si ifra at du ønsker å benytte et renv miljø og vil letter etter filene i prosjektetfor å aktivere miljø (både i prosjekt-mappen og i foreldre-mapper).
 
 For å dele koden med andre, må de også kjøre `renv::restore()` (første gang) for å installere alle pakkene som ligger i .lock filen.
+
+### R på bakken
+
+Prosessen med å installere pakker for R på bakken er det samme som [på Dapla](./pakke-install.html#r). Noen pakker (for eksempel `devtools`) kan foreløpig ikke installeres på bakken på egenhånd pga 3. parti avhengigheter. Vi jobber med å finne en løsning til dette.
+
+For å installere `arrow`, kopier og kjør følgende kommando i R:
+
+```r
+install.packages("/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz",
+                repos = NULL,
+                type = "source")
+```
