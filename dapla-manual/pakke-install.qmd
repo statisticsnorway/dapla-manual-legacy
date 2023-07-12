@@ -288,4 +288,7 @@ Prosessen med å installere pakker for R på bakken er det samme som [på Dapla]
 For å installere `arrow`, kopier og kjør følgende kommando i R:
 
 ```r
-install.packages("/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz", repos = NULL, type = "source")
+install.packages("/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz",
+                repos = NULL,
+                type = "source")
+```

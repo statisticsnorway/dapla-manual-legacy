@@ -1,17 +1,4 @@
----
-title: Installere pakker
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .qmd
-      format_name: quarto
-      format_version: '1.0'
-      jupytext_version: 1.14.5
-  kernelspec:
-    display_name: kurs-python-basic
-    language: python
-    name: kurs-python-basic
----
+# Installere pakker
 
 
 ## Python
@@ -49,8 +36,10 @@ Prosessen med å installere pakker for R på bakken er det samme som [på Dapla]
 For å installere `arrow`, kopier og kjør følgende kommando i R:
 
 ```r
-install.packages("/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz", repos = NULL, type = "source")
-
+install.packages("/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz",
+                repos = NULL,
+                type = "source")
+```
 
 ### Avinstallering
 
