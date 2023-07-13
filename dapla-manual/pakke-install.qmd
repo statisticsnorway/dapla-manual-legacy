@@ -174,7 +174,7 @@ Kommandoen aktiverer et virtuelt miljø i mappen du står i. Rent praktisk vil d
 -   **renv/activate.R** En fil som aktivere renv miljø for et prosjekt.
 
 ::: callout-note
-Hvis prosjektet ligger på GitHub, skal filene `renv.lock`, `.Rprofile` og `renv/activate.R` være på GitHub
+Hvis prosjektet ligger på GitHub, skal filene `renv.lock`, `.Rprofile` og `renv/activate.R` være på GitHub.
 :::
 
 ### Installering av pakker
@@ -196,7 +196,7 @@ renv::install("statisticsnorway/klassR")
 Pakken [klassR](https://statisticsnorway.github.io/klassR/articles/klassR-vignette.html) er skrevet for å hente ut klassifikasjoner fra SSBs KLASS. Det er en public repository på Github og åpen for alle å laste ned.
 
 ::: callout-note
-Det er anbefalt å kjøre R fra .R filer. Hvis du kjøre R fra en jupyter notebook (.ipynb) må du også installere pakken [IRkernel](https://cran.rstudio.com/web/packages/IRkernel/index.html) for at renv skal fungere. I tillegg vil ikke renv se hvilken pakker er benyttet i prosjektet. Jupyter notebooks (.ipynb filer) kan speiles til .Rmd filer ved å skrive
+Det er anbefalt å kjøre R fra .R filer. Hvis du kjøre R fra en jupyter notebook (.ipynb) må du også installere pakken [IRkernel](https://cran.rstudio.com/web/packages/IRkernel/index.html) for at renv skal fungere. I tillegg vil ikke renv se hvilken pakker er benyttet i prosjektet. Jupyter notebooks (.ipynb filer) kan speiles til .Rmd filer ved å trykke på Ctrl + Shift + C og velger "Pair Notebook with R Markdown". En .Rmd fil vil da opprettes og dette kan leses av renv.
 :::
 
 Hvis prosjekt er opprettet av en annen person og har blitt delt med deg, kan alle pakkene som trengs i prosjektet installeres ved:
