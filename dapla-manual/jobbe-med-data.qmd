@@ -35,16 +35,16 @@ I kapitlene under finner du konkrete eksempler på hvordan du kan bruke **dapla-
 
 R-pakken [fellesr](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html) er under utvikling og gir mye av den samme funksjonaliteten som **dapla-toolbelt** gir for Python. I tillegg til å kunne lese og skrive til lagringsområdet på Dapla, så har **fellesr** også funksjoner for å jobbe med metadata på Dapla.
 
-**fellesr** er foreløpig ikke tilgjengeliggjort som en pakke som kan installeres. For å bruke pakken kan du gjøre følgende: 
-
-1. Kopiere scriptet [DAPLA_funcs.R](https://github.com/statisticsnorway/fellesr/blob/main/R/DAPLA_funcs.R) og legg den i en fil sammen med Notebooken din
-3. I en R-notebook som ligger i samme mappe som filen **DAPLA_funcs.R** starter du med å skrive
+**fellesr** er installert på Dapla og funksjoner kan benyttes ved: 
 
 ```r
-source("DAPLA_funcs.R")
+library(fellesr)
+```
+Hvis du benytte en renv miljø, må pakken installeres en gang. Dette kan gjøres ved:
+```r
+renv::install("statisticsnorway/fellesr")
 ```
 
-Da er alle funksjonene tilgjengelig for deg i Notebooken din.
 
 
 ## Liste ut innhold i mappe
@@ -91,7 +91,7 @@ Syntaksen med `ls` er veldig lik det man kjenner fra en Linux-terminal. Men når
 
 ```r
 # Loading functions into notebook
-source("DAPLA_funcs.R")
+library(fellesr)
 
 # Path to folder
 bucket <- "ssb-prod-dapla-felles-data-delt/"
@@ -100,6 +100,7 @@ folder <- "felles/veiledning/python/eksempler/purchases"
 # List files in folder 
 list.files(paste0(bucket, folder))
 ```
+Merknad: Når du spesifisere bøtter i R, trenger du ikke "gs://" foran. 
 
 :::
  
@@ -110,8 +111,7 @@ list.files(paste0(bucket, folder))
 
 ### Parquet
 
-Under lager vi en dataframe i en notebook og skriver den ut til en parquet-fil. Stien vi skriver til er  
-`gs://ssb-prod-dapla-felles-data-delt/felles/veiledning/python/eksempler/purchases`:
+Under lager vi en dataframe i en notebook og skriver den ut til en parquet-fil.
 
 ::: {.panel-tabset}
 
@@ -148,7 +148,22 @@ Men for de andre filformatene må vi altså spesifisere dette.
 
 ## {{< fa brands r-project >}}
 
-Kommer snart
+Når vi jobber med Parquet-fil i R, bruker vi pakken [arrow](https://arrow.apache.org/docs/r/). Dette er en del av [fellesr](https://statisticsnorway.github.io/fellesr/) pakken så du trenger kun å kalle inn dette. Pakken inneholder funksjonen `write_SSB` som kan brukes til å skrive data til bøtte på Dapla.
+
+```r
+library(fellesr)
+
+# Set stien til hvor data skal lagres
+bucket <- "ssb-prod-dapla-felles-data-delt"
+folder <- "felles/veiledning/r/eksempler/purchases"
+
+# Lage en eksempel dataframe
+purchases = data.frame(A = runif(10), B= runif(10), C=runif(10))
+
+# Skrive data til bøttet som en parquet
+write_SSB(purchases, file.path(bucket, folder, "purchases.parquet"))
+```
+Merknad: Når du spesifisere bøtter i R, trenger du ikke "gs://" foran. 
 
 :::
 
@@ -156,7 +171,7 @@ Kommer snart
 
 ### Tekstfiler
 
-Kommer snart eksempler på hvordan man kan skrive ut tekstfiler som CSV, JSON og XML.
+Noen ganger ønsker vi å lagre data i andre formatter slik som CSV, JSON og XML. 
 
 ::: {.panel-tabset}
 
@@ -186,7 +201,27 @@ Som vi ser at syntaksen over så kunne vi skrevet ut til noe annet enn json ved 
 
 ## {{< fa brands r-project >}}
 
-Kommer snart.
+Pakken [fellesr](https://statisticsnorway.github.io/fellesr/) kan også brukes til å skrive andre type filer, for eksempel csv, til bøtter. Dette gjøres med funksjonen `write_SSB` og spesifisere ønsket filtype i filnavn.
+
+Først kaller vi biblioteket og lage noe test data ved:
+
+```r
+library(fellesr)
+
+# Set stien til hvor data skal lagres
+bucket <- "ssb-prod-dapla-felles-data-delt"
+folder <- "felles/veiledning/r/eksempler/purchases"
+
+# Lage en eksempel dataframe
+purchases = data.frame(A = runif(10), B= runif(10), C=runif(10))
+
+```
+
+Vi kan skrive data som csv fil ved:
+
+```r`
+write_SSB(purchases, file.path(bucket, folder, "purchases.csv")
+``
 
 :::
 
@@ -223,7 +258,7 @@ Kommer snart
 
 ## Lese inn filer
 
-Å lese inn filer på med dapla-toolbelt er nesten like rett frem som med Pandas. Under finner du eksempler på hvordan du kan lese inn data til en Jupyter Notebooks på Dapla.
+Under finner du eksempler på hvordan du kan lese inn data til en Jupyter Notebooks på Dapla.
 
 ### Parquet
 
@@ -252,8 +287,30 @@ dp.read_pandas(gcs_path= f"{bucket}/{folder}/data.parquet")
 `columns`-argumentet er en liste med kolonnenavn som vi ønsker å lese inn. Hvis vi ikke spesifiserer noen kolonner så vil alle kolonnene leses inn.
 
 ## {{< fa brands r-project >}}
+Pakken [fellesr](https://statisticsnorway.github.io/fellesr/index.html) kan brukes til å lese inn data. Funksjonen `read_SSB()` kan lese inn filer i flere format inkluderende parquet. 
 
-Kommer snart
+Her er et eksempel av å lese inn parquet fil "1987".
+
+```r
+library(fellesr)
+
+bucket <- "ssb-prod-dapla-felles-data-delt"
+folder <- "R_smoke_test"
+
+dt_1987 <- read_SSB(file.path(bucket, folder, "1987.parquet"))
+
+```
+
+Vi kan også filtrere hvilke variabel vi ønsker å lese inn ved å spesifisere parameter `col_select`. For eksempel:
+
+```r
+dt_1987 <- read_SSB(file.path(bucket, folder, "1987.parquet"),
+                    col_select = c("Year", "Month"))
+
+```
+
+Innlesning av parquet som er kartdata finner du her: [Lese kartdata](https://statisticsnorway.github.io/fellesr/articles/vignette__DAPLA_jukseark.html#lese-inn-kartdata-lagret-som--parquet-filer)
+
 
 :::
 
@@ -281,7 +338,29 @@ df = dp.read_pandas(gcs_path = f"{bucket}/{folder}/test3.json",
 
 ## {{< fa brands r-project >}}
 
-Kommer snart
+Funksjonen `read_SSB()` kan lese inn flere type av fil-format, slik som csv og json. Du trenger ikke å endre koden, kun spesifisere hele filnavn.  
+
+Først kaller vi inn biblioteket [fellesr](https://statisticsnorway.github.io/fellesr/index.html) og spesifisere bøtte/mappen:
+
+```r
+library(fellesr)
+
+bucket <- "ssb-prod-dapla-felles-data-delt"
+folder <- "R_smoke_test"
+
+```
+
+For å lese inn csv:
+
+```r
+dt_1987 <- read_SSB(file.path(bucket, folder, "1987.csv"))
+```
+
+For å lese inn json:
+
+```r
+dt_1987 <- read_SSB(file.path(bucket, folder, "1987.json"))
+```
 
 :::
 
@@ -332,13 +411,16 @@ with fs.open(sti) as sas:
 
 ## {{< fa brands r-project >}}
 
-Kommer snart
+I produksjon sone (på bakken) kan R-pakken [haven](http://uribo.github.io/rpkg_showcase/utility/haven.html) benyttes for å lese inn .sas7bdat filer. Dette er ikke implementert i fellesr enda for lesing fra Dapla bøtte.
+
+Mer om dette kommer. 
+
 
 :::
 
 ## Slette filer
 
-Å slette filer fra lagringsområdet kan gjøres på flere måter. I kapitlet om [sletting av data](./slette-data.html) viste vi hvordan man gjør det med pek-og-klikk i [Google Cloud Console](https://console.cloud.google.com/). Under ser du hvordan du kan slette filer med **dapla-toolbelt** og **gcsfs**. 
+Å slette filer fra lagringsområdet kan gjøres på flere måter. I kapitlet om [sletting av data](./slette-data.html) viste vi hvordan man gjør det med pek-og-klikk i [Google Cloud Console](https://console.cloud.google.com/). Under ser du hvordan du kan slette filer med **dapla-toolbelt** og **gcsfs** eller [fellesr](https://statisticsnorway.github.io/fellesr/index.html). 
 
 ::: {.panel-tabset}
 
@@ -356,8 +438,16 @@ fs.rm(f"{bucket}/{from_folder}/df.json")
 ```
 
 ## {{< fa brands r-project >}}
+Funksjonen `gc_delete_object` kan brukes til å slette data på lagringsområdet.
 
-Kommer snart
+```r
+library(fellesr)
+
+bucket <- "ssb-prod-dapla-felles-data-delt"
+folder <- "felles/veiledning/r/eksempler/purchases"
+
+gcs_delete_object(file.path(bucket, folder, "purchases.parquet"))
+```
 
 :::
 
