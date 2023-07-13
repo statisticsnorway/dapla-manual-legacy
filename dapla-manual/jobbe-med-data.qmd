@@ -25,9 +25,9 @@ from dapla import FileClient
 fs = FileClient.get_gcs_file_system()
 
 # Example of how you can use gcsfs and dapla-toolbelt together
-fs.mkdir("gs://my-bucket/my-folder")
+fs.touch("gs://my-bucket/my-folder/")
 ```
-I koden over brukte jeg kommandoen `mkdir` fra [gcsfs](https://gcsfs.readthedocs.io/en/latest/api.html) og `FileClient` fra dapla-toolbelt for å opprette en mappe i lagringsområdet.
+I koden over brukte jeg kommandoen `touch` fra [gcsfs](https://gcsfs.readthedocs.io/en/latest/api.html) og `FileClient` fra dapla-toolbelt for å opprette en mappe i lagringsområdet.
 
 I kapitlene under finner du konkrete eksempler på hvordan du kan bruke **dapla-toolbelt** til å jobbe med data i SSBs lagringsområdet.
 
@@ -44,8 +44,6 @@ Hvis du benytte en renv miljø, må pakken installeres en gang. Dette kan gjøre
 ```r
 renv::install("statisticsnorway/fellesr")
 ```
-
-
 
 ## Liste ut innhold i mappe
 
@@ -215,13 +213,9 @@ folder <- "felles/veiledning/r/eksempler/purchases"
 # Lage en eksempel dataframe
 purchases = data.frame(A = runif(10), B= runif(10), C=runif(10))
 
-```
-
-Vi kan skrive data som csv fil ved:
-
-```r`
+# Skrive til csv
 write_SSB(purchases, file.path(bucket, folder, "purchases.csv")
-``
+```
 
 :::
 
@@ -345,18 +339,16 @@ Først kaller vi inn biblioteket [fellesr](https://statisticsnorway.github.io/fe
 ```r
 library(fellesr)
 
+# Filsti
 bucket <- "ssb-prod-dapla-felles-data-delt"
 folder <- "R_smoke_test"
 
-```
-
-For å lese inn csv:
-
-```r
+# Lese inn CSV-fil
 dt_1987 <- read_SSB(file.path(bucket, folder, "1987.csv"))
+
 ```
 
-For å lese inn json:
+For å lese inn en json-fil kan skrive følgende:
 
 ```r
 dt_1987 <- read_SSB(file.path(bucket, folder, "1987.json"))
@@ -477,7 +469,7 @@ fs.cp(f"{bucket}/{from_folder}/data.parquet",
 ```
 Det også fungere for å kopiere filer mellom bøtter. 
 
-Et annet scenario vi ofte vil støte på er at vi ønsker å kopiere en fil fra vår Jupyter-filsystem til en mappe på lagringsområdet. Her kan vi bruke `fs.put`-metoden. 
+Et annet scenario vi ofte vil støte på er at vi ønsker å kopiere en fil fra vårt Jupyter-filsystem til en mappe på lagringsområdet. Her kan vi bruke `fs.put`-metoden. 
 
 ```python
 from dapla import FileClient
