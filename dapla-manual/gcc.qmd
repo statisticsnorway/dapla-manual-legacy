@@ -23,7 +23,7 @@ Her vises det hvordan man velger et prosjekt I [GCC](./gcc.qmd). Eksempelet beny
 1. Trykk på lenken `prod-demo-stat-b`, som markert med rød pil i (@fig-sok).
 
 ::: {.callout-note appearance="simple"}
-I `ID` kolonnen ser man prosjektet ID (@fig-sok).
+I `ID` kolonnen ser man prosjektets ID (@fig-sok).
 :::
 
 ![Søk i Prosjektvelgeren](./images/select-gcp-project1.png){fig-alt="Søk i Prosjektvelgeren" #fig-sok}
