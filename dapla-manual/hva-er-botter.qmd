@@ -1,0 +1,301 @@
+# Hva er bøtter? 
+
+På Dapla er det Google Cloud Storage (GCS) som benyttes til å lagre data og filer. Følgelig er det GCS som erstatter det vi kjente som Linux-*stammene* i prodsonen tidligere. I SSB har vi vært vant til å jobbe med data lagret på filsystemer i et Linux-miljø^[Egentlig har vi jobbet med data-filer på både Linux- og Windows-filsystemer. Men Linux-stammene har vært det anbefalte stedet å lagre datafiler.]. GCS-bøttene skiller seg fra klassiske filsystemer på flere måter, og det er viktig å være klar over disse forskjellene. I denne kapitlet vil vi gå gjennom noen av de viktigste forskjellene og hvordan man gjør vanlige operasjoner mot bøtter i GCS.
+
+## Bøtter vs filsystemer
+
+I et **Linux-** eller **Windows**-filsystem, som vi har vært vant til tidligere, så er filer og mapper organisert i en hierarkisk struktur på et operativsystem (OS). I SSB har OS-ene vært installert på fysiske maskiner som vi vedlikeholder selv. 
+
+En bøtte i GCS er derimot en kjøpt tjeneste som lar brukeren lagre alle typer objekter i en *container*. Man trenger altså ikke å tenke på om filene ligger i et hierarki, hvilket operativsystem det kjører på, eller hvor mye diskplass som er tilgjengelig. 
+
+At data er lagret som objekter i en bøtte har noen praktiske implikasjoner for hvordan vi jobber med data i SSB:
+
+1. Mange er vant til å jobbe direkte med filer i en Linux-terminal eller via systemkall fra språk som SAS, Pyton eller R. For å gjøre det samme i Jupyter mot en bøtte, så kan vi bruke Python-pakken [gcsfs](https://gcsfs.readthedocs.io/en/latest/). Se [eksempler under](./hva-er-botter.html#gcsfs).
+
+2. Når vi bruker Python- eller R-pakker for lese eller skrive data fra bøtter, så er vi avhengig av at pakkene tilbyr integrasjon mot bøtter. Mange pakker gjør det, men ikke alle. For de som ikke gjør det kan vi bruke ofte bruke **gcsfs** til å gi oss et python-objekt, som igjen kan brukes av de fleste pakker.
+
+3. Det finnes egentlig ikke noen **mapper** i bøtter. I motsetning til et vanlig filsystem så er det ikke en hierarkisk mappestruktur i en bøtte. Det vil si at alt ligger et sted, men de kan ha lange navn med `/`-tegn slik at det ligner på et klassisk filsystem. Bruker du `/` i objekt-navnet så vil også Google Cloud Console vise det som mapper, men det er bare for å gjøre det enklere å forholde seg til. En praktisk konsekvens av dette er f.eks. at man ikke trenger å opprette en mappe før man legger et fil/objekt i den. Det er bare en tekststreng som er en del av objekt-navnet.
+
+Under kommer det en del eksempler på hvordan man kan jobbe med objekter i bøtter på samme måte som filer i et filsystem.
+
+## "Lokalt" filsystem på Dapla
+
+På Dapla skal data lagres i bøtter. Men når du åpner Jupyterlab så får du også et "lokalt" eller klassisk filsystem, slik vi definerte det i forrige kapittel. Det er dette filsystemet du ser i filutforskeren i Jupyterlab,  slik som vist til venstre i @fig-jupyter-file-explorer. Det er også dette filsystemet du ser når du f.eks. bruker `ls`-kommandoen i en terminal i Jupyterlab. 
+
+![Til venstre i bildet ser du filutforskeren i Jupyterlab](images/jupyter-file-explorer.png){fig-alt="Bilde av filutforskeren i Jupyterlab" #fig-jupyter-file-explorer}
+
+Dette filsystemet er ment for å lagre kode midlertidig mens du jobber med dem. Det er ikke ment for å lagre data. Det er heller ikke ment som et permanent lagringssted for kode. Permanent lagring av kode skal gjøres på [GitHub](https://github.com/orgs/statisticsnorway/). Selv om filene du lagrer der fortsetter å eksistere for hver gang du logger deg inn i Jupyterlab, så bør kode du ønsker å bevare pushes til GitHub før du avslutter en sesjon i Jupyterlab. Se en mer teknisk beskrivelse av hvordan dette fungerer i boksen under. 
+
+::: {.callout-note}
+# Hvem er egentlig denne Jovyan?
+Når du logger deg inn i Jupyterlab på Dapla, så ser du at brukeren din på det lokale filsystemet heter **jovyan**. Grunnen er at det er en Linux-container som kjører et Jupyterlab Docker-image, og alle bruker denne containeren. Det er derfor vi kaller det et "lokalt" filsystem, fordi det er lokalt i containeren.
+
+I tillegg er det satt opp persistent volum (PV) og en persistent volume claim (PVC) som er knyttet til denne containeren. Det er dette som gjør at filene du lagrer i Jupyterlab blir lagret mellom hver gang du logger deg inn. I tillegg tas det en backup av filsystemene hver dag, slik at vi kan gjenopprette filene dine hvis noe skulle skje med PV-en. 
+
+Lagringsplassen på PV-en er begrenset til **10 GB** per bruker. Grunnen til at vi ikke tilbyr mer lagringsplass er fordi det kun er kode skal lagres her, og at denne lagringsplassen er relativt dyrt sammenlignet med GCS-bøtter. Hvis du jobber i virtuelle miljøer og lagrer mange miljøer lokalt, kan du oppleve at disken blir full. Les mer her om hvordan man bør håndere dette. 
+:::
+
+## Systemkommandoer mot bøttter
+
+Tidligere har vi diskutert forskjellene mellom bøtter og filsystemer. Mange kjenner hvordan man gjør systemkommandoer^[Med systemkommandoer så mener vi bash-kommandoer som `ls` og `mv`, eller implementasjoner av disse kommandoene i Python, R eller SAS.] i klassiske filsystemer fra en terminal eller fra språk som Python, R og SAS. I dette kapitlet viser vi hvordan dette kan gjøres mot bøtter fra Jupyterlab.
+
+[gcsfs](https://gcsfs.readthedocs.io/en/latest/) er en Python-pakke som lar deg jobbe med objekter i bøtter på nesten samme måte som filer i et filsystem. For å kunne gjøre det må vi først sette opp en filsystem-instans som lar oss bruke en bøtte som et filsystem. Pakken `dapla-toolbelt` lar oss gjøre det ganske enkelt:
+
+```python
+from dapla import FileClient
+
+fs = FileClient.get_gcs_file_system()
+```	
+
+`fs` er nå et filsystem-versjon av bøttene vi har tilgang til på GCS. Vi kan nå bruk `fs` til å gjøre typiske operasjoner vi har vært vant til å gjøre i en Linux-terminal. Se en fullstendig liste over kommandoer [her](https://gcsfs.readthedocs.io/en/latest/api.html).
+
+Under vises noen flere eksempler på nyttige funksjoner enn det som ble vist i kapitlet [tidligere i boken](./jobbe-med-data.html) 
+
+::: {.callout-warning}
+Selv om ordet **mapper** blir brukt i eksemplene under, så er det viktig å huske at det ikke finnes noen mapper i bøtter. Det er bare en tekststreng som er en del av objekt-navnet. Men siden vi her jobber med et filsystem-representasjon av bøtten, så tillater vi oss å gjøre det for å gjøre det enklere å lese.
+:::
+
+### fs.glob()
+
+`fs.glob()` lar oss søke etter filer i bøtten. Vi kan bruke `*`, `**`, `?` og `[..]` som wildcard for å finne det vi trenger. Det som returneres er enten en liste eller dictionary avhengig av hva vi velger å gjøre. 
+
+Hent en liste over alle filer i en undermappe `R_smoke_test` i bøtta `gs://ssb-prod-dapla-felles-data-delt`:
+
+```python
+from dapla import FileClient
+
+fs = FileClient.get_gcs_file_system()
+
+fs.glob("gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/*")
+```
+Når vi legger til `*` på slutten av filstien så returnerer den alle filer i den eksakte undermappen. Men hvis vi ønsker å å få alle filer i alle undermapper, så kan vi bruke `**`  på denne måten:  
+`fs.glob("gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**")`.
+
+Vi kan også søke mer avansert ved ved å bruke `?`. `?`-tegnet sier at en enkeltkarakter kan være hva som helst. F.eks. kunne vi skrevet  
+`fs.glob("gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**/R_smoke_test_??.csv")`  
+for å rekursivt liste ut alle filer som starter med `R_smoke_test_`, etterfulgt av to karakterer av hvilken som helst type, og slutter med `.csv`. 
+
+Hvis vi viste at de to karakterene ikke skulle være av hvilken som helst karakterer, men det var en liten bokstav, etterfulgt av et tall mellom 2-6, så kunne vi brukt `[a-z]` og `[2-6]` for å spesifisere dette. F.eks. kunne vi skrevet:
+
+`fs.glob("gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**/R_smoke_test_[a-z][2-6].csv")`
+
+Som vi ser er `fs.glob()` et verktøy som git oss mye den funksjonaliteten vi er vant til fra Linux-terminalen. Men i tillegg kan vi bruke den til å hente inn metadataene til de filene/objektene vi får treff på, ved å bruke argumentet `detail=True`. Her er et eksempel: 
+
+```python
+from dapla import FileClient
+
+fs = FileClient.get_gcs_file_system()
+
+fs.glob(
+    "gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**/R_smoke_test_/[a-z][2-6].csv",
+    detail=True,
+)
+
+```
+
+Metadataene gir deg da informasjon om filstørrelse, tidspunkt for opprettelse, tidspunkt for siste endring, og hvem som har opprettet og endret filen.
+
+
+### fs.exists()
+
+I noen tilfeller kan det være nyttig å sjekke om en fil eksisterer i bøtten. Det kan vi gjøre med `fs.exists()`:
+
+```python
+from dapla import FileClient
+
+fs = FileClient.get_gcs_file_system()
+
+fs.exists("gs://ssb-prod-dapla-felles-data-delt/altinn3/form_dc551844cd74.xml")
+```
+
+Koden returnerer enten `True` eller `False` avhengig av om filen eksisterer eller ikke.
+
+### fs.du()
+
+Hvis du lurer på hvor mange GB data du har i en bøtte, så kan du bruke `fs.du()`:
+
+```python
+from dapla import FileClient
+
+# Kobler oss på bøttene
+fs = FileClient.get_gcs_file_system()
+
+total_bytes = fs.du(
+    "gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/",
+)
+
+total_size_gb = total_bytes / (1024**3)
+print(f"Total size: {total_size_gb:.3f} GB")
+```
+
+### fs.info()
+
+Hvert objekt i bøtta har metadata knyttet til seg som kan hentes inn i Jupyter og benyttes. 
+
+```python
+from dapla import FileClient
+
+# Kobler oss på bøttene
+fs = FileClient.get_gcs_file_system()
+
+file = "gs://ssb-prod-dapla-felles-data-delt/altinn3/form_dc551844cd74.xml"
+
+fs.info(file)
+```
+
+Dette gir deg blant annet informasjon om filstørrelse, tidspunkt for opprettelse, og tidspunkt for siste endring. Hvis du ønsker dette for flere filer så kan man også bruke `fs.glob(<pattern>, details=True)` som vi så på tidligere.
+
+### fs.open()
+
+`fs.open()` lar oss åpne en fil i bøtta for lesing og skriving med vanlige Python-funksjoner. Funksjonen returnerer et fil-aktig objekt som kan brukes med vanlige som Python-biblioteker som **Pandas** og **NumPy**. 
+
+```python
+import pandas as pd
+from dapla import FileClient
+
+# Kobler oss på bøttene
+fs = FileClient.get_gcs_file_system()
+
+file_path = "gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/number-of-teams.csv"
+
+# Bruker fs.open() til å åpne fil, og deretter leses den med Pandas
+with fs.open(file_path, "r") as file:
+    df = pd.read_csv(file)
+df
+```
+
+Du kan også bruke `fs.open()` til å skrive til en fil i bøtta. Her er et eksempel på hvordan man skriver en parquet-fil med **Pandas** og **PyArrow**: 
+
+```python
+import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
+from dapla import FileClient
+
+file_path = "gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/test.parquet"
+
+# Oppretter filsystem-instans
+fs = FileClient.get_gcs_file_system()
+
+# Lager eksempeldata
+data = {"A": [1, 2, 3], "B": [4, 5, 6]}
+df = pd.DataFrame(data)
+
+# Skriver parquet-fil
+with fs.open(file_path, "wb") as file:
+    pq.write_table(pa.Table.from_pandas(df), file)
+```
+
+Over brukte vi `wb` for å åpne den binære filen for skriving. Hvis du ønsker å lese fra en binær fil så bruker du `rb`. Skulle du jobbet en ren tekstfil, så hadde man brukt `w` til å skrive og `r` til å lese.
+
+### fs.touch()
+
+`fs.touch()` lar deg opprette en tom fil i bøtta, eller oppdatere metadataene til objektet for når den sist ble modifisert. 
+
+```python
+from dapla import FileClient
+
+# Oppretter filsystem-instans
+fs = FileClient.get_gcs_file_system()
+
+fs.touch("gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/test.parquet")
+```
+
+### fs.put()
+
+`fs.put()` lar deg laste opp en fil fra Jupyter-filsystemet^[Jupyter-miljøet har sitt eget filsystem, ofte kalt **jovyan**. Det er som et vanlig Linux-filsystem, og vil være det vi omtaler som "lokalt" på maskinen din i Jupyter.] til bøtta. Husk at filstien til ditt hjemmeområde på Jupyter er `/home/jovyan/`. Her er et eksempel på hvordan man kan bruke det på enkelt-filer:  
+
+```python
+from dapla import FileClient
+
+# Oppretter filsystem-instans
+fs = FileClient.get_gcs_file_system()
+
+source = "/home/jovyan/custom.scss"
+destination = "gs://ssb-prod-dapla-felles-data-delt/altinn3/test2.csv"
+
+fs.put(source, destination)
+
+```
+
+Du kan også kopiere hele mapper mellom **jovyan** og bøttene: 
+
+```python
+from dapla import FileClient
+
+# Oppretter filsystem-instans
+fs = FileClient.get_gcs_file_system()
+
+source = "/home/jovyan/sesongjustering/"
+destination = "gs://ssb-prod-dapla-felles-data-delt/altinn3/sesongjustering/"
+
+fs.put(source, destination, recursive=True)
+
+```
+
+Et brukstilfellet for å kopiere mellom bøtter og **jovyan** er ved sesongjustering med [Jdemetra+](https://jdemetradocumentation.github.io/JDemetra-documentation/pages/reference-manual/index.html) og [JWSACruncher](https://github.com/jdemetra/jwsacruncher/wiki). Siden Jdemetra+ ikke kan lese/skrive fra bøtter, så må vi midlertidig kopiere dataene til **jovyan** med `fs.put()` før vi kan kjøre sesongjusteringen. Når vi er ferdige med kjøringen kopierer vi dataene tilbake til bøtta med `fs.get()`. 
+
+### fs.get()
+
+`fs.get()` gjør det samme som `fs.put()`, bare motsatt vei. Den kopierer fra en bøtte til **jovyan**. 
+
+```python
+from dapla import FileClient
+
+# Oppretter filsystem-instans
+fs = FileClient.get_gcs_file_system()
+
+source = "gs://ssb-prod-dapla-felles-data-delt/altinn3/sesongjustering/"
+destination = "/home/jovyan/sesongjustering/"
+
+placeholder = fs.get(source, destination, recursive=True)
+
+```
+
+`fs.get()` returnerer potensielt mye output. Hvis du ikke vil ha det, så kan du bare definere det som et objekt. F.eks. `placeholder` som i eksempelet over.
+
+### fs.mv()
+
+`fs.mv()` lar deg flytte filer og mapper mellom bøtter, samt å gi objekter nye navn. 
+
+```python
+from dapla import FileClient
+
+# Kobler oss på bøttene
+fs = FileClient.get_gcs_file_system()
+
+source = "gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/number-of-teams.csv"
+destination = "gs://ssb-prod-dapla-felles-data-delt/altinn3/number-of-teams.csv"
+fs.mv(source, destination)
+```	
+
+### fs.copy()
+
+`fs.copy()` lar deg kopiere filer og mapper mellom bøtter. I eksempelet under kopierer vi rekursivt:
+
+```python
+from dapla import FileClient
+
+# Setter opp en filsystem-instans mot GCS
+fs = FileClient.get_gcs_file_system()
+
+from_path = "gs://ssb-prod-arbmark-skjema-data-kilde/ledstill/altinn/2022/11/21/"
+to_path = "gs://ssb-prod-dapla-felles-data-delt/altinn3/"
+fs.copy(from_path, to_path, recursive=True)
+```
+
+### fs.rm()
+
+`fs.rm()` lar deg slette filer og mapper i bøtta. Her sletter vi en enkeltfil:
+
+```python
+from dapla import FileClient
+
+# Setter opp en filsystem-instans mot GCS
+fs = FileClient.get_gcs_file_system()
+
+fs.rm("gs://ssb-prod-dapla-felles-data-delt/altinn3/number-of-teams.csv")
+
+```
+
+Også denne funksjonen tar et `recursive`-argument hvis du ønsker å slette en hel mappe.

@@ -1,3 +1,7 @@
+---
+toc-depth: 4
+---
+
 # Jobbe med data
 
 Når vi oppretter et **dapla-team** så får vi tildelt et eget området for lagring av data. For å kunne lese og skrive data fra Jupyter til disse områdene må vi autentisere oss, siden Jupyter og lagringsområdet er to separate sikkerhetsoner. 
@@ -45,7 +49,11 @@ Hvis du benytte en renv miljø, må pakken installeres en gang. Dette kan gjøre
 renv::install("statisticsnorway/fellesr")
 ```
 
-## Liste ut innhold i mappe
+## Vanlige operasjoner
+
+I denne delen viser vi hvordan man gjør veldig vanlige operasjoner når man koder et produksonsløp for en statistikk. Flere eksempler på nyttige systemkommandoer [finner du her](./hva-er-botter.qmd#systemkommandoer-mot-bøttter).
+
+### Liste ut innhold i mappe
 
 ::: {.callout-tip}
 ## Eksempeldata
@@ -103,11 +111,11 @@ Merknad: Når du spesifisere bøtter i R, trenger du ikke "gs://" foran.
 :::
  
 
-## Skrive ut filer
+### Skrive ut filer
 
 Å skrive filer til et lagringsområde på Dapla er også ganske enkelt. Det ligner mye på den syntaksen vi er kjent med fra vanlige R- og Python-pakker, med noen små unntak.
 
-### Parquet
+#### Parquet
 
 Under lager vi en dataframe i en notebook og skriver den ut til en parquet-fil.
 
@@ -167,7 +175,7 @@ Merknad: Når du spesifisere bøtter i R, trenger du ikke "gs://" foran.
 
 
 
-### Tekstfiler
+#### Tekstfiler
 
 Noen ganger ønsker vi å lagre data i andre formatter slik som CSV, JSON og XML. 
 
@@ -219,7 +227,7 @@ write_SSB(purchases, file.path(bucket, folder, "purchases.csv")
 
 :::
 
-### xlsx
+#### xlsx
 
 Det er ikke anbefalt å bruke xlsx-formatet, men her ser du hvordan det kan skrives ut. Mer kommer. 
 
@@ -250,11 +258,11 @@ Kommer snart
 
 
 
-## Lese inn filer
+### Lese inn filer
 
 Under finner du eksempler på hvordan du kan lese inn data til en Jupyter Notebooks på Dapla.
 
-### Parquet
+#### Parquet
 
 ::: {.panel-tabset}
 
@@ -308,7 +316,7 @@ Innlesning av parquet som er kartdata finner du her: [Lese kartdata](https://sta
 
 :::
 
-### Tekstfiler
+#### Tekstfiler
 
 Kommer mer snart. Python-koden under bygger på eksempelet over. 
 
@@ -356,7 +364,7 @@ dt_1987 <- read_SSB(file.path(bucket, folder, "1987.json"))
 
 :::
 
-### xlsx
+#### xlsx
 
 ::: {.panel-tabset}
 
@@ -381,7 +389,7 @@ Kommer snart
 
 :::
 
-### SAS
+#### SAS
 
 Her er et eksempel på hvordan man leser inn en sas7bdat-fil på Dapla som har blitt generert i prodsonen. 
 
@@ -410,7 +418,7 @@ Mer om dette kommer.
 
 :::
 
-## Slette filer
+### Slette filer
 
 Å slette filer fra lagringsområdet kan gjøres på flere måter. I kapitlet om [sletting av data](./slette-data.html) viste vi hvordan man gjør det med pek-og-klikk i [Google Cloud Console](https://console.cloud.google.com/). Under ser du hvordan du kan slette filer med **dapla-toolbelt** og **gcsfs** eller [fellesr](https://statisticsnorway.github.io/fellesr/index.html). 
 
@@ -443,7 +451,7 @@ gcs_delete_object(file.path(bucket, folder, "purchases.parquet"))
 
 :::
 
-## Kopiere filer
+### Kopiere filer
 
 Å kopiere filer mellom mapper på et Linux-filsystem innebærer som regel bruke `cp`-kommandoen. På Dapla er det ikke så mye forskjell. Vi bruker en ligende tilnærming nå vi skal kopiere mellom bøtter eller mapper på lagringsområdet til SSB. Under ser du hvordan du kan kopiere en fil fra en mappe til en annen.
 
@@ -506,7 +514,7 @@ Kommer snart
 
 :::
 
-## Flytte filer
+### Flytte filer
 
 ::: {.panel-tabset}
 
@@ -530,7 +538,7 @@ Kommer snart
 
 :::
 
-## Opprette mapper
+### Opprette mapper
 
 Selv om bøtter ikke har mapper med en hierarkisk struktur slik man er kjent med fra klassike filsystemer, så kan man opprette det som ser ut som mapper i objektnavnet. I realiteten blir bare `/` oppfattet som en del av navnet på objektet. Skulle du likevel ønske å opprette dette så kan du gjøre det følgende måte:
 
