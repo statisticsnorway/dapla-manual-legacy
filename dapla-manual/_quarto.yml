@@ -74,8 +74,9 @@ website:
         - section: produksjonsløp.qmd
           contents:
           - jobbe-med-kode.qmd
-          - jobbe-med-data.qmd
-          
+          - section: jobbe-med-data.qmd
+            contents:
+            - hva-er-botter.qmd
           - section: standarder.qmd
             contents:
               - datatilstander.qmd
