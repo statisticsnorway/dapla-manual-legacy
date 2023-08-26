@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dapla-manual – hva-er-botter</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/dapla-favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "treff",
+    "search-copy-link-title": "Kopier link til søk",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dokumentet",
+    "search-more-matches-text": "flere treff i dokumentet",
+    "search-clear-button-title": "Nullstill",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/dapla-long.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dapla-manual</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://start.dapla.ssb.no/" rel="" target=""><i class="bi bi-people-fill" role="img" aria-label="Opprette Dapla-team">
+</i> 
+ <span class="menu-text">Opprette Dapla-team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://web.yammer.com/main/org/ssb.no/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5MDUzMjA2In0/all" rel="" target=""><i class="bi bi-question-lg" role="img">
+</i> 
+ <span class="menu-text">Stille spørsmål</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ssb.pureservice.com/#/new/7" rel="" target=""><i class="bi bi-send-fill" role="img" aria-label="Åpne en sak hos Kundeservice">
+</i> 
+ <span class="menu-text">Melde sak</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/statisticsnorway/dapla-manual" rel="" target=""><i class="bi bi-github" role="img" aria-label="Dapla-manual GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./statistikkproduksjon.html">Statistikkproduksjon</a></li><li class="breadcrumb-item"><a href="./produksjonsløp.html">Produksjonsløp</a></li><li class="breadcrumb-item"><a href="./jobbe-med-data.html">Jobbe med data</a></li><li class="breadcrumb-item"><a href="./hva-er-botter.html">Hva er bøtter?</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Velkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forord</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./introduksjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduksjon</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hva er Dapla?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./innlogging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Innlogging</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistikkproduksjon</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dapla Team</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hva er Dapla-team?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./administrasjon-av-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Administrasjon av team</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gcc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Google Cloud Console</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./overføring-av-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overføring av data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./produksjonsløp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Produksjonsløp</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./jobbe-med-kode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jobbe med kode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jobbe med data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./hva-er-botter.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Hva er bøtter?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./standarder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Standarder</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datatilstander</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./navnestandard-datalagring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Navnestandard datalagring</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./versjonering-av-datasett.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versjonering av datasett</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./kildedata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kildedata</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./automatisering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatisering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./automatisering-avansert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatisering Avansert</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistikkbanken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistikkbanken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./visualisering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualisering</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dash og dashboard</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./annet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annet</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git-og-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git og Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./datadoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataDoc</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./github-app-integrasjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Koble prosjektet til Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gjenopprette data fra bøtter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pakke-install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installere pakker</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./spark.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spark</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slette data fra bøtter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./altinn3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Altinn 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./kartdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kartdata</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ordforklaringer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ordforklaringer</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#hva-er-bøtter" id="toc-hva-er-bøtter" class="nav-link active" data-scroll-target="#hva-er-bøtter">Hva er bøtter?</a>
+  <ul class="collapse">
+  <li><a href="#bøtter-vs-filsystemer" id="toc-bøtter-vs-filsystemer" class="nav-link" data-scroll-target="#bøtter-vs-filsystemer">Bøtter vs filsystemer</a></li>
+  <li><a href="#lokalt-filsystem-på-dapla" id="toc-lokalt-filsystem-på-dapla" class="nav-link" data-scroll-target="#lokalt-filsystem-på-dapla">“Lokalt” filsystem på Dapla</a></li>
+  <li><a href="#systemkommandoer-mot-bøttter" id="toc-systemkommandoer-mot-bøttter" class="nav-link" data-scroll-target="#systemkommandoer-mot-bøttter">Systemkommandoer mot bøttter</a>
+  <ul class="collapse">
+  <li><a href="#fs.glob" id="toc-fs.glob" class="nav-link" data-scroll-target="#fs.glob">fs.glob()</a></li>
+  <li><a href="#fs.exists" id="toc-fs.exists" class="nav-link" data-scroll-target="#fs.exists">fs.exists()</a></li>
+  <li><a href="#fs.du" id="toc-fs.du" class="nav-link" data-scroll-target="#fs.du">fs.du()</a></li>
+  <li><a href="#fs.info" id="toc-fs.info" class="nav-link" data-scroll-target="#fs.info">fs.info()</a></li>
+  <li><a href="#fs.open" id="toc-fs.open" class="nav-link" data-scroll-target="#fs.open">fs.open()</a></li>
+  <li><a href="#fs.touch" id="toc-fs.touch" class="nav-link" data-scroll-target="#fs.touch">fs.touch()</a></li>
+  <li><a href="#fs.put" id="toc-fs.put" class="nav-link" data-scroll-target="#fs.put">fs.put()</a></li>
+  <li><a href="#fs.get" id="toc-fs.get" class="nav-link" data-scroll-target="#fs.get">fs.get()</a></li>
+  <li><a href="#fs.mv" id="toc-fs.mv" class="nav-link" data-scroll-target="#fs.mv">fs.mv()</a></li>
+  <li><a href="#fs.copy" id="toc-fs.copy" class="nav-link" data-scroll-target="#fs.copy">fs.copy()</a></li>
+  <li><a href="#fs.rm" id="toc-fs.rm" class="nav-link" data-scroll-target="#fs.rm">fs.rm()</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="hva-er-bøtter" class="level1">
+<h1>Hva er bøtter?</h1>
+<p>På Dapla er det Google Cloud Storage (GCS) som benyttes til å lagre data og filer. Følgelig er det GCS som erstatter det vi kjente som Linux-<em>stammene</em> i prodsonen tidligere. I SSB har vi vært vant til å jobbe med data lagret på filsystemer i et Linux-miljø<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. GCS-bøttene skiller seg fra klassiske filsystemer på flere måter, og det er viktig å være klar over disse forskjellene. I denne kapitlet vil vi gå gjennom noen av de viktigste forskjellene og hvordan man gjør vanlige operasjoner mot bøtter i GCS.</p>
+<section id="bøtter-vs-filsystemer" class="level2">
+<h2 class="anchored" data-anchor-id="bøtter-vs-filsystemer">Bøtter vs filsystemer</h2>
+<p>I et <strong>Linux-</strong> eller <strong>Windows</strong>-filsystem, som vi har vært vant til tidligere, så er filer og mapper organisert i en hierarkisk struktur på et operativsystem (OS). I SSB har OS-ene vært installert på fysiske maskiner som vi vedlikeholder selv.</p>
+<p>En bøtte i GCS er derimot en kjøpt tjeneste som lar brukeren lagre alle typer objekter i en <em>container</em>. Man trenger altså ikke å tenke på om filene ligger i et hierarki, hvilket operativsystem det kjører på, eller hvor mye diskplass som er tilgjengelig.</p>
+<p>At data er lagret som objekter i en bøtte har noen praktiske implikasjoner for hvordan vi jobber med data i SSB:</p>
+<ol type="1">
+<li><p>Mange er vant til å jobbe direkte med filer i en Linux-terminal eller via systemkall fra språk som SAS, Pyton eller R. For å gjøre det samme i Jupyter mot en bøtte, så kan vi bruke Python-pakken <a href="https://gcsfs.readthedocs.io/en/latest/">gcsfs</a>. Se <a href="./hva-er-botter.html#gcsfs">eksempler under</a>.</p></li>
+<li><p>Når vi bruker Python- eller R-pakker for lese eller skrive data fra bøtter, så er vi avhengig av at pakkene tilbyr integrasjon mot bøtter. Mange pakker gjør det, men ikke alle. For de som ikke gjør det kan vi bruke ofte bruke <strong>gcsfs</strong> til å gi oss et python-objekt, som igjen kan brukes av de fleste pakker.</p></li>
+<li><p>Det finnes egentlig ikke noen <strong>mapper</strong> i bøtter. I motsetning til et vanlig filsystem så er det ikke en hierarkisk mappestruktur i en bøtte. Det vil si at alt ligger et sted, men de kan ha lange navn med <code>/</code>-tegn slik at det ligner på et klassisk filsystem. Bruker du <code>/</code> i objekt-navnet så vil også Google Cloud Console vise det som mapper, men det er bare for å gjøre det enklere å forholde seg til. En praktisk konsekvens av dette er f.eks. at man ikke trenger å opprette en mappe før man legger et fil/objekt i den. Det er bare en tekststreng som er en del av objekt-navnet.</p></li>
+</ol>
+<p>Under kommer det en del eksempler på hvordan man kan jobbe med objekter i bøtter på samme måte som filer i et filsystem.</p>
+</section>
+<section id="lokalt-filsystem-på-dapla" class="level2">
+<h2 class="anchored" data-anchor-id="lokalt-filsystem-på-dapla">“Lokalt” filsystem på Dapla</h2>
+<p>På Dapla skal data lagres i bøtter. Men når du åpner Jupyterlab så får du også et “lokalt” eller klassisk filsystem, slik vi definerte det i forrige kapittel. Det er dette filsystemet du ser i filutforskeren i Jupyterlab, slik som vist til venstre i <a href="#fig-jupyter-file-explorer">Figur&nbsp;1</a>. Det er også dette filsystemet du ser når du f.eks. bruker <code>ls</code>-kommandoen i en terminal i Jupyterlab.</p>
+<div id="fig-jupyter-file-explorer" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/jupyter-file-explorer.png" class="img-fluid figure-img" alt="Bilde av filutforskeren i Jupyterlab"></p>
+<figcaption class="figure-caption">Figur&nbsp;1: Til venstre i bildet ser du filutforskeren i Jupyterlab</figcaption>
+</figure>
+</div>
+<p>Dette filsystemet er ment for å lagre kode midlertidig mens du jobber med dem. Det er ikke ment for å lagre data. Det er heller ikke ment som et permanent lagringssted for kode. Permanent lagring av kode skal gjøres på <a href="https://github.com/orgs/statisticsnorway/">GitHub</a>. Selv om filene du lagrer der fortsetter å eksistere for hver gang du logger deg inn i Jupyterlab, så bør kode du ønsker å bevare pushes til GitHub før du avslutter en sesjon i Jupyterlab. Se en mer teknisk beskrivelse av hvordan dette fungerer i boksen under.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hvem er egentlig denne Jovyan?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Når du logger deg inn i Jupyterlab på Dapla, så ser du at brukeren din på det lokale filsystemet heter <strong>jovyan</strong>. Grunnen er at det er en Linux-container som kjører et Jupyterlab Docker-image, og alle bruker denne containeren. Det er derfor vi kaller det et “lokalt” filsystem, fordi det er lokalt i containeren.</p>
+<p>I tillegg er det satt opp persistent volum (PV) og en persistent volume claim (PVC) som er knyttet til denne containeren. Det er dette som gjør at filene du lagrer i Jupyterlab blir lagret mellom hver gang du logger deg inn. I tillegg tas det en backup av filsystemene hver dag, slik at vi kan gjenopprette filene dine hvis noe skulle skje med PV-en.</p>
+<p>Lagringsplassen på PV-en er begrenset til <strong>10 GB</strong> per bruker. Grunnen til at vi ikke tilbyr mer lagringsplass er fordi det kun er kode skal lagres her, og at denne lagringsplassen er relativt dyrt sammenlignet med GCS-bøtter. Hvis du jobber i virtuelle miljøer og lagrer mange miljøer lokalt, kan du oppleve at disken blir full. Les mer her om hvordan man bør håndere dette.</p>
+</div>
+</div>
+</section>
+<section id="systemkommandoer-mot-bøttter" class="level2">
+<h2 class="anchored" data-anchor-id="systemkommandoer-mot-bøttter">Systemkommandoer mot bøttter</h2>
+<p>Tidligere har vi diskutert forskjellene mellom bøtter og filsystemer. Mange kjenner hvordan man gjør systemkommandoer<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> i klassiske filsystemer fra en terminal eller fra språk som Python, R og SAS. I dette kapitlet viser vi hvordan dette kan gjøres mot bøtter fra Jupyterlab.</p>
+<p><a href="https://gcsfs.readthedocs.io/en/latest/">gcsfs</a> er en Python-pakke som lar deg jobbe med objekter i bøtter på nesten samme måte som filer i et filsystem. For å kunne gjøre det må vi først sette opp en filsystem-instans som lar oss bruke en bøtte som et filsystem. Pakken <code>dapla-toolbelt</code> lar oss gjøre det ganske enkelt:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>fs</code> er nå et filsystem-versjon av bøttene vi har tilgang til på GCS. Vi kan nå bruk <code>fs</code> til å gjøre typiske operasjoner vi har vært vant til å gjøre i en Linux-terminal. Se en fullstendig liste over kommandoer <a href="https://gcsfs.readthedocs.io/en/latest/api.html">her</a>.</p>
+<p>Under vises noen flere eksempler på nyttige funksjoner enn det som ble vist i kapitlet <a href="./jobbe-med-data.html">tidligere i boken</a></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Selv om ordet <strong>mapper</strong> blir brukt i eksemplene under, så er det viktig å huske at det ikke finnes noen mapper i bøtter. Det er bare en tekststreng som er en del av objekt-navnet. Men siden vi her jobber med et filsystem-representasjon av bøtten, så tillater vi oss å gjøre det for å gjøre det enklere å lese.</p>
+</div>
+</div>
+<section id="fs.glob" class="level3">
+<h3 class="anchored" data-anchor-id="fs.glob">fs.glob()</h3>
+<p><code>fs.glob()</code> lar oss søke etter filer i bøtten. Vi kan bruke <code>*</code>, <code>**</code>, <code>?</code> og <code>[..]</code> som wildcard for å finne det vi trenger. Det som returneres er enten en liste eller dictionary avhengig av hva vi velger å gjøre.</p>
+<p>Hent en liste over alle filer i en undermappe <code>R_smoke_test</code> i bøtta <code>gs://ssb-prod-dapla-felles-data-delt</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>fs.glob(<span class="st">"gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/*"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Når vi legger til <code>*</code> på slutten av filstien så returnerer den alle filer i den eksakte undermappen. Men hvis vi ønsker å å få alle filer i alle undermapper, så kan vi bruke <code>**</code> på denne måten:<br>
+<code>fs.glob("gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**")</code>.</p>
+<p>Vi kan også søke mer avansert ved ved å bruke <code>?</code>. <code>?</code>-tegnet sier at en enkeltkarakter kan være hva som helst. F.eks. kunne vi skrevet<br>
+<code>fs.glob("gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**/R_smoke_test_??.csv")</code><br>
+for å rekursivt liste ut alle filer som starter med <code>R_smoke_test_</code>, etterfulgt av to karakterer av hvilken som helst type, og slutter med <code>.csv</code>.</p>
+<p>Hvis vi viste at de to karakterene ikke skulle være av hvilken som helst karakterer, men det var en liten bokstav, etterfulgt av et tall mellom 2-6, så kunne vi brukt <code>[a-z]</code> og <code>[2-6]</code> for å spesifisere dette. F.eks. kunne vi skrevet:</p>
+<p><code>fs.glob("gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**/R_smoke_test_[a-z][2-6].csv")</code></p>
+<p>Som vi ser er <code>fs.glob()</code> et verktøy som git oss mye den funksjonaliteten vi er vant til fra Linux-terminalen. Men i tillegg kan vi bruke den til å hente inn metadataene til de filene/objektene vi får treff på, ved å bruke argumentet <code>detail=True</code>. Her er et eksempel:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fs.glob(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gs://ssb-prod-dapla-felles-data-delt/R_smoke_test/**/R_smoke_test_/[a-z][2-6].csv"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    detail<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Metadataene gir deg da informasjon om filstørrelse, tidspunkt for opprettelse, tidspunkt for siste endring, og hvem som har opprettet og endret filen.</p>
+</section>
+<section id="fs.exists" class="level3">
+<h3 class="anchored" data-anchor-id="fs.exists">fs.exists()</h3>
+<p>I noen tilfeller kan det være nyttig å sjekke om en fil eksisterer i bøtten. Det kan vi gjøre med <code>fs.exists()</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>fs.exists(<span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/form_dc551844cd74.xml"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Koden returnerer enten <code>True</code> eller <code>False</code> avhengig av om filen eksisterer eller ikke.</p>
+</section>
+<section id="fs.du" class="level3">
+<h3 class="anchored" data-anchor-id="fs.du">fs.du()</h3>
+<p>Hvis du lurer på hvor mange GB data du har i en bøtte, så kan du bruke <code>fs.du()</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Kobler oss på bøttene</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>total_bytes <span class="op">=</span> fs.du(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gs://ra0678-01-altinn-data-prod-e17d-ssb-altinn/"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>total_size_gb <span class="op">=</span> total_bytes <span class="op">/</span> (<span class="dv">1024</span><span class="op">**</span><span class="dv">3</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Total size: </span><span class="sc">{</span>total_size_gb<span class="sc">:.3f}</span><span class="ss"> GB"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fs.info" class="level3">
+<h3 class="anchored" data-anchor-id="fs.info">fs.info()</h3>
+<p>Hvert objekt i bøtta har metadata knyttet til seg som kan hentes inn i Jupyter og benyttes.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Kobler oss på bøttene</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/form_dc551844cd74.xml"</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>fs.info(<span class="bu">file</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dette gir deg blant annet informasjon om filstørrelse, tidspunkt for opprettelse, og tidspunkt for siste endring. Hvis du ønsker dette for flere filer så kan man også bruke <code>fs.glob(&lt;pattern&gt;, details=True)</code> som vi så på tidligere.</p>
+</section>
+<section id="fs.open" class="level3">
+<h3 class="anchored" data-anchor-id="fs.open">fs.open()</h3>
+<p><code>fs.open()</code> lar oss åpne en fil i bøtta for lesing og skriving med vanlige Python-funksjoner. Funksjonen returnerer et fil-aktig objekt som kan brukes med vanlige som Python-biblioteker som <strong>Pandas</strong> og <strong>NumPy</strong>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Kobler oss på bøttene</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/number-of-teams.csv"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Bruker fs.open() til å åpne fil, og deretter leses den med Pandas</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> fs.<span class="bu">open</span>(file_path, <span class="st">"r"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(<span class="bu">file</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Du kan også bruke <code>fs.open()</code> til å skrive til en fil i bøtta. Her er et eksempel på hvordan man skriver en parquet-fil med <strong>Pandas</strong> og <strong>PyArrow</strong>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyarrow <span class="im">as</span> pa</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyarrow.parquet <span class="im">as</span> pq</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>file_path <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/test.parquet"</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Oppretter filsystem-instans</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Lager eksempeldata</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">"A"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], <span class="st">"B"</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Skriver parquet-fil</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> fs.<span class="bu">open</span>(file_path, <span class="st">"wb"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    pq.write_table(pa.Table.from_pandas(df), <span class="bu">file</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Over brukte vi <code>wb</code> for å åpne den binære filen for skriving. Hvis du ønsker å lese fra en binær fil så bruker du <code>rb</code>. Skulle du jobbet en ren tekstfil, så hadde man brukt <code>w</code> til å skrive og <code>r</code> til å lese.</p>
+</section>
+<section id="fs.touch" class="level3">
+<h3 class="anchored" data-anchor-id="fs.touch">fs.touch()</h3>
+<p><code>fs.touch()</code> lar deg opprette en tom fil i bøtta, eller oppdatere metadataene til objektet for når den sist ble modifisert.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Oppretter filsystem-instans</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fs.touch(<span class="st">"gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/test.parquet"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fs.put" class="level3">
+<h3 class="anchored" data-anchor-id="fs.put">fs.put()</h3>
+<p><code>fs.put()</code> lar deg laste opp en fil fra Jupyter-filsystemet<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> til bøtta. Husk at filstien til ditt hjemmeområde på Jupyter er <code>/home/jovyan/</code>. Her er et eksempel på hvordan man kan bruke det på enkelt-filer:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Oppretter filsystem-instans</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> <span class="st">"/home/jovyan/custom.scss"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>destination <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/test2.csv"</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>fs.put(source, destination)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Du kan også kopiere hele mapper mellom <strong>jovyan</strong> og bøttene:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Oppretter filsystem-instans</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> <span class="st">"/home/jovyan/sesongjustering/"</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>destination <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/sesongjustering/"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>fs.put(source, destination, recursive<span class="op">=</span><span class="va">True</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Et brukstilfellet for å kopiere mellom bøtter og <strong>jovyan</strong> er ved sesongjustering med <a href="https://jdemetradocumentation.github.io/JDemetra-documentation/pages/reference-manual/index.html">Jdemetra+</a> og <a href="https://github.com/jdemetra/jwsacruncher/wiki">JWSACruncher</a>. Siden Jdemetra+ ikke kan lese/skrive fra bøtter, så må vi midlertidig kopiere dataene til <strong>jovyan</strong> med <code>fs.put()</code> før vi kan kjøre sesongjusteringen. Når vi er ferdige med kjøringen kopierer vi dataene tilbake til bøtta med <code>fs.get()</code>.</p>
+</section>
+<section id="fs.get" class="level3">
+<h3 class="anchored" data-anchor-id="fs.get">fs.get()</h3>
+<p><code>fs.get()</code> gjør det samme som <code>fs.put()</code>, bare motsatt vei. Den kopierer fra en bøtte til <strong>jovyan</strong>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Oppretter filsystem-instans</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/sesongjustering/"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>destination <span class="op">=</span> <span class="st">"/home/jovyan/sesongjustering/"</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>placeholder <span class="op">=</span> fs.get(source, destination, recursive<span class="op">=</span><span class="va">True</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>fs.get()</code> returnerer potensielt mye output. Hvis du ikke vil ha det, så kan du bare definere det som et objekt. F.eks. <code>placeholder</code> som i eksempelet over.</p>
+</section>
+<section id="fs.mv" class="level3">
+<h3 class="anchored" data-anchor-id="fs.mv">fs.mv()</h3>
+<p><code>fs.mv()</code> lar deg flytte filer og mapper mellom bøtter, samt å gi objekter nye navn.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Kobler oss på bøttene</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/dapla-metrics/number-of-teams.csv"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>destination <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/number-of-teams.csv"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>fs.mv(source, destination)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fs.copy" class="level3">
+<h3 class="anchored" data-anchor-id="fs.copy">fs.copy()</h3>
+<p><code>fs.copy()</code> lar deg kopiere filer og mapper mellom bøtter. I eksempelet under kopierer vi rekursivt:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Setter opp en filsystem-instans mot GCS</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>from_path <span class="op">=</span> <span class="st">"gs://ssb-prod-arbmark-skjema-data-kilde/ledstill/altinn/2022/11/21/"</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>to_path <span class="op">=</span> <span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>fs.copy(from_path, to_path, recursive<span class="op">=</span><span class="va">True</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="fs.rm" class="level3">
+<h3 class="anchored" data-anchor-id="fs.rm">fs.rm()</h3>
+<p><code>fs.rm()</code> lar deg slette filer og mapper i bøtta. Her sletter vi en enkeltfil:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Setter opp en filsystem-instans mot GCS</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>fs.rm(<span class="st">"gs://ssb-prod-dapla-felles-data-delt/altinn3/number-of-teams.csv"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Også denne funksjonen tar et <code>recursive</code>-argument hvis du ønsker å slette en hel mappe.</p>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Fotnoter</h2>
+
+<ol>
+<li id="fn1"><p>Egentlig har vi jobbet med data-filer på både Linux- og Windows-filsystemer. Men Linux-stammene har vært det anbefalte stedet å lagre datafiler.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Med systemkommandoer så mener vi bash-kommandoer som <code>ls</code> og <code>mv</code>, eller implementasjoner av disse kommandoene i Python, R eller SAS.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Jupyter-miljøet har sitt eget filsystem, ofte kalt <strong>jovyan</strong>. Det er som et vanlig Linux-filsystem, og vil være det vi omtaler som “lokalt” på maskinen din i Jupyter.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Kom i gang med Dapla</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
