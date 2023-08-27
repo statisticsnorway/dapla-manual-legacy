@@ -497,7 +497,7 @@ Hvem er egentlig denne Jovyan?
 <div class="callout-body-container callout-body">
 <p>Når du logger deg inn i Jupyterlab på Dapla, så ser du at brukeren din på det lokale filsystemet heter <strong>jovyan</strong>. Grunnen er at det er en Linux-container som kjører et Jupyterlab Docker-image, og alle bruker denne containeren. Det er derfor vi kaller det et “lokalt” filsystem, fordi det er lokalt i containeren.</p>
 <p>I tillegg er det satt opp persistent volum (PV) og en persistent volume claim (PVC) som er knyttet til denne containeren. Det er dette som gjør at filene du lagrer i Jupyterlab blir lagret mellom hver gang du logger deg inn. I tillegg tas det en backup av filsystemene hver dag, slik at vi kan gjenopprette filene dine hvis noe skulle skje med PV-en.</p>
-<p>Lagringsplassen på PV-en er begrenset til <strong>10 GB</strong> per bruker. Grunnen til at vi ikke tilbyr mer lagringsplass er fordi det kun er kode skal lagres her, og at denne lagringsplassen er relativt dyrt sammenlignet med GCS-bøtter. Hvis du jobber i virtuelle miljøer og lagrer mange miljøer lokalt, kan du oppleve at disken blir full. Les mer her om hvordan man bør håndere dette.</p>
+<p>Lagringsplassen på PV-en er begrenset til <strong>10 GB</strong> per bruker. Grunnen til at vi ikke tilbyr mer lagringsplass er fordi det kun er kode skal lagres her, og at denne lagringsplassen er relativt dyrt sammenlignet med GCS-bøtter. Hvis du jobber i virtuelle miljøer og lagrer mange miljøer lokalt, kan du oppleve at disken blir full. <a href="./jobbe-med-kode.html#full-disk-på-dapla">Les mer her</a> om hvordan man bør håndere dette.</p>
 </div>
 </div>
 </section>
