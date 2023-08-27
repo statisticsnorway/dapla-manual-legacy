@@ -107,7 +107,6 @@ website:
         - datadoc.qmd
         - github-app-integrasjon.qmd
         - gjenopprette-data.qmd
-        - pakke-install.qmd
         - spark.qmd
         - slette-data.qmd
         - altinn3.qmd
