@@ -32,7 +32,7 @@ Når du logger deg inn i Jupyterlab på Dapla, så ser du at brukeren din på de
 
 I tillegg er det satt opp persistent volum (PV) og en persistent volume claim (PVC) som er knyttet til denne containeren. Det er dette som gjør at filene du lagrer i Jupyterlab blir lagret mellom hver gang du logger deg inn. I tillegg tas det en backup av filsystemene hver dag, slik at vi kan gjenopprette filene dine hvis noe skulle skje med PV-en. 
 
-Lagringsplassen på PV-en er begrenset til **10 GB** per bruker. Grunnen til at vi ikke tilbyr mer lagringsplass er fordi det kun er kode skal lagres her, og at denne lagringsplassen er relativt dyrt sammenlignet med GCS-bøtter. Hvis du jobber i virtuelle miljøer og lagrer mange miljøer lokalt, kan du oppleve at disken blir full. Les mer her om hvordan man bør håndere dette. 
+Lagringsplassen på PV-en er begrenset til **10 GB** per bruker. Grunnen til at vi ikke tilbyr mer lagringsplass er fordi det kun er kode skal lagres her, og at denne lagringsplassen er relativt dyrt sammenlignet med GCS-bøtter. Hvis du jobber i virtuelle miljøer og lagrer mange miljøer lokalt, kan du oppleve at disken blir full. [Les mer her](./jobbe-med-kode.qmd#full-disk-på-dapla) om hvordan man bør håndere dette. 
 :::
 
 ## Systemkommandoer mot bøttter
