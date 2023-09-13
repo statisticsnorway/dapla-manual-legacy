@@ -1,1 +1,3 @@
 # Spark
+
+Når man koder i R og Python vil det ofte være tilstrekkelig å kjøre koden på en enkelt maskin. For små til mellomstore datasett vil det typisk si at man koder i Pandas, Polars, datatable, etc. for Python, og Tidyverse/dplyr, data.table, etc. for R. Men hvis man skal jobbe med større datasett, eller gjøre store beregninger, så kan det være nyttig å bruke et rammeverk som kan kjøre kode parallelt på flere maskiner. Et slikt rammeverk er [Apache Spark](https://spark.apache.org/). 
