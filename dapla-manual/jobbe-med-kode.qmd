@@ -606,6 +606,8 @@ Lagre renv.lock filen:
 renv::snapshot()
 ```
 
+For mer informasjon kan du [lese tutorial om oppdatering av renv her](https://inbo.github.io/tutorials/tutorials/r_renv_update/)
+
 ### R på bakken
 
 Prosessen med å installere pakker for R på bakken er det samme som [på Dapla](./pakke-install.html#r). Noen pakker (for eksempel `devtools`) kan foreløpig ikke installeres på bakken på egenhånd pga 3. parti avhengigheter. Vi jobber med å finne en løsning til dette.
