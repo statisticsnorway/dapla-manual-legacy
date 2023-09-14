@@ -475,8 +475,8 @@ Hvis prosjektet ligger på GitHub, skal filene `renv.lock`, `.Rprofile` og `renv
 
 Nå som vi har et virtuelle miljøet på plass kan vi installere R-pakker. På Dapla installeres R-pakker fra en av to steder:
 
-1. https://packagemanager.rstudio.com/all/latest
-2. https://cran.uib.no
+1.  https://packagemanager.rstudio.com/all/latest
+2.  https://cran.uib.no
 
 Vi installere pakker med funksjonen `renv::install()`:
 
@@ -576,13 +576,43 @@ Deretter kan du benytte pakker og funksjoner ved `library()` osv. Funkjsonen `re
 
 For å dele koden med andre, må de også kjøre `renv::restore()` (første gang) for å installere alle pakkene som ligger i .lock filen.
 
+### Oppgradering av R
+
+I jupyterlab på Dapla og i produksjonssone vil versjonen av R oppgraderes gjevnlig. Dette er fordi operasjonssystemet og programmer som R er avhengig skal holdes oppdatert. DA er det viktig for at R skal fungere at det også oppgraderes ofte. Dette skape noen utfordringer med renv-miljø som er avhengig av et spesifikk versjon av R.
+
+HVis du plutselig får en feilmelding ved oppstart eller når du kjøre renv::autoload()\` àt R versjon er forkjellig til det i lock filen har det vært en oppgradering. Følg oppskriften her for å løse og oppgradere pakkene:
+
+Benytte prosjekt-biblioteket ved å kjøre:
+
+```r         
+renv::activate()
+```
+
+Oppgradere versjon av renv ved:
+
+```r         
+renv::upgrade()
+```
+
+Oppgradere alle pakkene ved:
+
+```r         
+renv::hydrate(update = "all")
+```
+
+Lagre renv.lock filen:
+
+```r         
+renv::snapshot()
+```
+
 ### R på bakken
 
 Prosessen med å installere pakker for R på bakken er det samme som [på Dapla](./pakke-install.html#r). Noen pakker (for eksempel `devtools`) kan foreløpig ikke installeres på bakken på egenhånd pga 3. parti avhengigheter. Vi jobber med å finne en løsning til dette.
 
 For å installere `arrow`, kopier og kjør følgende kommando i R:
 
-```r
+``` r
 install.packages("/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz",
                 repos = NULL,
                 type = "source")
