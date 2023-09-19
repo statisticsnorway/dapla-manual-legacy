@@ -480,6 +480,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#avinstallering" id="toc-avinstallering" class="nav-link" data-scroll-target="#avinstallering">Avinstallering</a></li>
   <li><a href="#oppgradere-pakker" id="toc-oppgradere-pakker" class="nav-link" data-scroll-target="#oppgradere-pakker">Oppgradere pakker</a></li>
   <li><a href="#hva-skal-stå-i-kjørekoden" id="toc-hva-skal-stå-i-kjørekoden" class="nav-link" data-scroll-target="#hva-skal-stå-i-kjørekoden">Hva skal stå i kjørekoden?</a></li>
+  <li><a href="#oppgradering-av-r" id="toc-oppgradering-av-r" class="nav-link" data-scroll-target="#oppgradering-av-r">Oppgradering av R</a></li>
   <li><a href="#r-på-bakken" id="toc-r-på-bakken" class="nav-link" data-scroll-target="#r-på-bakken">R på bakken</a></li>
   </ul></li>
   </ul>
@@ -963,13 +964,27 @@ Note
 <p>Deretter kan du benytte pakker og funksjoner ved <code>library()</code> osv. Funkjsonen <code>renv::autoload()</code> vil si ifra at du ønsker å benytte et renv miljø og vil letter etter filene i prosjektetfor å aktivere miljø (både i prosjekt-mappen og i foreldre-mapper).</p>
 <p>For å dele koden med andre, må de også kjøre <code>renv::restore()</code> (første gang) for å installere alle pakkene som ligger i .lock filen.</p>
 </section>
+<section id="oppgradering-av-r" class="level3">
+<h3 class="anchored" data-anchor-id="oppgradering-av-r">Oppgradering av R</h3>
+<p>I Jupyterlab på Dapla og i produksjonssone vil versjonen av R oppgraderes jevnlig. Dette er fordi operativssystemet og programmer som R er avhengig skal holdes oppdatert. For at R skal fungere optimalt må det oppgraderes ofte. Dette skaper noen utfordringer for renv-miljøer som er avhengig av en spesifikk versjon av R.</p>
+<p>Hvis du plutselig får en feilmelding ved oppstart eller når du kjøre renv::autoload()` at R-versjonen er forskjellig fra det den som e r oppgitt lock-filen, har det trolig vært en oppgradering av R siden sist noen jobbet med koden. Følg denne oppskriften for å løse opp i problemene:</p>
+<p>Benytt prosjekt-biblioteket ved å kjøre:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">activate</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Oppgradere versjon av renv ved:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">upgrade</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Oppgradere alle pakkene ved:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">hydrate</span>(<span class="at">update =</span> <span class="st">"all"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Lagre renv.lock filen:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">snapshot</span>()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For mer informasjon kan du lese denne <a href="https://inbo.github.io/tutorials/tutorials/r_renv_update/">artikkelen om oppdatering av renv her</a></p>
+</section>
 <section id="r-på-bakken" class="level3">
 <h3 class="anchored" data-anchor-id="r-på-bakken">R på bakken</h3>
 <p>Prosessen med å installere pakker for R på bakken er det samme som <a href="./pakke-install.html#r">på Dapla</a>. Noen pakker (for eksempel <code>devtools</code>) kan foreløpig ikke installeres på bakken på egenhånd pga 3. parti avhengigheter. Vi jobber med å finne en løsning til dette.</p>
 <p>For å installere <code>arrow</code>, kopier og kjør følgende kommando i R:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz"</span>,</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">repos =</span> <span class="cn">NULL</span>,</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">"source"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"/ssb/bruker/felles/R_pakker/arrow_11.0.0.2.tar.gz"</span>,</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">repos =</span> <span class="cn">NULL</span>,</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">type =</span> <span class="st">"source"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
