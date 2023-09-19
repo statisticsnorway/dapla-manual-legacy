@@ -578,11 +578,11 @@ For å dele koden med andre, må de også kjøre `renv::restore()` (første gang
 
 ### Oppgradering av R
 
-I jupyterlab på Dapla og i produksjonssone vil versjonen av R oppgraderes gjevnlig. Dette er fordi operasjonssystemet og programmer som R er avhengig skal holdes oppdatert. DA er det viktig for at R skal fungere at det også oppgraderes ofte. Dette skape noen utfordringer med renv-miljø som er avhengig av et spesifikk versjon av R.
+I Jupyterlab på Dapla og i produksjonssone vil versjonen av R oppgraderes jevnlig. Dette er fordi operativssystemet og programmer som R er avhengig skal holdes oppdatert. For at R skal fungere optimalt må det oppgraderes ofte. Dette skaper noen utfordringer for renv-miljøer som er avhengig av en spesifikk versjon av R.
 
-HVis du plutselig får en feilmelding ved oppstart eller når du kjøre renv::autoload()\` àt R versjon er forkjellig til det i lock filen har det vært en oppgradering. Følg oppskriften her for å løse og oppgradere pakkene:
+Hvis du plutselig får en feilmelding ved oppstart eller når du kjøre renv::autoload()\` at R-versjonen er forskjellig fra det den som e r oppgitt lock-filen, har det trolig vært en oppgradering av R siden sist noen jobbet med koden. Følg denne oppskriften for å løse opp i problemene:
 
-Benytte prosjekt-biblioteket ved å kjøre:
+Benytt prosjekt-biblioteket ved å kjøre:
 
 ```r         
 renv::activate()
@@ -606,7 +606,7 @@ Lagre renv.lock filen:
 renv::snapshot()
 ```
 
-For mer informasjon kan du [lese tutorial om oppdatering av renv her](https://inbo.github.io/tutorials/tutorials/r_renv_update/)
+For mer informasjon kan du lese denne [artikkelen om oppdatering av renv her](https://inbo.github.io/tutorials/tutorials/r_renv_update/)
 
 ### R på bakken
 
