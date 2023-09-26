@@ -1,9 +1,5 @@
 # Automatisering
 
-::: {.callout-warning appearance="simple"}
-Denne tjenesten er under utvikling og kan ikke anses som klar for produksjon.
-:::
-
 For å redusere tilgang til PII[^1] oppfordres alle Dapla-team til å ha en automatisert prosessering av kildedata. Dapla tilbyr dette som en 100% selvbetjent løsning. Kildedata [@datatilstander pp. 5] prosesseres til inndata gjennom et gitt sett av operasjoner(se @fig-kildedata-prosessering-operasjoner). Kildedataprosesseringsløsningen som tilbys på Dapla er bygget på at hver kildedatafil behandles individuelt. Mer komplekse operasjoner som går på tvers av flere filer bør utføres på inndata eller senere datatilstander.
 
 ::: {.callout-warning appearance="simple"}
