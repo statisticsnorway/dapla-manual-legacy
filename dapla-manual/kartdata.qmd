@@ -1,4 +1,18 @@
-# Kartdata
+---
+title: Kartdata
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: kart
+    language: python
+    name: kart
+---
+
 Det er tilrettelagt kartdata i Dapla til analyse, statistikkproduksjon og visualisering. 
 Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på **ssb-prod-kart-data-delt**.
 De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. 
@@ -169,6 +183,18 @@ For å beregne avtand i meter og kunne koble med annen geodata i Dapla, må man 
 ```python
 gdf = gdf.to_crs(25833)
 ```
+Et eksempel med lesing av stedfestede VoF situasjonsfiler kan dermed se slik ut:
+```python
+import pandas as pd
+import geopandas as gpd
+import dapla as dp
+AAR = 2022
+VOFSTI = "ssb-prod-vof-data-delt/stedfesting-situasjonsuttak_data/klargjorte-data/parquet"
+sted_vof = dp.read_pandas(gcs_path= f"{VOFSTI}/stedfesting-situasjonsuttak_p{AAR}-01_v1.parquet",
+               file_format = "parquet")
+vof_vof = gpd.GeoDataFrame(sted_vof, geometry=gpd.points_from_xy(sted_vof.y_koordinat, sted_vof.x_koordinat))
+vof_vof = vof_vof.set_crs('epsg:25833')
+```
 
 [Se også geopandas dokumentasjon for mer utfyllende informasjon.](https://geopandas.org/en/stable/docs/user_guide.html)
 
@@ -210,3 +236,4 @@ Med motsatt rekkefølge, får man én kommuneflate per bolig som overlapper:
 ```R
 kommuner_med_boliginfo = st_join(enkle_kommuner, boligbygg)
 ```
+
