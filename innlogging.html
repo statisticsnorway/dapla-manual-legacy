@@ -405,6 +405,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#prod" id="toc-prod" class="nav-link" data-scroll-target="#prod">Prod</a></li>
   <li><a href="#staging" id="toc-staging" class="nav-link" data-scroll-target="#staging">Staging</a></li>
+  <li><a href="#kjente-feil-ved-pålogging" id="toc-kjente-feil-ved-pålogging" class="nav-link" data-scroll-target="#kjente-feil-ved-pålogging">Kjente feil ved pålogging</a></li>
   </ul></li>
   <li><a href="#bakkemiljøet" id="toc-bakkemiljøet" class="nav-link" data-scroll-target="#bakkemiljøet">Bakkemiljøet</a>
   <ul class="collapse">
@@ -488,6 +489,27 @@ ul.task-list li input[type="checkbox"] {
 <p>Innlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, med ett viktig unntak: nettadressen er nå <a href="https://jupyter.dapla-staging.ssb.no/" class="uri">https://jupyter.dapla-staging.ssb.no/</a>.</p>
 <p>Litt mer om hva som er tilgjenglig her kommer.</p>
 </section>
+<section id="kjente-feil-ved-pålogging" class="level3">
+<h3 class="anchored" data-anchor-id="kjente-feil-ved-pålogging">Kjente feil ved pålogging</h3>
+<section id="account-already-exists" class="level4">
+<h4 class="anchored" data-anchor-id="account-already-exists">Account already exists</h4>
+<p>Noen ganger kan man komme i en situasjon hvor løsningen for Single Sign-On (pålogging på tvers av flere systemer) gir en feilmelding a la <a href="#fig-login-sso-error">Figur&nbsp;7</a>:</p>
+<div id="fig-login-sso-error" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/account-already-exist.png" class="img-fluid figure-img" style="width:100.0%" alt="Bilde som viser feilmeldingen Account already exist"></p>
+<figcaption class="figure-caption">Figur&nbsp;7: Feil som kan oppstå ved pålogging</figcaption>
+</figure>
+</div>
+<p>I denne situasjonen må man trykke på knappen “Add to existing account”. Da vil skjermbildet <a href="#fig-login-sso">Figur&nbsp;8</a> dukke opp:</p>
+<div id="fig-login-sso" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/account-authenticate-link.png" class="img-fluid figure-img" style="width:100.0%" alt="Bilde som viser påloggingsvindu"></p>
+<figcaption class="figure-caption">Figur&nbsp;8: Klikk på Google-knappen for å logge på igjen</figcaption>
+</figure>
+</div>
+<p>Her må man tykke på Google-knappen (se pil), og deretter logge inn som vist i <a href="#fig-login-1">Figur&nbsp;3</a> tidligere i dette avsnittet.</p>
+</section>
+</section>
 </section>
 <section id="bakkemiljøet" class="level2">
 <h2 class="anchored" data-anchor-id="bakkemiljøet">Bakkemiljøet</h2>
@@ -510,12 +532,12 @@ Note
 <p>Du logger deg inn på prod i bakkemiljøet på følgende måte:</p>
 <ol type="1">
 <li>Logg deg inn på Citrix-Windows i bakkemiljøet. Det kan gjøres ved å bruke lenken <strong>Citrix</strong> på Byrånettet, som også vises i <a href="#fig-intranett">Figur&nbsp;1</a>.</li>
-<li>Trykk på Jupyterlab-ikonet, som vist på <a href="#fig-jupyter-icon">Figur&nbsp;7</a>, og logg deg inn med vanlig brukernavn og passord.</li>
+<li>Trykk på Jupyterlab-ikonet, som vist på <a href="#fig-jupyter-icon">Figur&nbsp;9</a>, og logg deg inn med vanlig brukernavn og passord.</li>
 </ol>
 <div id="fig-jupyter-icon" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="./images/citrix_jupyter_icon.png" class="img-fluid figure-img" style="width:75.0%" alt="Bildet som viser hvordan man åpner Jupyterlab-miljet på bakken."></p>
-<figcaption class="figure-caption">Figur&nbsp;7: Jupyterlab-ikon på Skrivebordet i Citrix-Windows.</figcaption>
+<figcaption class="figure-caption">Figur&nbsp;9: Jupyterlab-ikon på Skrivebordet i Citrix-Windows.</figcaption>
 </figure>
 </div>
 <p>Når du trykker på ikonet blir du tatt til nettadressen <a href="https://sl-jupyter-p.ssb.no/" class="uri">https://sl-jupyter-p.ssb.no/</a>. Du kunne også åpnet Jupyterlab ved åpne Chrome-nettleseren og skrive inn adressen manuelt.</p>
