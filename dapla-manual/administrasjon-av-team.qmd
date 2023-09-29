@@ -19,11 +19,15 @@ Dapla-teamet vil også få sin egen gruppe i SSBs Active Directory slik at medle
 
 ## Legge til eller fjerne medlemmer i et team
 
-For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en [Kundeservice-sak](https://ssb.pureservice.com/#/new/7). Oppgi navnet på teamet du ønsker å endre på og hvilke medlemmer du ønsker å legge til eller fjerne. Oppgi også hvilken tilgangsgruppe medlemmene skal ha (*data-admins*, *developers* eller *consumers*). [Se hvilke bøtter du får tilgang](./hva-er-dapla-team.html#tbl-tilgangsroller) til med de ulike tilgangsrollene. 
+For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en [Kundeservice-sak](https://ssb.pureservice.com/#/new/7). Send en e-post til Kundeservice eller registrer en sak i portalen deres med følgende innhold:
 
-https://manual.dapla.ssb.no/hva-er-dapla-team.html#tbl-tilgangsroller
+- Navnet på Dapla-teamet du ønsker tilgang
+- Hvilken tilgang du søker om. Typisk er det enten *data-admins*, *developers* eller *consumers*). [Les mer om hva de ulike tilgangene innebærer her](./hva-er-dapla-team.html#tbl-tilgangsroller). 
+- Beskrivelse av formålet med tilgangen. 
 
-Endringer i team må godkjennes av seksjonsleder før de blir gjort.
+Endringer i team må godkjennes av søker seksjonsleder før de blir effektuert.
+
+For fjerning av tilganger kan man sende en tilsvarende henvendelse, men man trenger ikke inkludere forklaring av formål.  
 
 ::: {.callout-note}
 ## Midlertidig løsning
@@ -33,13 +37,14 @@ At endringer i team må gjøres via Kundeservice er midlertidig. Det jobbes med 
 
 ## Se medlemmer og roller i et team
 
-For å se hvem som har de ulike tilgangsrollene i et team, så kan man bruke pakken [dapla-team-cli](https://pypi.org/project/dapla-team-cli/) fra Jupyter. Pakken er installert for alle og du kan bruke den ved å gjøre følgende: 
+For å se hvem som har de ulike tilgangsrollene i et team, så kan man bruke pakken [dapla-team-cli](https://pypi.org/project/dapla-team-cli/) fra Jupyter. Pakken er installert for alle og du kan liste ut medlemmer av team ved å gjøre følgende: 
 
 1. [Logg deg inn på Dapla](./innlogging.html).
 2. Åpne en ny terminal
 3. Skriv inn `dpteam groups list-members` og trykk *Enter*
 4. I prompten som dukker opp skriver du inn team-navn og trykker *Enter*. 
 
-Da får du listet ut alle medlemmer av teamet og hvilke tilgangsroller de har. 
+Hvis du ikke har [lagret Personal Access Token](./git-og-github.html#personal-access-token-(pat)) i Jupyter så blir du spurt om GitHub-bruker og passord etter punkt 4. Da oppgir du du bare din GitHub-bruker og [token som er autentisert mot statisticsnorway](./git-og-github.html#koble-deg-til-ssb).  
+
 
 For de som ikke har mulighet til å bruke Jupyter så kan man også sende inn en forespørsel til *Kundeservice* om å få en oversikt. 

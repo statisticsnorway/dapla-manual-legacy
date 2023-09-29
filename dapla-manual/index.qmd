@@ -14,7 +14,7 @@ Dapla-manualen er initiert og skrevet av **Team Statistikktjenester** i SSB. Bid
 
 ## Bidra til Dapla-manualen {.unnumbered}
 
-Alle i SSB kan bidra til denne manualen. Endringer må godkjennes av noen i [Team Statistikktjenester](https://github.com/orgs/statisticsnorway/teams/team-statistikktjenester), si gjerne i fra at det ligger en PR å se på.
+Alle i SSB kan bidra til denne manualen. Endringer må godkjennes av noen i [Team Statistikktjenester](https://github.com/orgs/statisticsnorway/teams/dapla-stat-developers), si gjerne i fra at det ligger en PR å se på.
 
 ::: {.callout-warning}
 Denne nettsiden er åpen og hvem som helst kan lese det som er skrevet her. Hold det i tankene når du skriver.

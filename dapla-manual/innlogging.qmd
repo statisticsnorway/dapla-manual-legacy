@@ -45,6 +45,19 @@ Innlogging til staging-miljøet er identisk med innloggingen til prod-miljøet, 
 
 Litt mer om hva som er tilgjenglig her kommer. 
 
+### Kjente feil ved pålogging
+#### Account already exists
+
+Noen ganger kan man komme i en situasjon hvor løsningen for Single Sign-On (pålogging på tvers av flere systemer) gir en feilmelding a la @fig-login-sso-error:
+
+![Feil som kan oppstå ved pålogging](./images/account-already-exist.png){ fig-alt="Bilde som viser feilmeldingen Account already exist" width=100% #fig-login-sso-error }
+
+I denne situasjonen må man trykke på knappen "Add to existing account". Da vil skjermbildet @fig-login-sso dukke opp:
+
+![Klikk på Google-knappen for å logge på igjen](./images/account-authenticate-link.png){ fig-alt="Bilde som viser påloggingsvindu" width=100% #fig-login-sso }
+
+Her må man tykke på Google-knappen (se pil), og deretter logge inn som vist i @fig-login-1 tidligere i dette avsnittet.
+
 ## Bakkemiljøet
 
 Jupyter-miljøet på bakken bruker [samme base-image](https://github.com/statisticsnorway/jupyterlab-common)^[Hva er base-image?] for å installere Jupyterlab, og er derfor identisk på mange måter. Men innloggingen er ganske forskjellig.
