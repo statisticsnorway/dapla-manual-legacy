@@ -1,3 +1,28 @@
-# Spark
+# Apache Spark
 
-Når man koder i R og Python vil det ofte være tilstrekkelig å kjøre koden på en enkelt maskin. For små til mellomstore datasett vil det typisk si at man koder i Pandas, Polars, datatable, etc. for Python, og Tidyverse/dplyr, data.table, etc. for R. Men hvis man skal jobbe med større datasett, eller gjøre store beregninger, så kan det være nyttig å bruke et rammeverk som kan kjøre kode parallelt på flere maskiner. Et slikt rammeverk er [Apache Spark](https://spark.apache.org/). 
+![](images/spark.png){style="max-width: 30%; float: right;" fig-alt="Apache Spark logo"}
+
+Koding i **R** og **Python** har historisk sett foregått på en enkelt maskin og vært begrenset av minnet (RAM) og prosessorkraften på maskinen. For bearbeiding av små og mellomstore datasett er det sjelden et problem på kjøre på en enkelt maskin. Populære pakker som `dplyr` for **R**,  og `pandas` for **Python**, blir ofte brukt i denne typen databehandling. I senere år har det også kommet pakker som er optimalisert for å kjøre kode parallelt på flere kjerner på en enkelt maskin, skrevet i minne-effektive språk som **Rust** og **C++**. 
+
+Men selv om man kommer langt med å kjøre kode på en enkelt maskin, vil enkelte oppgaver kreve mer minne og prosessorkraft enn dette. For større datasett, eller store beregninger, kan det være nyttig å bruke et rammeverk som kan kjøre kode parallelt på flere maskiner. Et slikt rammeverk er [Apache Spark](https://spark.apache.org/).
+
+## Spark på Dapla
+
+Dapla kjører på et Kubernetes-kluster og er derfor er et svært egnet sted for å kjøre kode parallelt på flere maskiner. Jupyter på Dapla har også en egen klargjort kernel for å kjøre kode i Apache Spark. Denne koden vil kjøre på et eget kluster av maskiner som er dedikert til Apache Spark, slik som vist i @fig-kernels. 
+
+::: {#fig-kernels layout-nrow=2}
+
+![PySpark på kubernetes](images/spark-python-k8.png){#fig-py-k8}
+
+![PySpark på 1 maskin](images/spark-python-local.png){#fig-py-local}
+
+![SparkR på kubernetes](images/spark-r-k8.png){#fig-r-k8}
+
+![SparkR på 1 maskin](images/spark-r-local.png){#fig-r-local}
+
+Ferdigkonfigurerte kernels for Spark på Dapla.
+:::
+
+@fig-py-k8 og @fig-r-k8 bør du velge hvis du ønsker å bruke Spark for å kjøre store jobber på flere maskiner, for henholdsvis Python- og R-grensesnittene for Spark. 
+
+@fig-py-local og @fig-r-local bør du velge hvis du ønsker å bruke Spark av andre grunner enn å kjøre store jobber på flere maskiner. For eksempel hvis du ønsker å bruke en av de mange pakker som er bygget på Spark, eller hvis du ønsker å bruke Spark til å lese og skrive data fra Dapla.
