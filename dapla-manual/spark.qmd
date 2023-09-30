@@ -57,7 +57,10 @@ PySpark er et Python-grensesnitt for Apache Spark. Det er en Python-pakke som gi
 
 Tester om jeg kan inkludere noen kodeceller og output fra en notebook:
 
-{{< embed notebooks/test.ipynb echo=true >}}
+
+{{< embed notebooks/pyspark-local.ipynb echo=true >}}
+
+
 
 ### SparkR
 
