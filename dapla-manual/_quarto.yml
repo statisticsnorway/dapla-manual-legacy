@@ -1,13 +1,13 @@
 project:
   type: website
+  output-dir: _site
 
 # Retain our custom domain on Publish
 # Ref: https://github.com/quarto-dev/quarto-cli/discussions/3249#discussioncomment-4090518
 resources:
   - CNAME
 
-execute:
-  freeze: auto
+freeze: true
 
 bibliography: references.bib
 
