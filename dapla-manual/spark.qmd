@@ -1,5 +1,6 @@
 ---
-title: Apache Spark
+freeze: true
+title: Bruksområder
 jupyter:
   jupytext:
     text_representation:
@@ -19,7 +20,6 @@ Koding i **R** og **Python** har historisk sett foregått på en enkelt maskin o
 
 Men selv om man kommer langt med å kjøre kode på en enkelt maskin, vil enkelte oppgaver kreve mer minne og prosessorkraft enn dette. For større datasett, eller store beregninger, kan det være nyttig å bruke et rammeverk som kan kjøre kode parallelt på flere maskiner. Et slikt rammeverk er [Apache Spark](https://spark.apache.org/).
 
-## Bruksområder
 
 Apache Spark er et rammeverk for å kjøre kode parallelt på flere maskiner. Det er bygget for å håndtere store datasett og store beregninger. Det er derfor et nyttig verktøy for å løse problemer som er for store for å kjøre på en enkelt maskin. Men det finnes også andre bruksområder som er nyttige for Apache Spark. Her er noen eksempler:
 
@@ -77,3 +77,4 @@ Tester om jeg kan inkludere noen kodeceller og output fra en notebook:
 ### SparkR
 
 SparkR er et R-grensesnitt for Apache Spark. Det er en R-pakke som gir tilgang til Spark-funksjonalitet fra R. Det er enkelt å bruke, og har mange av de samme funksjonene som dplyr.
+
