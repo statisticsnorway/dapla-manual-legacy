@@ -1,4 +1,17 @@
-# Apache Spark
+---
+title: Apache Spark
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: hack2023-daplahub
+    language: python
+    name: hack2023-daplahub
+---
 
 ![](images/spark.png){style="max-width: 30%; float: right;" fig-alt="Apache Spark logo"}
 
@@ -58,8 +71,7 @@ PySpark er et Python-grensesnitt for Apache Spark. Det er en Python-pakke som gi
 Tester om jeg kan inkludere noen kodeceller og output fra en notebook:
 
 
-{{< embed notebooks/pyspark-local.ipynb echo=true >}}
-
+{{< embed notebooks/spark/pyspark-intro.ipynb#first-cell echo=true >}}
 
 
 ### SparkR
