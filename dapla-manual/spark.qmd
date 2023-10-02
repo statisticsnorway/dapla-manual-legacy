@@ -1,17 +1,6 @@
 ---
 title: Apache Spark
 freeze: true
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .qmd
-      format_name: quarto
-      format_version: '1.0'
-      jupytext_version: 1.15.2
-  kernelspec:
-    display_name: hack2023-daplahub
-    language: python
-    name: hack2023-daplahub
 ---
 
 ![](images/spark.png){style="max-width: 30%; float: right;" fig-alt="Apache Spark logo"}
