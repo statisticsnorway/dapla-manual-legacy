@@ -36,4 +36,32 @@ Denne nettsiden er åpen og hvem som helst kan lese det som er skrevet her. Hold
 1. Åpne en PR
 1. Be noen å gjennomgå endringen og eventuelt godkjenne den
 1. Merge PRen
-1. Etter et par minutter skal din endring være synlig! 
+1. Etter et par minutter skal din endring være synlig!
+
+### Embedded notebooks
+
+Quarto tilbyr å legge ved (embed) notebooks inn i nettsiden. Dette er en fin måte å dele kode og output på. Men det krever at vi tenker gjennom hvor output`en genereres. Siden Dapla-manualen renderes med GitHub-action, så ønsker vi ikke å introdusere kompleksiteten det innebærer å generere output fra kode her. I tillegg er det mange miljø-spesifikke konfigurasjoner som bestemmer hvordan output kan genereres. Derfor anbefaler vi følgende tilnærming når man skal legge ved en notebook til et kapittel:
+
+1. Logg deg inn i miljøet du ønsker å bruke.
+2. Klone ned repoet til Dapla-manualen.
+3. Opprett en notebook i mappen ./dapla-manual/notebooks/notebook-navn.ipynb
+4. Skriv kode og generer output som du ønsker. Husk å bare bruke data som alle har tilgang til eller de kan generere selv.
+5. Embed output i kapitlet du ønsker iht til [denne beskrivelsen](https://quarto.org/docs/authoring/notebook-embed.html)
+6. På toppen av notebooken lager du en raw-celle der du skriver:
+
+```python
+---
+freeze: true
+---
+```
+
+7. Kjør denne notebooken fra terminalen med kommandoen:
+
+```bash
+quarto render ./notebooks/<notebook-navn.ipynb> --execute
+```
+
+Dette sikrer at vi kan se output etter at boken bygges i GitHub Actions. Husk at notebooks ikke blir strippet for output på vanlig måte, slik at kun åpne data skal benyttes. 
+
+Spør Team Statistikktjenester om du lurer på noe.
+
