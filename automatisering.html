@@ -534,6 +534,16 @@ div.csl-indent {
 <section id="hvor-skal-det-konfigureres" class="level4">
 <h4 class="anchored" data-anchor-id="hvor-skal-det-konfigureres">Hvor skal det konfigureres?</h4>
 <p>Kilder konfigureres i teamets <a href="./ordforklaringer.html#infrastructure-as-code-iac">Infrastructure as Code (IaC)</a> repo på Github. Det kan finnes basert på følgende formulering: <code>github.com/statisticsnorway/&lt;teamnavn&gt;-iac</code>. Kilder konfigureres under stien <code>automation/source_data/prod</code> på repoet.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Her referer vi til filstiene som <code>automation/source_data/prod</code>, men under testing burde man alltid jobbe i staging-miljøet med <code>automation/source_data/staging</code>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="hvilke-filer-konfigurerer-en-kilde" class="level4">
 <h4 class="anchored" data-anchor-id="hvilke-filer-konfigurerer-en-kilde">Hvilke filer konfigurerer en kilde?</h4>
