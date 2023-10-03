@@ -38,7 +38,6 @@ Automatiseringsløsningen krever at teamets Google-prosjekt kan lese fra teamets
 ### Konfigurere en kilde
 
 #### Hvor skal det konfigureres?
-
 Kilder konfigureres i teamets [Infrastructure as Code (IaC)](./ordforklaringer.html#infrastructure-as-code-iac) repo på Github. Det kan finnes basert på følgende formulering: `github.com/statisticsnorway/<teamnavn>-iac`. Kilder konfigureres under stien `automation/source_data/prod` på repoet.
 
 ::: {.callout-warning appearance="simple"}
