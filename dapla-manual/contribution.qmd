@@ -1,0 +1,52 @@
+# Bidra til Dapla-manualen {.unnumbered}
+
+Alle i SSB kan bidra til denne manualen. Endringer må godkjennes av noen i [Team Statistikktjenester](https://github.com/orgs/statisticsnorway/teams/dapla-stat-developers), si gjerne i fra at det ligger en PR å se på.
+
+::: {.callout-warning}
+Denne nettsiden er åpen og hvem som helst kan lese det som er skrevet her. Hold det i tankene når du skriver.
+:::
+
+## Forutsetninger {.unnumbered}
+
+- Man trenger basis git kompetanse, det ligger en fin beskrivelse av det på [Beste Praksis siden fra KVAKK](https://statistics-norway.atlassian.net/l/cp/6H4MD86J).
+- Man trenger en konto på Github, det kan man opprette ved å [følge instruksjonene her](./git-og-github.qmd#opprett-github-bruker).
+- Man kan lære seg Markdown (enkel tekst formatering), en fin oversikt [finnes her](http://mdcheatsheet.com/).
+- Verktøyet Quarto burde installeres for å kunne se endringene slik som de ser ut på nettsiden. [Installasjon instruksjoner finnes her](https://quarto.org/docs/get-started/index.html).
+
+## Fremgangsmåten
+
+1. Klone repoet `git clone https://github.com/statisticsnorway/dapla-manual.git`
+1. Lage en ny gren
+1. Gjøre endringen
+1. Kjør `quarto preview dapla-manual` og følge lenken for å sjekke at alt ser bra ut på nettsiden
+1. Åpne en PR
+1. Be noen å gjennomgå endringen og eventuelt godkjenne den
+1. Merge PRen
+1. Etter et par minutter skal din endring være synlig!
+
+### Embedded notebooks
+
+Quarto tilbyr å legge ved (embed) notebooks inn i nettsiden. Dette er en fin måte å dele kode og output på. Men det krever at vi tenker gjennom hvor output`en genereres. Siden Dapla-manualen renderes med GitHub-action, så ønsker vi ikke å introdusere kompleksiteten det innebærer å generere output fra kode her. I tillegg er det mange miljø-spesifikke konfigurasjoner som bestemmer hvordan output kan genereres. Derfor anbefaler vi følgende tilnærming når man skal legge ved en notebook til et kapittel:
+
+1. Logg deg inn i miljøet du ønsker å bruke.
+2. Klone ned repoet til Dapla-manualen.
+3. Opprett en notebook i mappen ./dapla-manual/notebooks/notebook-navn.ipynb
+4. Skriv kode og generer output som du ønsker. Husk å bare bruke data som alle har tilgang til eller de kan generere selv.
+5. Embed output i kapitlet du ønsker iht til [denne beskrivelsen](https://quarto.org/docs/authoring/notebook-embed.html)
+6. På toppen av notebooken lager du en raw-celle der du skriver:
+
+```python
+---
+freeze: true
+---
+```
+
+7. Kjør denne notebooken fra terminalen med kommandoen:
+
+```bash
+quarto render ./notebooks/<notebook-navn.ipynb> --execute
+```
+
+Dette sikrer at vi kan se output etter at boken bygges i GitHub Actions. Husk at notebooks ikke blir strippet for output på vanlig måte, slik at kun åpne data skal benyttes. 
+
+Spør Team Statistikktjenester om du lurer på noe.

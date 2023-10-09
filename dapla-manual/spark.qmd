@@ -1,1 +1,94 @@
-# Spark
+---
+title: Apache Spark
+freeze: true
+---
+
+![](images/spark.png){style="max-width: 30%; float: right;" fig-alt="Apache Spark logo"}
+
+Koding i **R** og **Python** har historisk sett foregått på en enkelt maskin og vært begrenset av minnet (RAM) og prosessorkraften på maskinen. For bearbeiding av små og mellomstore datasett er det sjelden et problem på kjøre på en enkelt maskin. Populære pakker som `dplyr` for **R**,  og `pandas` for **Python**, blir ofte brukt i denne typen databehandling. I senere år har det også kommet pakker som er optimalisert for å kjøre kode parallelt på flere kjerner på en enkelt maskin, skrevet i minne-effektive språk som **Rust** og **C++**. 
+
+Men selv om man kommer langt med å kjøre kode på en enkelt maskin, vil enkelte oppgaver kreve mer minne og prosessorkraft enn dette. For større datasett, eller store beregninger, kan det være nyttig å bruke et rammeverk som kan kjøre kode parallelt på flere maskiner. Et slikt rammeverk er [Apache Spark](https://spark.apache.org/).
+
+
+Apache Spark er et rammeverk for å kjøre kode parallelt på flere maskiner. Det er bygget for å håndtere store datasett og store beregninger. Det er derfor et nyttig verktøy for å løse problemer som er for store for å kjøre på en enkelt maskin. Men det finnes også andre bruksområder som er nyttige for Apache Spark. Her er noen eksempler:
+
+- **Store datasett**: Hvis du har et datasett som er for stort til å lese inn i minnet på en enkelt maskin, kan du bruke Apache Spark til å lese inn datasettet og kjøre kode på det.
+
+- **Store beregninger**: Hvis du har en beregning som er for stor til å kjøre på en enkelt maskin, kan du bruke Apache Spark til å kjøre beregningen.
+
+- **Distribuert databehandling**: Hvis du har en beregning som kan deles opp i flere deler, kan du bruke Apache Spark til å kjøre beregningen parallelt på flere maskiner på en effektiv måte. 
+
+- **Redusert kjøretid**: Hvis du har kjøringer som tar lengre tid en du ønsker, så kan Apache Spark brukes til å redusere kjøretiden ved å kjøre kode parallelt på flere maskiner.
+
+- **Datavarehus**: Hvis du trenger database-funksjonalitet over Parquet-filer, så så kan Apache Spark sammen med for eksempel [Delta Lake](https://delta.io/) brukes som et datavarehus.
+
+- **Strømmende data**: Hvis du trenger å prosessere strømmende data, så kan Apache Spark brukes til å prosessere data i sanntid.
+
+Dette er noen av bruksområdene der Spark kan løse problemer som er for store for å kjøre på en enkelt maskin med for eksempel Pandas eller dplyr.
+
+## Spark på Dapla
+
+Dapla kjører på et Kubernetes-kluster og er derfor er et svært egnet sted for å kjøre kode parallelt på flere maskiner. Jupyter på Dapla har også en flere klargjorte kernels for å kjøre kode i Apache Spark. Denne koden vil kjøre på et eget kluster av maskiner som er dedikert til Apache Spark, slik som vist i @fig-kernels. 
+
+::: {#fig-kernels layout-nrow=2}
+
+![PySpark på kubernetes](images/spark-python-k8.png){#fig-py-k8}
+
+![PySpark på 1 maskin](images/spark-python-local.png){#fig-py-local}
+
+![SparkR på kubernetes](images/spark-r-k8.png){#fig-r-k8}
+
+![SparkR på 1 maskin](images/spark-r-local.png){#fig-r-local}
+
+Ferdigkonfigurerte kernels for Spark på Dapla.
+:::
+
+@fig-py-k8 og @fig-r-k8 kan velges hvis du ønsker å bruke Spark for å kjøre store jobber på flere maskiner, for henholdsvis Python- og R-grensesnittene for Spark. 
+
+@fig-py-local og @fig-r-local bør du velge hvis du ønsker å bruke Spark av andre grunner enn å kjøre store jobber på flere maskiner. For eksempel hvis du ønsker å bruke en av de mange pakker som er bygget på Spark, eller hvis du ønsker å bruke Spark til å lese og skrive data fra Dapla.
+
+Hvis du ønsker å sette opp et eget virtuelt miljø for å kjøre Spark, så kan du bruke ssb-project. Se [ssb-project](./jobbe-med-kode.html#ssb-project) for mer informasjon.
+
+## Spark i {{< fa brands r-project >}} og Python{{< fa brands python >}}
+
+Spark er implementert i programmeringsspråket **Scala**. Men det tilbys også mange grensesnitt for å bruke Spark fra andre språk. De mest populære grensesnittene er [PySpark](https://spark.apache.org/docs/latest/api/python/index.html) for Python og [SparkR](https://spark.apache.org/docs/latest/sparkr.html) for R. Disse grensesnittene er bygget på Spark, og gir tilgang til Spark-funksjonalitet fra Python og R.
+
+### PySpark
+
+PySpark er et Python-grensesnitt for Apache Spark. Det er en Python-pakke som gir tilgang til Spark-funksjonalitet fra Python. Det er enkelt å bruke, og har mange av de samme funksjonene som Pandas.
+
+Under ser du datasettet som benyttes for i vedlagt notebook **pyspark-intro.ipynb**. Den viser hvordan man kan gjøre vanlige databehandling med PySpark. I eksempelet brukes kernel som vist i @fig-py-local. 
+
+
+{{< embed notebooks/spark/pyspark-intro.ipynb#gen-df echo=true >}}
+
+Det finnes også et [Pandas API/grensesnitt mot Spark](https://spark.apache.org/docs/latest/api/python/getting_started/quickstart_ps.html). Målet med en er å gjøre overgangen fra Pandas til Spark lettere for nybegynneren. Men hvis man skal gjøre litt mer avansert databehandling anbefales det at man bruker PySpark direkte og ikke Pandas API-et. 
+
+
+### SparkR
+
+SparkR er et R-grensesnitt for Apache Spark. Det er en R-pakke som gir tilgang til Spark-funksjonalitet fra R. Det er enkelt å bruke, og har mange av de samme funksjonene som dplyr. Se eksempel i notebook under:
+
+{{< embed notebooks/spark/sparkr-intro.ipynb#print-cell echo=true >}}
+
+
+## Lakehouse-arkitektur
+
+En av utvidelsene som er laget rundt Apache Spark er den såkalte Lakehouse-arkitekturen. Kort fortalt kan den dekke behovene som et klassisk datavarehus har tatt seg av tidligere. I kontekst av SSB sine teknologier kan det også benyttes som et databaselag over Parquet-filer i bøtter. Det finnes flere open source løsninger for dette, men mest aktuelle er:
+
+- [Delta Lake](https://delta.io/)
+- [Apache Hudi](https://hudi.apache.org/)
+- [Apache Iceberg](https://iceberg.apache.org/)
+
+I det følgende omtaler vi hovedsakelig egenskapene til Delta Lake, men alle rammeverkene har mange av de samme egenskapene. Delta Lake kan også benyttes på Dapla nå. 
+
+Sentrale egenskaper ved Delta Lake er:
+
+- **ACID-transactions** som sikrer data-integritet og stabilitet, også når det skjer feil. 
+- **Metadata** som bli håndtert akkurat som all annen data og er veldig skalebar. Den støtter også egendefinert metadata. 
+- **Schema Enforcement and Evolution** sikrer at skjemaet til dataene blir håndhevet, og den tillater også den kan endres over tid. 
+- **Time travel** sikrer at alle versjoner av dataene er blitt lagret, og at du kan gå tilbake til tidligere versjoner av en fil. 
+- **Audit history** sikrer at du kan få full oversikt over hvilke operasjoner som utført på dataene.
+- **Inserts, updates and deletes** betyr at du lettere kan manipulere data enn hva som er tilfellet med vanlige Parquet-filer. 
+- **Indexing** er støttes for forbedre spørringer mot store datamengder. 
+

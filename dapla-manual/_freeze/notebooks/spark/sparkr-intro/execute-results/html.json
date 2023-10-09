@@ -1,0 +1,11 @@
+{
+  "hash": "6815a21efbf30f4ad1ce04adbb0125ba",
+  "result": {
+    "markdown": "---\nfreeze: true\ntitle: Introduksjon til SparkR\n---\n\n\n\n\n\nAkkurat som PySpark så gir [SparkR](https://spark.apache.org/docs/latest/sparkr) oss et grensesnitt mot Apache Spark fra R. I denne notebooken viser vi noen eksempler hvordan du gjøre vanlige operasjoner med SparkR. \n\n## Oppsett\n\nEksemplene i notebooken bruker `SparkR (k8s cluster)` på <https://jupyter.dapla.ssb.no/>. Det vil si at den kan distribuere kjøringene på flere maskiner i Kubernetes. \n\n\n::: {.cell tags='[]' execution_count=1}\n``` {.r .cell-code}\nspark\n```\n\n::: {.cell-output .cell-output-display}\n```\nJava ref type org.apache.spark.sql.SparkSession id 1 \n```\n:::\n:::\n\n\n## Lese inn fil\n\n::: {.cell tags='[]' execution_count=2}\n``` {.r .cell-code}\nfile = read.parquet(\"gs://ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet\")\n```\n:::\n\n\n::: {#print-cell .cell tags='[]' execution_count=3}\n``` {.r .cell-code}\nselectedColumns <- select(file, \"Date\", \"Year\", \"Quarter\", \"Month\", \"serie00\", \"serie01\")\nshowDF(selectedColumns, numRows = 5)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n+----------+----+-------+-----+------------------+------------------+\n|      Date|Year|Quarter|Month|           serie00|           serie01|\n+----------+----+-------+-----+------------------+------------------+\n|2000-01-01|2000|      1|   01| 9.495232388801012|   19.016168503192|\n|2000-02-01|2000|      1|   02| 10.70952411634649|21.404467063442723|\n|2000-03-01|2000|      1|   03|11.118293927071951| 21.25035527677261|\n|2000-04-01|2000|      2|   04| 9.346911680164684|19.982136698759238|\n|2000-05-01|2000|      2|   05| 9.663303382177363|19.925236690504494|\n+----------+----+-------+-----+------------------+------------------+\nonly showing top 5 rows\n```\n:::\n:::\n\n\n# Skrive ut fil\n\nUnder skriver vi ut en fil og spesifiserer at vi overskriver evt filer med samme navn. \n\n::: {.cell tags='[]' execution_count=4}\n``` {.r .cell-code}\nwrite.parquet(file,\n              \"gs://ssb-prod-dapla-felles-data-delt/temp/timeseries_copy.parquet\",\n              mode = \"overwrite\")\n```\n:::\n\n\n",
+    "supporting": [
+      "sparkr-intro_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
