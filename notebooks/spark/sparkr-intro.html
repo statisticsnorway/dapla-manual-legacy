@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – orkestrering</title>
+<title>Dapla-manual - Introduksjon til SparkR</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/dapla-favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/dapla-favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -62,6 +96,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<meta property="og:title" content="Dapla-manual - Introduksjon til SparkR">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="Dapla-manual">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -71,10 +108,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/dapla-long.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/dapla-long.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Dapla-manual</span>
     </a>
   </div>
@@ -114,7 +151,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Introduksjon til SparkR</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -136,19 +173,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Velkommen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+  <a href="../../preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Forord</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./introduksjon.html" class="sidebar-item-text sidebar-link">
+            <a href="../../introduksjon.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduksjon</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -157,13 +194,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hva-er-dapla.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hva-er-dapla.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hva er Dapla?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./innlogging.html" class="sidebar-item-text sidebar-link">
+  <a href="../../innlogging.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Innlogging</span></a>
   </div>
 </li>
@@ -171,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./statistikkproduksjon.html" class="sidebar-item-text sidebar-link">
+            <a href="../../statistikkproduksjon.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistikkproduksjon</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -180,7 +217,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./dapla-team.html" class="sidebar-item-text sidebar-link">
+            <a href="../../dapla-team.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dapla Team</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -189,13 +226,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hva er Dapla-team?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./administrasjon-av-team.html" class="sidebar-item-text sidebar-link">
+  <a href="../../administrasjon-av-team.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Administrasjon av team</span></a>
   </div>
 </li>
@@ -203,19 +240,19 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gcc.html" class="sidebar-item-text sidebar-link">
+  <a href="../../gcc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Cloud Console</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overføring-av-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../overføring-av-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overføring av data</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./produksjonsløp.html" class="sidebar-item-text sidebar-link">
+            <a href="../../produksjonsløp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Produksjonsløp</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -224,13 +261,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./jobbe-med-kode.html" class="sidebar-item-text sidebar-link">
+  <a href="../../jobbe-med-kode.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Jobbe med kode</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./jobbe-med-data.html" class="sidebar-item-text sidebar-link">
+            <a href="../../jobbe-med-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Jobbe med data</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -239,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./hva-er-botter.html" class="sidebar-item-text sidebar-link">
+  <a href="../../hva-er-botter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hva er bøtter?</span></a>
   </div>
 </li>
@@ -247,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./standarder.html" class="sidebar-item-text sidebar-link">
+            <a href="../../standarder.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Standarder</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -256,19 +293,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datatilstander.html" class="sidebar-item-text sidebar-link">
+  <a href="../../datatilstander.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Datatilstander</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./navnestandard-datalagring.html" class="sidebar-item-text sidebar-link">
+  <a href="../../navnestandard-datalagring.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Navnestandard datalagring</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./versjonering-av-datasett.html" class="sidebar-item-text sidebar-link">
+  <a href="../../versjonering-av-datasett.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Versjonering av datasett</span></a>
   </div>
 </li>
@@ -276,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./kildedata.html" class="sidebar-item-text sidebar-link">
+            <a href="../../kildedata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kildedata</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -285,13 +322,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./automatisering.html" class="sidebar-item-text sidebar-link">
+  <a href="../../automatisering.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Automatisering</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./automatisering-avansert.html" class="sidebar-item-text sidebar-link">
+  <a href="../../automatisering-avansert.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Automatisering Avansert</span></a>
   </div>
 </li>
@@ -299,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistikkbanken.html" class="sidebar-item-text sidebar-link">
+  <a href="../../statistikkbanken.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Statistikkbanken</span></a>
   </div>
 </li>
@@ -309,7 +346,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./visualisering.html" class="sidebar-item-text sidebar-link">
+            <a href="../../visualisering.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Visualisering</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -318,7 +355,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dashboard.html" class="sidebar-item-text sidebar-link">
+  <a href="../../dashboard.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dash og dashboard</span></a>
   </div>
 </li>
@@ -326,7 +363,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./annet.html" class="sidebar-item-text sidebar-link">
+            <a href="../../annet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Annet</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -335,49 +372,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./git-og-github.html" class="sidebar-item-text sidebar-link">
+  <a href="../../git-og-github.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git og Github</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datadoc.html" class="sidebar-item-text sidebar-link">
+  <a href="../../datadoc.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataDoc</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./github-app-integrasjon.html" class="sidebar-item-text sidebar-link">
+  <a href="../../github-app-integrasjon.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Koble prosjektet til Github</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gjenopprette-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../gjenopprette-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gjenopprette data fra bøtter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./spark.html" class="sidebar-item-text sidebar-link">
+  <a href="../../spark.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apache Spark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slette-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../slette-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Slette data fra bøtter</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./altinn3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../altinn3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Altinn 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kartdata.html" class="sidebar-item-text sidebar-link">
+  <a href="../../kartdata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kartdata</span></a>
   </div>
 </li>
@@ -385,13 +422,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ordforklaringer.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ordforklaringer.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ordforklaringer</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contribution.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contribution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bidra til Dapla-manualen</span></a>
   </div>
 </li>
@@ -405,17 +442,73 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#orkestrering" id="toc-orkestrering" class="nav-link active" data-scroll-target="#orkestrering">Orkestrering</a></li>
+  <li><a href="#oppsett" id="toc-oppsett" class="nav-link active" data-scroll-target="#oppsett">Oppsett</a></li>
+  <li><a href="#lese-inn-fil" id="toc-lese-inn-fil" class="nav-link" data-scroll-target="#lese-inn-fil">Lese inn fil</a></li>
+  <li><a href="#skrive-ut-fil" id="toc-skrive-ut-fil" class="nav-link" data-scroll-target="#skrive-ut-fil">Skrive ut fil</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduksjon til SparkR</h1>
+</div>
 
 
-<section id="orkestrering" class="level1">
-<h1>Orkestrering</h1>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Akkurat som PySpark så gir <a href="https://spark.apache.org/docs/latest/sparkr">SparkR</a> oss et grensesnitt mot Apache Spark fra R. I denne notebooken viser vi noen eksempler hvordan du gjøre vanlige operasjoner med SparkR.</p>
+<section id="oppsett" class="level2">
+<h2 class="anchored" data-anchor-id="oppsett">Oppsett</h2>
+<p>Eksemplene i notebooken bruker <code>SparkR (k8s cluster)</code> på <a href="https://jupyter.dapla.ssb.no/" class="uri">https://jupyter.dapla.ssb.no/</a>. Det vil si at den kan distribuere kjøringene på flere maskiner i Kubernetes.</p>
+<div class="cell" data-tags="[]" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>spark</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Java ref type org.apache.spark.sql.SparkSession id 1 </code></pre>
+</div>
+</div>
+</section>
+<section id="lese-inn-fil" class="level2">
+<h2 class="anchored" data-anchor-id="lese-inn-fil">Lese inn fil</h2>
+<div class="cell" data-tags="[]" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>file <span class="ot">=</span> <span class="fu">read.parquet</span>(<span class="st">"gs://ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="print-cell" class="cell" data-tags="[]" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>selectedColumns <span class="ot">&lt;-</span> <span class="fu">select</span>(file, <span class="st">"Date"</span>, <span class="st">"Year"</span>, <span class="st">"Quarter"</span>, <span class="st">"Month"</span>, <span class="st">"serie00"</span>, <span class="st">"serie01"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">showDF</span>(selectedColumns, <span class="at">numRows =</span> <span class="dv">5</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>+----------+----+-------+-----+------------------+------------------+
+|      Date|Year|Quarter|Month|           serie00|           serie01|
++----------+----+-------+-----+------------------+------------------+
+|2000-01-01|2000|      1|   01| 9.495232388801012|   19.016168503192|
+|2000-02-01|2000|      1|   02| 10.70952411634649|21.404467063442723|
+|2000-03-01|2000|      1|   03|11.118293927071951| 21.25035527677261|
+|2000-04-01|2000|      2|   04| 9.346911680164684|19.982136698759238|
+|2000-05-01|2000|      2|   05| 9.663303382177363|19.925236690504494|
++----------+----+-------+-----+------------------+------------------+
+only showing top 5 rows</code></pre>
+</div>
+</div>
+</section>
+<section id="skrive-ut-fil" class="level1">
+<h1>Skrive ut fil</h1>
+<p>Under skriver vi ut en fil og spesifiserer at vi overskriver evt filer med samme navn.</p>
+<div class="cell" data-tags="[]" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.parquet</span>(file,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">"gs://ssb-prod-dapla-felles-data-delt/temp/timeseries_copy.parquet"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">mode =</span> <span class="st">"overwrite"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>

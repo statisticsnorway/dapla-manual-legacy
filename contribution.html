@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dapla-manual – orkestrering</title>
+<title>Dapla-manual – contribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -114,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./contribution.html">Bidra til Dapla-manualen</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -391,7 +425,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./contribution.html" class="sidebar-item-text sidebar-link">
+  <a href="./contribution.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Bidra til Dapla-manualen</span></a>
   </div>
 </li>
@@ -405,7 +439,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#orkestrering" id="toc-orkestrering" class="nav-link active" data-scroll-target="#orkestrering">Orkestrering</a></li>
+  <li><a href="#bidra-til-dapla-manualen" id="toc-bidra-til-dapla-manualen" class="nav-link active" data-scroll-target="#bidra-til-dapla-manualen">Bidra til Dapla-manualen</a>
+  <ul class="collapse">
+  <li><a href="#forutsetninger" id="toc-forutsetninger" class="nav-link" data-scroll-target="#forutsetninger">Forutsetninger</a></li>
+  <li><a href="#fremgangsmåten" id="toc-fremgangsmåten" class="nav-link" data-scroll-target="#fremgangsmåten">Fremgangsmåten</a>
+  <ul class="collapse">
+  <li><a href="#embedded-notebooks" id="toc-embedded-notebooks" class="nav-link" data-scroll-target="#embedded-notebooks">Embedded notebooks</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -414,10 +455,67 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="orkestrering" class="level1">
-<h1>Orkestrering</h1>
+<section id="bidra-til-dapla-manualen" class="level1 unnumbered">
+<h1 class="unnumbered">Bidra til Dapla-manualen</h1>
+<p>Alle i SSB kan bidra til denne manualen. Endringer må godkjennes av noen i <a href="https://github.com/orgs/statisticsnorway/teams/dapla-stat-developers">Team Statistikktjenester</a>, si gjerne i fra at det ligger en PR å se på.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Denne nettsiden er åpen og hvem som helst kan lese det som er skrevet her. Hold det i tankene når du skriver.</p>
+</div>
+</div>
+<section id="forutsetninger" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="forutsetninger">Forutsetninger</h2>
+<ul>
+<li>Man trenger basis git kompetanse, det ligger en fin beskrivelse av det på <a href="https://statistics-norway.atlassian.net/l/cp/6H4MD86J">Beste Praksis siden fra KVAKK</a>.</li>
+<li>Man trenger en konto på Github, det kan man opprette ved å <a href="./git-og-github.html#opprett-github-bruker">følge instruksjonene her</a>.</li>
+<li>Man kan lære seg Markdown (enkel tekst formatering), en fin oversikt <a href="http://mdcheatsheet.com/">finnes her</a>.</li>
+<li>Verktøyet Quarto burde installeres for å kunne se endringene slik som de ser ut på nettsiden. <a href="https://quarto.org/docs/get-started/index.html">Installasjon instruksjoner finnes her</a>.</li>
+</ul>
+</section>
+<section id="fremgangsmåten" class="level2">
+<h2 class="anchored" data-anchor-id="fremgangsmåten">Fremgangsmåten</h2>
+<ol type="1">
+<li>Klone repoet <code>git clone https://github.com/statisticsnorway/dapla-manual.git</code></li>
+<li>Lage en ny gren</li>
+<li>Gjøre endringen</li>
+<li>Kjør <code>quarto preview dapla-manual</code> og følge lenken for å sjekke at alt ser bra ut på nettsiden</li>
+<li>Åpne en PR</li>
+<li>Be noen å gjennomgå endringen og eventuelt godkjenne den</li>
+<li>Merge PRen</li>
+<li>Etter et par minutter skal din endring være synlig!</li>
+</ol>
+<section id="embedded-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="embedded-notebooks">Embedded notebooks</h3>
+<p>Quarto tilbyr å legge ved (embed) notebooks inn i nettsiden. Dette er en fin måte å dele kode og output på. Men det krever at vi tenker gjennom hvor output`en genereres. Siden Dapla-manualen renderes med GitHub-action, så ønsker vi ikke å introdusere kompleksiteten det innebærer å generere output fra kode her. I tillegg er det mange miljø-spesifikke konfigurasjoner som bestemmer hvordan output kan genereres. Derfor anbefaler vi følgende tilnærming når man skal legge ved en notebook til et kapittel:</p>
+<ol type="1">
+<li>Logg deg inn i miljøet du ønsker å bruke.</li>
+<li>Klone ned repoet til Dapla-manualen.</li>
+<li>Opprett en notebook i mappen ./dapla-manual/notebooks/notebook-navn.ipynb</li>
+<li>Skriv kode og generer output som du ønsker. Husk å bare bruke data som alle har tilgang til eller de kan generere selv.</li>
+<li>Embed output i kapitlet du ønsker iht til <a href="https://quarto.org/docs/authoring/notebook-embed.html">denne beskrivelsen</a></li>
+<li>På toppen av notebooken lager du en raw-celle der du skriver:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>freeze: true</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="7" type="1">
+<li>Kjør denne notebooken fra terminalen med kommandoen:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render ./notebooks/<span class="op">&lt;</span>notebook-navn.ipynb<span class="op">&gt;</span> --execute</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dette sikrer at vi kan se output etter at boken bygges i GitHub Actions. Husk at notebooks ikke blir strippet for output på vanlig måte, slik at kun åpne data skal benyttes.</p>
+<p>Spør Team Statistikktjenester om du lurer på noe.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

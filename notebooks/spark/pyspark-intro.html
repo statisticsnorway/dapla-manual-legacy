@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dapla-manual - Introduksjon til PySpark</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/dapla-favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Ingen resultater",
+    "search-matching-documents-text": "treff",
+    "search-copy-link-title": "Kopier link til søk",
+    "search-hide-matches-text": "Skjul flere treff",
+    "search-more-match-text": "flere treff i dokumentet",
+    "search-more-matches-text": "flere treff i dokumentet",
+    "search-clear-button-title": "Nullstill",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Send",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<meta property="og:title" content="Dapla-manual - Introduksjon til PySpark">
+<meta property="og:description" content="">
+<meta property="og:site-name" content="Dapla-manual">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/dapla-long.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Dapla-manual</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://start.dapla.ssb.no/" rel="" target=""><i class="bi bi-people-fill" role="img" aria-label="Opprette Dapla-team">
+</i> 
+ <span class="menu-text">Opprette Dapla-team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://web.yammer.com/main/org/ssb.no/groups/eyJfdHlwZSI6Ikdyb3VwIiwiaWQiOiI5MDUzMjA2In0/all" rel="" target=""><i class="bi bi-question-lg" role="img">
+</i> 
+ <span class="menu-text">Stille spørsmål</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ssb.pureservice.com/#/new/7" rel="" target=""><i class="bi bi-send-fill" role="img" aria-label="Åpne en sak hos Kundeservice">
+</i> 
+ <span class="menu-text">Melde sak</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/statisticsnorway/dapla-manual" rel="" target=""><i class="bi bi-github" role="img" aria-label="Dapla-manual GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Introduksjon til PySpark</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Velkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forord</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../introduksjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduksjon</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hva-er-dapla.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hva er Dapla?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../innlogging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Innlogging</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../statistikkproduksjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistikkproduksjon</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../dapla-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dapla Team</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hva-er-dapla-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hva er Dapla-team?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../administrasjon-av-team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Administrasjon av team</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../gcc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Google Cloud Console</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../overføring-av-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overføring av data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../produksjonsløp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Produksjonsløp</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../jobbe-med-kode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jobbe med kode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../jobbe-med-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Jobbe med data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hva-er-botter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hva er bøtter?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../standarder.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Standarder</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../datatilstander.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Datatilstander</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../navnestandard-datalagring.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Navnestandard datalagring</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../versjonering-av-datasett.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versjonering av datasett</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../kildedata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kildedata</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../automatisering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatisering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../automatisering-avansert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatisering Avansert</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../statistikkbanken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistikkbanken</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../visualisering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Visualisering</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dash og dashboard</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../annet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annet</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../git-og-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git og Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../datadoc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataDoc</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../github-app-integrasjon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Koble prosjektet til Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../gjenopprette-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gjenopprette data fra bøtter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../spark.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apache Spark</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../slette-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slette data fra bøtter</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../altinn3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Altinn 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../kartdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kartdata</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ordforklaringer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ordforklaringer</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bidra til Dapla-manualen</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innhold</h2>
+   
+  <ul>
+  <li><a href="#oppsett" id="toc-oppsett" class="nav-link active" data-scroll-target="#oppsett">Oppsett</a></li>
+  <li><a href="#generere-data" id="toc-generere-data" class="nav-link" data-scroll-target="#generere-data">Generere data</a></li>
+  <li><a href="#skrive-til-parquet" id="toc-skrive-til-parquet" class="nav-link" data-scroll-target="#skrive-til-parquet">Skrive til Parquet</a></li>
+  <li><a href="#lese-inn-parquet" id="toc-lese-inn-parquet" class="nav-link" data-scroll-target="#lese-inn-parquet">Lese inn Parquet</a></li>
+  <li><a href="#pyspark-og-sql" id="toc-pyspark-og-sql" class="nav-link" data-scroll-target="#pyspark-og-sql">PySpark og SQL</a></li>
+  <li><a href="#aggregering" id="toc-aggregering" class="nav-link" data-scroll-target="#aggregering">Aggregering</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduksjon til PySpark</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><a href="https://spark.apache.org/">Apache Spark</a> er et sterkt verktøy som utvider mulighetsrommet for databehandling med R og Python. Kjernefunksjonaliteten ligger i at den lar deg kjøre en jobb på flere maskiner samtidig, noe som ikke er mulig med klassiske rammeverk som <strong>Pandas</strong> og <strong>Tidyverse</strong>. Følgelig er det et rammeverk som blant annet er veldig egnet for å prosessere store datamengder eller gjøre store beregninger. Les om mer om <a href="./spark.html">Apache Spark i Dapla-manualen</a></p>
+<p>I denne notebooken vises noen enkle eksempler på hvordan du kan jobbe med data med <a href="https://spark.apache.org/docs/latest/api/python/index.html">PySpark</a>, et Python-grensesnitt mot Spark.</p>
+<section id="oppsett" class="level2">
+<h2 class="anchored" data-anchor-id="oppsett">Oppsett</h2>
+<p>Når du logger deg inn på Dapla kan du velge mellom 2 ferdigoppsatte <em>kernels</em> for å jobbe med PySpark:</p>
+<ol type="1">
+<li>Pyspark (local)</li>
+<li>Pyspark (k8s cluster)</li>
+</ol>
+<p>Den første lar deg bruke Spark på en enkeltmaskin, mens den andre lar deg distribuere kjøringen på mange maskiner avhengig av hvor store jobbene er. I eksemplene under brukes <strong>Pyspark (local)</strong>.</p>
+<div id="first-cell" class="cell" data-tags="[]" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer biblioteker</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> SparkSession</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql.functions <span class="im">import</span> date_format, explode, expr, sequence, <span class="bu">sum</span>, avg</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql.types <span class="im">import</span> DateType, DoubleType, StructField, StructType</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialierer en SparkSession</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>spark <span class="op">=</span> (</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    SparkSession.builder.master(<span class="st">"local[2]"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    .appName(<span class="st">"Dapla-manual-example"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    .getOrCreate()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I koden over importerer vi de bibliotekene vi skal bruke under. Grunnen til at vi importerer <code>pyspark.sql</code> er at dette er at <strong>Spark SQL</strong> er Apache Spark sin modul for å jobbe med strukturerte data. Og som navnet tilsier vil det si at vi kan blande Python og SQL i koden vår. Vi skal nærmere på hvordan man bruke SQL fra PySpark-notebook senere.</p>
+<p>Spark tilbyr også et eget grensesnitt, <strong>Spark UI</strong>, for å monitorere hva som skjer under en SparkSession. Vi kan bruke følgende kommando for å få opp en lenke til Spark UI i notebooken vår:</p>
+<div class="cell" data-tags="[]" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>spark.sparkContext</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+        <div>
+            <p><b>SparkContext</b></p>
+
+            <p><a href="../../user/obr@ssb.no/proxy/4041/jobs/">Spark UI</a></p>
+
+            <dl>
+              <dt>Version</dt>
+                <dd><code>v3.3.1</code></dd>
+              <dt>Master</dt>
+                <dd><code>local[*]</code></dd>
+              <dt>AppName</dt>
+                <dd><code>pyspark-shell</code></dd>
+            </dl>
+        </div>
+        
+</div>
+</div>
+<p>Klikker du på <strong>Spark UI</strong>-lenken så tar den deg til dashboard som lar deg monitorere, debugge, optimalisere og forstå kjøringene dine. Det kan være et svært nyttig verktøy i mange tilfeller.</p>
+</section>
+<section id="generere-data" class="level2">
+<h2 class="anchored" data-anchor-id="generere-data">Generere data</h2>
+<p>Vi kan begynne med å generere en Spark DataFrame med en kolonne som inneholder månedlige datoer for perioden 2000M1-2023M8.</p>
+<div class="cell" data-tags="[]" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genererer månedlige data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dates_df <span class="op">=</span> spark.<span class="bu">range</span>(<span class="dv">1</span>).select(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    explode(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        sequence(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            start<span class="op">=</span>expr(<span class="st">"date '2000-01-01'"</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            stop<span class="op">=</span>expr(<span class="st">"date '2023-08-01'"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            step<span class="op">=</span>expr(<span class="st">"interval 1 month"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    ).alias(<span class="st">"Date"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>dates_df.show(<span class="dv">5</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>+----------+
+|      Date|
++----------+
+|2000-01-01|
+|2000-02-01|
+|2000-03-01|
+|2000-04-01|
+|2000-05-01|
++----------+
+only showing top 5 rows
+</code></pre>
+</div>
+</div>
+<p>En Spark DataFrame er en distribuert samling av data som er organisert inn i kolonner. Siden Spark lar deg distribuere kjøringer på flere maskiner, er DataFrames optimalisert for å kunne splittes opp slik at de kan brukes på flere maskiner. Med andre er dette ikke det samme som en Pandas dataframe mange kjenner fra før.</p>
+<p>Over genererte vi en datokolonne. For å få litt mer data kan vi også generere 100 kolonner med tidsseriedata og så printer vi de 2 første av disse:</p>
+<div class="cell" data-tags="[]" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Genererer random walk data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>schema <span class="op">=</span> StructType(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    [StructField(<span class="ss">f"serie</span><span class="sc">{</span>i<span class="sc">:02d}</span><span class="ss">"</span>, DoubleType(), <span class="va">True</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>)]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">tuple</span>((<span class="dv">10</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>)).cumsum().tolist())</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">284</span>)  <span class="co"># 284 months from 2000-01 to 2023-08</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>data_df <span class="op">=</span> spark.createDataFrame(data, schema<span class="op">=</span>schema)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>data_df.select(<span class="st">"serie00"</span>, <span class="st">"serie01"</span>).show(<span class="dv">5</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>+------------------+------------------+
+|           serie00|           serie01|
++------------------+------------------+
+|10.410703377184355| 21.06318801110079|
+|10.509249410154466|  19.5674295298024|
+| 9.618310122060274|17.635805093465642|
+| 9.691112692298294|18.593842915949082|
+| 9.903675228685067|20.012215769058564|
++------------------+------------------+
+only showing top 5 rows
+</code></pre>
+</div>
+</div>
+<p>Til slutt kan vi joine de to datasettene sammen og lage noen kolonner som viser år, kvartal og måned. Deretter printer vi ut noen av kolonnene med kommandoen <code>show()</code>.</p>
+<div id="gen-df" class="cell" data-tags="[]" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Legger til row index til DataFrame før join med dates_df</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data_df <span class="op">=</span> data_df.withColumn(<span class="st">"row_index"</span>, expr(<span class="st">"monotonically_increasing_id()"</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Joiner de to datasettene</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> (</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    dates_df.withColumn(<span class="st">"row_index"</span>, expr(<span class="st">"monotonically_increasing_id()"</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    .join(data_df, <span class="st">"row_index"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    .drop(<span class="st">"row_index"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Legger til år, kvartal og mnd</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.withColumn(<span class="st">"Year"</span>, date_format(df.Date, <span class="st">"yyyy"</span>))</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.withColumn(<span class="st">"Quarter"</span>, expr(<span class="st">"quarter(Date)"</span>))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.withColumn(<span class="st">"Month"</span>, date_format(df.Date, <span class="st">"MM"</span>))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>df.select(<span class="st">"Date"</span>, <span class="st">"Year"</span>, <span class="st">"Quarter"</span>, <span class="st">"Month"</span>, <span class="st">"serie00"</span>, <span class="st">"serie01"</span>).show(<span class="dv">5</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>+----------+----+-------+-----+------------------+------------------+
+|      Date|Year|Quarter|Month|           serie00|           serie01|
++----------+----+-------+-----+------------------+------------------+
+|2000-01-01|2000|      1|   01| 9.495232388801012|   19.016168503192|
+|2000-02-01|2000|      1|   02| 10.70952411634649|21.404467063442723|
+|2000-03-01|2000|      1|   03|11.118293927071951| 21.25035527677261|
+|2000-04-01|2000|      2|   04| 9.346911680164684|19.982136698759238|
+|2000-05-01|2000|      2|   05| 9.663303382177363|19.925236690504494|
++----------+----+-------+-----+------------------+------------------+
+only showing top 5 rows
+</code></pre>
+</div>
+</div>
+<p>Og med det har vi noe data vi kan jobbe med i resten av notebooken.</p>
+</section>
+<section id="skrive-til-parquet" class="level2">
+<h2 class="anchored" data-anchor-id="skrive-til-parquet">Skrive til Parquet</h2>
+<p>PySpark tilbyr mange opsjoner ved skriving til parquet-filer som vi kanskje ikke er vant til å forholde oss til med enklere rammeverk som Pandas. Den enkleste måten å skrive ut en fil er som følger:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.write.parquet(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gs://ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Dette vil fungere hvis filen ikke finnes fra før. Hvis den finnes fra før så vil den feile. Grunnen er at vi ikke har spesifisert hva vi ønsker at den skal gjøre. Vi kan velge mellom <code>overwrite</code>, <code>append</code>, <code>ignore</code> eller <code>errorifexists</code>. Sistnevnte er også default-oppførsel hvis du ikke ber den gjøre noe annet.</p>
+<p>Under bruker vi opsjonen <code>overwrite</code>, det vil si at den skriver over en evt eksisterende fil med samme navn.</p>
+<div class="cell" data-tags="[]" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.write.mode(<span class="st">"overwrite"</span>).parquet(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gs://ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vi kan inspisere hva som ble skrevet ved å liste ut innholder i bøtta.</p>
+<div class="cell" data-tags="[]" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dapla <span class="im">import</span> FileClient</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> FileClient.get_gcs_file_system()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>fs.glob(<span class="st">"gs://ssb-prod-dapla-felles-data-delt/temp/**"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>['ssb-prod-dapla-felles-data-delt/temp/',
+ 'ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet',
+ 'ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet/',
+ 'ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet/_SUCCESS',
+ 'ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet/part-00000-b32e7299-0590-4b31-bcc2-dc3d58725529-c000.snappy.parquet',
+ 'ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet/part-00001-b32e7299-0590-4b31-bcc2-dc3d58725529-c000.snappy.parquet']</code></pre>
+</div>
+</div>
+<p>Hvis denne parquet-filen hadde vært partisjonert etter en kolonne, så ville det vært egne undermapper med navnestruktur <code>column_name=value</code> som indikerte hva filen er partisjonert på. Siden vi her bruker en maskin og har et lite datasett, valgte Spark å ikke partisjonere.</p>
+</section>
+<section id="lese-inn-parquet" class="level2">
+<h2 class="anchored" data-anchor-id="lese-inn-parquet">Lese inn Parquet</h2>
+<p>Apache Spark kan lese inn flere parquet-filer samtidig. Syntaxen er like enkel som den for å skrive ut.</p>
+<div class="cell" data-tags="[]" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_ts <span class="op">=</span> spark.read.parquet(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"gs://ssb-prod-dapla-felles-data-delt/temp/timeseries.parquet"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>df_ts.select(<span class="st">"Date"</span>, <span class="st">"Year"</span>, <span class="st">"Quarter"</span>, <span class="st">"Month"</span>, <span class="st">"serie66"</span>, <span class="st">"serie55"</span>).show(<span class="dv">5</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>+----------+----+-------+-----+-----------------+-----------------+
+|      Date|Year|Quarter|Month|          serie66|          serie55|
++----------+----+-------+-----+-----------------+-----------------+
+|2000-01-01|2000|      1|   01|670.2679830025959|562.4312808525777|
+|2000-02-01|2000|      1|   02|675.4233411662802|562.5168447360121|
+|2000-03-01|2000|      1|   03|687.3412458214908|568.6203957584232|
+|2000-04-01|2000|      2|   04|673.1128047244955|557.4633871253379|
+|2000-05-01|2000|      2|   05| 667.513406101114|561.7766450346327|
++----------+----+-------+-----+-----------------+-----------------+
+only showing top 5 rows
+</code></pre>
+</div>
+</div>
+</section>
+<section id="pyspark-og-sql" class="level2">
+<h2 class="anchored" data-anchor-id="pyspark-og-sql">PySpark og SQL</h2>
+<p>Du kan også skrive SQL med Spark. For å skrive SQL må vi først lage et <code>temporary view</code>. Under kaller vi viewt for <strong>tidsserie</strong>.</p>
+<div class="cell" data-tags="[]" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.createOrReplaceTempView(<span class="st">"tidsserie"</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vi kan deretter skrive en SQL-statement som vi ønsker å kjøre på viewet:</p>
+<div class="cell" data-tags="[]" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"SELECT * FROM tidsserie WHERE Year = 2010"</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Deretter kan vi bruke det til å filtrere datasettet:</p>
+<div class="cell" data-tags="[]" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>result_df <span class="op">=</span> spark.sql(query)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>result_df.select(<span class="st">"Date"</span>, <span class="st">"Year"</span>, <span class="st">"Quarter"</span>, <span class="st">"Month"</span>, <span class="st">"serie00"</span>, <span class="st">"serie01"</span>).show(<span class="dv">5</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>+----------+----+-------+-----+------------------+------------------+
+|      Date|Year|Quarter|Month|           serie00|           serie01|
++----------+----+-------+-----+------------------+------------------+
+|2010-01-01|2010|      1|   01| 11.26910423907778|21.730128215168268|
+|2010-02-01|2010|      1|   02| 8.722783282690738| 17.46851086792347|
+|2010-03-01|2010|      1|   03|10.376873608348605|20.109386343182802|
+|2010-04-01|2010|      2|   04|11.459959305590926|21.995141825523866|
+|2010-05-01|2010|      2|   05|10.441456792180572| 21.25096473981906|
++----------+----+-------+-----+------------------+------------------+
+only showing top 5 rows
+</code></pre>
+</div>
+</div>
+</section>
+<section id="aggregering" class="level2">
+<h2 class="anchored" data-anchor-id="aggregering">Aggregering</h2>
+<p>vi kan aggregere opp enten med PySpark-syntax eller SQL-syntax. Under viser vi begge:</p>
+<div class="cell" data-tags="[]" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pyspark.sql <span class="im">import</span> functions <span class="im">as</span> F</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming df_ts is your DataFrame</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>aggregated_df <span class="op">=</span> df_ts.groupBy(<span class="st">"Quarter"</span>).agg(F.<span class="bu">sum</span>(<span class="st">"serie00"</span>).alias(<span class="st">"Sum"</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                                             F.avg(<span class="st">"serie00"</span>).alias(<span class="st">"Average"</span>),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                                             F.<span class="bu">max</span>(<span class="st">"serie00"</span>).alias(<span class="st">"Maximum"</span>))</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>aggregated_df.show()</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>+-------+------------------+------------------+------------------+
+|Quarter|               Sum|           Average|           Maximum|
++-------+------------------+------------------+------------------+
+|      1|363.95869885234185|10.109963857009497|11.829453550532005|
+|      3|365.68324879453405| 10.15786802207039|12.233378837422391|
+|      4| 342.2334082209804|10.065688477087658|12.210138970053695|
+|      2|  361.991445506568|10.055317930738001|12.276030776082463|
++-------+------------------+------------------+------------------+
+</code></pre>
+</div>
+</div>
+<p>La oss gjøre det samme med SQL, men grupperer etter to variabler og sorterer output etterpå.</p>
+<div class="cell" data-tags="[]" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming df_ts is your DataFrame</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_ts.createOrReplaceTempView(<span class="st">"temp_table"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Now you can run a SQL query</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="st">    SELECT</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="st">        Year,</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="st">        Quarter,</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="st">        SUM(serie00) AS Sum,</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="st">        AVG(serie00) AS Average,</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="st">        MAX(serie00) AS Maximum</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM </span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="st">        temp_table</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="st">    GROUP BY </span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="st">        Year, Quarter</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="st">    ORDER BY</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="st">        YEAR, QUARTER</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>aggregated_df_sql <span class="op">=</span> spark.sql(query)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the result</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>aggregated_df_sql.show(<span class="dv">10</span>)</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>+----+-------+------------------+------------------+------------------+
+|Year|Quarter|               Sum|           Average|           Maximum|
++----+-------+------------------+------------------+------------------+
+|2000|      1|31.323050432219453|10.441016810739818|11.118293927071951|
+|2000|      2|28.911192473027377| 9.637064157675793| 9.900977410685329|
+|2000|      3|33.670797229797415|11.223599076599138|12.233378837422391|
+|2000|      4|28.094793356286914| 9.364931118762305| 10.32000478359274|
+|2001|      1|31.636678535169537|10.545559511723178|11.367822302191831|
+|2001|      2|29.629770128521507| 9.876590042840503|11.135215930381191|
+|2001|      3| 30.75408440118315| 10.25136146706105|10.723803326978505|
+|2001|      4|30.361048932627902|  10.1203496442093|10.368365984482093|
+|2002|      1|31.184163218551227|10.394721072850409|10.550579652234951|
+|2002|      2|29.128978392451202|   9.7096594641504|10.186365745367246|
++----+-------+------------------+------------------+------------------+
+only showing top 10 rows
+</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Kom i gang med Dapla</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
