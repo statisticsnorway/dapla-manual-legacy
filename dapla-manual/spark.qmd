@@ -1,6 +1,17 @@
 ---
 title: Apache Spark
 freeze: true
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: hack2023-daplahub
+    language: python
+    name: hack2023-daplahub
 ---
 
 ![](images/spark.png){style="max-width: 30%; float: right;" fig-alt="Apache Spark logo"}
@@ -74,6 +85,10 @@ SparkR er et R-grensesnitt for Apache Spark. Det er en R-pakke som gir tilgang t
 
 ## Lakehouse-arkitektur
 
+::: {.callout-warning}
+I denne delen viser vi hvordan funksjonalitet som kan bli relevant for SSB å benytte seg av i fremtiden. Men det er fortsatt under testing og ta det i betraktning før man eventuelt implementerer dette i produksjon. 
+:::
+
 En av utvidelsene som er laget rundt Apache Spark er den såkalte Lakehouse-arkitekturen. Kort fortalt kan den dekke behovene som et klassisk datavarehus har tatt seg av tidligere. I kontekst av SSB sine teknologier kan det også benyttes som et databaselag over Parquet-filer i bøtter. Det finnes flere open source løsninger for dette, men mest aktuelle er:
 
 - [Delta Lake](https://delta.io/)
@@ -91,4 +106,8 @@ Sentrale egenskaper ved Delta Lake er:
 - **Audit history** sikrer at du kan få full oversikt over hvilke operasjoner som utført på dataene.
 - **Inserts, updates and deletes** betyr at du lettere kan manipulere data enn hva som er tilfellet med vanlige Parquet-filer. 
 - **Indexing** er støttes for forbedre spørringer mot store datamengder. 
+
+I vedlagt notebook **deltalake-intro.ipynb** finner du blant annet eksempler på hvordan du legger til følgende metadata i spesifikk versjon av en fil:
+
+{{< embed notebooks/spark/deltalake-intro.ipynb#show-meta echo=true >}}
 
