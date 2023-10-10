@@ -1,6 +1,17 @@
 ---
 title: Apache Spark
 freeze: true
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: hack2023-daplahub
+    language: python
+    name: hack2023-daplahub
 ---
 
 ![](images/spark.png){style="max-width: 30%; float: right;" fig-alt="Apache Spark logo"}
@@ -92,3 +103,6 @@ Sentrale egenskaper ved Delta Lake er:
 - **Inserts, updates and deletes** betyr at du lettere kan manipulere data enn hva som er tilfellet med vanlige Parquet-filer. 
 - **Indexing** er støttes for forbedre spørringer mot store datamengder. 
 
+I vedlagt finner du blant annet eksempler på hvordan du legger til din egen metadata i en Delta Lake Table.
+
+{{< embed notebooks/spark/deltalake-intro.ipynb#show-meta echo=true >}}
