@@ -455,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#lakehouse-arkitektur" id="toc-lakehouse-arkitektur" class="nav-link" data-scroll-target="#lakehouse-arkitektur">Lakehouse-arkitektur</a></li>
   </ul>
-<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/spark/pyspark-intro.ipynb.html"><i class="bi bi-journal-code"></i>pyspark-intro.ipynb</a></li><li><a href="notebooks/spark/sparkr-intro.ipynb.html"><i class="bi bi-journal-code"></i>sparkr-intro.ipynb</a></li></ul></div></nav>
+<div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="notebooks/spark/pyspark-intro.ipynb.html"><i class="bi bi-journal-code"></i>pyspark-intro.ipynb</a></li><li><a href="notebooks/spark/sparkr-intro.ipynb.html"><i class="bi bi-journal-code"></i>sparkr-intro.ipynb</a></li><li><a href="notebooks/spark/deltalake-intro.ipynb.html"><i class="bi bi-journal-code"></i>deltalake-intro.ipynb</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -608,6 +608,19 @@ only showing top 5 rows</code></pre>
 </section>
 <section id="lakehouse-arkitektur" class="level2">
 <h2 class="anchored" data-anchor-id="lakehouse-arkitektur">Lakehouse-arkitektur</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I denne delen viser vi hvordan funksjonalitet som kan bli relevant for SSB å benytte seg av i fremtiden. Men det er fortsatt under testing og ta det i betraktning før man eventuelt implementerer dette i produksjon.</p>
+</div>
+</div>
 <p>En av utvidelsene som er laget rundt Apache Spark er den såkalte Lakehouse-arkitekturen. Kort fortalt kan den dekke behovene som et klassisk datavarehus har tatt seg av tidligere. I kontekst av SSB sine teknologier kan det også benyttes som et databaselag over Parquet-filer i bøtter. Det finnes flere open source løsninger for dette, men mest aktuelle er:</p>
 <ul>
 <li><a href="https://delta.io/">Delta Lake</a></li>
@@ -625,6 +638,28 @@ only showing top 5 rows</code></pre>
 <li><strong>Inserts, updates and deletes</strong> betyr at du lettere kan manipulere data enn hva som er tilfellet med vanlige Parquet-filer.</li>
 <li><strong>Indexing</strong> er støttes for forbedre spørringer mot store datamengder.</li>
 </ul>
+<p>I vedlagt notebook <strong>deltalake-intro.ipynb</strong> finner du blant annet eksempler på hvordan du legger til følgende metadata i spesifikk versjon av en fil:</p>
+<div class="quarto-embed-nb-cell">
+<div class="cell" data-tags="[]" data-execution_count="20">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lagrer egendefinert metadata i en json-fil</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>metadata <span class="op">=</span> {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"comment"</span>: <span class="st">"Kontaktet oppgavegiver og kranglet!"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"manueltEditert"</span>: <span class="st">"True"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"maskineltEditert"</span>: <span class="st">"False"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>metadata</span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div id="show-meta" class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>{'comment': 'Kontaktet oppgavegiver og kranglet!',
+ 'manueltEditert': 'True',
+ 'maskineltEditert': 'False'}</code></pre>
+</div>
+</div>
+<a class="quarto-notebook-link" id="nblink-3" href="notebooks/spark/deltalake-intro.ipynb.html">Source: deltalake-intro.ipynb</a></div>
 
 
 </section>
