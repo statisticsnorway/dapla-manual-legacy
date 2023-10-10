@@ -2,15 +2,15 @@
 
 ![](images/Dapla-Logo1.png){style="max-width: 35%; float: right;" fig-alt="Dapla logo"}
 
-Denne boken er ment som enkel-å-bruke manual for å ta i bruk SSBs nye dataplattform **Dapla**. Plattformen forsøker å gjøre statistikkprodusenter og forskere så selvhjulpne som mulig. Målsetningen er at tjenestene som tilbys skal kunne tas i bruk på en enkel og intuitiv måte. Men uansett hvor lett tilgjengelig tjenester er, og hvor mye arbeid som er lagt å gjøre løsninger brukervennlige, så trenger de fleste i SSB en klar og tydelig veiledning for hvordan de skal brukes og i hvilken større sammenheng tjenestene inngår. Dapla-manualen er ment å være en sånn støtte i statistikkernes hverdag. Uansett om man lurer på hvordan man logger seg inn på plattformen, eller om man ønsker informasjon om kjøremiljøet for mer kompliserte maskinlæringsmodeller, så skal man finne veiledning i denne manualen. Målgruppen er både nybegynneren og den mer erfarne.
+Denne boken er ment som enkel-å-bruke manual for å ta i bruk SSBs nye dataplattform **Dapla**. Plattformen forsøker å gjøre statistikkprodusenter og forskere så selvhjulpne som mulig. Målsetningen er at tjenestene som tilbys skal kunne tas i bruk på en enkel og intuitiv måte. Men uansett hvor lett tilgjengelig tjenester er, og hvor mye arbeid som er lagt å gjøre løsninger brukervennlige, så vil det ofte være behov for en klar og tydelig veiledning for tjenestene skal brukes og i hvilken større sammenheng de inngår. Dapla-manualen er ment å være en sånn støtte i statistikkernes hverdag. Uansett om man lurer på hvordan man logger seg inn på plattformen, eller om man ønsker informasjon om kjøremiljøet for mer kompliserte maskinlæringsmodeller, så skal man finne veiledning i denne manualen. Målgruppen er både nybegynneren og den mer erfarne.
 
 ::: {.callout-note appearance="simple"}
-Alle ansatte i SSB kan bidra til manualen ved å følge [instruksjonene her](./bidra-til-dapla-manualen.html).
+Alle ansatte i SSB kan bidra til manualen ved å følge [instruksjonene her](./contribution.html).
 :::
 
 ## Bidragsytere {.unnumbered}
 
-Dapla-manualen er initiert og skrevet av **Team Statistikktjenester** i SSB. Bidragsytere er Øyvind Bruer-Skarsbø, Miles Winther, Bjørn Andre Skaar, Anders Lunde og Damir Medakovic. Ved behov for oppdateringer og nytt innhold håper vi at alle i SSB kan bidra.
+Dapla-manualen er initiert og vedlikeholdt av **Team Statistikktjenester** i SSB. Men mange i SSB bidrar med innhold og forslag til forbedringer. Vi ønsker å takke alle som bidrar til å gjøre manualen bedre.
 
 ## Bidra til Dapla-manualen {.unnumbered}
 
