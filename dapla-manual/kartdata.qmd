@@ -1,4 +1,5 @@
 # Kartdata
+
 Det er tilrettelagt kartdata i Dapla til analyse, statistikkproduksjon og visualisering. 
 Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på **ssb-prod-kart-data-delt**.
 De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. 
@@ -41,7 +42,7 @@ En rekke kartdata for hele landet til analyse- og visualiseringsformål ligger i
 For eksempel kommuneflater til analyse eller statistikk:
 
 ```python
-filsti = "ssb-prod-kart-data-delt/kartdata_analyse/klargjorte-data/2023/ABAS_kommune_flate_p2023_v1.parquet"
+filsti = "ssb-prod-kart-data-delt/kartdata_analyse/klargjorte-data/2023/ABAS_kommune_flate_p2023.parquet"
 kommuner = sg.read_geopandas(filsti)
 ```
 
@@ -49,7 +50,7 @@ Eksempel på lesing av kommuneflater for visualisering. Disse dataene er general
 å lage kart, men blir unøyaktige til statistikk:
 
 ```python
-filsti = "ssb-prod-kart-data-delt/kartdata_visualisering/klargjorte-data/2023/parquet/N5000_kommune_flate_p2023_v1.parquet"
+filsti = "ssb-prod-kart-data-delt/kartdata_visualisering/klargjorte-data/2023/parquet/N5000_kommune_flate_p2023.parquet"
 kommuner = sg.read_geopandas(filsti)
 ```
 
@@ -57,6 +58,26 @@ Tilsvarende for skriving til parquet eller annet geodataformat:
 
 ```python
 sg.write_geopandas(kommuner, filsti_ny) 
+```
+
+Man kan også gjøre vanlige tabell-filer geografiske hvis man har koordinat-kolonner. For eksempel situasjonsuttak fra Virksomhets- og foretaksregisteret (VoF):
+
+```python
+import dapla as dp
+
+VOFSTI = "ssb-prod-vof-data-delt/stedfesting-situasjonsuttak_data/klargjorte-data/parquet"
+vof_df = dp.read_pandas(
+    f"{VOFSTI}/stedfesting-situasjonsuttak_p2023-01_v1.parquet"
+)
+vof_gdf = gpd.GeoDataFrame(
+    vof_df, 
+    geometry=gpd.points_from_xy(
+        vof_df["y_koordinat"],
+        vof_df["x_koordinat"],
+    ),
+    crs=25833,
+)
+vof_gdf
 ```
 
 ### geopandas-eksempler i Dapla
@@ -210,3 +231,4 @@ Med motsatt rekkefølge, får man én kommuneflate per bolig som overlapper:
 ```R
 kommuner_med_boliginfo = st_join(enkle_kommuner, boligbygg)
 ```
+
