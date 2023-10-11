@@ -231,4 +231,3 @@ Med motsatt rekkefølge, får man én kommuneflate per bolig som overlapper:
 ```R
 kommuner_med_boliginfo = st_join(enkle_kommuner, boligbygg)
 ```
-
