@@ -111,7 +111,7 @@ Man må først klargjøre vegnettet og bestemme regler for beregningen(e):
 veger_klargjort = (
     sg.get_connected_components(veger)
     .query("connected == 1")
-    .pipe(sg.make_directed_network_norway)
+    .pipe(sg.make_directed_network_norway, dropnegative=True)
 )
 
 regler = sg.NetworkAnalysisRules(directed=True, weight="minutes")
