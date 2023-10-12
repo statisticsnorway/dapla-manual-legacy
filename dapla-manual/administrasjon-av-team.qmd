@@ -22,18 +22,28 @@ Dapla-teamet vil også få sin egen gruppe i SSBs Active Directory slik at medle
 For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en [Kundeservice-sak](https://ssb.pureservice.com/#/new/7). Send en e-post til Kundeservice eller registrer en sak i portalen deres med følgende innhold:
 
 - Navnet på Dapla-teamet du ønsker tilgang
-- Hvilken tilgang du søker om. Typisk er det enten *data-admins*, *developers* eller *consumers*). [Les mer om hva de ulike tilgangene innebærer her](./hva-er-dapla-team.html#tbl-tilgangsroller). 
+- Hvilken tilgang du søker om. Typisk er det enten *data-admins*, *developers* eller *consumers* (nevnt mer om under). [Les mer om hva de ulike tilgangene innebærer her](./hva-er-dapla-team.html#tbl-tilgangsroller). 
 - Beskrivelse av formålet med tilgangen. 
 
 Endringer i team må godkjennes av søker seksjonsleder før de blir effektuert.
 
-For fjerning av tilganger kan man sende en tilsvarende henvendelse, men man trenger ikke inkludere forklaring av formål.  
+For fjerning av tilganger kan man sende en tilsvarende henvendelse, men man trenger ikke inkludere forklaring av formål.
 
 ::: {.callout-note}
 ## Midlertidig løsning
 
 At endringer i team må gjøres via Kundeservice er midlertidig. Det jobbes med å lage et eget verktøy for dette.
 :::
+
+### Tilgang til andre Dapla-team sine delte data
+
+Når du skal ha tilgang til et annet teams data er søknadsprosessen den samme som å legge til eller fjerne medlemmer i team slik som nevnt over. Det som er annerledes er at det er i det teamet du skal ha dataene fra sin *consumers* gruppe du skal søke om å legges inn i inn. Gjennomføres på følgende måte med sak til Kundeservice:
+
+- Navnet på Dapla-teamet du ønsker tilgang til sine delte data
+- Om det er du eller hele teamet ditt som søker tilgangen (ditt teams *developers* for eksempel)
+- Beskrivelse av formålet med tilgangen
+
+Samme her at endringer i team må godkjennes av søkers seksjonsleder før de blir effektuert. Viktig å merke seg at det er søkers seksjonsleder som skal godkjenne tilgang til et annet teams *consumers* gruppe i tråd med @tilgangsstyring.
 
 ## Se medlemmer og roller i et team
 
