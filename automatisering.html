@@ -558,6 +558,7 @@ div.csl-indent {
 <li><code>config.yaml</code> som konfigurer hvilken filsti som skal prosesseres i teamets kildedatabøtte. Eksempel:</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">folder_prefix</span><span class="kw">:</span><span class="at"> source-folder/2022</span></span></code><button title="Kopier til utklippstavle" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Settes <code>folder_prefix</code> til <code>""</code> vil hele kildedatabøtten prosesseres.</p>
 <ol start="2" type="1">
 <li><code>process_source_data.py</code> som kjøres når en kildedatafil blir prosessert. Her må man skrive en python-funksjon med en bestemt metodesignatur som ser slik ut:</li>
 </ol>
