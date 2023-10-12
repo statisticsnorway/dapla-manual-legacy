@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -408,7 +427,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#administrasjon-av-team" id="toc-administrasjon-av-team" class="nav-link active" data-scroll-target="#administrasjon-av-team">Administrasjon av team</a>
   <ul class="collapse">
   <li><a href="#opprette-dapla-team" id="toc-opprette-dapla-team" class="nav-link" data-scroll-target="#opprette-dapla-team">Opprette Dapla-team</a></li>
-  <li><a href="#legge-til-eller-fjerne-medlemmer-i-et-team" id="toc-legge-til-eller-fjerne-medlemmer-i-et-team" class="nav-link" data-scroll-target="#legge-til-eller-fjerne-medlemmer-i-et-team">Legge til eller fjerne medlemmer i et team</a></li>
+  <li><a href="#legge-til-eller-fjerne-medlemmer-i-et-team" id="toc-legge-til-eller-fjerne-medlemmer-i-et-team" class="nav-link" data-scroll-target="#legge-til-eller-fjerne-medlemmer-i-et-team">Legge til eller fjerne medlemmer i et team</a>
+  <ul class="collapse">
+  <li><a href="#tilgang-til-andre-dapla-team-sine-delte-data" id="toc-tilgang-til-andre-dapla-team-sine-delte-data" class="nav-link" data-scroll-target="#tilgang-til-andre-dapla-team-sine-delte-data">Tilgang til andre Dapla-team sine delte data</a></li>
+  </ul></li>
   <li><a href="#se-medlemmer-og-roller-i-et-team" id="toc-se-medlemmer-og-roller-i-et-team" class="nav-link" data-scroll-target="#se-medlemmer-og-roller-i-et-team">Se medlemmer og roller i et team</a></li>
   </ul></li>
   </ul>
@@ -447,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 <p>For å legge til eller fjerne medlemmer i et team må du foreløpig opprette en <a href="https://ssb.pureservice.com/#/new/7">Kundeservice-sak</a>. Send en e-post til Kundeservice eller registrer en sak i portalen deres med følgende innhold:</p>
 <ul>
 <li>Navnet på Dapla-teamet du ønsker tilgang</li>
-<li>Hvilken tilgang du søker om. Typisk er det enten <em>data-admins</em>, <em>developers</em> eller <em>consumers</em>). <a href="./hva-er-dapla-team.html#tbl-tilgangsroller">Les mer om hva de ulike tilgangene innebærer her</a>.</li>
+<li>Hvilken tilgang du søker om. Typisk er det enten <em>data-admins</em>, <em>developers</em> eller <em>consumers</em> (nevnt mer om under). <a href="./hva-er-dapla-team.html#tbl-tilgangsroller">Les mer om hva de ulike tilgangene innebærer her</a>.</li>
 <li>Beskrivelse av formålet med tilgangen.</li>
 </ul>
 <p>Endringer i team må godkjennes av søker seksjonsleder før de blir effektuert.</p>
@@ -465,6 +487,16 @@ Midlertidig løsning
 <p>At endringer i team må gjøres via Kundeservice er midlertidig. Det jobbes med å lage et eget verktøy for dette.</p>
 </div>
 </div>
+<section id="tilgang-til-andre-dapla-team-sine-delte-data" class="level3">
+<h3 class="anchored" data-anchor-id="tilgang-til-andre-dapla-team-sine-delte-data">Tilgang til andre Dapla-team sine delte data</h3>
+<p>Når du skal ha tilgang til et annet teams data er søknadsprosessen den samme som å legge til eller fjerne medlemmer i team slik som nevnt over. Det som er annerledes er at det er i det teamet du skal ha dataene fra sin <em>consumers</em> gruppe du skal søke om å legges inn i inn. Gjennomføres på følgende måte med sak til Kundeservice:</p>
+<ul>
+<li>Navnet på Dapla-teamet du ønsker tilgang til sine delte data</li>
+<li>Om det er du eller hele teamet ditt som søker tilgangen (ditt teams <em>developers</em> for eksempel)</li>
+<li>Beskrivelse av formålet med tilgangen</li>
+</ul>
+<p>Samme her at endringer i team må godkjennes av søkers seksjonsleder før de blir effektuert. Viktig å merke seg at det er søkers seksjonsleder som skal godkjenne tilgang til et annet teams <em>consumers</em> gruppe i tråd med <span class="citation" data-cites="tilgangsstyring">Direktørmøtet (<a href="#ref-tilgangsstyring" role="doc-biblioref">2022</a>)</span>.</p>
+</section>
 </section>
 <section id="se-medlemmer-og-roller-i-et-team" class="level2">
 <h2 class="anchored" data-anchor-id="se-medlemmer-og-roller-i-et-team">Se medlemmer og roller i et team</h2>
@@ -479,10 +511,15 @@ Midlertidig løsning
 <p>For de som ikke har mulighet til å bruke Jupyter så kan man også sende inn en forespørsel til <em>Kundeservice</em> om å få en oversikt.</p>
 
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referanser</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-tilgangsstyring" class="csl-entry" role="listitem">
+Direktørmøtet. 2022. <span>“Klassifisering Og Tilgangsstyring På DAPLA.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/:w:/r/sites/Statistikktjenester/Shared%20Documents/General/2022-37_Vedlegg_Klassifisering%20og%20tilgangsstyring_220912%20(002).docx?d=w7f261943752f4705b640d77071edde4d&amp;csf=1&amp;web=1&amp;e=drd8On">https://ssbno.sharepoint.com/:w:/r/sites/Statistikktjenester/Shared%20Documents/General/2022-37_Vedlegg_Klassifisering%20og%20tilgangsstyring_220912%20(002).docx?d=w7f261943752f4705b640d77071edde4d&amp;csf=1&amp;web=1&amp;e=drd8On</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
