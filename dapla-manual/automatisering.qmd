@@ -52,6 +52,7 @@ Hver kilde konfigureres ved hjelp av to filer:
 ```yaml
 folder_prefix: source-folder/2022
 ```
+Settes `folder_prefix` til `""` vil hele kildedatabøtten prosesseres.
 
 2. `process_source_data.py` som kjøres når en kildedatafil blir prosessert. Her må man skrive en python-funksjon med en bestemt metodesignatur som ser slik ut:
 
