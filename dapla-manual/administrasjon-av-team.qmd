@@ -47,14 +47,4 @@ Samme her at endringer i team må godkjennes av søkers seksjonsleder før de bl
 
 ## Se medlemmer og roller i et team
 
-For å se hvem som har de ulike tilgangsrollene i et team, så kan man bruke pakken [dapla-team-cli](https://pypi.org/project/dapla-team-cli/) fra Jupyter. Pakken er installert for alle og du kan liste ut medlemmer av team ved å gjøre følgende: 
-
-1. [Logg deg inn på Dapla](./innlogging.html).
-2. Åpne en ny terminal
-3. Skriv inn `dpteam groups list-members` og trykk *Enter*
-4. I prompten som dukker opp skriver du inn team-navn og trykker *Enter*. 
-
-Hvis du ikke har [lagret Personal Access Token](./git-og-github.html#personal-access-token-(pat)) i Jupyter så blir du spurt om GitHub-bruker og passord etter punkt 4. Da oppgir du du bare din GitHub-bruker og [token som er autentisert mot statisticsnorway](./git-og-github.html#koble-deg-til-ssb).  
-
-
-For de som ikke har mulighet til å bruke Jupyter så kan man også sende inn en forespørsel til *Kundeservice* om å få en oversikt. 
+For å se hvem som har de ulike tilgangsrollene i et team, så må man sende en henvendelse til Kundeservice. 
