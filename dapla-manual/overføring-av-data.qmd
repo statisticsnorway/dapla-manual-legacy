@@ -89,7 +89,8 @@ Husk: Du kan alltids gå tilbake og se på tidligere fullførte jobber, og start
 ### Overføring mellom bøtter
 
 Det er også mulig å sette opp overføringsjobber mellom bøtter. For eksempel fra `ssb-prod-<teamnavn>-data-synk-opp` til `ssb-prod-<teamnavn>-data-kilde`.
-Tar man utgangspunkt i punktene fra @fig-transfer-tilsky skal følgende gjøres:
+Stegene under viser hvordan man overfører mellom de nevnte bøttene.
+Tar man utgangspunkt i @fig-transfer-tilsky skal følgende gjøres:
 
 1. Velg `Google cloud storage` under både "Source type" og "Destination type".
 2. Velg bøtten `ssb-prod-<teamnavn>-data-synk-opp` under `choose source`.
