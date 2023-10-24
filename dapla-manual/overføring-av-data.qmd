@@ -8,11 +8,10 @@ jupyter:
       format_version: '1.0'
       jupytext_version: 1.15.2
   kernelspec:
-    display_name: hack
+    display_name: Python 3 (ipykernel)
     language: python
-    name: hack
+    name: python3
 ---
-
 
 For å overføre data mellom bakke og sky brukes **Data Transfer**, som er en tjeneste i [Google Cloud Console](gcc.qmd). Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets **kildedataansvarlige**. Den kan også brukes til å flytte data mellom bøtter.
 
@@ -111,4 +110,3 @@ Hvis du skal overføre data fra bakken/prodsonen til sky, så må teamets kilded
 - Rstudio på sl-stata-03
 
 Skal du flytte data fra Dapla til bakken/prodsonen, så må teamets kildedataansvarlige skrive ut data til `gs://ssb-prod-<team navn>-data-synk-opp`-bøtta på Dapla. Det er noe man typisk gjør fra **Jupyterlab** på Dapla. 
-
