@@ -4,4 +4,4 @@ Dette repoet er ment å være en enkel beskrivelse av hvordan man tar i bruk SSB
 
 ## Bidra
 
-Fremgangsmåten finnes her: <https://manual.dapla.ssb.no/bidra-til-dapla-manualen.html>
+Fremgangsmåten finnes her: <https://manual.dapla.ssb.no/contribution.html>
