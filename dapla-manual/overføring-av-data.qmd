@@ -1,6 +1,6 @@
 # Overføring av data
 
-For å overføre data mellom bakke og sky brukes **Data Transfer**, som er en tjeneste i [Google Cloud Console](gcc.qmd). Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets **kildedataansvarlige**.
+For å overføre data mellom bakke og sky brukes **Data Transfer**, som er en tjeneste i [Google Cloud Console](gcc.qmd). Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets **kildedataansvarlige**. Den kan også brukes til å flytte data mellom bøtter.
 
 For å få tilgang til å overføre filer må man be om dette ved opprettelsen av teamet. Ber man om det skjer følgende: 
 
@@ -55,24 +55,39 @@ Følgende oppskrift tar utgangspunkt i siden `Create a transfer job` (@fig-trans
 3. I feltet "Source directory path" skal man kun skrive `data/tilsky` siden overføringsagenten kun har tilgang til mapper som ligger relativt plassert under `/ssb/cloud_sync/<teamnavn>/`. Trykk `Next step`
 4. Velg en destinasjon for overføringsjobben. Trykk på `Browse` og velg bøtten med navn som passer til `ssb-prod-<teamnavn>-data-synk-opp`. Vi anbefaler at du også oppretter en mappe inne i denne bøtten. Det gjøres ved å trykke på mappeikonet med et `+`-tegn foran. Skriv inn et passende mappenavn og trykk `Select` i bunnen av siden. Trykk deretter `Next step`
 5. Neste steg "Choose how and when to run this job" er opp til brukeren å bestemme. Hvis man f.eks. velger at Data Transfer skal overføre data en gang i uken, vil den kun starte en overføring hvis det finnes nye data. Trykk `Next step`
-6. Beskriv overføringsjobben, f.eks: "Flytter data for <team-name> til sky.". Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.
+6. Beskriv overføringsjobben, f.eks: "Flytter data for &lt;teamnavn&gt; til sky". Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.
 
 Trykk til slutt på den blå `Create`-knappen. Du vil kunne se kjørende jobber under menyen `Transfer jobs`.
 
-For å sjekke om data har blitt overført, skriv inn `cloud storage` i søkefeltet øverst på siden og trykk på det første valget som kommer opp. Her vil du finne en oversikt over alle teamets bøtter, deriblant en med navn `ssb-prod-<team-name>-data-synk-opp`. Når overføringsjobben er ferdig vil du kunne finne igjen dataene i den mappen som ble definert i stegene overnfor.
+For å sjekke om data har blitt overført, skriv inn `cloud storage` i søkefeltet øverst på siden og trykk på det første valget som kommer opp. Her vil du finne en oversikt over alle teamets bøtter, deriblant en med navn `ssb-prod-<teamnavn>-data-synk-opp`. Når overføringsjobben er ferdig vil du kunne finne igjen dataene i den mappen som ble definert i stegene overnfor.
 
 ### Overføring fra Dapla til Linuxstammen
 
 Overføringsjobben settes opp nesten identisk med [Overføring fra Linuxstammen til Dapla](#overføring-fra-linuxstammen-til-dapla) med unntak av følgende:
 
 * Steg 1: Velg `Google cloud storage` under "Source type" og `POSIX filesystem` under "Destination type"
-* Steg 2: Velg bøtten `ssb-prod-<team-name>-data-synk-ned`
+* Steg 2: Velg bøtten `ssb-prod-<teamnavn>-data-synk-ned`
 * Step 3: Velg `transfer_service_default` som "Agent pool" og skriv `data/frasky` inn i feltet for "Destination directory path".
 
-For å se om data har blitt overført til Linuxstammen må du nå gå til mappen `/ssb/cloud_sync/<team-name>/data/frasky` fra FileZilla.
+For å se om data har blitt overført til Linuxstammen må du nå gå til mappen `/ssb/cloud_sync/<teamnavn>/data/frasky` fra FileZilla.
 
 Husk: Du kan alltids gå tilbake og se på tidligere fullførte jobber, og starte en overføringsjobb manuelt fra menyen `Transfer jobs`.
 
+### Overføring mellom bøtter
+
+Det er også mulig å sette opp overføringsjobber mellom bøtter. For eksempel fra `ssb-prod-<teamnavn>-data-synk-opp` til `ssb-prod-<teamnavn>-data-kilde`.
+Stegene under viser hvordan man overfører mellom de nevnte bøttene.
+Tar man utgangspunkt i @fig-transfer-tilsky skal følgende gjøres:
+
+1. Velg `Google cloud storage` under både "Source type" og "Destination type".
+2. Velg bøtten `ssb-prod-<teamnavn>-data-synk-opp` under `choose source`.
+3. Trykk på nedtrekksmenyen ved siden av `Project ID`. Deretter velger du bøtten `ssb-prod-<teamnavn>-data-kilde`.
+4. Konfigurer overføringstjenestens hyppighet (`Choose when to run job`).
+5. Beskriv overføringsjobben, f.eks: "Flytter data for &lt;teamnavn&gt; fra `ssb-prod-<teamnavn>-data-synk-opp` til `ssb-prod-<teamnavn>-data-kilde`".
+
+Trykk så på den blå `Create`-knappen.
+    
+    
 ## Skrive ut data
 
 Når du har satt opp en, enten for å overføre fra sky eller til sky, kan du skrive ut data til mappen eller bøtten som du har bedt **Transfer Service** om å overføre data fra. 
