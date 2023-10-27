@@ -2,230 +2,230 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://manual.dapla.ssb.no/datadoc.html</loc>
-    <lastmod>2023-10-26T18:04:11.232Z</lastmod>
+    <lastmod>2023-10-27T08:45:02.988Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/hvorfor-dapla.html</loc>
-    <lastmod>2023-10-26T18:04:09.504Z</lastmod>
+    <lastmod>2023-10-27T08:45:01.355Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/bakkesystemer.html</loc>
-    <lastmod>2023-10-26T18:04:08.688Z</lastmod>
+    <lastmod>2023-10-27T08:45:00.555Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/spark.html</loc>
-    <lastmod>2023-10-26T18:04:07.720Z</lastmod>
+    <lastmod>2023-10-27T08:44:59.635Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/kildedata-prosessering.html</loc>
-    <lastmod>2023-10-26T18:04:04.216Z</lastmod>
+    <lastmod>2023-10-27T08:44:56.207Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/lokale-utviklingsmiljøer.html</loc>
-    <lastmod>2023-10-26T18:04:03.096Z</lastmod>
+    <lastmod>2023-10-27T08:44:55.099Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/preface.html</loc>
-    <lastmod>2023-10-26T18:04:02.076Z</lastmod>
+    <lastmod>2023-10-27T08:44:54.107Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/sas.html</loc>
-    <lastmod>2023-10-26T18:04:01.208Z</lastmod>
+    <lastmod>2023-10-27T08:44:53.275Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/dapla-team.html</loc>
-    <lastmod>2023-10-26T18:03:59.772Z</lastmod>
+    <lastmod>2023-10-27T08:44:51.915Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/automatisering.html</loc>
-    <lastmod>2023-10-26T18:03:58.632Z</lastmod>
+    <lastmod>2023-10-27T08:44:50.623Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/statistikkproduksjon.html</loc>
-    <lastmod>2023-10-26T18:03:57.508Z</lastmod>
+    <lastmod>2023-10-27T08:44:49.403Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/introduksjon.html</loc>
-    <lastmod>2023-10-26T18:03:56.064Z</lastmod>
+    <lastmod>2023-10-27T08:44:47.959Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/statistikkbanken.html</loc>
-    <lastmod>2023-10-26T18:03:54.724Z</lastmod>
+    <lastmod>2023-10-27T08:44:46.579Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/visualisering.html</loc>
-    <lastmod>2023-10-26T18:03:53.372Z</lastmod>
+    <lastmod>2023-10-27T08:44:45.291Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/administrasjon-av-team.html</loc>
-    <lastmod>2023-10-26T18:03:52.500Z</lastmod>
+    <lastmod>2023-10-27T08:44:44.415Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/hva-er-botter.html</loc>
-    <lastmod>2023-10-26T18:03:51.208Z</lastmod>
+    <lastmod>2023-10-27T08:44:43.139Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/contribution.html</loc>
-    <lastmod>2023-10-26T18:03:49.848Z</lastmod>
+    <lastmod>2023-10-27T08:44:41.827Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/opprette-dapla-team.html</loc>
-    <lastmod>2023-10-26T18:03:48.900Z</lastmod>
+    <lastmod>2023-10-27T08:44:40.859Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/git-og-github.html</loc>
-    <lastmod>2023-10-26T18:03:47.952Z</lastmod>
+    <lastmod>2023-10-27T08:44:40.035Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/datatilstander.html</loc>
-    <lastmod>2023-10-26T18:03:46.236Z</lastmod>
+    <lastmod>2023-10-27T08:44:38.455Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/jobbe-med-kode.html</loc>
-    <lastmod>2023-10-26T18:03:45.320Z</lastmod>
+    <lastmod>2023-10-27T08:44:37.635Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/jobbe-med-data.html</loc>
-    <lastmod>2023-10-26T18:03:42.712Z</lastmod>
+    <lastmod>2023-10-27T08:44:35.191Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/ssbproject.html</loc>
-    <lastmod>2023-10-26T18:03:40.344Z</lastmod>
+    <lastmod>2023-10-27T08:44:32.919Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/notebooks/spark/deltalake-intro.html</loc>
-    <lastmod>2023-10-26T18:03:39.228Z</lastmod>
+    <lastmod>2023-10-27T08:44:31.819Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/produksjonsløp.html</loc>
-    <lastmod>2023-10-26T18:03:37.756Z</lastmod>
+    <lastmod>2023-10-27T08:44:30.371Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/hva-er-dapla.html</loc>
-    <lastmod>2023-10-26T18:03:36.888Z</lastmod>
+    <lastmod>2023-10-27T08:44:29.503Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/standarder.html</loc>
-    <lastmod>2023-10-26T18:03:36.008Z</lastmod>
+    <lastmod>2023-10-27T08:44:28.631Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/bakke-til-sky.html</loc>
-    <lastmod>2023-10-26T18:03:34.748Z</lastmod>
+    <lastmod>2023-10-27T08:44:27.343Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/kildedata.html</loc>
-    <lastmod>2023-10-26T18:03:32.996Z</lastmod>
+    <lastmod>2023-10-27T08:44:25.671Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/kartdata.html</loc>
-    <lastmod>2023-10-26T18:03:34.348Z</lastmod>
+    <lastmod>2023-10-27T08:44:26.943Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/hva-er-dapla-team.html</loc>
-    <lastmod>2023-10-26T18:03:35.636Z</lastmod>
+    <lastmod>2023-10-27T08:44:28.243Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/gcc.html</loc>
-    <lastmod>2023-10-26T18:03:36.484Z</lastmod>
+    <lastmod>2023-10-27T08:44:29.099Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/slette-data.html</loc>
-    <lastmod>2023-10-26T18:03:37.352Z</lastmod>
+    <lastmod>2023-10-27T08:44:29.959Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/notebooks/spark/pyspark-intro.html</loc>
-    <lastmod>2023-10-26T18:03:38.464Z</lastmod>
+    <lastmod>2023-10-27T08:44:31.063Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/notebooks/spark/sparkr-intro.html</loc>
-    <lastmod>2023-10-26T18:03:39.888Z</lastmod>
+    <lastmod>2023-10-27T08:44:32.479Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/versjonering-av-datasett.html</loc>
-    <lastmod>2023-10-26T18:03:41.168Z</lastmod>
+    <lastmod>2023-10-27T08:44:33.731Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/gjenopprette-data.html</loc>
-    <lastmod>2023-10-26T18:03:43.176Z</lastmod>
+    <lastmod>2023-10-27T08:44:35.631Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/oracle.html</loc>
-    <lastmod>2023-10-26T18:03:45.780Z</lastmod>
+    <lastmod>2023-10-27T08:44:38.039Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/virtual-env.html</loc>
-    <lastmod>2023-10-26T18:03:46.692Z</lastmod>
+    <lastmod>2023-10-27T08:44:38.859Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/jupyterlab.html</loc>
-    <lastmod>2023-10-26T18:03:48.404Z</lastmod>
+    <lastmod>2023-10-27T08:44:40.431Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/koble-data.html</loc>
-    <lastmod>2023-10-26T18:03:49.288Z</lastmod>
+    <lastmod>2023-10-27T08:44:41.303Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/index.html</loc>
-    <lastmod>2023-10-26T18:03:50.304Z</lastmod>
+    <lastmod>2023-10-27T08:44:42.255Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/automatisering-avansert.html</loc>
-    <lastmod>2023-10-26T18:03:51.936Z</lastmod>
+    <lastmod>2023-10-27T08:44:43.843Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/ordforklaringer.html</loc>
-    <lastmod>2023-10-26T18:03:52.984Z</lastmod>
+    <lastmod>2023-10-27T08:44:44.919Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/pakke-install-bakken.html</loc>
-    <lastmod>2023-10-26T18:03:54.144Z</lastmod>
+    <lastmod>2023-10-27T08:44:46.011Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/nytt-ssbproject.html</loc>
-    <lastmod>2023-10-26T18:03:55.688Z</lastmod>
+    <lastmod>2023-10-27T08:44:47.563Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/altinn3.html</loc>
-    <lastmod>2023-10-26T18:03:57.072Z</lastmod>
+    <lastmod>2023-10-27T08:44:48.987Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/orkestrering.html</loc>
-    <lastmod>2023-10-26T18:03:57.884Z</lastmod>
+    <lastmod>2023-10-27T08:44:49.791Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/innlogging.html</loc>
-    <lastmod>2023-10-26T18:03:59.280Z</lastmod>
+    <lastmod>2023-10-27T08:44:51.515Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/overføring-av-data.html</loc>
-    <lastmod>2023-10-26T18:04:00.800Z</lastmod>
+    <lastmod>2023-10-27T08:44:52.891Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/lage-nettsider.html</loc>
-    <lastmod>2023-10-26T18:04:01.636Z</lastmod>
+    <lastmod>2023-10-27T08:44:53.659Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/dashboard.html</loc>
-    <lastmod>2023-10-26T18:04:02.696Z</lastmod>
+    <lastmod>2023-10-27T08:44:54.719Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/systemoversikt.html</loc>
-    <lastmod>2023-10-26T18:04:03.512Z</lastmod>
+    <lastmod>2023-10-27T08:44:55.495Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/annet.html</loc>
-    <lastmod>2023-10-26T18:04:04.608Z</lastmod>
+    <lastmod>2023-10-27T08:44:56.627Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/github-app-integrasjon.html</loc>
-    <lastmod>2023-10-26T18:04:08.292Z</lastmod>
+    <lastmod>2023-10-27T08:45:00.171Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/arkivering.html</loc>
-    <lastmod>2023-10-26T18:04:09.088Z</lastmod>
+    <lastmod>2023-10-27T08:45:00.939Z</lastmod>
   </url>
   <url>
     <loc>https://manual.dapla.ssb.no/navnestandard-datalagring.html</loc>
-    <lastmod>2023-10-26T18:04:10.660Z</lastmod>
+    <lastmod>2023-10-27T08:45:02.415Z</lastmod>
   </url>
 </urlset>

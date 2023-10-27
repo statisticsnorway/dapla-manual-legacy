@@ -411,6 +411,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#overføring-fra-linuxstammen-til-dapla" id="toc-overføring-fra-linuxstammen-til-dapla" class="nav-link" data-scroll-target="#overføring-fra-linuxstammen-til-dapla">Overføring fra Linuxstammen til Dapla</a></li>
   <li><a href="#overføring-fra-dapla-til-linuxstammen" id="toc-overføring-fra-dapla-til-linuxstammen" class="nav-link" data-scroll-target="#overføring-fra-dapla-til-linuxstammen">Overføring fra Dapla til Linuxstammen</a></li>
+  <li><a href="#overføring-mellom-bøtter" id="toc-overføring-mellom-bøtter" class="nav-link" data-scroll-target="#overføring-mellom-bøtter">Overføring mellom bøtter</a></li>
   </ul></li>
   <li><a href="#skrive-ut-data" id="toc-skrive-ut-data" class="nav-link" data-scroll-target="#skrive-ut-data">Skrive ut data</a></li>
   </ul></li>
@@ -424,7 +425,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overføring-av-data" class="level1">
 <h1>Overføring av data</h1>
-<p>For å overføre data mellom bakke og sky brukes <strong>Data Transfer</strong>, som er en tjeneste i <a href="./gcc.html">Google Cloud Console</a>. Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets <strong>kildedataansvarlige</strong>.</p>
+<p>For å overføre data mellom bakke og sky brukes <strong>Data Transfer</strong>, som er en tjeneste i <a href="./gcc.html">Google Cloud Console</a>. Denne tjenesten kan brukes til å flytte data både til og fra Linuxstammen og Dapla, og er tilgjengelig for teamets <strong>kildedataansvarlige</strong>. Den kan også brukes til å flytte data mellom bøtter.</p>
 <p>For å få tilgang til å overføre filer må man be om dette ved opprettelsen av teamet. Ber man om det skjer følgende:</p>
 <ol type="1">
 <li>En mappe blir opprettet på Linux i prodsonen under <code>/ssb/cloud_sync/</code></li>
@@ -476,21 +477,33 @@ ul.task-list li input[type="checkbox"] {
 <li>I feltet “Source directory path” skal man kun skrive <code>data/tilsky</code> siden overføringsagenten kun har tilgang til mapper som ligger relativt plassert under <code>/ssb/cloud_sync/&lt;teamnavn&gt;/</code>. Trykk <code>Next step</code></li>
 <li>Velg en destinasjon for overføringsjobben. Trykk på <code>Browse</code> og velg bøtten med navn som passer til <code>ssb-prod-&lt;teamnavn&gt;-data-synk-opp</code>. Vi anbefaler at du også oppretter en mappe inne i denne bøtten. Det gjøres ved å trykke på mappeikonet med et <code>+</code>-tegn foran. Skriv inn et passende mappenavn og trykk <code>Select</code> i bunnen av siden. Trykk deretter <code>Next step</code></li>
 <li>Neste steg “Choose how and when to run this job” er opp til brukeren å bestemme. Hvis man f.eks. velger at Data Transfer skal overføre data en gang i uken, vil den kun starte en overføring hvis det finnes nye data. Trykk <code>Next step</code></li>
-<li>Beskriv overføringsjobben, f.eks: “Flytter data for <team-name> til sky.”. Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.</team-name></li>
+<li>Beskriv overføringsjobben, f.eks: “Flytter data for &lt;teamnavn&gt; til sky”. Resten av feltene er opp til brukeren å bestemme. Standardverdiene er OK.</li>
 </ol>
 <p>Trykk til slutt på den blå <code>Create</code>-knappen. Du vil kunne se kjørende jobber under menyen <code>Transfer jobs</code>.</p>
-<p>For å sjekke om data har blitt overført, skriv inn <code>cloud storage</code> i søkefeltet øverst på siden og trykk på det første valget som kommer opp. Her vil du finne en oversikt over alle teamets bøtter, deriblant en med navn <code>ssb-prod-&lt;team-name&gt;-data-synk-opp</code>. Når overføringsjobben er ferdig vil du kunne finne igjen dataene i den mappen som ble definert i stegene overnfor.</p>
+<p>For å sjekke om data har blitt overført, skriv inn <code>cloud storage</code> i søkefeltet øverst på siden og trykk på det første valget som kommer opp. Her vil du finne en oversikt over alle teamets bøtter, deriblant en med navn <code>ssb-prod-&lt;teamnavn&gt;-data-synk-opp</code>. Når overføringsjobben er ferdig vil du kunne finne igjen dataene i den mappen som ble definert i stegene overnfor.</p>
 </section>
 <section id="overføring-fra-dapla-til-linuxstammen" class="level3">
 <h3 class="anchored" data-anchor-id="overføring-fra-dapla-til-linuxstammen">Overføring fra Dapla til Linuxstammen</h3>
 <p>Overføringsjobben settes opp nesten identisk med <a href="#overføring-fra-linuxstammen-til-dapla">Overføring fra Linuxstammen til Dapla</a> med unntak av følgende:</p>
 <ul>
 <li>Steg 1: Velg <code>Google cloud storage</code> under “Source type” og <code>POSIX filesystem</code> under “Destination type”</li>
-<li>Steg 2: Velg bøtten <code>ssb-prod-&lt;team-name&gt;-data-synk-ned</code></li>
+<li>Steg 2: Velg bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-synk-ned</code></li>
 <li>Step 3: Velg <code>transfer_service_default</code> som “Agent pool” og skriv <code>data/frasky</code> inn i feltet for “Destination directory path”.</li>
 </ul>
-<p>For å se om data har blitt overført til Linuxstammen må du nå gå til mappen <code>/ssb/cloud_sync/&lt;team-name&gt;/data/frasky</code> fra FileZilla.</p>
+<p>For å se om data har blitt overført til Linuxstammen må du nå gå til mappen <code>/ssb/cloud_sync/&lt;teamnavn&gt;/data/frasky</code> fra FileZilla.</p>
 <p>Husk: Du kan alltids gå tilbake og se på tidligere fullførte jobber, og starte en overføringsjobb manuelt fra menyen <code>Transfer jobs</code>.</p>
+</section>
+<section id="overføring-mellom-bøtter" class="level3">
+<h3 class="anchored" data-anchor-id="overføring-mellom-bøtter">Overføring mellom bøtter</h3>
+<p>Det er også mulig å sette opp overføringsjobber mellom bøtter. For eksempel fra <code>ssb-prod-&lt;teamnavn&gt;-data-synk-opp</code> til <code>ssb-prod-&lt;teamnavn&gt;-data-kilde</code>. Stegene under viser hvordan man overfører mellom de nevnte bøttene. Tar man utgangspunkt i <a href="#fig-transfer-tilsky">Figur&nbsp;3</a> skal følgende gjøres:</p>
+<ol type="1">
+<li>Velg <code>Google cloud storage</code> under både “Source type” og “Destination type”.</li>
+<li>Velg bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-synk-opp</code> under <code>choose source</code>.</li>
+<li>Trykk på nedtrekksmenyen ved siden av <code>Project ID</code>. Deretter velger du bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-kilde</code>.</li>
+<li>Konfigurer overføringstjenestens hyppighet (<code>Choose when to run job</code>).</li>
+<li>Beskriv overføringsjobben, f.eks: “Flytter data for &lt;teamnavn&gt; fra <code>ssb-prod-&lt;teamnavn&gt;-data-synk-opp</code> til <code>ssb-prod-&lt;teamnavn&gt;-data-kilde</code>”.</li>
+</ol>
+<p>Trykk så på den blå <code>Create</code>-knappen.</p>
 </section>
 </section>
 <section id="skrive-ut-data" class="level2">
