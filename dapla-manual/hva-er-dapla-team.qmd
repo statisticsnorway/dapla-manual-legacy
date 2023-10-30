@@ -5,6 +5,7 @@ For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla
 - Lagringsområde for data i [Google Cloud Storage (GCS)](https://cloud.google.com/storage#section-1)^[Lagringsområdet tilsvarer *stammene* på bakken.]
 - Tilgangskontroll til lagringsområdet
 - Tjeneste for synkronisering av data mellom bakke og sky ([Transfer Service](https://cloud.google.com/storage-transfer-service))
+- Mulighet til automatisk prosessering av kildedata til inndata ved bruk av [automatiseringstjenesten](https://manual.dapla.ssb.no/automatisering.html)
 
 Et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team som er bestemt av SSB selv. I det følgende forklarer vi begge deler.
 
@@ -41,7 +42,7 @@ I @fig-bucket-structure ser vi hvordan lagringsbøttene plasserer seg under pros
 ::: {.callout-note}
 ## Hva er en bøtte?
 
-Vi kommer til å bruke ordet **bøtte** mye i denne delen, og det er derfor ryddig å forklare hva det er. 
+Vi kommer til å bruke ordet **bøtte** mye i denne delen.
 
 En [*bøtte*](https://cloud.google.com/storage/docs/buckets) er et lagringsområde for data i GCP. En bøtte inneholder objekter av data og metadata som kan organiseres på en slik måte at det likner på filer organisert i mapper og undermapper. Objektene i bøtter er lagret "distribuert", det vil si at de ligger lagret på ulike maskiner ute i "skyen", og kan nås via en tjeneste i GCP som heter Cloud Storage (GCS). Bøtter er noe annet enn mapper, og har derfor fått et eget ord på engelsk (*buckets*).
 
@@ -57,13 +58,13 @@ Lagringsområdene for Dapla-team består av *Google Cloud Storage (GCS) buckets*
 
 Under prosjektet **prod-arbmark-skjema** ligger det 3 bøtter:
 
-- **ssb-prod-arbmark-skjema-data-delt**  
+1. **ssb-prod-arbmark-skjema-data-delt**  
 Lagring av data som skal deles med andre i SSB. Kan innholde *inndata*, *klargjorte data*, *statistikkdata* og *utdata*.
 
-- **ssb-prod-arbmark-skjema-data-kilde**  
+2. **ssb-prod-arbmark-skjema-data-kilde**  
 Langtidslagring av kildedata (se definisjon). Kan kun inneholde *kildedata*.
 
-- **ssb-prod-arbmark-skjema-data-produkt**  
+3. **ssb-prod-arbmark-skjema-data-produkt**  
 Lagring av data i statistikkproduksjon. Kan innholde *inndata*, *klargjorte data*, *statistikkdata* og *utdata*.
 
 Disse lagringsområdene er nært knyttet til de ulike datatilstandene som blir beskrevet senere. 
@@ -72,16 +73,16 @@ Disse lagringsområdene er nært knyttet til de ulike datatilstandene som blir b
 
 Under prosjektet **arbmark-skjema-ts** ligger det 2 bøtter som kun er tilgjengelig for kildedata-ansvarlig (data-admins) i Dapla-teamet. Disse bøttene er:
 
-- **ssb-arbmark-skjema-ts-data-synk-opp**  
+1. **ssb-arbmark-skjema-ts-data-synk-opp**  
 Her ligger data som er blitt synkronisert opp fra bakke til sky.
 
-- **ssb-arbmark-skjema-ts-data-synk-ned**  
+2. **ssb-arbmark-skjema-ts-data-synk-ned**  
 Her ligger data som skal synkroniseres ned fra sky til bakke.
 
-- **/ssb/cloud_sync/arbmark-skjema/**  
-Lagringsområdet på bakken for synkronisering av data mellom bakke og sky.
-
 Kun kildedata-ansvarlig har lese- og skrivetilgang til disse bøttene. Det er også kildedata-ansvarlig som kan sette opp jobber med **Transfer Service** for å synkronisere data mellom bakke og sky.
+
+I tillegg til bøttene er det et lagringsområde på bakken for synkronisering av data mellom bakke og sky:
+- **/ssb/cloud_sync/arbmark-skjema/**  
 
 ### Tilgangsroller
 
