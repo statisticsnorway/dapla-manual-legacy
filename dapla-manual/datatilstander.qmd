@@ -1,6 +1,14 @@
 # Datatilstander
 
-> Det er naturlig at hovedfokus i SSBs kvalitetsarbeid er rettet mot statistikkene. Samtidig har bådeforventninger og krav til SSBs evne til å dele data økt betydelig de senere år. Det betyr at i tillegg til å produsere hovedproduktet «statistikk», så vil mange statistikkteam ha økt fokus på å produseregjenbrukbare datasett med høy kvalitet. En viktig forutsetning for gjenbruk er at de som vil brukedataene, kan vite hvilke endringer dataene har gjennomgått. Det må også være mulig for andre å finne og forstå dataene. Kvalitetssikret bruk av data i SSB og gjenbruk i og utenfor SSB fordrer godemetadata. Definisjoner av datatilstander og andre statistikkbegreper må derfor i størst mulig gradvære avstemt med internasjonale statistiske rammeverk og definisjoner.
+**Datatilstander** er et sentrale for statistikkproduksjon. Denne siden er ment som en kort innføring i de forskjellige datatilstandene. En datatilstand er **et resultat av at et datasett har gått gjennom gitte operasjoner og prosesser**. Vi skiller mellom fem datatilstander:
+
+1. Kildedata
+2. Inndata
+3. Klargjorte data
+4. Statistikk
+5. Utdata
+
+> Det er naturlig at hovedfokus i SSBs kvalitetsarbeid er rettet mot statistikkene. Samtidig har bådeforventninger og krav til SSBs evne til å dele data økt betydelig de senere år. Det betyr at i tillegg til å produsere hovedproduktet «statistikk», så vil mange statistikkteam ha økt fokus på å produsere gjenbrukbare datasett med høy kvalitet. En viktig forutsetning for gjenbruk er at de som vil brukedataene, kan vite hvilke endringer dataene har gjennomgått. Det må også være mulig for andre å finne og forstå dataene. Kvalitetssikret bruk av data i SSB og gjenbruk i og utenfor SSB fordrer gode metadata. Definisjoner av datatilstander og andre statistikkbegreper må derfor i størst mulig gradvære avstemt med internasjonale statistiske rammeverk og definisjoner.
 >
 > Begrepet «etterprøvbarhet» brukes flere steder i notatet, og det legges til grunn at vi bør ha som et ideal å produsere statistikk på en slik måte at ettertiden eller en uavhengig instans med tilgang til dataene og vår dokumentasjon vil komme til samme statistiske resultater som oss selv.
 >
