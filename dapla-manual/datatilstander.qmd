@@ -1,22 +1,46 @@
 # Datatilstander
 
-**Datatilstander** er et sentrale for statistikkproduksjon. Denne siden er ment som en kort innføring i de forskjellige datatilstandene. En datatilstand er **et resultat av at et datasett har gått gjennom gitte operasjoner og prosesser** [@datatilstander]. Vi skiller mellom fem datatilstander:
+En datatilstand er "*et resultat av at et datasett har gått gjennom gitte operasjoner og prosesser*" [@datatilstander pp. 5]. Denne siden er ment som en kort innføring i de forskjellige datatilstandene. Siden er basert på det interne dokumentet [Datatilstander SSB - 2. utgave](https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023%2F2023%2D14%20Datatilstander%20i%20SSB%2Epdf&parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023). Definisjonene er direkte utdrag fra dette dokumentet. Se interdokumentet for en mer grundig gjennomgang av datatilstander i SSB.
 
-1. Kildedata
-2. Inndata
-3. Klargjorte data
-4. Statistikk
-5. Utdata
+I SSB skiller vi mellom fem datatilstander:
+
+##### <span style="color:black;"> 1. Kildedata </span>
+##### <span style="color:black;"> 2. Inndata </span>
+##### <span style="color:black;"> 3. Klargjorte data </span>
+##### <span style="color:black;"> 4. Statistikk </span>
+##### <span style="color:black;"> 5. Utdata </span> 
+
+Av disse er alle utenom inndata obligatoriske datatilstander.
 
 ### Kildedata
+Kildedata er **data lagret slik de ble levert til SSB fra dataeier**. Eksempler på kildedata er: *grunndata*, *transaksjonsdata*, *administrative data*, *statistiske data* og *aggregerte data og rapporter* [@datatilstander pp. 7].
 
 ### Inndata
+Inndata er **kildedata som er transformert til SSBs standard lagringsformat** [@datatilstander pp. 8]. Denne transformeringer inkluderer blant annet at dataene skal benytte UTF-8 tegnsett. Les mer om SSBs standard lagringsformat [her](https://statistics-norway.atlassian.net/wiki/spaces/MPD/pages/2953084957/Standardformater#UTF-8-tegnsett).
+Inndata kan også være andre statistikkers glargjorte data og/eller statistikkdata [@datatilstander pp. 8]. Inndata er ikke en obligatorisk datatilstand.
 
 ### Klargjorte data
+Klargjorte data er inndata hvor:
+
+* variablene er beregnet gjennom utregninger og koblinger mellom datasett
+
+* nøyaktigheten er forbedret
+    + for eksempel som resultat av editering eller imputering
+    
+* metadata med variabeldefinisjoner er lagt til.
+
+Enhver endring som er gjort skal være sporbare og dokumentert slik at statistikkene skal være etterprøvbare. Klargjorte date er som regel *ikke* aggregerte - med mindre dataen vi mottar er aggregert [@datatilstander pp. 9].
 
 ### Statistikk
+Statistikk er "Tallfestede opplysninger om en gruppe eller et fenomen, og som kommer frem ved en sammenstilling og bearbeidelse av opplysninger om de enkelte enhetene i gruppen eller et utvalg av disse enhetene, eller ved systematisk observasjon av fenomenet" ifølge statistikkloven § 3a [@datatilstander pp. 10].
+
+Statistikk er ofte aggregerte data eller estimerte størrelser. Vi skiller mellom ujustert statistikk og justert statistikk. Indekser og sesongjusterte tall er eksempler på justert statistikk [@datatilstander pp. 10].
+
+Statistikk kan være inndata til andre statistikker, og kan dermed inneholde konfidensielle og detaljerte data som ikke publiseres.
 
 ### Utdata
+
+Utdata er **statistikk der kravene til konfidensialtet er ivaretatt**. Dette er datatilstanden som publiseres. Eksempler inkluderer: *statistikkbanktabeller*, *tabelloppdrag* og *internasjonal rapportering* [@datatilstander pp. 11].
 
 > Det er naturlig at hovedfokus i SSBs kvalitetsarbeid er rettet mot statistikkene. Samtidig har bådeforventninger og krav til SSBs evne til å dele data økt betydelig de senere år. Det betyr at i tillegg til å produsere hovedproduktet «statistikk», så vil mange statistikkteam ha økt fokus på å produsere gjenbrukbare datasett med høy kvalitet. En viktig forutsetning for gjenbruk er at de som vil brukedataene, kan vite hvilke endringer dataene har gjennomgått. Det må også være mulig for andre å finne og forstå dataene. Kvalitetssikret bruk av data i SSB og gjenbruk i og utenfor SSB fordrer gode metadata. Definisjoner av datatilstander og andre statistikkbegreper må derfor i størst mulig gradvære avstemt med internasjonale statistiske rammeverk og definisjoner.
 >
