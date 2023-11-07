@@ -10,7 +10,7 @@ I SSB skiller vi mellom fem datatilstander:
 ##### <span style="color:black;"> 4. Statistikk </span>
 ##### <span style="color:black;"> 5. Utdata </span> 
 
-Noen datatilstander er obligatoriske. Dette gjelder utenom inndata.
+Noen datatilstander er obligatoriske. Dette gjelder alle tilstandene utenom inndata.
 
 ![Figur 1: Datatilstander](images/datatilstander.png){fig-alt="Datatilstander" width="100%"}
 
