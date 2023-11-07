@@ -55,7 +55,7 @@ Det er forskjellige forventinger til metadata for de ulike datatilstandene. Fors
 - I utgangspunktet samme som kildedata
 
 ###### <span style="color:black;"> <ins> Klargjorte data </ins> </span>
-- Variabeldefinisjoner - beskrivelse afv hver enkelt variabel og hvordan den er beregnet
+- Variabeldefinisjoner - beskrivelse av hver enkelt variabel og hvordan den er beregnet
 - Nøyaktighetsforbedrende tiltak som er utført
 
 ###### <span style="color:black;"> <ins> Statistikk </ins> </span>
