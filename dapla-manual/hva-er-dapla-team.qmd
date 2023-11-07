@@ -5,6 +5,7 @@ For å kunne jobbe med skarpe/ekte data på Dapla må man opprette et et **Dapla
 - Lagringsområde for data i [Google Cloud Storage (GCS)](https://cloud.google.com/storage#section-1)^[Lagringsområdet tilsvarer *stammene* på bakken.]
 - Tilgangskontroll til lagringsområdet
 - Tjeneste for synkronisering av data mellom bakke og sky ([Transfer Service](https://cloud.google.com/storage-transfer-service))
+- Mulighet til automatisk prosessering av kildedata til inndata ved bruk av [automatiseringstjenesten](https://manual.dapla.ssb.no/automatisering.html)
 
 Et Dapla-team er ikke bare et sett med Google-tjenester knyttet til en gruppe ansatte. Det er også knyttet arbeidsprosesser og rutiner til et Dapla-team som er bestemt av SSB selv. I det følgende forklarer vi begge deler.
 
@@ -41,7 +42,7 @@ I @fig-bucket-structure ser vi hvordan lagringsbøttene plasserer seg under pros
 ::: {.callout-note}
 ## Hva er en bøtte?
 
-Vi kommer til å bruke ordet **bøtte** mye i denne delen, og det er derfor ryddig å forklare hva det er. 
+Vi kommer til å bruke ordet **bøtte** mye i denne delen. Her er en forklaring av hva som menes med bøtte:
 
 En [*bøtte*](https://cloud.google.com/storage/docs/buckets) er et lagringsområde for data i GCP. En bøtte inneholder objekter av data og metadata som kan organiseres på en slik måte at det likner på filer organisert i mapper og undermapper. Objektene i bøtter er lagret "distribuert", det vil si at de ligger lagret på ulike maskiner ute i "skyen", og kan nås via en tjeneste i GCP som heter Cloud Storage (GCS). Bøtter er noe annet enn mapper, og har derfor fått et eget ord på engelsk (*buckets*).
 
@@ -57,13 +58,13 @@ Lagringsområdene for Dapla-team består av *Google Cloud Storage (GCS) buckets*
 
 Under prosjektet **prod-arbmark-skjema** ligger det 3 bøtter:
 
-- **ssb-prod-arbmark-skjema-data-delt**  
-Lagring av data som skal deles med andre i SSB. Kan innholde *inndata*, *klargjorte data*, *statistikkdata* og *utdata*.
+1. **ssb-prod-arbmark-skjema-data-delt**  
+Lagring av data som skal deles med andre i SSB. Kan innholde [*inndata*, *klargjorte data*, *statistikkdata* og *utdata*]().
 
-- **ssb-prod-arbmark-skjema-data-kilde**  
-Langtidslagring av kildedata (se definisjon). Kan kun inneholde *kildedata*.
+2. **ssb-prod-arbmark-skjema-data-kilde**  
+Langtidslagring av [kildedata](https://manual.dapla.ssb.no/hva-er-dapla-team.html#kildedata). Kan kun inneholde *kildedata*.
 
-- **ssb-prod-arbmark-skjema-data-produkt**  
+3. **ssb-prod-arbmark-skjema-data-produkt**  
 Lagring av data i statistikkproduksjon. Kan innholde *inndata*, *klargjorte data*, *statistikkdata* og *utdata*.
 
 Disse lagringsområdene er nært knyttet til de ulike datatilstandene som blir beskrevet senere. 
@@ -72,28 +73,28 @@ Disse lagringsområdene er nært knyttet til de ulike datatilstandene som blir b
 
 Under prosjektet **arbmark-skjema-ts** ligger det 2 bøtter som kun er tilgjengelig for kildedata-ansvarlig (data-admins) i Dapla-teamet. Disse bøttene er:
 
-- **ssb-arbmark-skjema-ts-data-synk-opp**  
+1. **ssb-arbmark-skjema-ts-data-synk-opp**  
 Her ligger data som er blitt synkronisert opp fra bakke til sky.
 
-- **ssb-arbmark-skjema-ts-data-synk-ned**  
+2. **ssb-arbmark-skjema-ts-data-synk-ned**  
 Her ligger data som skal synkroniseres ned fra sky til bakke.
 
-- **/ssb/cloud_sync/arbmark-skjema/**  
-Lagringsområdet på bakken for synkronisering av data mellom bakke og sky.
-
 Kun kildedata-ansvarlig har lese- og skrivetilgang til disse bøttene. Det er også kildedata-ansvarlig som kan sette opp jobber med **Transfer Service** for å synkronisere data mellom bakke og sky.
+
+I tillegg til bøttene er det et lagringsområde på bakken for synkronisering av data mellom bakke og sky:
+- **/ssb/cloud_sync/arbmark-skjema/**  
 
 ### Tilgangsroller
 
 Ved opprettelsen av et Dapla-team så blir du bedt om å plassere medlemmene i teamet i en av tre ulike tilgangsroller. Disse er:
 
-- **data-admins**  
+1. **data-admins**  
 Har lese- og skrivetilgang i alle lagringsområdene i Dapla-teamet. Siden dette er en priveligert rolle med potensiell tilgang til sensitiv data, så er det kun noen få personer som skal ha denne rollen i et Dapla-team. 
 
-- **developers**  
+2. **developers**  
 Har lese- og skrivetilgang i alle lagringsområdene i Dapla-teamet, med unntak av **ssb-prod-arbmark-skjema-data-kilde**, og bøttene i prosjektet **arbmark-skjema-ts**. Dvs. at alle som jobber med statistikkproduksjon tilknyttet teamets data, og som ikke er data-admin, skal ha denne rollen.
 
-- **consumers**  
+3. **consumers**  
 Medlemmer fra andre Dapla-team som har behov for tilgang til dette teamets data. De får lesetilgang til **ssb-prod-arbmark-skjema-data-delt**.  
 
 **data-admin** har i tillegg til lagringsområdene på sky, tilgang til denne mappen på bakken: `/ssb/cloud_sync/arbmark-skjema`. Her kan de legge filer som de ønsker å flytte til skyen.
@@ -112,7 +113,7 @@ Medlemmer fra andre Dapla-team som har behov for tilgang til dette teamets data.
 
 ### Automatiseringstjeneste
 
-Team Statistikktjenester jobber med en tjeneste for å automatisere overgangen fra **kildedata** til **inndata**. Denne tjenesten vil bli tilgjengelig for alle Dapla-team.
+Team Statistikktjenester har utviklet en tjeneste for å automatisere overgangen fra **kildedata** til **inndata**. Denne tjenesten er tilgjengelig for alle Dapla-team. Les mer om hvordan man setter opp en slik automatiseringstjenste [her](https://manual.dapla.ssb.no/automatisering.html).
 
 ## Prosesser og arbeidsrutiner
 
@@ -120,7 +121,7 @@ I tillegg til man får tilgang til spesifikke GCP-tjenester ved opprettelse av e
 
 ### Datatilstander
 
-Et viktig konsept på Dapla er datatilstander. Disse er definert i definert i vårt interne dokument **Datatilstander** av @datatilstander. I dokumentet presiseres det at tilstandene kildedata, klargjorte data og statistikkdata er obligatoriske for statistikkprodusenter på Dapla. 
+Et viktig konsept på Dapla er datatilstander. Disse er definert i vårt interne dokument **Datatilstander** av @datatilstander. I dokumentet presiseres det at tilstandene kildedata, klargjorte data og statistikkdata er obligatoriske for statistikkprodusenter på Dapla. 
 
 I tillegg har @tilgangsstyring konkretisert hvordan klassifisering og tilgangskontroll skal utføres på DAPLA. Under beskriver vi hvordan de to dokumentene påvirker et Dapla-team.
 
@@ -143,20 +144,18 @@ Det er ikke tenkt at data-admin skal måtte kjøre dette *manuelt*, men at det s
 
 Når kildedata har blitt transformert og beveget seg over i en av de andre datatilstandene, vil det ligge i **produkt-bøtta** og være tilgjengelig for alle med **developers**-tilgangen. 
 
-I produktbøtta skal det lagres tre typer data:
+I produktbøtta skal det lagres fire typer data:
 
 1. Inndata
 2. Klargjorte data
 2. Statistikkdata
 3. Utdata
 
-Les mer om det her.
+Les mer om de forskjellige datatypene [her](https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021).
 
 ### Deling av data
 
 Når andre Dapla-team skal ha tilgang til data fra ditt team, må de søke om å få tilgangsrollen **consumer** i ditt team. Du må dermed tilgjengeliggjøre dataene som skal deles i din delt-bøtte.
-
-Mer kommer. 
 
 
 
