@@ -25,13 +25,11 @@ Inndata kan også være andre statistikkers glargjorte data og/eller statistikkd
 Klargjorte data er inndata hvor:
 
 * variablene er beregnet gjennom utregninger og koblinger mellom datasett
-
 * nøyaktigheten er forbedret
     + for eksempel som resultat av editering eller imputering
-    
 * metadata med variabeldefinisjoner er lagt til.
 
-Enhver endring som er gjort skal være sporbare og dokumentert slik at statistikkene skal være etterprøvbare. Klargjorte date er som regel *ikke* aggregerte - med mindre dataen vi mottar er aggregert. Med andre ord inneholder klargjorte data fortsatt enkeltobservasjoner [@datatilstander2 pp. 9]. Klargjorte data lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
+Enhver endring som er gjort skal være sporbare og dokumentert slik at statistikkene skal være etterprøvbare. Klargjorte date er som regel *ikke* aggregerte - med mindre dataen vi mottar er aggregert. Med andre ord inneholder klargjorte data oftest enkeltobservasjoner - i likhet med kildedata og inndata [@datatilstander2 pp. 9]. Klargjorte data lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
 
 ### Statistikk
 Statistikk er "Tallfestede opplysninger om en gruppe eller et fenomen, og som kommer frem ved en sammenstilling og bearbeidelse av opplysninger om de enkelte enhetene i gruppen eller et utvalg av disse enhetene, eller ved systematisk observasjon av fenomenet" ifølge statistikkloven § 3a [@datatilstander2 pp. 10]. Statistikk lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
@@ -41,5 +39,28 @@ Statistikk er ofte aggregerte data eller estimerte størrelser. Vi skiller mello
 Statistikk kan være inndata til andre statistikker, og kan dermed inneholde konfidensielle og detaljerte data som ikke publiseres.
 
 ### Utdata
-
 Utdata er **statistikk der kravene til konfidensialtet er ivaretatt**. Dette er datatilstanden som publiseres. Eksempler inkluderer: *statistikkbanktabeller*, *tabelloppdrag* og *internasjonal rapportering* [@datatilstander2 pp. 11]. Utdata lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
+
+-----
+
+### Forventinger til metadata
+
+Det er forskjellige forventinger til metadata for de ulike datatilstandene. Forskjellene er skildret underdisse punktene:
+
+###### <span style="color:black;"> <ins> Kildedata </ins> </span>
+- Informasjon på datasettnivå som dataeier, området dataene omhandler og tidsinformasjon
+- Metadata om enkeltvariabler er begrenset til informasjonen dataeier selv avleverer.
+
+###### <span style="color:black;"> <ins> Inndata </ins> </span>
+- I utgangspunktet samme som kildedata
+
+###### <span style="color:black;"> <ins> Klargjorte data </ins> </span>
+- Variabeldefinisjoner - beskrivelse afv hver enkelt variabel og hvordan den er beregnet
+- Nøyaktighetsforbedrende tiltak som er utført
+
+###### <span style="color:black;"> <ins> Statistikk </ins> </span>
+- Variabeldefinisjoner
+- Hvilke metoder og programmer/kode som er benyttet for å produsere statistikken
+
+###### <span style="color:black;"> <ins> Utdata </ins> </span> 
+- I utgangspunktet samme som for statistikk
