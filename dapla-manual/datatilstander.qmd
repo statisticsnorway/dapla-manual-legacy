@@ -41,8 +41,6 @@ Statistikk kan være inndata til andre statistikker, og kan dermed inneholde kon
 ### Utdata
 Utdata er **statistikk der kravene til konfidensialtet er ivaretatt**. Dette er datatilstanden som publiseres. Eksempler inkluderer: *statistikkbanktabeller*, *tabelloppdrag* og *internasjonal rapportering* [@datatilstander2 pp. 11]. Utdata lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
 
------
-
 ### Forventinger til metadata
 
 Det er forskjellige forventinger til metadata for de ulike datatilstandene. Forskjellene er skildret underdisse punktene:
