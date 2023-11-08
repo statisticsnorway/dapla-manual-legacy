@@ -12,7 +12,7 @@ I SSB skiller vi mellom fem datatilstander:
 
 Noen datatilstander er obligatoriske. Dette gjelder alle tilstandene utenom inndata.
 
-![Figur 1: Datatilstander](images/datatilstander.png){fig-alt="Datatilstander" width="100%"}
+![Datatilstander](./images/datatilstander.png){fig-alt="Datatilstander" width="100%" #fig-datatilstander}
 
 ### Kildedata
 Kildedata er **data lagret slik de ble levert til SSB fra dataeier**. Eksempler på kildedata er: *grunndata*, *transaksjonsdata*, *administrative data*, *statistiske data* og *aggregerte data og rapporter* [@datatilstander2 pp. 7]. Kildedata lagres i bøtten `ssb-prod-<teamnavn>-data-kilde`. Les mer om bøtter [her](hva-er-botter.qmd) og lagringsstandarder [her](navnestandard-datalagring.qmd).
@@ -47,20 +47,20 @@ Utdata er **statistikk der kravene til konfidensialtet er ivaretatt**. Dette er 
 
 Det er forskjellige forventinger til metadata for de ulike datatilstandene. Forskjellene er skildret underdisse punktene:
 
-###### <span style="color:black;"> <ins> Kildedata </ins> </span>
+###### [Kildedata]{.underline}
 - Informasjon på datasettnivå som dataeier, området dataene omhandler og tidsinformasjon
 - Metadata om enkeltvariabler er begrenset til informasjonen dataeier selv avleverer.
 
-###### <span style="color:black;"> <ins> Inndata </ins> </span>
+###### [Inndata]{.underline}
 - I utgangspunktet samme som kildedata
 
-###### <span style="color:black;"> <ins> Klargjorte data </ins> </span>
+###### [Klargjorte data]{.underline} 
 - Variabeldefinisjoner - beskrivelse av hver enkelt variabel og hvordan den er beregnet
 - Nøyaktighetsforbedrende tiltak som er utført
 
-###### <span style="color:black;"> <ins> Statistikk </ins> </span>
+###### [Statistikk]{.underline}
 - Variabeldefinisjoner
 - Hvilke metoder og programmer/kode som er benyttet for å produsere statistikken
 
-###### <span style="color:black;"> <ins> Utdata </ins> </span> 
+###### [Utdata]{.underline}
 - I utgangspunktet samme som for statistikk
