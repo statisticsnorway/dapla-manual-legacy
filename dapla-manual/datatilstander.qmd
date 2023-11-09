@@ -4,11 +4,11 @@ En datatilstand er **et resultat av at et datasett har gått gjennom gitte opera
 
 I SSB skiller vi mellom fem datatilstander:
 
-##### 1. Kildedata
-##### 2. Inndata
-##### 3. Klargjorte data
-##### 4. Statistikk
-##### 5. Utdata
+1. Kildedata
+2. Inndata
+3. Klargjorte data
+4. Statistikk
+5. Utdata
 
 Noen datatilstander er obligatoriske. Dette gjelder alle tilstandene utenom inndata.
 
