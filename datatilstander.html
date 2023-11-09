@@ -424,7 +424,15 @@ div.csl-indent {
     <h2 id="toc-title">Innhold</h2>
    
   <ul>
-  <li><a href="#datatilstander" id="toc-datatilstander" class="nav-link active" data-scroll-target="#datatilstander">Datatilstander</a></li>
+  <li><a href="#datatilstander" id="toc-datatilstander" class="nav-link active" data-scroll-target="#datatilstander">Datatilstander</a>
+  <ul class="collapse">
+  <li><a href="#kildedata" id="toc-kildedata" class="nav-link" data-scroll-target="#kildedata">Kildedata</a></li>
+  <li><a href="#inndata" id="toc-inndata" class="nav-link" data-scroll-target="#inndata">Inndata</a></li>
+  <li><a href="#klargjorte-data" id="toc-klargjorte-data" class="nav-link" data-scroll-target="#klargjorte-data">Klargjorte data</a></li>
+  <li><a href="#statistikk" id="toc-statistikk" class="nav-link" data-scroll-target="#statistikk">Statistikk</a></li>
+  <li><a href="#utdata" id="toc-utdata" class="nav-link" data-scroll-target="#utdata">Utdata</a></li>
+  <li><a href="#forventinger-til-metadata" id="toc-forventinger-til-metadata" class="nav-link" data-scroll-target="#forventinger-til-metadata">Forventinger til metadata</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -435,20 +443,98 @@ div.csl-indent {
 
 <section id="datatilstander" class="level1">
 <h1>Datatilstander</h1>
-<blockquote class="blockquote">
-<p>Det er naturlig at hovedfokus i SSBs kvalitetsarbeid er rettet mot statistikkene. Samtidig har bådeforventninger og krav til SSBs evne til å dele data økt betydelig de senere år. Det betyr at i tillegg til å produsere hovedproduktet «statistikk», så vil mange statistikkteam ha økt fokus på å produseregjenbrukbare datasett med høy kvalitet. En viktig forutsetning for gjenbruk er at de som vil brukedataene, kan vite hvilke endringer dataene har gjennomgått. Det må også være mulig for andre å finne og forstå dataene. Kvalitetssikret bruk av data i SSB og gjenbruk i og utenfor SSB fordrer godemetadata. Definisjoner av datatilstander og andre statistikkbegreper må derfor i størst mulig gradvære avstemt med internasjonale statistiske rammeverk og definisjoner.</p>
-<p>Begrepet «etterprøvbarhet» brukes flere steder i notatet, og det legges til grunn at vi bør ha som et ideal å produsere statistikk på en slik måte at ettertiden eller en uavhengig instans med tilgang til dataene og vår dokumentasjon vil komme til samme statistiske resultater som oss selv.</p>
-<p>Tilstandene som beskrives er kildedata, inndata, klargjorte data, statistikk og utdata. De tre første er i hovedsak mikrodata som gir informasjon om enkeltenheter, mens statistikk og utdata i hovedsak er aggregerte data.</p>
-</blockquote>
-<p><span class="citation" data-cites="datatilstander">(<a href="#ref-datatilstander" role="doc-biblioref">Standardutvalget 2021, 5</a>)</span></p>
+<p>En datatilstand er <strong>et resultat av at et datasett har gått gjennom gitte operasjoner og prosesser</strong> <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 5</a>)</span>. Denne siden er ment som en kort innføring i de forskjellige datatilstandene. Siden er basert på det interne dokumentet <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023%2F2023%2D14%20Datatilstander%20i%20SSB%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023">Datatilstander SSB - 2. utgave</a>. Definisjonene er direkte utdrag fra dette dokumentet. Se interndokumentet for en mer grundig gjennomgang av datatilstander i SSB.</p>
+<p>I SSB skiller vi mellom fem datatilstander:</p>
+<ol type="1">
+<li>Kildedata</li>
+<li>Inndata</li>
+<li>Klargjorte data</li>
+<li>Statistikk</li>
+<li>Utdata</li>
+</ol>
+<p>Noen datatilstander er obligatoriske. Dette gjelder alle tilstandene utenom inndata.</p>
+<div id="fig-datatilstander" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="./images/datatilstander.png" class="img-fluid figure-img" style="width:100.0%" alt="Datatilstander"></p>
+<figcaption class="figure-caption">Figur&nbsp;1: Datatilstander</figcaption>
+</figure>
+</div>
+<section id="kildedata" class="level3">
+<h3 class="anchored" data-anchor-id="kildedata">Kildedata</h3>
+<p>Kildedata er <strong>data lagret slik de ble levert til SSB fra dataeier</strong>. Eksempler på kildedata er: <em>grunndata</em>, <em>transaksjonsdata</em>, <em>administrative data</em>, <em>statistiske data</em> og <em>aggregerte data og rapporter</em> <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 7</a>)</span>. Kildedata lagres i bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-kilde</code>. Les mer om bøtter <a href="./hva-er-botter.html">her</a> og lagringsstandarder <a href="./navnestandard-datalagring.html">her</a>.</p>
+</section>
+<section id="inndata" class="level3">
+<h3 class="anchored" data-anchor-id="inndata">Inndata</h3>
+<p>Inndata er <strong>kildedata som er transformert til SSBs standard lagringsformat</strong> <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 8</a>)</span>. Denne transformeringer inkluderer blant annet at dataene skal benytte UTF-8 tegnsett. Les mer om SSBs standard lagringsformat <a href="https://statistics-norway.atlassian.net/wiki/spaces/MPD/pages/2953084957/Standardformater#UTF-8-tegnsett">her</a>. Inndata kan også være andre statistikkers glargjorte data og/eller statistikkdata <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 8</a>)</span>. Inndata er ikke en obligatorisk datatilstand. Inndata lagres i bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-produkt</code>.</p>
+</section>
+<section id="klargjorte-data" class="level3">
+<h3 class="anchored" data-anchor-id="klargjorte-data">Klargjorte data</h3>
+<p>Klargjorte data er inndata hvor:</p>
+<ul>
+<li>variablene er beregnet gjennom utregninger og koblinger mellom datasett</li>
+<li>nøyaktigheten er forbedret
+<ul>
+<li>for eksempel som resultat av editering eller imputering</li>
+</ul></li>
+<li>metadata med variabeldefinisjoner er lagt til.</li>
+</ul>
+<p>Enhver endring som er gjort skal være sporbare og dokumentert slik at statistikkene skal være etterprøvbare. Klargjorte date er som regel <em>ikke</em> aggregerte - med mindre dataen vi mottar er aggregert. Med andre ord inneholder klargjorte data oftest enkeltobservasjoner - i likhet med kildedata og inndata <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 9</a>)</span>. Klargjorte data lagres i bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-produkt</code>.</p>
+</section>
+<section id="statistikk" class="level3">
+<h3 class="anchored" data-anchor-id="statistikk">Statistikk</h3>
+<p>Statistikk er “Tallfestede opplysninger om en gruppe eller et fenomen, og som kommer frem ved en sammenstilling og bearbeidelse av opplysninger om de enkelte enhetene i gruppen eller et utvalg av disse enhetene, eller ved systematisk observasjon av fenomenet” ifølge statistikkloven § 3a <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 10</a>)</span>. Statistikk lagres i bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-produkt</code>.</p>
+<p>Statistikk er ofte aggregerte data eller estimerte størrelser. Vi skiller mellom ujustert statistikk og justert statistikk. Indekser og sesongjusterte tall er eksempler på justert statistikk <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 10</a>)</span>.</p>
+<p>Statistikk kan være inndata til andre statistikker, og kan dermed inneholde konfidensielle og detaljerte data som ikke publiseres.</p>
+</section>
+<section id="utdata" class="level3">
+<h3 class="anchored" data-anchor-id="utdata">Utdata</h3>
+<p>Utdata er <strong>statistikk der kravene til konfidensialtet er ivaretatt</strong>. Dette er datatilstanden som publiseres. Eksempler inkluderer: <em>statistikkbanktabeller</em>, <em>tabelloppdrag</em> og <em>internasjonal rapportering</em> <span class="citation" data-cites="datatilstander2">(<a href="#ref-datatilstander2" role="doc-biblioref">Standardutvalget 2023, 11</a>)</span>. Utdata lagres i bøtten <code>ssb-prod-&lt;teamnavn&gt;-data-produkt</code>.</p>
+</section>
+<section id="forventinger-til-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="forventinger-til-metadata">Forventinger til metadata</h3>
+<p>Det er forskjellige forventinger til metadata for de ulike datatilstandene. Forskjellene er skildret underdisse punktene:</p>
+<section id="kildedata-1" class="level6">
+<h6 class="anchored" data-anchor-id="kildedata-1"><u>Kildedata</u></h6>
+<ul>
+<li>Informasjon på datasettnivå som dataeier, området dataene omhandler og tidsinformasjon</li>
+<li>Metadata om enkeltvariabler er begrenset til informasjonen dataeier selv avleverer.</li>
+</ul>
+</section>
+<section id="inndata-1" class="level6">
+<h6 class="anchored" data-anchor-id="inndata-1"><u>Inndata</u></h6>
+<ul>
+<li>I utgangspunktet samme som kildedata</li>
+</ul>
+</section>
+<section id="klargjorte-data-1" class="level6">
+<h6 class="anchored" data-anchor-id="klargjorte-data-1"><u>Klargjorte data</u></h6>
+<ul>
+<li>Variabeldefinisjoner - beskrivelse av hver enkelt variabel og hvordan den er beregnet</li>
+<li>Nøyaktighetsforbedrende tiltak som er utført</li>
+</ul>
+</section>
+<section id="statistikk-1" class="level6">
+<h6 class="anchored" data-anchor-id="statistikk-1"><u>Statistikk</u></h6>
+<ul>
+<li>Variabeldefinisjoner</li>
+<li>Hvilke metoder og programmer/kode som er benyttet for å produsere statistikken</li>
+</ul>
+</section>
+<section id="utdata-1" class="level6">
+<h6 class="anchored" data-anchor-id="utdata-1"><u>Utdata</u></h6>
+<ul>
+<li>I utgangspunktet samme som for statistikk</li>
+</ul>
 
 
 
 </section>
+</section>
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">Referanser</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-datatilstander" class="csl-entry" role="listitem">
-Standardutvalget. 2021. <span>“Datatilstander i SSB.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021">https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021%2F2021%2D17%20Datatilstander%20i%20SSB%20%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202021</a>.
+<div id="ref-datatilstander2" class="csl-entry" role="listitem">
+Standardutvalget. 2023. <span>“Datatilstander i SSB.”</span> Statistisk sentralbyrå. <a href="https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023%2F2023%2D14%20Datatilstander%20i%20SSB%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023">https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023%2F2023%2D14%20Datatilstander%20i%20SSB%2Epdf&amp;parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
