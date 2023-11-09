@@ -1,9 +1,64 @@
 # Datatilstander
 
-> Det er naturlig at hovedfokus i SSBs kvalitetsarbeid er rettet mot statistikkene. Samtidig har bådeforventninger og krav til SSBs evne til å dele data økt betydelig de senere år. Det betyr at i tillegg til å produsere hovedproduktet «statistikk», så vil mange statistikkteam ha økt fokus på å produseregjenbrukbare datasett med høy kvalitet. En viktig forutsetning for gjenbruk er at de som vil brukedataene, kan vite hvilke endringer dataene har gjennomgått. Det må også være mulig for andre å finne og forstå dataene. Kvalitetssikret bruk av data i SSB og gjenbruk i og utenfor SSB fordrer godemetadata. Definisjoner av datatilstander og andre statistikkbegreper må derfor i størst mulig gradvære avstemt med internasjonale statistiske rammeverk og definisjoner.
->
-> Begrepet «etterprøvbarhet» brukes flere steder i notatet, og det legges til grunn at vi bør ha som et ideal å produsere statistikk på en slik måte at ettertiden eller en uavhengig instans med tilgang til dataene og vår dokumentasjon vil komme til samme statistiske resultater som oss selv.
->
->Tilstandene som beskrives er kildedata, inndata, klargjorte data, statistikk og utdata. De tre første er i hovedsak mikrodata som gir informasjon om enkeltenheter, mens statistikk og utdata i hovedsak er aggregerte data.
+En datatilstand er **et resultat av at et datasett har gått gjennom gitte operasjoner og prosesser** [@datatilstander2 pp. 5]. Denne siden er ment som en kort innføring i de forskjellige datatilstandene. Siden er basert på det interne dokumentet [Datatilstander SSB - 2. utgave](https://ssbno.sharepoint.com/sites/Internedokumenter/Delte%20dokumenter/Forms/AllItems.aspx?id=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023%2F2023%2D14%20Datatilstander%20i%20SSB%2Epdf&parent=%2Fsites%2FInternedokumenter%2FDelte%20dokumenter%2FInterne%20dokumenter%202023). Definisjonene er direkte utdrag fra dette dokumentet. Se interndokumentet for en mer grundig gjennomgang av datatilstander i SSB.
 
-[@datatilstander pp. 5]
+I SSB skiller vi mellom fem datatilstander:
+
+1. Kildedata
+2. Inndata
+3. Klargjorte data
+4. Statistikk
+5. Utdata
+
+Noen datatilstander er obligatoriske. Dette gjelder alle tilstandene utenom inndata.
+
+![Datatilstander](./images/datatilstander.png){fig-alt="Datatilstander" width="100%" #fig-datatilstander}
+
+### Kildedata
+Kildedata er **data lagret slik de ble levert til SSB fra dataeier**. Eksempler på kildedata er: *grunndata*, *transaksjonsdata*, *administrative data*, *statistiske data* og *aggregerte data og rapporter* [@datatilstander2 pp. 7]. Kildedata lagres i bøtten `ssb-prod-<teamnavn>-data-kilde`. Les mer om bøtter [her](hva-er-botter.qmd) og lagringsstandarder [her](navnestandard-datalagring.qmd).
+
+### Inndata
+Inndata er **kildedata som er transformert til SSBs standard lagringsformat** [@datatilstander2 pp. 8]. Denne transformeringer inkluderer blant annet at dataene skal benytte UTF-8 tegnsett. Les mer om SSBs standard lagringsformat [her](https://statistics-norway.atlassian.net/wiki/spaces/MPD/pages/2953084957/Standardformater#UTF-8-tegnsett).
+Inndata kan også være andre statistikkers glargjorte data og/eller statistikkdata [@datatilstander2 pp. 8]. Inndata er ikke en obligatorisk datatilstand. Inndata lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
+
+### Klargjorte data
+Klargjorte data er inndata hvor:
+
+* variablene er beregnet gjennom utregninger og koblinger mellom datasett
+* nøyaktigheten er forbedret
+    + for eksempel som resultat av editering eller imputering
+* metadata med variabeldefinisjoner er lagt til.
+
+Enhver endring som er gjort skal være sporbare og dokumentert slik at statistikkene skal være etterprøvbare. Klargjorte date er som regel *ikke* aggregerte - med mindre dataen vi mottar er aggregert. Med andre ord inneholder klargjorte data oftest enkeltobservasjoner - i likhet med kildedata og inndata [@datatilstander2 pp. 9]. Klargjorte data lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
+
+### Statistikk
+Statistikk er "Tallfestede opplysninger om en gruppe eller et fenomen, og som kommer frem ved en sammenstilling og bearbeidelse av opplysninger om de enkelte enhetene i gruppen eller et utvalg av disse enhetene, eller ved systematisk observasjon av fenomenet" ifølge statistikkloven § 3a [@datatilstander2 pp. 10]. Statistikk lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
+
+Statistikk er ofte aggregerte data eller estimerte størrelser. Vi skiller mellom ujustert statistikk og justert statistikk. Indekser og sesongjusterte tall er eksempler på justert statistikk [@datatilstander2 pp. 10].
+
+Statistikk kan være inndata til andre statistikker, og kan dermed inneholde konfidensielle og detaljerte data som ikke publiseres.
+
+### Utdata
+Utdata er **statistikk der kravene til konfidensialtet er ivaretatt**. Dette er datatilstanden som publiseres. Eksempler inkluderer: *statistikkbanktabeller*, *tabelloppdrag* og *internasjonal rapportering* [@datatilstander2 pp. 11]. Utdata lagres i bøtten `ssb-prod-<teamnavn>-data-produkt`.
+
+### Forventinger til metadata
+
+Det er forskjellige forventinger til metadata for de ulike datatilstandene. Forskjellene er skildret underdisse punktene:
+
+###### [Kildedata]{.underline}
+- Informasjon på datasettnivå som dataeier, området dataene omhandler og tidsinformasjon
+- Metadata om enkeltvariabler er begrenset til informasjonen dataeier selv avleverer.
+
+###### [Inndata]{.underline}
+- I utgangspunktet samme som kildedata
+
+###### [Klargjorte data]{.underline} 
+- Variabeldefinisjoner - beskrivelse av hver enkelt variabel og hvordan den er beregnet
+- Nøyaktighetsforbedrende tiltak som er utført
+
+###### [Statistikk]{.underline}
+- Variabeldefinisjoner
+- Hvilke metoder og programmer/kode som er benyttet for å produsere statistikken
+
+###### [Utdata]{.underline}
+- I utgangspunktet samme som for statistikk
