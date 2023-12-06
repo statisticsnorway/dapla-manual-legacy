@@ -186,7 +186,7 @@ For å lage en PAT som er godkjent mot *statisticsnorway* så gjør man følgend
 
 6. Under **Expiration** velger du hvor lang tid som skal gå før PAT blir ugyldig. Dette er en avvening mellom sikkerhet og hva som er praktisk. Det anbefales at du velger **365 dager**. Når PAT utløper må du gjenta stegene i dette kapittelet.
 
-7. Under **Select scopes** velger du **Repo** slik som vist i @fig-github-token.
+7. Under **Select scopes** velger du **Repo** og **workflow** slik som vist i @fig-github-token.
 
 ![Gi token et kort og beskrivende navn](images/github_pat.png){fig-alt="Bilde av GitHub-siden for generering av Personal Access Token" #fig-github-token}
 
