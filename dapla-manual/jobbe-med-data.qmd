@@ -1,8 +1,19 @@
 ---
 toc-depth: 4
+title: Jobbe med data
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: notebooks
+    language: python
+    name: notebooks
 ---
 
-# Jobbe med data
 
 Når vi oppretter et **dapla-team** så får vi tildelt et eget området for lagring av data. For å kunne lese og skrive data fra Jupyter til disse områdene må vi autentisere oss, siden Jupyter og lagringsområdet er to separate sikkerhetsoner. 
 
@@ -433,7 +444,7 @@ fs = FileClient.get_gcs_file_system()
 bucket = "gs://ssb-prod-dapla-felles-data-delt"
 folder = "felles/veiledning/python/eksempler/purchases"
 
-fs.rm(f"{bucket}/{from_folder}/df.json")
+fs.rm(f"{bucket}/{folder}/df.json")
 
 ```
 
@@ -563,5 +574,4 @@ fs.touch(f"{bucket}/{folder}/testmappe/")
 Kommer snart
 
 :::
-
 
