@@ -65,7 +65,7 @@ Man kan også gjøre vanlige tabell-filer geografiske hvis man har koordinat-kol
 ```python
 import dapla as dp
 
-VOFSTI = "ssb-prod-vof-data-delt/stedfesting-situasjonsuttak_data/klargjorte-data/parquet"
+VOFSTI = "ssb-vof-data-delt-stedfesting-prod/klargjorte-data/parquet"
 vof_df = dp.read_pandas(
     f"{VOFSTI}/stedfesting-situasjonsuttak_p2023-01_v1.parquet"
 )
@@ -110,7 +110,7 @@ Man må først klargjøre vegnettet og bestemme regler for beregningen(e):
 ```python
 veger_klargjort = (
     sg.get_connected_components(veger)
-    .query("connected == 1")
+    .loc[lambda x: x["connected"] == 1]
     .pipe(sg.make_directed_network_norway, dropnegative=True)
 )
 
@@ -139,7 +139,7 @@ sg.explore(boligbygg, butikkbygg, "minutter_til_butikk")
 
 Se mer informasjon og eksempler i [dokumentasjonen.](https://statisticsnorway.github.io/ssb-sgis/reference/networkanalysis/networkanalysis.html#sgis.networkanalysis.networkanalysis.NetworkAnalysis.od_cost_matrix)
 
-Og [flere nettverksanalyse-eksempler her.](https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/nettverksanalyse_lang.ipynb)
+Og [flere nettverksanalyse-eksempler her.](https://nbviewer.org/github/statisticsnorway/intro_til_geopandas/blob/main/3_nettverksanalyse_lang.ipynb)
 
 **Eksempel på geografisk kobling**
 
@@ -231,3 +231,4 @@ Med motsatt rekkefølge, får man én kommuneflate per bolig som overlapper:
 ```R
 kommuner_med_boliginfo = st_join(enkle_kommuner, boligbygg)
 ```
+
