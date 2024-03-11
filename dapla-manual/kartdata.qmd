@@ -1,16 +1,5 @@
 ---
 title: Kartdata
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .qmd
-      format_name: quarto
-      format_version: '1.0'
-      jupytext_version: 1.15.2
-  kernelspec:
-    display_name: tech-coach-examples
-    language: python
-    name: tech-coach-examples
 ---
 
 
