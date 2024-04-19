@@ -1,7 +1,21 @@
-# Kartdata
+---
+title: Kartdata
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: tech-coach-examples
+    language: python
+    name: tech-coach-examples
+---
+
 
 Det er tilrettelagt kartdata i Dapla til analyse, statistikkproduksjon og visualisering. 
-Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på **ssb-prod-kart-data-delt**.
+Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på **ssb-kart-data-delt-prod**.
 De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. 
 Det er også SSBs standard-rutenett i ulike størrelser samt Eurostats rutenett over Norge.
 
@@ -42,7 +56,7 @@ En rekke kartdata for hele landet til analyse- og visualiseringsformål ligger i
 For eksempel kommuneflater til analyse eller statistikk:
 
 ```python
-filsti = "ssb-prod-kart-data-delt/kartdata_analyse/klargjorte-data/2023/ABAS_kommune_flate_p2023.parquet"
+filsti = "ssb-kart-data-delt-prod/analyse_data/klargjorte-data/2024/ABAS_kommune_flate_p2024_v1.parquet"
 kommuner = sg.read_geopandas(filsti)
 ```
 
@@ -50,7 +64,7 @@ Eksempel på lesing av kommuneflater for visualisering. Disse dataene er general
 å lage kart, men blir unøyaktige til statistikk:
 
 ```python
-filsti = "ssb-prod-kart-data-delt/kartdata_visualisering/klargjorte-data/2023/parquet/N5000_kommune_flate_p2023.parquet"
+filsti = "ssb-kart-data-delt-prod/visualisering_data/klargjorte-data/2024/parquet/N5000_kommune_flate_p2024.parquet"
 kommuner = sg.read_geopandas(filsti)
 ```
 
