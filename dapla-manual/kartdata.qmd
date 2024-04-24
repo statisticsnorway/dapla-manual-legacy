@@ -1,11 +1,23 @@
-# Kartdata
+---
+title: Kartdata
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: tech-coach-examples
+    language: python
+    name: tech-coach-examples
+---
+
 
 Det er tilrettelagt kartdata i Dapla til analyse, statistikkproduksjon og visualisering. 
 Det er de samme dataene som er i GEODB i vanlig produksjonssone. Kartdataene er lagret på **ssb-kart-data-delt-prod**.
 De er lagret som parquetfiler i standardprojeksjonen vi bruker i SSB (UTM sone 33N) hvis ikke annet er angitt. 
 Det er også SSBs standard-rutenett i ulike størrelser samt Eurostats rutenett over Norge.
-
-Man søker om tilgang til dataene til kundeservice (tilgangsrollen kart-consumers), men bruk gjerne standard LDA-prosedyre som for øvrige data.
 
 I tillegg ligger det noe **testdata** i fellesbøtta her: **ssb-prod-dapla-felles-data-delt/GIS/testdata**
 
