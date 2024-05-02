@@ -29,9 +29,9 @@ from statbank import StatbankClient
 ```
 Så initialiserer du klienten med de innstillingene som oftest er faste på tvers av alle innsendingene fra ett produksjonsløp:
 ```python
-statcli = StatbankClient(loaduser="LAST360", date="2050-01-01", overwrite=True, approve=2)
+statcli = StatbankClient(date="2050-01-01", overwrite=True, approve=2)
 ```
-Her vil du bli bedt om å skrive inn passordet til lastebrukeren.
+Her vil du bli bedt om å skrive inn lastebrukeren, og passordet til lastebrukeren.
 
 
 ### Overfør data
